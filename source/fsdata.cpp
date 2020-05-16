@@ -583,6 +583,14 @@ void printNormalized( char* p_string, FILE* p_f ) {
             fputc( 'E', p_f );
             ++p_string; continue;
         }
+        if( *p_string == '{' ) {
+            fputc( '_', p_f ); fputc( 'M', p_f );
+            ++p_string; continue;
+        }
+        if( *p_string == '}' ) {
+            fputc( '_', p_f ); fputc( 'F', p_f );
+            ++p_string; continue;
+        }
         if( *p_string == '.' ) {
             ++p_string; continue;
         }

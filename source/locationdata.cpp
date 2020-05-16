@@ -32,7 +32,7 @@ void printLocationData( ) {
         // fclose( f );
         fclose( n );
 
-        if( i->first ) {
+        if( i->first && strcmp( i->second.m_name[ 0 ], "???" ) ) {
             fprintf( g, "#define L_" );
             char* s = i->second.m_name[ 0 ];
             printNormalized( s, g );

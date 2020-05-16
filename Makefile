@@ -7,6 +7,7 @@ OUT					?= \"../../arm9/include\"
 CC			=	g++
 BUILD       :=	build
 SOURCES     :=	source
+DATA     	:=	data
 
 CFLAGS      :=	-O2 -Wall -Werror -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) -DMAX_PKMN=$(MAX_PKMN) \
@@ -14,10 +15,17 @@ CFLAGS      :=	-O2 -Wall -Werror -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 CXXFLAGS    :=	$(CFLAGS) -std=c++17
 LDFLAGS     :=
 
+DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard $(dir)/*.csv))))
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-all: fsdata locationdata pkmndata
+fsdata: locationdata pkmndata $(DATA_FILES)
+	./locationdata data/locationnames.csv
+	./pkmndata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
+		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
+		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
+		data/movedata.csv data/pkmnlearnsets.csv
+	touch fsdata
 
 pkmndata: $(OFILES) $(BUILD)/pkmndata.o
 	$(CC) $(LDFLAGS) -o $@ $^
@@ -25,15 +33,11 @@ pkmndata: $(OFILES) $(BUILD)/pkmndata.o
 locationdata: $(OFILES) $(BUILD)/locationdata.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
-fsdata: locationdata pkmndata
-	./locationdata data/locationnames.csv
-	./pkmndata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
-		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
-		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
-		data/movedata.csv data/pkmnlearnsets.csv
-
 clean:
 	@rm -r $(BUILD)
+	@rm fsdata
+	@rm locationdata
+	@rm pkmndata
 
 $(BUILD)/%.o: $(SOURCES)/%.cpp
 	@mkdir -p $(BUILD)

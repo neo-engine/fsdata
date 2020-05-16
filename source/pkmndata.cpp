@@ -177,7 +177,7 @@ void readMoveData( char* p_moveData, vector<moveData>& p_out ) {
 void printPkmnData( ) {
     size_t maxmovelearn = 0;
     fs::create_directories( FSROOT );
-    FILE* g = fopen( OUT "/pkmnNames.h", "w" );
+    FILE* g = fopen( OUT "/pokemonNames.h", "w" );
     fprintf( g, "#pragma once\n" );
     for( size_t i = 0; i < pkmn_data.size( ); ++i ) {
         FILE* f = getFilePtr( FSROOT "/PKMN_DATA/", i, 2 );
@@ -209,7 +209,7 @@ void printPkmnData( ) {
             //fprintf( stderr, "write %lu %hhu / %hhu\n", i, forme,
             //         pkmn_data[ i ].m_expTypeFormeCnt & 31);
             f = getFilePtr( FSROOT "/PKMN_DATA/", i, 2, ".data", forme );
-            n = getFilePtr( FSROOT "/PKMN_NAMES/", i, 2, ".str", forme );
+            n = getFilePtr( FSROOT "/PKMN_NAME/", i, 2, ".str", forme );
             if( forme <= forme_data[ i ].size( ) ) {
                 fwrite( &forme_data[ i ][ forme - 1 ], sizeof( pkmnFormeData ), 1, f );
                 for( int j = 0; j < NUM_LANGUAGES; ++j ) {
@@ -221,7 +221,7 @@ void printPkmnData( ) {
             fclose( f );
             fclose( n );
         }
-        if( i ) {
+        if( i && strcmp( pkmn_names[ i ].m_name[ 0 ], "???" ) ) {
             fprintf( g, "#define PKMN_" );
             char* s = pkmn_names[ i ].m_name[ 0 ];
             printNormalized( s, g );
@@ -252,7 +252,7 @@ void printItemData( ) {
         fclose( f );
         fclose( n );
 
-        if( i ) {
+        if( i && strcmp( item_names[ i ].m_name[ 0 ], "???" ) ) {
             fprintf( g, "#define I_" );
             char* s = item_names[ i ].m_name[ 0 ];
             printNormalized( s, g );
@@ -275,7 +275,7 @@ void printAbilityData( ) {
     for( size_t i = 0; i < ability_names.size( ); ++i ) {
         // FILE* f = getFilePtr( FSROOT "/ABTY_DATA/", i, 2 );
         // assert( f );
-        FILE* n = getFilePtr( FSROOT "/ABTY_NAMES/", i, 2, ".str" );
+        FILE* n = getFilePtr( FSROOT "/ABTY_NAME/", i, 2, ".str" );
         assert( n );
         // assert( fwrite( &item_data[ i ], sizeof( itemData ), 1, f ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
@@ -309,7 +309,8 @@ void printMoveData( ) {
         fclose( f );
         fclose( n );
 
-        if( i ) {
+        if( i && strcmp( move_names[ i ].m_name[ 0 ], "???" )
+                && strcmp( move_names[ i ].m_name[ 0 ], "----" ) ) {
             fprintf( g, "#define M_" );
             char* s = move_names[ i ].m_name[ 0 ];
             printNormalized( s, g );
