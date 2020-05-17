@@ -9,7 +9,7 @@ BUILD       :=	build
 SOURCES     :=	source
 DATA     	:=	data
 
-CFLAGS      :=	-O2 -Wall -Werror -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
+CFLAGS      :=	-O2 -Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) -DMAX_PKMN=$(MAX_PKMN) \
 				-DFSROOT=$(FSROOT) -DOUT=$(OUT)
 CXXFLAGS    :=	$(CFLAGS) -std=c++17
