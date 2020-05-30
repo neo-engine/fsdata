@@ -1,7 +1,3 @@
-// Arguments
-// pkmnnames.csv abtynames.csv movenames.csv itemnames.csv pkmndata.csv pkmndescr.csv
-// pkmnformnames.csv pkmnformes.csv itemdata_medicine.csv
-
 %:include <cstdio>
 %:include <cstring>
 %:include <string>
@@ -603,7 +599,7 @@ void printNormalized( char* p_string, FILE* p_f ) {
     }
 }
 
-void readNames( char* p_path, vector<names>& p_out ) {
+void readNames( char* p_path, vector<names>& p_out, int p_maxLen ) {
     FILE* f = fopen( p_path, "r" );
     char buffer[ 500 ];
     char* t1;
@@ -615,7 +611,7 @@ void readNames( char* p_path, vector<names>& p_out ) {
         }
         int cnt = 0;
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, "," ) ) ) {
-            strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), 29 );
+            strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), std::min( 29, p_maxLen ) );
         }
         p_out.push_back( n );
     }
@@ -642,4 +638,24 @@ void readNames( char* p_path, map<u16, names>& p_out ) {
     }
     fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
 }
+
+void readDescrs( char* p_path, vector<descrs>& p_out, int p_maxLen ) {
+    FILE* f = fopen( p_path, "r" );
+    char buffer[ 500 ];
+    char* t1;
+    while( fgets( buffer, sizeof( buffer ), f ) ) {
+        t1 = strtok( buffer, ";" );
+        descrs n;
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
+            n.m_descr[ i ] = new char[ 250 ];
+        }
+        int cnt = 0;
+        while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, ";" ) ) ) {
+            strncpy( n.m_descr[ cnt++ ], fixEncoding( t1 ), std::min( 249, p_maxLen ) );
+        }
+        p_out.push_back( n );
+    }
+    fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+}
+
 

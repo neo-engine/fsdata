@@ -16,6 +16,7 @@
 
 map<string, int>    abilities;
 vector<names>       ability_names;
+vector<descrs>      ability_descrs;
 
 map<string, int>    items;
 vector<names>       item_names;
@@ -277,12 +278,16 @@ void printAbilityData( ) {
         // assert( f );
         FILE* n = getFilePtr( FSROOT "/ABTY_NAME/", i, 2, ".str" );
         assert( n );
+        FILE* ds = getFilePtr( FSROOT "/ABTY_DSCR/", i, 2, ".str" );
+        assert( ds );
         // assert( fwrite( &item_data[ i ], sizeof( itemData ), 1, f ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( ability_names[ i ].m_name[ j ], 1, 20, n ) );
+            assert( fwrite( ability_descrs[ i ].m_descr[ j ], 1, 200, ds ) );
         }
         // fclose( f );
         fclose( n );
+        fclose( ds );
 
         fprintf( g, "#define A_" );
         char* s = ability_names[ i ].m_name[ 0 ];
@@ -534,7 +539,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
 }
 
 int main( int p_argc, char** p_argv ) {
-    if( p_argc < 13 ) {
+    if( p_argc < 14 ) {
         fprintf( stderr, "too few args." );
         return 1;
     }
@@ -546,6 +551,8 @@ int main( int p_argc, char** p_argv ) {
     for( size_t i = 0; i < pkmn_names.size( ); ++i )
         pkmns[ pkmn_names[ i ].m_name[ 0 ] ] = i;
     readNames( p_argv[ 2 ], ability_names );
+    readDescrs( p_argv[ 14 ], ability_descrs, 199 );
+
     for( size_t i = 0; i < ability_names.size( ); ++i )
         abilities[ ability_names[ i ].m_name[ 0 ] ] = i;
     readNames( p_argv[ 3 ], move_names );

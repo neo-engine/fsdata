@@ -24,7 +24,7 @@ fsdata: locationdata pkmndata $(DATA_FILES)
 	./pkmndata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
-		data/movedata.csv data/pkmnlearnsets.csv
+		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv
 	touch fsdata
 
 pkmndata: $(OFILES) $(BUILD)/pkmndata.o
