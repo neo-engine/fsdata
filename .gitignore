@@ -2,3 +2,8 @@ build/
 pkmndata
 locationdata
 fsdata
+*_DATA
+*_NAME
+*_LEARN
+*_DSCR
+*Names.h

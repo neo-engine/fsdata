@@ -29,7 +29,7 @@
 028;The attacker will receive the same status condition if it inflicts a burn, poison, or paralysis to the Pokémon.;Gibt Status-Probleme weiter.;
 029;Prevents other Pokémon's moves or Abilities from lowering the Pokémon's stats.;Verhindert Reduktion der eigenen Statuswerte.;
 030;All status conditions heal when the Pokémon switches out.;Heilt Status-Probleme bei Austausch.;
-031;The Pokémon draws in all Electric-type moves. Instead of being hit by Electric-type moves, it boosts its Sp. Atk.;Zieht Elektro-Attacken an.;
+031;The Pokémon draws in all Electric-type moves. Instead of being hit, it boosts its Sp. Atk.;Zieht Elektro-Attacken an.;
 032;Boosts the likelihood of additional effects occurring when attacking.;Verstärkt Zusatz-Effekte.;
 033;Boosts the Pokémon's Speed stat in rain.;Steigert Initiative bei Regen.;
 034;Boosts the Pokémon's Speed stat in harsh sunlight.;Steigert Initiative bei Sonnenschein.;
@@ -45,13 +45,13 @@
 044;The Pokémon gradually regains HP in rain.;KP-Anstieg bei Regen.;
 045;The Pokémon summons a sandstorm when it enters a battle.;Erzeugt einen Sandsturm.;
 046;By putting pressure on the opposing Pokémon, it raises their PP usage.;Steigert AP-Verbrauch des Gegners.;
-047;The Pokémon is protected by a layer of thick fat, which halves the damage taken from Fire- and Ice-type moves.;Schutz vor Hitze und Kälte.;
+047;A layer of thick fat protects the Pokémon and halves the damage taken from Fire- and Ice-type moves.;Schutz vor Hitze und Kälte.;
 048;The Pokémon awakens from sleep twice as fast as other Pokémon.;Schnelles Aufwachen.;
 049;Contact with the Pokémon may burn the attacker.;Verbrennt bei Berührung.;
 050;Enables a sure getaway from wild Pokémon.;Erleichtert das Entkommen.;
 051;Keen eyes prevent other Pokémon from lowering this Pokémon's accuracy.;Verhindert Absenken der eigenen Genauigkeit;
-052;The Pokémon's proud of its powerful pincers. They prevent other Pokémon from lowering its Attack stat.;Verhindert Absenken des eigenen Angriffs.;
-053;The Pokémon may pick up the item an opposing Pokémon used during a battle. It may pick up items outside of battle, too.;Kann Objekte aufnehmen.;
+052;The Pokémon's proud of its powerful pincers. They prevent other Pokémon from lowering its Atk stat.;Verhindert Absenken des eigenen Angriffs.;
+053;May pick up the item an opposing Pokémon used during a battle. Picks up items outside of battle, too.;Kann Objekte aufnehmen.;
 054;The Pokémon can't use a move if it had used a move on the previous turn.;Greift in jedem 2. Zug an.;
 055;Boosts the Attack stat, but lowers accuracy.;Tauscht Genauigkeit und Kraft.;
 056;Contact with the Pokémon may cause infatuation.;Wirkt bei Kontakt betörend.;
@@ -77,7 +77,7 @@
 076;Eliminates the effects of weather.;Kehrt Wetter-Effekte um.;
 077;Raises evasiveness if the Pokémon is confused.;Erhöht Fluchtwert, wenn das Pokémon verwirrt ist.;
 078;Boosts its Speed stat if hit by an Electric-type move instead of taking damage.;Erhöht Initiative nach einer Elektro-Attacke.;
-079;Becomes competitive and deals more damage to Pokémon of the same gender, but deals less to Pokémon of the opposite gender.;Erhöht Angriff, wenn Gegner dasselbe Geschlecht hat.;
+079;Deals more damage to Pokémon of the same gender, but deals less to Pokémon of the opposite gender.;Erhöht Angriff, wenn Gegner dasselbe Geschlecht hat.;
 080;The Pokémon's determination boosts the Speed stat each time the Pokémon flinches.;Erhöht Initiative, sobald Pokémon zurückschreckt.;
 081;Boosts evasiveness in a hailstorm.;Erhöht Fluchtwert während Hagelschauer.;
 082;Makes the Pokémon eat a held Berry when its HP drops to half or less, which is sooner than usual.;Ermutigt zum frühzeitigen Verwenden einer Beere.;
@@ -85,8 +85,8 @@
 084;Boosts the Speed stat if the Pokémon's held item is used or lost.;Erhöht Initiative, wenn 1 Item verwendet oder verloren wird.;
 085;The heatproof body of the Pokémon halves the damage from Fire-type moves that hit it.;Senkt die Kraft von Feuer-Attacken.;
 086;The stat changes the Pokémon receives are doubled.;Das Pokémon ist anfällig für Statusveränderungen.;
-087;Restores HP in rain or when hit by Water-type moves. Reduces HP in harsh sunlight, and increases the damage received from Fire-type moves.;Heißes Wetter reduziert KP. Wasser steigert KP.;
-088;Compares an opposing Pokémon's Defense and Sp. Def stats before raising its own Attack or Sp. Atk stat—whichever will be more effective.;Passt Kraft entsprechend der gegn. Statuswerte an.;
+087;Restores HP when hit by water, reduces HP when hit by fire.;Heißes Wetter reduziert KP. Wasser steigert KP.;
+088;Raises its own Attack or Sp. Atk stat-whichever will be more effective.;Passt Kraft entsprechend der gegn. Statuswerte an.;
 089;Powers up punching moves.;Steigert die Effektivität von Box-Attacken.;
 090;Restores HP if the Pokémon is poisoned instead of losing HP.;Steigert KP, wenn das Pokémon vergiftet ist.;
 091;Powers up moves of the same type as the Pokémon.;Steigert Attacken desselben Typs.;
@@ -108,7 +108,7 @@
 107;The Pokémon can sense an opposing Pokémon's dangerous moves.;Ahnt gefährliche Attacken des Gegners voraus.;
 108;When it enters a battle, the Pokémon can tell one of the moves an opposing Pokémon has.;Gibt Auskunft über die stärkste gegn. Attacke.;
 109;When attacking, the Pokémon ignores the target Pokémon's stat changes.;Ignoriert Wechsel der Statuswerte des Gegners.;
-110;"The Pokémon can use ""not very effective"" moves to deal regular damage.";Steigert “weniger effektive” Attacken.;
+110;The Pokémon can use not very effective moves to deal regular damage.;Steigert weniger effektive Attacken.;
 111;Reduces the power of supereffective attacks taken.;Senkt die Stärke sehr effektiver Attacken.;
 112;For five turns, the Pokémon's Attack and Speed stats are halved.;Halbiert zeitweilig Angriff und Initiative.;
 113;The Pokémon can hit Ghost-type Pokémon with Normal- and Fighting-type moves.;Ermöglicht es mit Attacken Geist-Gegner zu treffen.;
@@ -174,7 +174,7 @@
 173;The Pokémon's strong jaw boosts the power of its biting moves.;Der kräftige Kiefer des Pokémon verleiht ihm einen starken Biss.;
 174;Normal-type moves become Ice-type moves. The power of those moves is boosted a little.;Attacken vom Typ Normal nehmen den Typ Eis an.;
 175;Prevents itself and ally Pokémon from falling asleep.;Alle Pokémon im Team können nicht einschlafen.;
-176;The Pokémon changes its form to Blade Forme when it uses an attack move and changes to Shield Forme when it uses King's Shield.;Das Pokémon nimmt je nach Kampftaktik eine andere Form an.;
+176;The Pokémon changes its form depending on its battle tactic.;Das Pokémon nimmt je nach Kampftaktik eine andere Form an.;
 177;Gives priority to Flying-type moves when the Pokémon's HP is full.;Ermöglicht es dem Pokémon, mit Flug-Attacken zuerst anzugreifen.;
 178;Powers up aura and pulse moves.;Erhöht die Stärke einiger Wellen-, Aura- und Puls-Attacken.;
 179;Boosts the Pokémon's Defense stat on Grassy Terrain.;Erhöht die Verteidigung, wenn Grasfeld aktiv ist.;
@@ -209,7 +209,7 @@
 208;When it has a lot of HP, the Pokémon forms a powerful school. It stops schooling when its HP is low.;Verfügt es über einen hohen KP-Wert, wird es zu einem Schwarm und gewinnt an Stärke. Ist der KP-Wert niedrig, löst sich der Schwarm wieder auf.;
 209;Once per battle, the shroud that covers the Pokémon can protect it from an attack.;Kann ein Mal pro Kampf mit seinem gruseligen Kostüm einen Angriff abwehren.;
 210;Defeating an opposing Pokémon strengthens the Pokémon's bond with its Trainer, and it becomes Ash-Greninja. Water Shuriken gets more powerful.;Besiegt es ein Ziel, vertieft dies die Freundschaft zu seinem Trainer, wodurch es die Ash-Form annimmt und sein Wasser-Shuriken stärker wird.;
-211;Other Cells gather to aid when its HP becomes half or less. Then the Pokémon changes its form to Complete Forme.;Fallen seine KP auf die Hälfte des Maximalwerts oder weniger, eilen ihm weitere Zellen zu Hilfe und es nimmt die Optimumform an.;
+211;When its HP becomes half or less, the Pokémon changes its form to Complete Forme.;Fallen seine KP auf die Hälfte des Maximalwerts oder weniger, eilen ihm weitere Zellen zu Hilfe und es nimmt die Optimumform an.;
 212;The Pokémon can poison the target even if it's a Steel or Poison type.;Kann selbst Pokémon vom Typ Stahl oder Gift vergiften.;
 213;It's always drowsing and will never wake up. It can attack without waking up.;Das Pokémon befindet sich ununterbrochen im Halbschlaf und wacht nie vollständig auf. Es kann jedoch im Schlaf angreifen.;
 214;Its majesty pressures the opposing Pokémon, making it unable to attack using priority moves.;Schüchtert den Gegner ein und hindert ihn so daran, Attacken mit hoher Erstschlagquote einzusetzen.;
@@ -236,7 +236,7 @@
 235;Boosts the Pokémon's Defense stat when the Pokémon enters a battle.;Erhöht bei Kampfantritt die Verteidigung.;
 236;Changes the Pokémon's type to the type of the move it's about to use.;Das Pokémon nimmt bei Einsatz einer Attacke deren Typ an.;
 237;If the Pokémon is not holding an item, it will fetch the Poké Ball from the first failed throw of the battle.;Trägt das Pokémon kein Item bei sich, hebt es den Ball aus dem ersten gescheiterten Fangversuch des Kampfes wieder auf.;
-238;When the Pokémon is hit by an attack, it scatters cotton fluff around and lowers the Speed stat of all Pokémon except itself.;Wird es von einem Angriff getroffen, verstreut es Teile seines Wollflaums, wodurch die Initiative aller anderen Pokémon sinkt.;
+238;When the Pokémon is hit by an attack, it lowers the Speed stat of all Pokémon except itself.;Wird es von einem Angriff getroffen, verstreut es Teile seines Wollflaums, wodurch die Initiative aller anderen Pokémon sinkt.;
 239;Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.;Ignoriert die Effekte von Fähigkeiten und Attacken anderer Pokémon, die Attacken auf sich lenken.;
 240;Bounces back only the stat-lowering effects that the Pokémon receives.;Lenkt ausschließlich Effekte, welche die Statuswerte des Pokémon senken würden, auf den Angreifer um.;
 241;When the Pokémon uses Surf or Dive, it will come back with prey. When it takes damage, it will spit out the prey to attack.;Wenn das Pokémon Surfer oder Taucher einsetzt, fängt es sich dabei Beute. Erleidet es anschließend Schaden, greift es an, indem es die Beute wieder ausspuckt.;
@@ -246,7 +246,7 @@
 245;The Pokémon creates a sandstorm when it's hit by an attack.;Löst einen Sandsturm aus, wenn das Pokémon von einer Attacke erfasst wird.;
 246;The Pokémon is protected by ice scales, which halve the damage taken from special moves.;Halbiert mithilfe von schützendem Eisflügelstaub den Schaden, den das Pokémon durch Spezial-Attacken erleidet.;
 247;Ripens Berries and doubles their effect.;Verdoppelt den Effekt von Beeren, indem es sie heranreifen lässt.;
-248;The Pokémon's ice head can take a physical attack as a substitute, but the attack also changes the Pokémon's appearance. The ice will be restored when it hails.;Der Eisblock um seinen Kopf blockt eine physische Attacke ab. Dies bewirkt jedoch einen Formwechsel. Durch Hagel wird der Eisblock wiederhergestellt.;
+248;The Pokémon's ice head can take a physical attack as a substitute, but the attack also changes the Pokémon's appearance.;Der Eisblock um seinen Kopf blockt eine physische Attacke ab. Dies bewirkt jedoch einen Formwechsel.;
 249;Just being next to the Pokémon powers up moves.;Erhöht bei direkt benachbarten Pokémon die Stärke von Attacken.;
 250;Changes the Pokémon's type depending on the terrain.;Der Typ des Pokémon ändert sich in Abhängigkeit vom Zustand des Feldes.;
 251;When the Pokémon enters a battle, the effects of Light Screen, Reflect, and Aurora Veil are nullified for both opposing and ally Pokémon.;Hebt bei Kampfantritt die Wirkung von Lichtschild, Reflektor und Auroraschleier auf Mitstreiter- und Gegnerseite auf.;
@@ -254,7 +254,7 @@
 253;When hit by a move that makes direct contact, the Pokémon and the attacker will faint after three turns unless they switch out of battle.;Erleidet es einen Treffer von einer direkten Attacke, wird es zusammen mit dem Angreifer nach drei Runden besiegt. Rettung ist durch Austausch möglich.;
 254;The Pokémon exchanges Abilities with a Pokémon that hits it with a move that makes direct contact.;Wird das Pokémon von einer direkten Attacke getroffen, tauscht es seine Fähigkeit mit der des Angreifers.;
 255;Boosts the Pokémon's Attack stat but only allows the use of the first selected move.;Erhöht den Angriff, aber nur die zuerst gewählte Attacke kann eingesetzt werden.;
-256;If the Pokémon with Neutralizing Gas is in the battle, the effects of all Pokémon's Abilities will be nullified or will not be triggered.;Solange ein Pokémon mit der Fähigkeit Reaktionsgas am Kampf beteiligt ist, werden die Fähigkeiten aller anderen Pokémon unterdrückt oder aufgehoben.;
+256;If the Pokémon is in the battle, the effects of all Pokémon's Abilities will be nullified.;Solange das Pokémon am Kampf beteiligt ist, werden die Fähigkeiten aller anderen Pokémon unterdrückt.;
 257;Protects the Pokémon and its ally Pokémon from being poisoned.;Schützt das Pokémon und seine Mitstreiter vor Vergiftung.;
-258;The Pokémon changes its form, alternating between its Full Belly Mode and Hangry Mode after the end of each turn.;Das Pokémon ändert zum Ende jeder Runde seine Form und wechselt somit zwischen dem Pappsatt- und dem Kohldampfmuster.;
+258;The Pokémon changes its form after the end of each turn.;Das Pokémon ändert zum Ende jeder Runde seine Form.;
 
