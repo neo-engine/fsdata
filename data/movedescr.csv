@@ -153,7 +153,7 @@
 152;The target is hammered with a large pincer. Critical hits land more easily.;Schlägt mit Schere zu. Hohe Volltrefferquote.;
 153;The user attacks everything around it by causing a tremendous explosion. The user faints upon using this move.;Anwender explodiert, richtet bei allen Pokémon im Umkreis großen Schaden an und wird selbst kampfunfähig.;
 154;The target is raked with sharp claws or scythes quickly two to five times in a row.;Beharkt das Ziel zwei- bis fünfmal mit scharfen Klauen oder Sicheln.;
-155;The user throws the bone it holds. The bone loops around to hit the target twice—coming and going.;Ein Bumerang aus Knochen, der zweimal trifft.;
+155;The user throws the bone it holds. The bone loops around to hit the target twice-coming and going.;Ein Bumerang aus Knochen, der zweimal trifft.;
 156;The user goes to sleep for two turns. This fully restores the user's HP and heals any status conditions.;Anwender wird vollkommen geheilt, von allen Statusproblemen befreit und schläft die folgenden zwei Runden.;
 157;Large boulders are hurled at the opposing Pokémon to inflict damage. This may also make the opposing Pokémon flinch.;Schleudert riesige Felsen auf gegnerische Pokémon, die eventuell zurückschrecken.;
 158;The user bites hard on the target with its sharp front fangs. This may also make the target flinch.;Angriff mit scharfen Reißzähnen. Ziel schreckt eventuell zurück.;
@@ -720,8 +720,8 @@
 719;---;---;
 720;The user attacks everything around it by causing its own head to explode. This also damages the user.;Der Anwender greift alle Pokémon im Umkreis an, indem er seinen Kopf explodieren lässt. Dabei verletzt er sich auch selbst.;
 721;The user attacks with electrically charged fists. This move changes Normal-type moves to Electric-type moves.;Ein Angriff mit elektrisch geladenen Fäusten, der bewirkt, dass Normal-Attacken den Typ Elektro annehmen.;
-722;The user attacks a target with a pillar of light. This move inflicts Attack or Sp. Atk damage—whichever stat is higher for the user.;Ein Angriff mit einer Lichtsäule. Ist der Angriff höher als der Spezial-Angriff, wird die Höhe des Schadens durch den Angriff bestimmt und umgekehrt.;
-723;This attack inflicts Attack or Sp. Atk damage— whichever stat is higher for the user, Necrozma.  This move ignores the target's Ability.;Ist der Angriff höher als der Spezial-Angriff, wird die Höhe des Schadens durch den Angriff bestimmt und umgekehrt. Ignoriert die Fähigkeit des Zieles.;
+722;The user attacks a target with a pillar of light. This move inflicts Attack or Sp. Atk damage-whichever stat is higher for the user.;Ein Angriff mit einer Lichtsäule. Ist der Angriff höher als der Spezial-Angriff, wird die Höhe des Schadens durch den Angriff bestimmt und umgekehrt.;
+723;This attack inflicts Attack or Sp. Atk damage-whichever stat is higher for the user, Necrozma.  This move ignores the target's Ability.;Ist der Angriff höher als der Spezial-Angriff, wird die Höhe des Schadens durch den Angriff bestimmt und umgekehrt. Ignoriert die Fähigkeit des Zieles.;
 724;---;---;
 725;---;---;
 726;---;---;
