@@ -107,8 +107,6 @@ enum moveFlags : long long unsigned {
     CRASHDAMAGE = ( 1 << 27 ),
     /** OHKO move */
     OHKO = ( 1 << 28 ),
-    /** OHKO move (useless on ice-type pkmn) */
-    OHKOICE = ( 1 << 28 ),
     /** PKMN self-destructs */
     SELFDESTRUCT = ( 1 << 29 ),
     /** PKMN self-destructs */
@@ -145,6 +143,8 @@ enum moveFlags : long long unsigned {
     FUTUREMOVE = ( 1LLU << 45 ),
     /** Beton pass */
     BATONPASS = ( 1LLU << 46 ),
+    /** OHKO move (useless on ice-type pkmn) */
+    OHKOICE = ( 1LLU << 47 ),
 };
 
 enum targets : u8 {
