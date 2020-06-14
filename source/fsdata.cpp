@@ -369,7 +369,7 @@ moveFlags parseMoveFlags( char* p_buffer ) {
 }
 
 targets getTarget( char* p_str ) {
-    if( !strcmp( p_str, "none" ) ) return NORMAL;
+    if( !strcmp( p_str, "none" ) ) return NO_TARGET;
     if( !strcmp( p_str, "normal" ) ) return NORMAL;
     if( !strcmp( p_str, "adjacentAlly" ) ) return ADJACENT_ALLY;
     if( !strcmp( p_str, "adjacentFoe" ) ) return ADJACENT_FOE;
@@ -428,14 +428,14 @@ u8 getWeather( char* p_str ) {
 
 u8 getPseudoWeather( char* p_str ) {
     if( !strcmp( p_str, "none" ) ) return 0;
-    if( !strcmp( p_str, "iondeluge" ) ) return 1;
-    if( !strcmp( p_str, "magicroom" ) ) return 2;
-    if( !strcmp( p_str, "wonderroom" ) ) return 3;
-    if( !strcmp( p_str, "trickroom" ) ) return 4;
-    if( !strcmp( p_str, "gravity" ) ) return 5;
-    if( !strcmp( p_str, "watersport" ) ) return 6;
-    if( !strcmp( p_str, "mudsport" ) ) return 7;
-    if( !strcmp( p_str, "fairylock" ) ) return 8;
+    if( !strcmp( p_str, "iondeluge" ) ) return 1 << 0;
+    if( !strcmp( p_str, "magicroom" ) ) return 1 << 1;
+    if( !strcmp( p_str, "wonderroom" ) ) return 1 << 2;
+    if( !strcmp( p_str, "trickroom" ) ) return 1 << 3;
+    if( !strcmp( p_str, "gravity" ) ) return 1 << 4;
+    if( !strcmp( p_str, "watersport" ) ) return 1 << 5;
+    if( !strcmp( p_str, "mudsport" ) ) return 1 << 6;
+    if( !strcmp( p_str, "fairylock" ) ) return 1 << 7;
 
     fprintf( stderr, "unknown pseudo weather %s\n", p_str );
     return 0;

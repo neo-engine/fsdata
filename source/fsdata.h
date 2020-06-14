@@ -148,12 +148,29 @@ enum moveFlags : long long unsigned {
 };
 
 enum targets : u8 {
-    NORMAL = 0, ADJACENT_ALLY = 2, ADJACENT_FOE = 3, ADJACENT_ALLY_OR_SELF = 4,
-    ANY = 12, // single target
-    SELF = 5, RANDOM = 6, // single-target, automatic
-    ALLIES = 13, ALL_ADJACENT = 7, ALL_ADJACENT_FOES = 8, // spread
-    ALLY_SIDE = 9, FOE_SIDE = 10, ALL = 11, // field
-    SCRIPTED = 14, ALLY_TEAM = 15,
+    NO_TARGET             = 0,
+    ANY                   = 1,
+    NORMAL                = 1,
+    ANY_FOE               = 3,
+    ADJACENT_FOE          = 3,
+    ADJACENT_ALLY         = 2,
+    ALLY                  = 2,
+    SELF                  = 5,
+    ALLY_OR_SELF          = 4,
+    ADJACENT_ALLY_OR_SELF = 4,
+    RANDOM                = 6, // single-target, automatic
+    ALL_ALLIES            = 13,
+    ALLIES                = 13,
+    ALL_FOES              = 8, // spread
+    ALL_ADJACENT_FOES     = 8,
+    ALL_FOES_AND_ALLY     = 7,
+    ALL_ADJACENT          = 7,
+    ALLY_SIDE             = 9,
+    FOE_SIDE              = 10,
+    FIELD                 = 11, // field
+    ALL                   = 11,
+    SCRIPTED              = 14,
+    ALLY_TEAM             = 15,
 };
 
 enum moveHitTypes : u8 { NOOP = 0, PHYSICAL = 1, SPECIAL = 2, STATUS = 3 };
