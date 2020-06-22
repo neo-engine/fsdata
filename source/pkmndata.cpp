@@ -21,6 +21,7 @@ vector<descrs>      ability_descrs;
 map<string, int>    items;
 vector<names>       item_names;
 vector<itemData>    item_data;
+vector<descrs>      item_descrs;
 
 map<string, int>    moves;
 map<string, int>    alt_moves; // alternative move names
@@ -247,12 +248,16 @@ void printItemData( ) {
         assert( f );
         FILE* n = getFilePtr( FSROOT "/ITEM_NAME/", i, 2, ".str" );
         assert( n );
+        FILE* ds = getFilePtr( FSROOT "/ITEM_DSCR/", i, 2, ".str" );
+        assert( ds );
         assert( fwrite( &item_data[ i ], sizeof( itemData ), 1, f ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( item_names[ i ].m_name[ j ], 1, 20, n ) );
+            assert( fwrite( item_descrs[ i ].m_descr[ j ], 1, 200, n ) );
         }
         fclose( f );
         fclose( n );
+        fclose( ds );
 
         if( i && strcmp( item_names[ i ].m_name[ 0 ], "???" ) ) {
             fprintf( g, "#define I_" );
@@ -544,7 +549,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
 }
 
 int main( int p_argc, char** p_argv ) {
-    if( p_argc < 15 ) {
+    if( p_argc < 17 ) {
         fprintf( stderr, "too few args." );
         return 1;
     }
@@ -568,6 +573,7 @@ int main( int p_argc, char** p_argv ) {
     readItems( p_argv[ 4 ], p_argv[ 9 ], p_argv[ 10 ], p_argv[ 11 ], item_names, item_data );
     for( size_t i = 0; i < item_names.size( ); ++i )
         items[ item_names[ i ].m_name[ 0 ] ] = i;
+    readDescrs( p_argv[ 16 ], item_descrs, 199 );
 
     readMoveData( p_argv[ 12 ], move_data );
     readPkmnData( p_argv[ 5 ], p_argv[ 6 ], p_argv[ 7 ], p_argv[ 8 ], pkmn_data, forme_names,

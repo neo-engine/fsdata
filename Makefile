@@ -1,6 +1,6 @@
 NUM_LANGUAGES		?=   2
 MAX_ITEMS_PER_DIR	?=  30
-MAX_PKMN			?= 890
+MAX_PKMN			?= 893
 ifdef LOCAL
 FSROOT				?= out/FSROOT
 OUT					?= out/include
@@ -17,7 +17,7 @@ DATA     	:=	data
 CFLAGS      :=	-O2 -Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) -DMAX_PKMN=$(MAX_PKMN) \
 				-DFSROOT=\"$(FSROOT)\" -DOUT=\"$(OUT)\"
-CXXFLAGS    :=	$(CFLAGS) -std=c++17
+CXXFLAGS    :=	$(CFLAGS) -std=c++2a
 LDFLAGS     :=
 
 DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard $(dir)/*.csv))))
@@ -34,7 +34,8 @@ endif
 	./pkmndata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
-		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv
+		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv \
+		data/itemflavor.csv
 	touch fsdata
 
 pkmndata: $(OFILES) $(BUILD)/pkmndata.o

@@ -262,8 +262,8 @@ struct moveData {
     u8       m_basePower = 0;
     u8       m_pp        = 1;
 
-    moveHitTypes        m_category  = (moveHitTypes) 0;
-    moveHitTypes        m_defensiveCategory = (moveHitTypes) 0; // category used for defending pkmn
+    moveHitTypes        m_category : 8 = (moveHitTypes) 0;
+    moveHitTypes        m_defensiveCategory : 8 = (moveHitTypes) 0; // category used for defending pkmn
     u8       m_accuracy  = 0; // 255: always hit
     s8       m_priority  = 0;
 
@@ -276,15 +276,15 @@ struct moveData {
 
     u8       m_slotCondition = 0; // stuff introduced on the slot (wish, etc)
     u8       m_fixedDamage = 0;
-    targets m_target    = (targets) 0;
-    targets m_pressureTarget = (targets) 0; // restrictions are computed based on different target than resulting effect
+    targets m_target  : 8   = (targets) 0;
+    targets m_pressureTarget : 8 = (targets) 0; // restrictions are computed based on different target than resulting effect
 
     u8       m_heal = 0; // as m_heal / 240
     u8       m_recoil = 0; // as dealt damage * m_recoil / 240
     u8       m_drain = 0; // as dealt damage * m_recoil / 240
     u8       m_multiHit = 0; // as ( min << 8 ) | max
 
-    u8       m_critRatio = 1;
+    u8       m_critRatio = 0;
     u8       m_secondaryChance = 0; // chance that the secondary effect triggers
     u8       m_secondaryStatus = 0;
     u8       m_unused = 0;

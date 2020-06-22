@@ -369,7 +369,7 @@ moveFlags parseMoveFlags( char* p_buffer ) {
 }
 
 targets getTarget( char* p_str ) {
-    if( !strcmp( p_str, "none" ) ) return NO_TARGET;
+    if( !strcmp( p_str, "none" ) ) return NORMAL;
     if( !strcmp( p_str, "normal" ) ) return NORMAL;
     if( !strcmp( p_str, "adjacentAlly" ) ) return ADJACENT_ALLY;
     if( !strcmp( p_str, "adjacentFoe" ) ) return ADJACENT_FOE;
@@ -518,10 +518,10 @@ u8 parseMultiHit( char* p_str ) {
 
     u8 mn, mx;
     if( sscanf( p_str, "%hhu|%hhu", &mn, &mx ) )
-        return ( mn << 8 ) | mx;
+        return ( mn << 4 ) | mx;
 
     if( sscanf( p_str, "%hhu", &mn ) )
-        return ( mn << 8 ) | mn;
+        return ( mn << 4 ) | mn;
 
     return 0;
 }

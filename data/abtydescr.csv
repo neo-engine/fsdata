@@ -257,4 +257,5 @@
 256;If the Pokémon is in the battle, the effects of all Pokémon's Abilities will be nullified.;Solange das Pokémon am Kampf beteiligt ist, werden die Fähigkeiten aller anderen Pokémon unterdrückt.;
 257;Protects the Pokémon and its ally Pokémon from being poisoned.;Schützt das Pokémon und seine Mitstreiter vor Vergiftung.;
 258;The Pokémon changes its form after the end of each turn.;Das Pokémon ändert zum Ende jeder Runde seine Form.;
-
+259;If the Pokémon uses moves that make direct contact, it can attack the target even if the target protects itself.;Wenn das Pokémon eine direkte Attacke einsetzt, trifft diese auch dann, wenn sich das Ziel selbst schützt.;
+260;Enables the Pokémon to move first occasionally.;Ermöglicht dem Pokémon gelegentlich den Erstschlag.;
