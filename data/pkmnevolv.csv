@@ -1,0 +1,466 @@
+1,Bulbasaur,Ivysaur,0,level:16
+2,Ivysaur,Venusaur,0,level:32
+4,Charmander,Charmeleon,0,level:16
+5,Charmeleon,Charizard,0,level:36
+7,Squirtle,Wartortle,0,level:16
+8,Wartortle,Blastoise,0,level:36
+10,Caterpie,Metapod,0,level:7
+11,Metapod,Butterfree,0,level:10
+13,Weedle,Kakuna,0,level:7
+14,Kakuna,Beedrill,0,level:10
+16,Pidgey,Pidgeotto,0,level:18
+17,Pidgeotto,Pidgeot,0,level:36
+19,Rattata,Raticate,0,level:20
+19_1,Rattata,Raticate,1,level:20
+21,Spearow,Fearow,0,level:20
+23,Ekans,Arbok,0,level:22
+25,Pikachu,Raichu,0,item:Thunder Stone
+25,Pikachu,Raichu,1,itemlocation:Thunder Stone:Alola
+27,Sandshrew,Sandslash,0,level:22
+27_1,Sandshrew,Sandslash,1,item:Ice Stone
+29,Nidoranf,Nidorina,0,level:16
+30,Nidorina,Nidoqueen,0,item:Moon Stone
+32,Nidoranm,Nidorino,0,level:16
+33,Nidorino,Nidoking,0,item:Moon Stone
+35,Clefairy,Clefable,0,item:Moon Stone
+37,Vulpix,Ninetales,0,item:Fire Stone
+37_1,Vulpix,Ninetales,1,item:Ice Stone
+39,Jigglypuff,Wigglytuff,0,item:Moon Stone
+41,Zubat,Golbat,0,level:22
+42,Golbat,Crobat,0,friendship
+43,Oddish,Gloom,0,level:21
+44,Gloom,Vileplume,0,item:Leaf Stone
+44,Gloom,Bellossom,0,item:Sun Stone
+46,Paras,Parasect,0,level:24
+48,Venonat,Venomoth,0,level:31
+50,Diglett,Dugtrio,0,level:26
+50_1,Diglett,Dugtrio,1,level:26
+52,Meowth,Persian,0,level:28
+52_1,Meowth,Persian,1,friendship
+52_2,Meowth,Perrserker,0,level:28
+54,Psyduck,Golduck,0,level:33
+56,Mankey,Primeape,0,level:28
+58,Growlithe,Arcanine,0,item:Fire Stone
+60,Poliwag,Poliwhirl,0,level:25
+61,Poliwhirl,Poliwrath,0,item:Water Stone
+61,Poliwhirl,Politoed,0,tradeitem:King's Rock
+63,Abra,Kadabra,0,level:16
+64,Kadabra,Alakazam,0,trade
+66,Machop,Machoke,0,level:28
+67,Machoke,Machamp,0,trade
+69,Bellsprout,Weepinbell,0,level:21
+70,Weepinbell,Victreebel,0,item:Leaf Stone
+72,Tentacool,Tentacruel,0,level:30
+74,Geodude,Graveler,0,level:25
+74_1,Geodude,Graveler,1,level:25
+75,Graveler,Golem,0,trade
+75_1,Graveler,Golem,1,trade
+77,Ponyta,Rapidash,0,level:40
+77_1,Ponyta,Rapidash,1,level:40
+79,Slowpoke,Slowbro,0,level:37
+79_1,Slowpoke,Slowbro,1,level:37
+79,Slowpoke,Slowking,0,tradeitem:King's Rock
+81,Magnemite,Magneton,0,level:30
+82,Magneton,Magnezone,0,location:New Mauville
+83_1,Farfetch'd,Sirfetch'd,1,special
+84,Doduo,Dodrio,0,level:31
+86,Seel,Dewgong,0,level:34
+88,Grimer,Muk,0,level:38
+88_1,Grimer,Muk,1,level:38
+90,Shellder,Cloyster,0,item:Water Stone
+92,Gastly,Haunter,0,level:25
+93,Haunter,Gengar,0,trade
+95,Onix,Steelix,0,tradeitem:Metal Coat
+96,Drowzee,Hypno,0,level:26
+98,Krabby,Kingler,0,level:28
+100,Voltorb,Electrode,0,level:30
+102,Exeggcute,Exeggutor,0,item:Leaf Stone
+102,Exeggcute,Exeggutor,1,itemlocation:Leaf Stone:Alola
+104,Cubone,Marowak,0,level:28
+104,Cubone,Marowak,1,levellocation:28:Alola
+108,Lickitung,Lickilicky,0,move:Rollout
+109,Koffing,Weezing,0,level:35
+109,Koffing,Weezing,1,levellocation:35:Galar
+111,Rhyhorn,Rhydon,0,level:42
+112,Rhydon,Rhyperior,0,tradeitem:Protector
+113,Chansey,Blissey,0,friendship
+114,Tangela,Tangrowth,0,move:Ancient Power
+116,Horsea,Seadra,0,level:32
+117,Seadra,Kingdra,0,tradeitem:Dragon Scale
+118,Goldeen,Seaking,0,level:33
+120,Staryu,Starmie,0,item:Water Stone
+122_1,Mr. Mime,Mr. Rime,0,level:42
+123,Scyther,Scizor,0,tradeitem:Metal Coat
+125,Electabuzz,Electivire,0,tradeitem:Eletirizer
+126,Magmar,Magmortar,0,tradeitem:Magmarizer
+129,Magikarp,Gyarados,0,level:20
+133,Eevee,Vaporeon,0,item:Water Stone
+133,Eevee,Jolteon,0,item:Thunder Stone
+133,Eevee,Flareon,0,item:Fire Stone
+133,Eevee,Espeon,0,friendshiptime:Day
+133,Eevee,Umbreon,0,friendshiptime:Night
+133,Eevee,Leafeon,0,item:Leaf Stone
+133,Eevee,Glaceon,0,item:Ice Stone
+133,Eevee,Sylveon,0,contest:Cute
+137,Porygon,Porygon2,0,tradeitem:Up-Grade
+138,Omanyte,Omastar,0,level:40
+140,Kabuto,Kabutops,0,level:40
+147,Dratini,Dragonair,0,level:30
+148,Dragonair,Dragonite,0,level:55
+152,Chikorita,Bayleef,0,level:16
+153,Bayleef,Meganium,0,level:32
+155,Cyndaquil,Quilava,0,level:14
+156,Quilava,Typhlosion,0,level:36
+158,Totodile,Croconaw,0,level:18
+159,Croconaw,Feraligatr,0,level:30
+161,Sentret,Furret,0,level:15
+163,Hoothoot,Noctowl,0,level:20
+165,Ledyba,Ledian,0,level:18
+167,Spinarak,Ariados,0,level:22
+170,Chinchou,Lanturn,0,level:27
+172,Pichu,Pikachu,0,friendship
+173,Cleffa,Clefairy,0,friendship
+174,Igglybuff,Jigglypuff,0,friendship
+175,Togepi,Togetic,0,friendship
+176,Togetic,Togekiss,0,item:Shiny Stone
+177,Natu,Xatu,0,level:25
+179,Mareep,Flaaffy,0,level:15
+180,Flaaffy,Ampharos,0,level:30
+183,Marill,Azumarill,0,level:18
+187,Hoppip,Skiploom,0,level:18
+188,Skiploom,Jumpluff,0,level:27
+190,Aipom,Ambipom,0,move:Double Hit
+191,Sunkern,Sunflora,0,item:Sun Stone
+193,Yanma,Yanmega,0,move:Ancient Power
+194,Wooper,Quagsire,0,level:20
+198,Murkrow,Honchkrow,0,item:Dusk Stone
+200,Misdreavus,Mismagius,0,item:Dusk Stone
+204,Pineco,Forretress,0,level:31
+207,Gligar,Gliscor,0,holditem:Razor Fang:Night
+209,Snubbull,Granbull,0,level:23
+215,Sneasel,Weavile,0,holditem:Razor Claw:Night
+216,Teddiursa,Ursaring,0,level:30
+218,Slugma,Magcargo,0,level:38
+220,Swinub,Piloswine,0,level:33
+221,Piloswine,Mamoswine,0,move:Ancient Power
+222_1,Corsola,Cursola,0,level:38
+223,Remoraid,Octillery,0,level:25
+228,Houndour,Houndoom,0,level:24
+231,Phanpy,Donphan,0,level:25
+236,Tyrogue,Hitmonlee,0,special
+236,Tyrogue,Hitmonchan,0,special
+236,Tyrogue,Hitmontop,0,special
+238,Smoochum,Jynx,0,level:30
+239,Elekid,Electabuzz,0,level:30
+240,Magby,Magmar,0,level:30
+246,Larvitar,Pupitar,0,level:30
+247,Pupitar,Tyranitar,0,level:55
+252,Treecko,Grovyle,0,level:16
+253,Grovyle,Sceptile,0,level:36
+255,Torchic,Combusken,0,level:16
+256,Combusken,Blaziken,0,level:36
+258,Mudkip,Marshtomp,0,level:16
+259,Marshtomp,Swampert,0,level:36
+261,Poochyena,Mightyena,0,level:18
+263,Zigzagoon,Linoone,0,level:20
+263_1,Zigzagoon,Linoone,1,level:20
+264_1,Linoone,Obstagoon,0,leveltime:35:Night
+265,Wurmple,Silcoon,0,special
+265,Wurmple,Cascoon,0,special
+266,Silcoon,Beautifly,0,level:10
+268,Cascoon,Dustox,0,level:10
+270,Lotad,Lombre,0,level:14
+271,Lombre,Ludicolo,0,item:Water Stone
+273,Seedot,Nuzleaf,0,level:14
+274,Nuzleaf,Shiftry,0,item:Leaf Stone
+276,Taillow,Swellow,0,level:22
+278,Wingull,Pelipper,0,level:25
+280,Ralts,Kirlia,0,level:20
+281,Kirlia,Gardevoir,0,level:30
+281,Kirlia,Gallade,0,itemgender:Dawn Stone:Male
+283,Surskit,Masquerain,0,level:22
+285,Shroomish,Breloom,0,level:23
+287,Slakoth,Vigoroth,0,level:18
+288,Vigoroth,Slaking,0,level:36
+290,Nincada,Ninjask,0,special
+293,Whismur,Loudred,0,level:20
+294,Loudred,Exploud,0,level:40
+296,Makuhita,Hariyama,0,level:24
+298,Azurill,Marill,0,friendship
+299,Nosepass,Probopass,0,location:New Mauville
+300,Skitty,Delcatty,0,item:Moon Stone
+304,Aron,Lairon,0,level:32
+305,Lairon,Aggron,0,level:42
+307,Meditite,Medicham,0,level:37
+309,Electrike,Manectric,0,level:26
+315,Roselia,Roserade,0,item:Shiny Stone
+316,Gulpin,Swalot,0,level:26
+318,Carvanha,Sharpedo,0,level:30
+320,Wailmer,Wailord,0,level:40
+322,Numel,Camerupt,0,level:33
+325,Spoink,Grumpig,0,level:32
+328,Trapinch,Vibrava,0,level:35
+329,Vibrava,Flygon,0,level:45
+331,Cacnea,Cacturne,0,level:32
+333,Swablu,Altaria,0,level:35
+339,Barboach,Whiscash,0,level:30
+341,Corphish,Crawdaunt,0,level:30
+343,Baltoy,Claydol,0,level:36
+345,Lileep,Cradily,0,level:40
+347,Anorith,Armaldo,0,level:40
+349,Feebas,Milotic,0,contest:Beauty
+349,Feebas,Milotic,0,tradeitem:Prism Scale
+353,Shuppet,Banette,0,level:37
+355,Duskull,Dusclops,0,level:37
+356,Dusclops,Dusknoir,0,tradeitem:Reaper Cloth
+360,Wynaut,Wobbuffet,0,level:15
+361,Snorunt,Glalie,0,level:42
+361,Snorunt,Froslass,0,itemgender:Dawn Stone:Female
+363,Spheal,Sealeo,0,level:32
+364,Sealeo,Walrein,0,level:44
+366,Clamperl,Huntail,0,tradeitem:Deep Sea Tooth
+366,Clamperl,Gorebyss,0,tradeitem:Deep Sea Scale
+371,Bagon,Shelgon,0,level:30
+372,Shelgon,Salamence,0,level:50
+374,Beldum,Metang,0,level:20
+375,Metang,Metagross,0,level:45
+387,Turtwig,Grotle,0,level:18
+388,Grotle,Torterra,0,level:32
+390,Chimchar,Monferno,0,level:14
+391,Monferno,Infernape,0,level:36
+393,Piplup,Prinplup,0,level:16
+394,Prinplup,Empoleon,0,level:36
+396,Starly,Staravia,0,level:14
+397,Staravia,Staraptor,0,level:34
+399,Bidoof,Bibarel,0,level:15
+401,Kricketot,Kricketune,0,level:10
+403,Shinx,Luxio,0,level:15
+404,Luxio,Luxray,0,level:30
+406,Budew,Roselia,0,friendshiptime:Day
+408,Cranidos,Rampardos,0,level:30
+410,Shieldon,Bastiodon,0,level:30
+412,Burmy,Wormadam,0,levelgender:20:Female
+412_1,Burmy,Wormadam,1,levelgender:20:Female
+412_2,Burmy,Wormadam,2,levelgender:20:Female
+412,Burmy,Mothim,0,levelgender:20:Male
+412_1,Burmy,Mothim,0,levelgender:20:Male
+412_2,Burmy,Mothim,0,levelgender:20:Male
+415,Combee,Vespiquen,0,levelgender:21:Female
+418,Buizel,Floatzel,0,level:26
+420,Cherubi,Cherrim,0,level:25
+422,Shellos,Gastrodon,0,level:30
+422_1,Shellos,Gastrodon,1,level:30
+425,Drifloon,Drifblim,0,level:28
+427,Buneary,Lopunny,0,friendship
+431,Glameow,Purugly,0,level:38
+433,Chingling,Chimecho,0,friendshiptime:Night
+434,Stunky,Skuntank,0,level:34
+436,Bronzor,Bronzong,0,level:33
+438,Bonsly,Sudowoodo,0,move:Mimic
+440,Happiny,Chansey,0,holditem:Oval Stone:Day
+443,Gible,Gabite,0,level:24
+444,Gabite,Garchomp,0,level:48
+446,Munchlax,Snorlax,0,friendship
+447,Riolu,Lucario,0,friendshiptime:Day
+449,Hippopotas,Hippowdon,0,level:34
+451,Skorupi,Drapion,0,level:40
+453,Croagunk,Toxicroak,0,level:37
+456,Finneon,Lumineon,0,level:31
+458,Mantyke,Mantine,0,special
+459,Snover,Abomasnow,0,level:40
+495,Snivy,Servine,0,level:17
+496,Servine,Serperior,0,level:36
+498,Tepig,Pignite,0,level:17
+499,Pignite,Emboar,0,level:36
+501,Oshawott,Dewott,0,level:17
+502,Dewott,Samurott,0,level:36
+504,Patrat,Watchog,0,level:20
+506,Lillipup,Herdier,0,level:16
+507,Herdier,Stoutland,0,level:32
+509,Purrloin,Liepard,0,level:20
+511,Pansage,Simisage,0,item:Leaf Stone
+513,Pansear,Simisear,0,item:Fire Stone
+515,Panpour,Simipour,0,item:Water Stone
+517,Munna,Musharna,0,item:Moon Stone
+519,Pidove,Tranquill,0,level:21
+520,Tranquill,Unfezant,0,level:32
+522,Blitzle,Zebstrika,0,level:27
+524,Roggenrola,Boldore,0,level:25
+525,Boldore,Gigalith,0,trade
+527,Woobat,Swoobat,0,friendship
+529,Drilbur,Excadrill,0,level:31
+532,Timburr,Gurdurr,0,level:25
+533,Gurdurr,Conkeldurr,0,trade
+535,Tympole,Palpitoad,0,level:25
+536,Palpitoad,Seismitoad,0,level:36
+540,Sewaddle,Swadloon,0,level:20
+541,Swadloon,Leavanny,0,friendship
+543,Venipede,Whirlipede,0,level:22
+544,Whirlipede,Scolipede,0,level:30
+546,Cottonee,Whimsicott,0,item:Sun Stone
+548,Petilil,Lilligant,0,item:Sun Stone
+551,Sandile,Krokorok,0,level:29
+552,Krokorok,Krookodile,0,level:40
+554,Darumaka,Darmanitan,0,level:35
+554_1,Darumaka,Darmanitan,1,item:Ice Stone
+557,Dwebble,Crustle,0,level:34
+559,Scraggy,Scrafty,0,level:39
+562,Yamask,Cofagrigus,0,level:34
+562_1,Yamask,Runerigus,0,location:Mt. Pyre
+564,Tirtouga,Carracosta,0,level:37
+566,Archen,Archeops,0,level:37
+568,Trubbish,Garbodor,0,level:36
+570,Zorua,Zoroark,0,level:30
+572,Minccino,Cinccino,0,item:Shiny Stone
+574,Gothita,Gothorita,0,level:32
+575,Gothorita,Gothitelle,0,level:41
+577,Solosis,Duosion,0,level:32
+578,Duosion,Reuniclus,0,level:41
+580,Ducklett,Swanna,0,level:35
+582,Vanillite,Vanillish,0,level:35
+583,Vanillish,Vanilluxe,0,level:47
+585,Deerling,Sawsbuck,0,level:34
+585_1,Deerling,Sawsbuck,1,level:34
+585_2,Deerling,Sawsbuck,2,level:34
+585_3,Deerling,Sawsbuck,3,level:34
+588,Karrablast,Escavalier,0,tradewith:Shelmet
+590,Foongus,Amoonguss,0,level:39
+592,Frillish,Jellicent,0,level:40
+595,Joltik,Galvantula,0,level:36
+597,Ferroseed,Ferrothorn,0,level:40
+599,Klink,Klang,0,level:38
+600,Klang,Klinklang,0,level:49
+602,Tynamo,Eelektrik,0,level:39
+603,Eelektrik,Eelektross,0,item:Thunder Stone
+605,Elgyem,Beheeyem,0,level:42
+607,Litwick,Lampent,0,level:41
+608,Lampent,Chandelure,0,item:Dusk Stone
+610,Axew,Fraxure,0,level:38
+611,Fraxure,Haxorus,0,level:48
+613,Cubchoo,Beartic,0,level:37
+616,Shelmet,Accelgor,0,tradewith:Karrablast
+619,Mienfoo,Mienshao,0,level:50
+622,Golett,Golurk,0,level:43
+624,Pawniard,Bisharp,0,level:52
+627,Rufflet,Braviary,0,level:54
+629,Vullaby,Mandibuzz,0,level:54
+633,Deino,Zweilous,0,level:50
+634,Zweilous,Hydreigon,0,level:64
+636,Larvesta,Volcarona,0,level:59
+650,Chespin,Quilladin,0,level:16
+651,Quilladin,Chesnaught,0,level:36
+653,Fennekin,Braixen,0,level:16
+654,Braixen,Delphox,0,level:36
+656,Froakie,Frogadier,0,level:16
+657,Frogadier,Greninja,0,level:36
+659,Bunnelby,Diggersby,0,level:20
+661,Fletchling,Fletchinder,0,level:17
+662,Fletchinder,Talonflame,0,level:35
+664,Scatterbug,Spewpa,0,level:9
+665,Spewpa,Vivillon,0,level:12
+667,Litleo,Pyroar,0,level:35
+669,Flabébé,Floette,0,level:19
+669_1,Flabébé,Floette,1,level:19
+669_2,Flabébé,Floette,2,level:19
+669_3,Flabébé,Floette,3,level:19
+669_4,Flabébé,Floette,4,level:19
+670,Floette,Florges,0,item:Shiny Stone
+670_1,Floette,Florges,1,item:Shiny Stone
+670_2,Floette,Florges,2,item:Shiny Stone
+670_3,Floette,Florges,3,item:Shiny Stone
+670_4,Floette,Florges,4,item:Shiny Stone
+672,Skiddo,Gogoat,0,level:32
+674,Pancham,Pangoro,0,special
+677,Espurr,Meowstic,0,levelgender:25:Male
+677,Espurr,Meowstic,1,levelgender:25:Female
+679,Honedge,Doublade,0,level:35
+680,Doublade,Aegislash,0,item:Dusk Stone
+682,Spritzee,Aromatisse,0,tradeitem:Sachet
+684,Swirlix,Slurpuff,0,tradeitem:Whipped Dream
+686,Inkay,Malamar,0,special
+688,Binacle,Barbaracle,0,level:39
+690,Skrelp,Dragalge,0,level:48
+692,Clauncher,Clawitzer,0,level:37
+694,Helioptile,Heliolisk,0,item:Sun Stone
+696,Tyrunt,Tyrantrum,0,leveltime:39:Day
+698,Amaura,Aurorus,0,leveltime:39:Night
+704,Goomy,Sliggoo,0,level:40
+705,Sliggoo,Goodra,0,special
+708,Phantump,Trevenant,0,trade
+710,Pumpkaboo,Gourgeist,0,trade
+712,Bergmite,Avalugg,0,level:37
+714,Noibat,Noivern,0,level:48
+722,Rowlet,Dartrix,0,level:17
+723,Dartrix,Decidueye,0,level:34
+725,Litten,Torracat,0,level:17
+726,Torracat,Incineroar,0,level:34
+728,Popplio,Brionne,0,level:17
+729,Brionne,Primarina,0,level:34
+731,Pikipek,Trumbeak,0,level:14
+732,Trumbeak,Toucannon,0,level:28
+734,Yungoos,Gumshoos,0,leveltime:20:Day
+736,Grubbin,Charjabug,0,level:20
+737,Charjabug,Vikavolt,0,location:New Mauville
+739,Crabrawler,Crabominable,0,location:Shoal Cave
+742,Cutiefly,Ribombee,0,level:25
+744,Rockruff,Lycanroc,0,leveltime:25:Day
+744,Rockruff,Lycanroc,1,leveltime:25:Night
+744_1,Rockruff,Lycanroc,2,leveltime:25:Dusk
+747,Mareanie,Toxapex,0,level:38
+749,Mudbray,Mudsdale,0,level:30
+751,Dewpider,Araquanid,0,level:22
+753,Fomantis,Lurantis,0,leveltime:34:Day
+755,Morelull,Shiinotic,0,level:24
+757,Salandit,Salazzle,0,levelgender:33:Female
+759,Stufful,Bewear,0,level:27
+761,Bounsweet,Steenee,0,level:18
+762,Steenee,Tsareena,0,move:Stomp
+767,Wimpod,Golisopod,0,level:30
+769,Sandygast,Palossand,0,level:42
+772,Type: Null,Silvally,0,friendship
+782,Jangmo-o,Hakamo-o,0,level:35
+783,Hakamo-o,Kommo-o,0,level:45
+789,Cosmog,Cosmoem,0,level:43
+790,Cosmoem,Solgaleo,0,leveltime:53:Day
+790,Cosmoem,Lunala,0,leveltime:53:Night
+803,Poipole,Naganadel,0,move:Dragon Pulse
+810,Grookey,Thwackey,0,level:16
+811,Thwackey,Rillaboom,0,level:35
+813,Scorbunny,Raboot,0,level:16
+814,Raboot,Cinderace,0,level:35
+816,Sobble,Drizzile,0,level:15
+817,Drizzile,Inteleon,0,level:35
+819,Skwovet,Greedent,0,level:24
+821,Rookidee,Corvisquire,0,level:18
+822,Corvisquire,Corviknight,0,level:38
+824,Blipbug,Dottler,0,level:10
+825,Dottler,Orbeetle,0,level:30
+827,Nickit,Thievul,0,level:18
+829,Gossifleur,Eldegoss,0,level:20
+831,Wooloo,Dubwool,0,level:24
+833,Chewtle,Drednaw,0,level:22
+835,Yamper,Boltund,0,level:25
+837,Rolycoly,Carkol,0,level:18
+838,Carkol,Coalossal,0,level:34
+840,Applin,Flapple,0,item:Tart Apple
+840,Applin,Appletun,0,item:Sweet Apple:
+843,Silicobra,Sandaconda,0,level:36
+846,Arrokuda,Barraskewda,0,level:26
+848,Toxel,Toxtricity,0,special
+848,Toxel,Toxtricity,1,special
+850,Sizzlipede,Centiskorch,0,level:28
+852,Clobbopus,Grapploct,0,move:Taunt
+854,Sinistea,Polteageist,0,item:Chipped Pot
+854,Sinistea,Polteageist,0,item:Cracked Pot
+856,Hatenna,Hattrem,0,level:32
+857,Hattrem,Hatterene,0,level:42
+859,Impidimp,Morgrem,0,level:32
+860,Morgrem,Grimmsnarl,0,level:42
+868,Milcery,Alcremie,0,special
+872,Snom,Frosmoth,0,friendshiptime:Night
+878,Cufant,Copperajah,0,level:34
+885,Dreepy,Drakloak,0,level:50
+886,Drakloak,Dragapult,0,level:60
+891,Kubfu,Urshifu,0,location:Team Magma Hideout
+891,Kubfu,Urshifu,1,location:Team Aqua Hideout
+808,Meltan,Melmetal,0,location:New Mauville

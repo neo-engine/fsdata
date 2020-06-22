@@ -35,6 +35,46 @@ struct pkmnData {
     u8   m_baseFriend;
 };
 
+enum evolutionType : u8 {
+    NO_TYPE = 0,
+    LEVEL_UP = 20,   // level up
+    ITEM = 1,       // evolution item
+    TRADE = 2,      // trade
+    TRADE_ITEM = 3, // trade while holding item
+    TRADE_PKMN = 4, // trade with specific species
+
+    TIME = 5,  // level up at specific time
+    PLACE = 6, // level up at specific place
+    MOVE = 7,  // level up with certain move known
+    FRIEND = 8,  // level up with high friendship
+    LEVEL_UP_AND_PLACE = 10, // level up at specific place with a minimum level
+    FRIEND_AND_TIME = 11,  // level up with high friendship at a specific time
+    LEVEL_UP_AND_TIME = 12, // level up at a specific time with a minimum level
+    LEVEL_UP_AND_GENDER = 13, // level up with a specific gender
+
+    ITEM_PLACE = 22,  // evolution item at a special place
+    ITEM_GENDER = 25,  // evolution item with special condition
+    ITEM_HOLD = 24, // hold item + level up + time
+
+    CONTEST = 15, // A specific contest stat
+
+    SPECIAL_EVOL = 16,   // totally crazy stuff
+};
+
+struct pkmnEvolution {
+    evolutionType m_type;
+    u8            m_targetForme;
+    u16           m_target;
+    u16           m_param1;
+    u16           m_param2;
+};
+
+struct pkmnEvolveData {
+    u16             m_evolutionCount;
+    u16             m_preEvolution;
+    pkmnEvolution   m_evolutions[ 10 ];
+};
+
 typedef std::vector<std::pair<u16, u16>> pkmnLearnsetData; // (level, moveid)
 
 struct itemData {

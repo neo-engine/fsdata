@@ -24,7 +24,7 @@ DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard 
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata $(DATA_FILES)
+fsdata: locationdata pkmndata evolutiondata $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
@@ -36,6 +36,8 @@ endif
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
 		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv \
 		data/itemflavor.csv
+	./evolutiondata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
+		data/locationnames.csv data/pkmnevolv.csv
 	touch fsdata
 
 pkmndata: $(OFILES) $(BUILD)/pkmndata.o
@@ -44,10 +46,14 @@ pkmndata: $(OFILES) $(BUILD)/pkmndata.o
 locationdata: $(OFILES) $(BUILD)/locationdata.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
+evolutiondata: $(OFILES) $(BUILD)/pkmnevolv.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
 clean:
 	@rm -r $(BUILD)
 	@rm fsdata
 	@rm locationdata
+	@rm evolutiondata
 	@rm pkmndata
 
 $(BUILD)/%.o: $(SOURCES)/%.cpp
