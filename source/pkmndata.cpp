@@ -253,7 +253,7 @@ void printItemData( ) {
         assert( fwrite( &item_data[ i ], sizeof( itemData ), 1, f ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( item_names[ i ].m_name[ j ], 1, 20, n ) );
-            assert( fwrite( item_descrs[ i ].m_descr[ j ], 1, 200, n ) );
+            assert( fwrite( item_descrs[ i ].m_descr[ j ], 1, 200, ds ) );
         }
         fclose( f );
         fclose( n );
