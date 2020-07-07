@@ -386,6 +386,6 @@ FILE* getFilePtr( string p_prefix, u16 p_index, u8 p_digits,
 
 void printNormalized( char* p_string, FILE* p_f );
 
-void readNames( char* p_path, vector<names>& p_out, int p_maxLen = 29 );
+void readNames( char* p_path, vector<names>& p_out, int p_maxLen = 29, u8 p_offset = 0 );
 void readNames( char* p_path, map<u16, names>& p_out );
 void readDescrs( char* p_path, vector<descrs>& p_out, int p_maxLen = 249 );

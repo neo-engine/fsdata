@@ -1,6 +1,8 @@
 build/
+out/
 pkmndata
 locationdata
+evolutiondata
 fsdata
 *_DATA
 *_NAME

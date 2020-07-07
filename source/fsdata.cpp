@@ -599,7 +599,7 @@ void printNormalized( char* p_string, FILE* p_f ) {
     }
 }
 
-void readNames( char* p_path, vector<names>& p_out, int p_maxLen ) {
+void readNames( char* p_path, vector<names>& p_out, int p_maxLen, u8 p_offset ) {
     FILE* f = fopen( p_path, "r" );
     char buffer[ 500 ];
     char* t1;
@@ -610,6 +610,7 @@ void readNames( char* p_path, vector<names>& p_out, int p_maxLen ) {
             n.m_name[ i ] = new char[ 30 ];
         }
         int cnt = 0;
+        for( u8 i = 0; i < p_offset; ++i, ( t1 = strtok( NULL, "," ) ) );
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, "," ) ) ) {
             strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), std::min( 29, p_maxLen ) );
         }

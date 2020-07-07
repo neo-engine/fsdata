@@ -91,7 +91,7 @@
 120,Staryu,Starmie,0,item:Water Stone
 122_1,Mr. Mime,Mr. Rime,0,level:42
 123,Scyther,Scizor,0,tradeitem:Metal Coat
-125,Electabuzz,Electivire,0,tradeitem:Eletirizer
+125,Electabuzz,Electivire,0,tradeitem:Electirizer
 126,Magmar,Magmortar,0,tradeitem:Magmarizer
 129,Magikarp,Gyarados,0,level:20
 133,Eevee,Vaporeon,0,item:Water Stone
@@ -102,7 +102,7 @@
 133,Eevee,Leafeon,0,item:Leaf Stone
 133,Eevee,Glaceon,0,item:Ice Stone
 133,Eevee,Sylveon,0,contest:Cute
-137,Porygon,Porygon2,0,tradeitem:Up-Grade
+137,Porygon,Porygon2,0,tradeitem:Upgrade
 138,Omanyte,Omastar,0,level:40
 140,Kabuto,Kabutops,0,level:40
 147,Dratini,Dragonair,0,level:30
@@ -182,7 +182,7 @@
 285,Shroomish,Breloom,0,level:23
 287,Slakoth,Vigoroth,0,level:18
 288,Vigoroth,Slaking,0,level:36
-290,Nincada,Ninjask,0,special
+290,Nincada,Ninjask,0,level:20
 293,Whismur,Loudred,0,level:20
 294,Loudred,Exploud,0,level:40
 296,Makuhita,Hariyama,0,level:24
@@ -461,6 +461,6 @@
 878,Cufant,Copperajah,0,level:34
 885,Dreepy,Drakloak,0,level:50
 886,Drakloak,Dragapult,0,level:60
-891,Kubfu,Urshifu,0,location:Team Magma Hideout
-891,Kubfu,Urshifu,1,location:Team Aqua Hideout
-808,Meltan,Melmetal,0,location:New Mauville
+891,Kubfu,Urshifu,0,contest:Cool
+891,Kubfu,Urshifu,1,contest:Smart
+808,Meltan,Melmetal,0,contest:Tough

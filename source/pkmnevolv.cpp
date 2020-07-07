@@ -30,25 +30,31 @@ vector<names>       pkmn_names;
 vector<vector<names>> forme_names;
 
 u8 parseTime( char* p_buffer ) {
-    if( !strcmp( p_buffer, "Day" ) ) {  return 0; }
-    if( !strcmp( p_buffer, "Night" ) ) {  return 1; }
+    if( !strcmp( p_buffer, "Dawn" ) ) {  return 0; }
+    if( !strcmp( p_buffer, "Day" ) ) {  return 1; }
     if( !strcmp( p_buffer, "Dusk" ) ) {  return 2; }
+    if( !strcmp( p_buffer, "Evening" ) ) {  return 3; }
+    if( !strcmp( p_buffer, "Night" ) ) {  return 4; }
 
     fprintf( stderr, "Unknown time \"%s\"", p_buffer );
     return 0;
 }
 
 u8 parseGender( char* p_buffer ) {
-    if( !strcmp( p_buffer, "Male" ) ) {  return 0; }
-    if( !strcmp( p_buffer, "Female" ) ) {  return 1; }
+    if( !strcmp( p_buffer, "Female" ) ) {  return 0; }
+    if( !strcmp( p_buffer, "Genderless" ) ) {  return 1; }
+    if( !strcmp( p_buffer, "Male" ) ) {  return 2; }
 
     fprintf( stderr, "Unknown gender \"%s\"\n", p_buffer );
     return 0;
 }
 
 u8 parseContest( char* p_buffer ) {
-    if( !strcmp( p_buffer, "Cute" ) ) {  return 0; }
+    if( !strcmp( p_buffer, "Cool" ) ) {  return 0; }
     if( !strcmp( p_buffer, "Beauty" ) ) {  return 1; }
+    if( !strcmp( p_buffer, "Cute" ) ) {  return 2; }
+    if( !strcmp( p_buffer, "Smart" ) ) {  return 3; }
+    if( !strcmp( p_buffer, "Tough" ) ) {  return 4; }
 
     fprintf( stderr, "Unknown contest stat \"%s\"\n", p_buffer );
     return 0;
@@ -91,9 +97,15 @@ pair<pair<u16,u8>, pkmnEvolution> parseEvolution( char* p_buffer ) {
         res.m_type = evolutionType::LEVEL_UP;
     } else if( sscanf( methodbuf, "item:%[^:]", buf ) ) {
         res.m_param1 = items[ string( fixEncoding( buf ) ) ];
+        if( !res.m_param1 ) {
+            fprintf( stderr, "[%hu_%hhu] Unknown item \"%s\"\n", idx, forme, buf );
+        }
         res.m_type = evolutionType::ITEM;
     } else if( sscanf( methodbuf, "tradeitem:%[^:]", buf ) ) {
         res.m_param1 = items[ string( fixEncoding( buf ) ) ];
+        if( !res.m_param1 ) {
+            fprintf( stderr, "[%hu_%hhu] Unknown item \"%s\"\n", idx, forme, buf );
+        }
         res.m_type = evolutionType::TRADE_ITEM;
     } else if( sscanf( methodbuf, "tradewith:%[^:]", buf ) ) {
         res.m_param1 = pkmns[ string( fixEncoding( buf ) ) ];
@@ -220,9 +232,10 @@ int main( int p_argc, char** p_argv ) {
     for( size_t i = 0; i < move_names.size( ); ++i )
         moves[ move_names[ i ].m_name[ 0 ] ] = i;
 
-    readNames( p_argv[ 4 ], item_names );
-    for( size_t i = 0; i < item_names.size( ); ++i )
+    readNames( p_argv[ 4 ], item_names, 29, 1 );
+    for( size_t i = 0; i < item_names.size( ); ++i ) {
         items[ item_names[ i ].m_name[ 0 ] ] = i;
+    }
 
     readNames( p_argv[ 5 ], location_names );
     for( auto i : location_names )

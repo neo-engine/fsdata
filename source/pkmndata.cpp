@@ -31,6 +31,8 @@ vector<descrs>      move_descrs;
 
 map<string, int>    pkmns;
 vector<names>       pkmn_names;
+vector<names>       pkmn_species;
+vector<descrs>      pkmn_descrs;
 vector<vector<names>> forme_names;
 
 vector<pkmnLearnsetData> pkmn_learnsets;
@@ -187,11 +189,17 @@ void printPkmnData( ) {
         assert( f );
         FILE* n = getFilePtr( FSROOT "/PKMN_NAME/", i, 2, ".str" );
         assert( n );
+        FILE* nn = getFilePtr( FSROOT "/PKMN_SPCS/", i, 2, ".str" );
+        assert( nn );
+        FILE* nd = getFilePtr( FSROOT "/PKMN_DXTR/", i, 2, ".str" );
+        assert( nd );
         FILE* l = getFilePtr( FSROOT "/PKMN_LEARN/", i, 2, ".learnset.data" );
         assert( l );
         assert( fwrite( &pkmn_data[ i ], sizeof( pkmnData ), 1, f ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( pkmn_names[ i ].m_name[ j ], 1, 15, n ) );
+            assert( fwrite( pkmn_species[ i ].m_name[ j ], 1, 30, nn ) );
+            assert( fwrite( pkmn_descrs[ i ].m_descr[ j ], 1, 30, nd ) );
         }
 
         maxmovelearn = max( maxmovelearn, pkmn_learnsets[ i ].size( ) );
@@ -206,6 +214,8 @@ void printPkmnData( ) {
         }
         fclose( f );
         fclose( n );
+        fclose( nn );
+        fclose( nd );
         fclose( l );
         for( u8 forme = 1; forme <= ( pkmn_data[ i ].m_expTypeFormeCnt & 31 );
                 ++forme ) {
@@ -549,7 +559,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
 }
 
 int main( int p_argc, char** p_argv ) {
-    if( p_argc < 17 ) {
+    if( p_argc < 19 ) {
         fprintf( stderr, "too few args." );
         return 1;
     }
@@ -558,6 +568,8 @@ int main( int p_argc, char** p_argv ) {
     // pkmnformdescr
 
     readNames( p_argv[ 1 ], pkmn_names );
+    readNames( p_argv[ 17 ], pkmn_species );
+    readDescrs( p_argv[ 18 ], pkmn_descrs, 199 );
     for( size_t i = 0; i < pkmn_names.size( ); ++i )
         pkmns[ pkmn_names[ i ].m_name[ 0 ] ] = i;
     readNames( p_argv[ 2 ], ability_names );
