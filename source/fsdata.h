@@ -84,7 +84,7 @@ struct itemData {
     u16  m_param2;   // Effect param 2
     u16  m_param3;   // Effect param 3
     u16  m_sellPrice;
-    u16  m_buyPrice;
+    u16  m_buyPrice; // unused
 };
 
 

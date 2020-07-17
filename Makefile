@@ -35,7 +35,7 @@ endif
 		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
 		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv \
-		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv
+		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv
 	./evolutiondata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/locationnames.csv data/pkmnevolv.csv
 	touch fsdata
