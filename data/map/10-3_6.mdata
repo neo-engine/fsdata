@@ -1,0 +1,10 @@
+outside,none,1,1,1,4,0,0,
+Route 112,1,
+0,0,26,21,Lavaridge Town,
+4
+Machop,0,grass,0,Always,40,
+Numel,0,grass,4,Always,59,
+Ponyta,0,grass,8,Night|Dusk|Day,1
+Tyrogue,0,grass,8,Dawn,1
+0
+

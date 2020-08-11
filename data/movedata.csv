@@ -172,7 +172,7 @@
 171,100,0,none,Status,none,nightmare,15,0,none,protect|mirror,none,none,none,none,none,none,none,none,nightmare,none,none,none,none,none,none,none,none,none,none,normal,Ghost,Clever,
 172,100,60,none,Physical,none,flamewheel,25,0,none,contact|protect|mirror|defrost,none,none,none,none,none,none,none,none,none,none,none,10,none,none,none,brn,none,none,none,normal,Fire,Beautiful,
 173,100,50,none,Special,none,snore,15,0,none,protect|mirror|sound|authentic|sleepusable,none,none,none,none,none,none,none,none,none,none,none,30,none,none,flinch,none,none,none,none,normal,Normal,Cute,
-174,255,0,none,Status,none,curse,10,0,none,authentic,none,none,none,none,none,none,none,none,curse,none,none,none,none,none,none,none,none,none,none,normal,???,Tough,
+174,255,0,none,Status,none,curse,10,0,none,authentic,none,none,none,none,none,none,none,none,curse,none,none,none,none,none,none,none,none,none,none,normal,Ghost,Tough,
 175,100,0,none,Physical,none,flail,15,0,none,contact|protect|mirror,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,normal,Normal,Cute,
 176,255,0,none,Status,none,conversion2,30,0,none,authentic,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,normal,Normal,Beautiful,
 177,95,100,none,Special,none,aeroblast,5,0,none,protect|mirror|distance,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,2,none,any,Flying,Cool,

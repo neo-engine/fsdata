@@ -20,11 +20,13 @@ CFLAGS      :=	-O2 -Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 CXXFLAGS    :=	$(CFLAGS) -std=c++2a
 LDFLAGS     :=
 
+MAPDATA_FILES	:= $(addprefix $(DATA)/map/, $(foreach dir, $(DATA)/map,$(notdir $(wildcard $(dir)/*.mdata))))
+TRAINERDATA_FILES	:= $(addprefix $(DATA)/trainer/, $(foreach dir, $(DATA)/trainer,$(notdir $(wildcard $(dir)/*.tdata))))
 DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard $(dir)/*.csv))))
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata evolutiondata $(DATA_FILES)
+fsdata: locationdata pkmndata evolutiondata trainerdata mapdata $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
@@ -35,9 +37,14 @@ endif
 		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
 		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv \
-		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv
+		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv \
+		data/trainerclassnames.csv
 	./evolutiondata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/locationnames.csv data/pkmnevolv.csv
+	@$(foreach tdata,$(TRAINERDATA_FILES),echo $(tdata); ./trainerdata data/pkmnnames.csv data/abtynames.csv \
+		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
+	@$(foreach mdata,$(MAPDATA_FILES),echo $(mdata); ./mapdata data/pkmnnames.csv data/itemnames.csv \
+		data/locationnames.csv $(mdata);)
 	touch fsdata
 
 pkmndata: $(OFILES) $(BUILD)/pkmndata.o
@@ -49,12 +56,19 @@ locationdata: $(OFILES) $(BUILD)/locationdata.o
 evolutiondata: $(OFILES) $(BUILD)/pkmnevolv.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
+trainerdata: $(OFILES) $(BUILD)/trainerdata.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
+mapdata: $(OFILES) $(BUILD)/mapdata.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
 clean:
 	@rm -r $(BUILD)
 	@rm fsdata
 	@rm locationdata
 	@rm evolutiondata
 	@rm pkmndata
+	@rm mapdata
 
 $(BUILD)/%.o: $(SOURCES)/%.cpp
 	@mkdir -p $(BUILD)

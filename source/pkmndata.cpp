@@ -12,6 +12,9 @@
 #include <vector>
 #include "fsdata.h"
 
+map<u16, names>  class_names;
+map<string, int> classes;
+
 map<string, int> abilities;
 vector<names>    ability_names;
 vector<descrs>   ability_descrs;
@@ -310,6 +313,17 @@ void printAbilityData( ) {
     fclose( g );
 }
 
+void printTrainerClassNames( ) {
+    for( size_t i = 0; i < class_names.size( ); ++i ) {
+        FILE* n = getFilePtr( FSROOT "/TRNR_NAME/", i, 2, ".str" );
+        assert( n );
+        for( int j = 0; j < NUM_LANGUAGES; ++j ) {
+            assert( fwrite( class_names[ i ].m_name[ j ], 1, 20, n ) );
+        }
+        fclose( n );
+    }
+}
+
 void printMoveData( ) {
     FILE* g = fopen( OUT "/moveNames.h", "w" );
     fprintf( g, "#pragma once\n" );
@@ -556,7 +570,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
 }
 
 int main( int p_argc, char** p_argv ) {
-    if( p_argc < 20 ) {
+    if( p_argc < 21 ) {
         fprintf( stderr, "too few args." );
         return 1;
     }
@@ -582,11 +596,15 @@ int main( int p_argc, char** p_argv ) {
     for( size_t i = 0; i < item_names.size( ); ++i ) items[ item_names[ i ].m_name[ 0 ] ] = i;
     readDescrs( p_argv[ 16 ], item_descrs, 199 );
 
+    readNames( p_argv[ 20 ], class_names );
+    for( auto i : class_names ) classes[ i.second.m_name[ 0 ] ] = i.first;
+
     readMoveData( p_argv[ 12 ], move_data );
     readPkmnData( p_argv[ 5 ], p_argv[ 6 ], p_argv[ 7 ], p_argv[ 8 ], pkmn_data, forme_names,
                   forme_data );
     readLearnsetData( p_argv[ 13 ], pkmn_learnsets );
 
+    printTrainerClassNames( );
     printPkmnData( );
     printItemData( );
     printAbilityData( );

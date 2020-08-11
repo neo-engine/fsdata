@@ -1,0 +1,38 @@
+battle trainer file format
+--
+
+name (csv, one name for each language, max length 15 char)
+msg1 (OW: on encounter message, max length 99)
+msg2 (OW: after battle message, max length 99)
+msg3 (in battle on player won, max length 99)
+msg4 (in battle on player lost, max length 99)
+(en) trainer class name,#pokemon,itemname1,itemname2,itemname3,itemname4,itemname5,moneyearned(if different from default value for trainer class; 0 for default value),battlebg,plat1,plat2,
+trainerPkmn1 as: species name,gender,forme,level,ability name,held item name,movename1,movename2,movename3,movename4,hpev,atkev,defev,satkev,sdefev,speedev,hpiv,atkiv,defiv,satkiv,sdefiv,speediv,shinyval(0:not shiny,1:shiny type0,2:shiny type2,3:shiny type3)
+(pkmn2-#numpkmn as pkmn1, one pkmn per line)
+
+
+map data file format
+---
+
+mapType,mapweather,default battle bg,default plat 1, default plat 2,default battle BG during surf,def plat 1 during surf, def plat 2 during surf,
+map base Location Name(u16),#extra locs(u8)
+1 line for each extra location as (left_x,top_y,right_x,bottom_y,location_name)
+#num pkmn descrs
+1 line for each pkmn descr as (pkmn name,forme,encountertype(grass,surf,fish,headbutt,sweet scent),slot(num badges required for pkmn to appear),day time, enc percentage
+#numevents
+2 lines for each event as
+    line 1: event_x,event_y,event_z,activate_flag(if non-zero, flag that needs to be set for this event to be active),deactivate_flag(if non-zero, event will be deactivated if the flag is set),event type(Message,item,Trainer,OW Pkmn(that can be battled),NPC,warp,generic event,interact_type(step_on,interact_all_direction,interact_bottom,inetact_left,...)
+    line 2 (different for each event_type)
+        - Message: message_type,map_string_id
+        - item: type(hidden, visible,visible tm,visible egg),item name (automatically sets deactivate_flag to true)
+        - trainer: trainer id,movement,sight (automatically sets deactivate_flag once player won against the trainer)
+        - ow pkmn: pkmn name, level, forme, female, shiny, hidden ability, fateful
+        - NPC: map obj id(which sprite to use), movement, script id
+        - warp: warp type, map bank, map x, map y, x, y
+        - generic event: event id
+
+
+recurring scripts
+-----
+1: Pokemon Center Nurse Joy
+2: Pokemon Mart left Clerk.

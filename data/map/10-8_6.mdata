@@ -1,0 +1,7 @@
+outside,none,1,1,1,4,15,15,
+Route 103,0,
+0
+1
+5,29,3,0,0,npc message,interact,
+look around,34,21,0,
+

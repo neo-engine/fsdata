@@ -1,0 +1,13 @@
+inside,none,1,1,1,4,15,15,
+Littleroot Town,0,
+0
+4
+11,6,3,0,0,warp,none,
+cave entry,21,2,1,12,21,3,
+12,21,3,0,0,warp,none,
+cave entry,21,2,1,11,6,3,
+11,27,3,0,0,warp,none,
+door,10,10,5,30,26,3,
+12,27,3,0,0,warp,none,
+door,10,10,5,30,26,3,
+

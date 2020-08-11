@@ -1,22 +1,27 @@
-%:include <cstdio>
-%:include <cstring>
-%:include <string>
-%:include <map>
-%:include <vector>
-%:include <filesystem>
-%:include <cassert>
-%:include <map>
-%:include <algorithm>
+#include <algorithm>
+#include <cassert>
+#include <cstdio>
+#include <cstring>
+#include <filesystem>
+#include <map>
+#include <string>
+#include <vector>
 
-%:include "fsdata.h"
+#include "fsdata.h"
 
 size_t getLength( u8 p_c ) {
-    if( p_c < 0x80 ) return 1;
-    else if( !( p_c & 0x20 ) ) return 2;
-    else if( !( p_c & 0x10 ) ) return 3;
-    else if( !( p_c & 0x08 ) ) return 4;
-    else if( !( p_c & 0x04 ) ) return 5;
-    else return 6;
+    if( p_c < 0x80 )
+        return 1;
+    else if( !( p_c & 0x20 ) )
+        return 2;
+    else if( !( p_c & 0x10 ) )
+        return 3;
+    else if( !( p_c & 0x08 ) )
+        return 4;
+    else if( !( p_c & 0x04 ) )
+        return 5;
+    else
+        return 6;
 }
 
 char getValue( char* p_text, size_t* p_readIdx ) {
@@ -28,7 +33,6 @@ char getValue( char* p_text, size_t* p_readIdx ) {
         return c;
     }
 
-
     unsigned int v = ( p_text[ *p_readIdx ] & ( 0xff >> ( len + 1 ) ) ) << ( ( len - 1 ) * 6 );
     ( *p_readIdx )++;
     for( len--; len > 0; len-- ) {
@@ -39,7 +43,7 @@ char getValue( char* p_text, size_t* p_readIdx ) {
 }
 
 char* fixEncoding( char* p_utf8 ) {
-    for( size_t readIndex = 0, writeIndex = 0; ; writeIndex++ ) {
+    for( size_t readIndex = 0, writeIndex = 0;; writeIndex++ ) {
         if( p_utf8[ readIndex ] == 0 ) {
             p_utf8[ writeIndex ] = 0;
             break;
@@ -138,7 +142,6 @@ u8 getExpType( char* p_str ) {
     if( !strcmp( p_str, "Fast" ) ) return 4;
     if( !strcmp( p_str, "Slow" ) ) return 5;
 
-
     fprintf( stderr, "Found bad exp type %s.\n", p_str );
     return 0;
 }
@@ -196,24 +199,25 @@ u8 getShape( char* p_str ) {
 u8 getItemType( char* p_str ) {
     if( !strcmp( p_str, "used" ) ) return 0;
     if( !strcmp( p_str, "?" ) ) return 0;
-    if( !strcmp( p_str, "pokeball" ) ) return 1;    // Pokeball
-    if( !strcmp( p_str, "medicine" ) ) return 2;    // Item used as medicine
-    if( !strcmp( p_str, "medicine-hold" ) ) return 34;// Item used as medicine with effect when held
-    if( !strcmp( p_str, "battleItem" ) ) return 3;  // Item with effect in battle
-    if( !strcmp( p_str, "collectibles" ) ) return 4;// Item with no special effect
-    if( !strcmp( p_str, "usables" ) ) return 5;     // Consumable item that can be used overworld
-    if( !strcmp( p_str, "evolution" ) ) return 6;   // Item that evolves nome Pkmn
-    if( !strcmp( p_str, "hold" ) ) return 32;       // Item that only has an effect when held
-    if( !strcmp( p_str, "formeChange" ) ) return 8; // Item used to change the forme of a pkmn
-    if( !strcmp( p_str, "keyItems" ) ) return 9;    // Non-Consumable item with special effects
-    if( !strcmp( p_str, "TM/HM" ) ) return 12;      // TM/HM/TR
-    if( !strcmp( p_str, "Apricorn" ) ) return 13;   // Apricorn
-//    if( !strcmp( p_str, "Z-multi" ) ) return 14;    // Multi-use Z item (unused)
-//    if( !strcmp( p_str, "Z-held" ) ) return 15;     // Held Z item (unused)
+    if( !strcmp( p_str, "pokeball" ) ) return 1; // Pokeball
+    if( !strcmp( p_str, "medicine" ) ) return 2; // Item used as medicine
+    if( !strcmp( p_str, "medicine-hold" ) )
+        return 34;                                   // Item used as medicine with effect when held
+    if( !strcmp( p_str, "battleItem" ) ) return 3;   // Item with effect in battle
+    if( !strcmp( p_str, "collectibles" ) ) return 4; // Item with no special effect
+    if( !strcmp( p_str, "usables" ) ) return 5;      // Consumable item that can be used overworld
+    if( !strcmp( p_str, "evolution" ) ) return 6;    // Item that evolves nome Pkmn
+    if( !strcmp( p_str, "hold" ) ) return 32;        // Item that only has an effect when held
+    if( !strcmp( p_str, "formeChange" ) ) return 8;  // Item used to change the forme of a pkmn
+    if( !strcmp( p_str, "keyItems" ) ) return 9;     // Non-Consumable item with special effects
+    if( !strcmp( p_str, "TM/HM" ) ) return 12;       // TM/HM/TR
+    if( !strcmp( p_str, "Apricorn" ) ) return 13;    // Apricorn
+    //    if( !strcmp( p_str, "Z-multi" ) ) return 14;    // Multi-use Z item (unused)
+    //    if( !strcmp( p_str, "Z-held" ) ) return 15;     // Held Z item (unused)
 
-    if( !strcmp( p_str, "berry" ) ) return 20;      // Berry
-    if( !strcmp( p_str, "berry-medicine" ) ) return 18; // Berry + Medicine
-    if( !strcmp( p_str, "berry-hold" ) ) return 48; // Berry + hold
+    if( !strcmp( p_str, "berry" ) ) return 20;               // Berry
+    if( !strcmp( p_str, "berry-medicine" ) ) return 18;      // Berry + Medicine
+    if( !strcmp( p_str, "berry-hold" ) ) return 48;          // Berry + hold
     if( !strcmp( p_str, "berry-medicine-hold" ) ) return 50; // Berry + hold + medicine
 
     fprintf( stderr, "Found bad item type %s.\n", p_str );
@@ -221,20 +225,33 @@ u8 getItemType( char* p_str ) {
 }
 
 u8 getMedicineEffect( char* p_str ) {
-    if( !strcmp( p_str, "heal hp" ) ) return 1; // arg0: amount (0 for percentage); arg1: percentage healed; arg3: 1 if works on fainted pkmn
-    if( !strcmp( p_str, "heal hp and status" ) ) return 2; // heals all status and heals hp extra arg0: amount (0 for percentage); arg1: percentage healed; arg2: 1 if works on fainted pkmn
-    if( !strcmp( p_str, "heal hp bitter" ) ) return 3; // heals hp but is bitter, arg0: amount (0 for percentage); arg1: percentage healed; arg3: 1 if works on fainted pkmn
-    if( !strcmp( p_str, "heal status" ) ) return 4; // arg0 (from 0): all, poison, burn, ice, sleep, paralyze,
-    if( !strcmp( p_str, "heal status bitter" ) ) return 5; // arg0 (from 0): all, poison, burn, ice, sleep, paralyze,
-    if( !strcmp( p_str, "heal pp" ) ) return 6; // arg0: amount (0 for percentage); arg1: percentage healed; arg3: number of moves
+    if( !strcmp( p_str, "heal hp" ) )
+        return 1; // arg0: amount (0 for percentage); arg1: percentage healed; arg3: 1 if works on
+                  // fainted pkmn
+    if( !strcmp( p_str, "heal hp and status" ) )
+        return 2; // heals all status and heals hp extra arg0: amount (0 for percentage); arg1:
+                  // percentage healed; arg2: 1 if works on fainted pkmn
+    if( !strcmp( p_str, "heal hp bitter" ) )
+        return 3; // heals hp but is bitter, arg0: amount (0 for percentage); arg1: percentage
+                  // healed; arg3: 1 if works on fainted pkmn
+    if( !strcmp( p_str, "heal status" ) )
+        return 4; // arg0 (from 0): all, poison, burn, ice, sleep, paralyze,
+    if( !strcmp( p_str, "heal status bitter" ) )
+        return 5; // arg0 (from 0): all, poison, burn, ice, sleep, paralyze,
+    if( !strcmp( p_str, "heal pp" ) )
+        return 6; // arg0: amount (0 for percentage); arg1: percentage healed; arg3: number of moves
     if( !strcmp( p_str, "sacred ash" ) ) return 7;
-    if( !strcmp( p_str, "ev up" ) ) return 8; // arg0: stat (0: hp; atk, def, satk, sdef, spd); arg1: amount, arg2: limit
+    if( !strcmp( p_str, "ev up" ) )
+        return 8; // arg0: stat (0: hp; atk, def, satk, sdef, spd); arg1: amount, arg2: limit
     if( !strcmp( p_str, "level up" ) ) return 9; // arg0: amount, arg1: limit
-    if( !strcmp( p_str, "pp up" ) ) return 10; // arg0: amount; arg1: limit; arg2: numer of moves
-    if( !strcmp( p_str, "ev down berry" ) ) return 11; // arg0: stat (0: hp; atk, def, satk, sdef, spd)
+    if( !strcmp( p_str, "pp up" ) ) return 10;   // arg0: amount; arg1: limit; arg2: numer of moves
+    if( !strcmp( p_str, "ev down berry" ) )
+        return 11; // arg0: stat (0: hp; atk, def, satk, sdef, spd)
     if( !strcmp( p_str, "ability capsule" ) ) return 12;
-    if( !strcmp( p_str, "iv up" ) ) return 13; // arg0: stat (0: hp; atk, def, satk, sdef, spd); arg1: amount, arg2: target value
-    if( !strcmp( p_str, "exp up" ) ) return 14; // arg0: amount
+    if( !strcmp( p_str, "iv up" ) )
+        return 13; // arg0: stat (0: hp; atk, def, satk, sdef, spd); arg1: amount, arg2: target
+                   // value
+    if( !strcmp( p_str, "exp up" ) ) return 14;      // arg0: amount
     if( !strcmp( p_str, "nature mint" ) ) return 15; // arg0: new nature
 
     fprintf( stderr, "Found bad medicine effect %s.\n", p_str );
@@ -300,70 +317,68 @@ volatileStatus getVolatileStatus( char* p_str ) {
 }
 
 moveFlags getMoveFlag( char* p_str ) {
-    if( !strcmp( p_str, "none" ) )              return (moveFlags) 0;
-    if( !strcmp( p_str, "authentic" ) )         return AUTHENTIC;
-    if( !strcmp( p_str, "bite" ) )              return BITE;
-    if( !strcmp( p_str, "bullet" ) )            return BULLET;
-    if( !strcmp( p_str, "charge" ) )            return CHARGE;
-    if( !strcmp( p_str, "contact" ) )           return CONTACT;
-    if( !strcmp( p_str, "dance" ) )             return DANCE;
-    if( !strcmp( p_str, "defrost" ) )           return DEFROST;
-    if( !strcmp( p_str, "distance" ) )          return DISTANCE;
-    if( !strcmp( p_str, "gravity" ) )           return GRAVITY;
-    if( !strcmp( p_str, "heal" ) )              return HEAL;
-    if( !strcmp( p_str, "mirror" ) )            return MIRROR;
-    if( !strcmp( p_str, "mindblownrecoil" ) )   return MINDBLOWNRECOIL;
-    if( !strcmp( p_str, "nonsky" ) )            return NONSKY;
-    if( !strcmp( p_str, "powder" ) )            return POWDER;
-    if( !strcmp( p_str, "protect" ) )           return PROTECT;
-    if( !strcmp( p_str, "pulse" ) )             return PULSE;
-    if( !strcmp( p_str, "protect" ) )           return PROTECT;
-    if( !strcmp( p_str, "pulse" ) )             return PULSE;
-    if( !strcmp( p_str, "punch" ) )             return PUNCH;
-    if( !strcmp( p_str, "recharge" ) )          return RECHARGE;
-    if( !strcmp( p_str, "reflectable" ) )       return REFLECTABLE;
-    if( !strcmp( p_str, "snatch" ) )            return SNATCH;
-    if( !strcmp( p_str, "sound" ) )             return SOUND;
-    if( !strcmp( p_str, "lockedmove" ) )        return LOCKEDMOVE;
-    if( !strcmp( p_str, "rage" ) )              return RAGE;
-    if( !strcmp( p_str, "roost" ) )             return ROOST;
-    if( !strcmp( p_str, "uproar" ) )            return UPROAR;
-    if( !strcmp( p_str, "selfswitch" ) )        return SELFSWITCH;
-    if( !strcmp( p_str, "defasoff" ) )          return DEFASOFF;
-    if( !strcmp( p_str, "snatch" ) )            return SNATCH;
-    if( !strcmp( p_str, "crashdamage" ) )       return CRASHDAMAGE;
-    if( !strcmp( p_str, "ohko" ) )              return OHKO;
-    if( !strcmp( p_str, "ohkoice" ) )           return moveFlags( OHKO | OHKOICE );
-    if( !strcmp( p_str, "selfdestruct" ) )      return SELFDESTRUCT;
-    if( !strcmp( p_str, "selfdestructhit" ) )   return SELFDESTRUCTHIT;
-    if( !strcmp( p_str, "nosketch" ) )          return NOSKETCH;
-    if( !strcmp( p_str, "noppboost" ) )         return NOPPBOOST;
-    if( !strcmp( p_str, "sleepusable" ) )       return SLEEPUSABLE;
-    if( !strcmp( p_str, "nofaint" ) )           return NOFAINT;
-    if( !strcmp( p_str, "breaksprotect" ) )     return BREAKSPROTECT;
-    if( !strcmp( p_str, "ignoreimmunity" ) )    return IGNOREIMMUNITY;
+    if( !strcmp( p_str, "none" ) ) return (moveFlags) 0;
+    if( !strcmp( p_str, "authentic" ) ) return AUTHENTIC;
+    if( !strcmp( p_str, "bite" ) ) return BITE;
+    if( !strcmp( p_str, "bullet" ) ) return BULLET;
+    if( !strcmp( p_str, "charge" ) ) return CHARGE;
+    if( !strcmp( p_str, "contact" ) ) return CONTACT;
+    if( !strcmp( p_str, "dance" ) ) return DANCE;
+    if( !strcmp( p_str, "defrost" ) ) return DEFROST;
+    if( !strcmp( p_str, "distance" ) ) return DISTANCE;
+    if( !strcmp( p_str, "gravity" ) ) return GRAVITY;
+    if( !strcmp( p_str, "heal" ) ) return HEAL;
+    if( !strcmp( p_str, "mirror" ) ) return MIRROR;
+    if( !strcmp( p_str, "mindblownrecoil" ) ) return MINDBLOWNRECOIL;
+    if( !strcmp( p_str, "nonsky" ) ) return NONSKY;
+    if( !strcmp( p_str, "powder" ) ) return POWDER;
+    if( !strcmp( p_str, "protect" ) ) return PROTECT;
+    if( !strcmp( p_str, "pulse" ) ) return PULSE;
+    if( !strcmp( p_str, "protect" ) ) return PROTECT;
+    if( !strcmp( p_str, "pulse" ) ) return PULSE;
+    if( !strcmp( p_str, "punch" ) ) return PUNCH;
+    if( !strcmp( p_str, "recharge" ) ) return RECHARGE;
+    if( !strcmp( p_str, "reflectable" ) ) return REFLECTABLE;
+    if( !strcmp( p_str, "snatch" ) ) return SNATCH;
+    if( !strcmp( p_str, "sound" ) ) return SOUND;
+    if( !strcmp( p_str, "lockedmove" ) ) return LOCKEDMOVE;
+    if( !strcmp( p_str, "rage" ) ) return RAGE;
+    if( !strcmp( p_str, "roost" ) ) return ROOST;
+    if( !strcmp( p_str, "uproar" ) ) return UPROAR;
+    if( !strcmp( p_str, "selfswitch" ) ) return SELFSWITCH;
+    if( !strcmp( p_str, "defasoff" ) ) return DEFASOFF;
+    if( !strcmp( p_str, "snatch" ) ) return SNATCH;
+    if( !strcmp( p_str, "crashdamage" ) ) return CRASHDAMAGE;
+    if( !strcmp( p_str, "ohko" ) ) return OHKO;
+    if( !strcmp( p_str, "ohkoice" ) ) return moveFlags( OHKO | OHKOICE );
+    if( !strcmp( p_str, "selfdestruct" ) ) return SELFDESTRUCT;
+    if( !strcmp( p_str, "selfdestructhit" ) ) return SELFDESTRUCTHIT;
+    if( !strcmp( p_str, "nosketch" ) ) return NOSKETCH;
+    if( !strcmp( p_str, "noppboost" ) ) return NOPPBOOST;
+    if( !strcmp( p_str, "sleepusable" ) ) return SLEEPUSABLE;
+    if( !strcmp( p_str, "nofaint" ) ) return NOFAINT;
+    if( !strcmp( p_str, "breaksprotect" ) ) return BREAKSPROTECT;
+    if( !strcmp( p_str, "ignoreimmunity" ) ) return IGNOREIMMUNITY;
     if( !strcmp( p_str, "ignoreimmunitygnd" ) ) return IGNOREIMMUNITYGROUND;
-    if( !strcmp( p_str, "ignoreability" ) )     return IGNOREABILITY;
-    if( !strcmp( p_str, "ignoredefs" ) )        return IGNOREDEFS;
-    if( !strcmp( p_str, "ignoreevasion" ) )     return IGNOREEVASION;
-    if( !strcmp( p_str, "defrosttarget" ) )     return DEFROSTTARGET;
-    if( !strcmp( p_str, "forceswitch" ) )       return FORCESWITCH;
-    if( !strcmp( p_str, "willcrit" ) )          return WILLCRIT;
-    if( !strcmp( p_str, "targetoffensives" ) )  return TARGETOFFENSIVES;
-    if( !strcmp( p_str, "futuremove" ) )        return FUTUREMOVE;
-    if( !strcmp( p_str, "batonpass" ) )         return BATONPASS;
+    if( !strcmp( p_str, "ignoreability" ) ) return IGNOREABILITY;
+    if( !strcmp( p_str, "ignoredefs" ) ) return IGNOREDEFS;
+    if( !strcmp( p_str, "ignoreevasion" ) ) return IGNOREEVASION;
+    if( !strcmp( p_str, "defrosttarget" ) ) return DEFROSTTARGET;
+    if( !strcmp( p_str, "forceswitch" ) ) return FORCESWITCH;
+    if( !strcmp( p_str, "willcrit" ) ) return WILLCRIT;
+    if( !strcmp( p_str, "targetoffensives" ) ) return TARGETOFFENSIVES;
+    if( !strcmp( p_str, "futuremove" ) ) return FUTUREMOVE;
+    if( !strcmp( p_str, "batonpass" ) ) return BATONPASS;
 
     fprintf( stderr, "Found bad move flag %s.\n", p_str );
     return (moveFlags) 0;
 }
 
 moveFlags parseMoveFlags( char* p_buffer ) {
-    char* p = strtok( p_buffer, "|" );
+    char*     p   = strtok( p_buffer, "|" );
     moveFlags res = getMoveFlag( p );
 
-    while( ( p = strtok( NULL, "|" ) ) ) {
-        res = moveFlags( res | getMoveFlag( p ) );
-    }
+    while( ( p = strtok( NULL, "|" ) ) ) { res = moveFlags( res | getMoveFlag( p ) ); }
 
     return res;
 }
@@ -453,22 +468,22 @@ u8 getTerrain( char* p_str ) {
 }
 
 u16 getSideCondition( char* p_str ) {
-    if( !strcmp( p_str, "none" ) )          return 0;
-    if( !strcmp( p_str, "craftyshield" ) )  return ( 1 << 0 );
-    if( !strcmp( p_str, "stickyweb" ) )     return ( 1 << 1 );
-    if( !strcmp( p_str, "matblock" ) )      return ( 1 << 2 );
-    if( !strcmp( p_str, "quickguard" ) )    return ( 1 << 3 );
-    if( !strcmp( p_str, "wideguard" ) )     return ( 1 << 4 );
-    if( !strcmp( p_str, "stealthrock" ) )   return ( 1 << 5 );
-    if( !strcmp( p_str, "toxicspikes" ) )   return ( 1 << 6 );
-    if( !strcmp( p_str, "luckychant" ) )    return ( 1 << 7 );
-    if( !strcmp( p_str, "tailwind" ) )      return ( 1 << 8 );
-    if( !strcmp( p_str, "safeguard" ) )     return ( 1 << 9 );
-    if( !strcmp( p_str, "spikes" ) )        return ( 1 << 10 );
-    if( !strcmp( p_str, "reflect" ) )       return ( 1 << 11 );
-    if( !strcmp( p_str, "lightscreen" ) )   return ( 1 << 12 );
-    if( !strcmp( p_str, "mist" ) )          return ( 1 << 13 );
-    if( !strcmp( p_str, "auroraveil" ) )   return ( 1 << 14 );
+    if( !strcmp( p_str, "none" ) ) return 0;
+    if( !strcmp( p_str, "craftyshield" ) ) return ( 1 << 0 );
+    if( !strcmp( p_str, "stickyweb" ) ) return ( 1 << 1 );
+    if( !strcmp( p_str, "matblock" ) ) return ( 1 << 2 );
+    if( !strcmp( p_str, "quickguard" ) ) return ( 1 << 3 );
+    if( !strcmp( p_str, "wideguard" ) ) return ( 1 << 4 );
+    if( !strcmp( p_str, "stealthrock" ) ) return ( 1 << 5 );
+    if( !strcmp( p_str, "toxicspikes" ) ) return ( 1 << 6 );
+    if( !strcmp( p_str, "luckychant" ) ) return ( 1 << 7 );
+    if( !strcmp( p_str, "tailwind" ) ) return ( 1 << 8 );
+    if( !strcmp( p_str, "safeguard" ) ) return ( 1 << 9 );
+    if( !strcmp( p_str, "spikes" ) ) return ( 1 << 10 );
+    if( !strcmp( p_str, "reflect" ) ) return ( 1 << 11 );
+    if( !strcmp( p_str, "lightscreen" ) ) return ( 1 << 12 );
+    if( !strcmp( p_str, "mist" ) ) return ( 1 << 13 );
+    if( !strcmp( p_str, "auroraveil" ) ) return ( 1 << 14 );
 
     fprintf( stderr, "unknown side condition %s\n", p_str );
     return 0;
@@ -516,18 +531,23 @@ u8 parseFraction( char* p_str ) {
 u8 parseMultiHit( char* p_str ) {
     if( !strcmp( p_str, "none" ) ) return 0;
 
-    u8 mn, mx;
-    if( sscanf( p_str, "%hhu|%hhu", &mn, &mx ) )
-        return ( mn << 4 ) | mx;
+    u8 mn = 0, mx = 0;
+    if( sscanf( p_str, "%hhu|%hhu", &mn, &mx ) ) {
+        if( mx ) {
+            return ( mn << 4 ) | mx;
+        } else {
+            return ( mn << 4 ) | mn;
+        }
+    }
 
-    if( sscanf( p_str, "%hhu", &mn ) )
-        return ( mn << 4 ) | mn;
+    if( sscanf( p_str, "%hhu", &mn ) ) return ( mn << 4 ) | mn;
 
     return 0;
 }
 
 void parseBoost( char* p_str, boosts& p_out ) {
-    char buf[ 50 ]; s8 val;
+    char buf[ 50 ];
+    s8   val;
     sscanf( p_str, "%[^:]:%hhd", buf, &val );
 
     if( !strcmp( buf, "atk" ) ) return p_out.setBoost( ATK, val );
@@ -542,16 +562,14 @@ void parseBoost( char* p_str, boosts& p_out ) {
 }
 
 boosts parseBoosts( char* p_buffer ) {
-    boosts res = { 0 };
+    boosts res = boosts( );
     if( !strcmp( p_buffer, "none" ) ) return res;
 
     char* p = strtok( p_buffer, "|" );
     if( !p ) {
         parseBoost( p_buffer, res );
     } else {
-        do {
-            parseBoost( p, res );
-        } while( ( p = strtok( NULL, "|" ) ) );
+        do { parseBoost( p, res ); } while( ( p = strtok( NULL, "|" ) ) );
     }
     return res;
 }
@@ -564,11 +582,10 @@ FILE* getFilePtr( string p_prefix, u16 p_index, u8 p_digits, string p_ext, u8 p_
 
     fs::create_directories( p_prefix + buffer );
     if( !p_formeId )
-        snprintf( buffer2, 80, "%s/%s%hu%s", p_prefix.c_str( ),
-                  buffer, p_index, p_ext.c_str( ) );
+        snprintf( buffer2, 80, "%s/%s%hu%s", p_prefix.c_str( ), buffer, p_index, p_ext.c_str( ) );
     else
-        snprintf( buffer2, 80, "%s/%s%hu_%hhu%s", p_prefix.c_str( ),
-                  buffer, p_index, p_formeId, p_ext.c_str( ) );
+        snprintf( buffer2, 80, "%s/%s%hu_%hhu%s", p_prefix.c_str( ), buffer, p_index, p_formeId,
+                  p_ext.c_str( ) );
 
     return fopen( buffer2, "wb" );
 }
@@ -577,23 +594,30 @@ void printNormalized( char* p_string, FILE* p_f ) {
     while( *p_string ) {
         if( *p_string == '\xe9' || *p_string == '\xc9' ) {
             fputc( 'E', p_f );
-            ++p_string; continue;
+            ++p_string;
+            continue;
         }
         if( *p_string == '{' ) {
-            fputc( '_', p_f ); fputc( 'M', p_f );
-            ++p_string; continue;
+            fputc( '_', p_f );
+            fputc( 'M', p_f );
+            ++p_string;
+            continue;
         }
         if( *p_string == '}' ) {
-            fputc( '_', p_f ); fputc( 'F', p_f );
-            ++p_string; continue;
+            fputc( '_', p_f );
+            fputc( 'F', p_f );
+            ++p_string;
+            continue;
         }
         if( *p_string == '.' ) {
-            ++p_string; continue;
+            ++p_string;
+            continue;
         }
         if( *p_string == '\'' || *p_string == ' ' || *p_string == ':' || *p_string == '-'
-                || *p_string == '?') {
+            || *p_string == '?' ) {
             fputc( '_', p_f );
-            ++p_string; continue;
+            ++p_string;
+            continue;
         }
         fputc( toupper( *( p_string++ ) ), p_f );
     }
@@ -601,62 +625,55 @@ void printNormalized( char* p_string, FILE* p_f ) {
 
 void readNames( char* p_path, vector<names>& p_out, int p_maxLen, u8 p_offset ) {
     FILE* f = fopen( p_path, "r" );
-    char buffer[ 500 ];
+    char  buffer[ 500 ];
     char* t1;
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
         names n;
-        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-            n.m_name[ i ] = new char[ 30 ];
-        }
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) { n.m_name[ i ] = new char[ 30 ]; }
         int cnt = 0;
-        for( u8 i = 0; i < p_offset; ++i, ( t1 = strtok( NULL, "," ) ) );
+        for( u8 i = 0; i < p_offset; ++i, ( t1 = strtok( NULL, "," ) ) )
+            ;
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, "," ) ) ) {
             strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), std::min( 29, p_maxLen ) );
         }
         p_out.push_back( n );
     }
-    fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
 }
 
 void readNames( char* p_path, map<u16, names>& p_out ) {
     FILE* f = fopen( p_path, "r" );
-    char buffer[ 500 ];
+    char  buffer[ 500 ];
     char* t1;
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
         u16 id;
         sscanf( t1, "%hu", &id );
         names n;
-        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-            n.m_name[ i ] = new char[ 30 ];
-        }
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) { n.m_name[ i ] = new char[ 30 ]; }
         int cnt = 0;
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, "," ) ) ) {
             strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), 29 );
         }
         p_out[ id ] = n;
     }
-    fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
 }
 
 void readDescrs( char* p_path, vector<descrs>& p_out, int p_maxLen ) {
     FILE* f = fopen( p_path, "r" );
-    char buffer[ 500 ];
+    char  buffer[ 500 ];
     char* t1;
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, ";" );
         descrs n;
-        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-            n.m_descr[ i ] = new char[ 250 ];
-        }
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) { n.m_descr[ i ] = new char[ 250 ]; }
         int cnt = 0;
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, ";" ) ) ) {
             strncpy( n.m_descr[ cnt++ ], fixEncoding( t1 ), std::min( 249, p_maxLen ) );
         }
         p_out.push_back( n );
     }
-    fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
 }
-
-

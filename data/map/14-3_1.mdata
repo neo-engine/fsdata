@@ -1,0 +1,9 @@
+cave|dark|flashable,none,18,6,6,4,15,15,
+Granite Cave,0,
+0
+2
+29,8,3,0,0,warp,none,
+cave entry,14,2,1,29,8,3,
+24,8,3,0,0,warp,none,
+cave entry,14,2,1,24,8,3,
+

@@ -1,0 +1,18 @@
+outside,none,1,1,1,4,15,15,
+Route 104,0,
+0
+7
+2,17,3,0,0,warp,none,
+cave entry,13,2,1,24,14,3,
+3,17,3,0,0,warp,none,
+cave entry,13,2,1,25,14,3,
+24,22,3,0,0,warp,none,
+cave entry,13,2,2,12,14,3,
+25,22,3,0,0,warp,none,
+cave entry,13,2,2,13,14,3,
+2,10,3,0,0,warp,none,
+cave entry,13,1,1,22,13,3,
+3,10,3,0,0,warp,none,
+cave entry,13,1,1,23,13,3,
+9,30,3,0,0,warp,none,
+cave entry,37,1,1,16,20,3,

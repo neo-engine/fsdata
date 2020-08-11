@@ -1,0 +1,10 @@
+outside,none,1,1,1,4,15,15,
+Oldale Town,1,
+0,0,31,10,Route 103,
+0
+2
+0,16,3,0,0,message,interact down,
+normal,19,
+0,21,3,0,0,npc message,interact,
+look around,50,20,0,
+

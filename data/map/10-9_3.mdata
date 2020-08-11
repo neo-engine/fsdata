@@ -1,0 +1,17 @@
+outside,none,1,1,1,4,15,15,
+Petalburg City,0,
+0
+6
+7,3,3,0,0,warp,none,
+door,28,3,2,12,8,3
+20,14,3,0,0,warp,none,
+sliding door,28,1,2,16,30,3,
+14,6,3,0,0,warp,none,
+sliding door,28,4,1,17,21,3,
+25,10,3,0,0,warp,none,
+sliding door,28,2,2,14,19,3,
+20,22,3,0,0,warp,none,
+door,28,3,2,12,24,3,
+10,17,3,0,0,warp,none,
+door,28,4,2,16,20,3,
+

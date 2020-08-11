@@ -1,0 +1,19 @@
+cave,none,14,12,12,26,0,0,
+Meteor Falls,0,
+12
+Zubat,0,grass,0,Always,70,
+Lunatone,0,grass,2,Dusk|Night,20,
+Solrock,0,grass,2,Dawn|Day,20,
+Golbat,0,grass,6,Always,10,
+Zubat,0,surf,0,Always,50,
+Goldeen,0,surf,0,Always,50,
+Goldeen,0,old rod,0,Always,20,
+Magikarp,0,old rod,0,Always,80,
+Goldeen,0,good rod,0,Always,30,
+Magikarp,0,good rod,0,Always,50,
+Barboach,0,good rod,0,Always,20,
+Barboach,0,super rod,0,Always,100,
+1
+7,18,3,0,0,warp,none,
+cave entry,10,4,2,19,5,3,
+
