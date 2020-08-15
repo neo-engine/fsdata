@@ -362,6 +362,11 @@ u8 getMovementType( char* p_str ) {
     if( !strcmp( p_str, "look right" ) ) return 4;
     if( !strcmp( p_str, "look up" ) ) return 1;
     if( !strcmp( p_str, "look down" ) ) return 2;
+    if( !strcmp( p_str, "walk left right" ) ) return 16;
+    if( !strcmp( p_str, "walk top down" ) ) return 17;
+    if( !strcmp( p_str, "walk circle" ) ) return 18;
+    if( !strcmp( p_str, "walk around left right" ) ) return 19;
+    if( !strcmp( p_str, "walk around top down" ) ) return 20;
 
     fprintf( stderr, "unknown movement type %s\n", p_str );
     return 0;

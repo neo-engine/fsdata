@@ -4,6 +4,8 @@ pkmndata
 locationdata
 evolutiondata
 fsdata
+mapdata
+mapscript
 *_DATA
 *_NAME
 *_LEARN
