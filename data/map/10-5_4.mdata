@@ -1,7 +1,27 @@
-outside,none,1,1,1,4,15,15,
+outside,none,11,1,1,4,15,15,
 Route 116,0,
-0
-1
+10
+Abra,0,grass,0,Dawn,10,
+Poochyena,0,grass,0,Night|Dusk,10,
+Zigzagoon,0,grass,0,Day,10,
+Taillow,0,grass,0,Always,25,
+Whismur,0,grass,0,Always,25,
+Nincada,0,grass,1,Dusk|Night,20,
+Skitty,0,grass,1,Dawn|Day,20,
+Swallow,0,grass,5,Always,10,
+Eevee,0,grass,8,Always,5,
+Joltik,0,grass,8,Always,5,
+6
 15,24,3,0,0,warp,none,
 cave entry,12,2,2,6,15,3,
+8,25,3,0,0,message,interact down|interact up,
+normal,262,
+16,25,3,0,0,message,interact down|interact up,
+normal,263,
+4,29,3,0,0,trainer,interact,
+35,34,look right|look down,4,
+9,29,3,0,0,trainer,interact,
+36,35,look left,5,
+6,25,3,0,0,npc message,interact,
+look right,47,264,0,
 

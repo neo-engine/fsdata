@@ -347,8 +347,8 @@ u8 getMessageType( char* p_str ) {
 u8 getOWItemType( char* p_str ) {
     if( !strcmp( p_str, "none" ) ) return 0;
 
-    if( !strcmp( p_str, "item" ) ) return 0;
-    if( !strcmp( p_str, "hidden" ) ) return 1;
+    if( !strcmp( p_str, "hidden" ) ) return 0;
+    if( !strcmp( p_str, "item" ) ) return 1;
     if( !strcmp( p_str, "tm" ) ) return 2;
 
     fprintf( stderr, "unknown item type %s\n", p_str );
@@ -363,13 +363,26 @@ u8 getMovementType( char* p_str ) {
     if( !strcmp( p_str, "look up" ) ) return 1;
     if( !strcmp( p_str, "look down" ) ) return 2;
     if( !strcmp( p_str, "walk left right" ) ) return 16;
-    if( !strcmp( p_str, "walk top down" ) ) return 17;
+    if( !strcmp( p_str, "walk up down" ) ) return 17;
     if( !strcmp( p_str, "walk circle" ) ) return 18;
     if( !strcmp( p_str, "walk around left right" ) ) return 19;
-    if( !strcmp( p_str, "walk around top down" ) ) return 20;
+    if( !strcmp( p_str, "walk around up down" ) ) return 20;
 
     fprintf( stderr, "unknown movement type %s\n", p_str );
     return 0;
+}
+
+u8 parseMovementType( char* p_buffer ) {
+    u8 res = 0;
+    if( !strcmp( p_buffer, "none" ) ) return res;
+
+    char* p = strtok( p_buffer, "|" );
+    if( !p ) {
+        res |= getMovementType( p_buffer );
+    } else {
+        do { res |= getMovementType( p ); } while( ( p = strtok( NULL, "|" ) ) );
+    }
+    return res;
 }
 
 warpType getWarpType( char* p_str ) {
@@ -398,11 +411,14 @@ mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
         sscanf( p_str, "%[^,],%[^,]", buf1, buf2 );
         res.m_item.m_itemType = getOWItemType( buf1 );
         res.m_item.m_itemId   = items[ string( fixEncoding( buf2 ) ) ];
+        if( !res.m_item.m_itemId ) {
+            fprintf( stderr, "[%s] unknown item \"%s\"\n", FILENAME.c_str( ), buf2 );
+        }
         break;
     case EVENT_TRAINER:
         sscanf( p_str, "%hu,%hu,%[^,],%hhu", &res.m_trainer.m_spriteId, &res.m_trainer.m_trainerId,
                 buf1, &res.m_trainer.m_sight );
-        res.m_trainer.m_movementType = getMovementType( buf1 );
+        res.m_trainer.m_movementType = parseMovementType( buf1 );
         break;
     case EVENT_OW_PKMN:
         sscanf( p_str, "%[^,],%hhu,%hhu,%hhu", buf1, &res.m_owPkmn.m_level, &res.m_owPkmn.m_forme,
@@ -413,7 +429,7 @@ mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
     case EVENT_NPC_MESSAGE:
         sscanf( p_str, "%[^,],%hu,%hu,%hhu", buf1, &res.m_npc.m_spriteId, &res.m_npc.m_scriptId,
                 &res.m_npc.m_scriptType );
-        res.m_npc.m_movementType = getMovementType( buf1 );
+        res.m_npc.m_movementType = parseMovementType( buf1 );
         break;
     case EVENT_WARP:
         sscanf( p_str, "%[^,],%hhu,%hhu,%hhu,%hhu,%hhu,%hhu", buf1, &res.m_warp.m_bank,

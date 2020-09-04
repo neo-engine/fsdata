@@ -1,11 +1,18 @@
-cave|dark|flashable,none,18,6,6,4,15,15,
+cave|dark|flashable,none,14,12,12,4,15,15,
 Rusturf Tunnel,0,
-0
-3
+2
+Whismur,0,grass,0,Always,100,
+Geodude,0,rock smash,0,Always,100,
+6
+3,6,3,0,57,item,interact,
+tm,TM16,
 6,15,3,0,0,warp,none,
 cave entry,10,5,4,15,24,3,
 16,28,3,0,0,warp,none,
 cave entry,10,5,5,1,26,3,
 25,21,3,0,0,warp,none,
 cave entry,10,6,5,24,6,3,
-
+13,9,3,0,0,hmobject,interact,
+rock smash,
+13,10,3,0,0,hmobject,interact,
+rock smash,

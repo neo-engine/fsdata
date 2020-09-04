@@ -318,7 +318,9 @@ void printTrainerClassNames( ) {
         FILE* n = getFilePtr( FSROOT "/TRNR_NAME/", i, 2, ".str" );
         assert( n );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
-            assert( fwrite( class_names[ i ].m_name[ j ], 1, 20, n ) );
+            u8 shift = 0;
+            if( class_names[ i ].m_name[ j ][ 0 ] == ' ' ) { shift = 1; }
+            assert( fwrite( class_names[ i ].m_name[ j ] + shift, 1, 30, n ) );
         }
         fclose( n );
     }

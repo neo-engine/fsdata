@@ -8,7 +8,9 @@ Zigzagoon,0,grass,0,Dusk|Night|Dawn,10,
 Zigzagoon,0,grass,0,Day,45,
 Wurmple,0,grass,0,Always,40,
 Zorua,0,grass,8,Always,5,
-1
+2
 1,6,3,0,0,npc message,interact,
 look around,35,15,0,
+0,28,3,17,0,npc message,interact,
+look around,48,87,0,
 

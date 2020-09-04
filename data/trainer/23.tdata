@@ -1,0 +1,11 @@
+Roxanne;Felizia;
+--;--;
+It seems that I still have much more to learn|;Es scheint, ich muss noch eine ganze\nMenge lernen|;
+It seems that you didn't study well enough|;Du hast wohl nicht gut genug\nin der Schule aufgepasst|;
+--;--;
+ Leader,5,3,Super Potion,Super Potion,Super Potion,none,none,1500,36,40,40,2,
+Geodude,female,0,14,Sturdy,Smooth Rock,Tackle,Rock Throw,Rock Tomb,Sandstorm,30,20,200,0,50,50,20,20,20,20,20,20,0,4,
+Geodude,female,0,14,Sand Veil,none,Tackle,Rock Throw,Rock Tomb,Double Team,90,20,90,0,90,90,20,20,20,20,20,20,0,12,
+Nosepass,female,0,17,Sand Force,Oran Berry,Rock Tomb,Rock Slide,Fire Punch,Rock Throw,90,20,90,0,90,90,20,20,20,20,20,20,0,12,
+Lileep,female,0,20,Storm Drain,Oran Berry,Giga Drain,Rock Tomb,Ingrain,Ancient Power,90,20,200,0,200,0,25,25,25,25,25,25,0,2,
+

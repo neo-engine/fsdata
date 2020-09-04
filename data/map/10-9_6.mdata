@@ -1,7 +1,13 @@
 outside,none,1,1,1,4,15,15,
 Oldale Town,1,
 0,0,31,10,Route 103,
-0
+6
+Poochyena,0,grass,0,Dusk|Night|Dawn,45,
+Poochyena,0,grass,0,Day,10,
+Zigzagoon,0,grass,0,Dusk|Night|Dawn,10,
+Zigzagoon,0,grass,0,Day,45,
+Wingull,0,grass,0,Always,40,
+Dewpider,0,grass,8,Always,5,
 2
 0,16,3,0,0,message,interact down,
 normal,19,

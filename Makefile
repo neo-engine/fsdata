@@ -42,11 +42,11 @@ endif
 		data/trainerclassnames.csv
 	./evolutiondata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/locationnames.csv data/pkmnevolv.csv
-	@$(foreach tdata,$(TRAINERDATA_FILES),echo $(tdata); ./trainerdata data/pkmnnames.csv data/abtynames.csv \
+	@$(foreach tdata,$(TRAINERDATA_FILES),./trainerdata data/pkmnnames.csv data/abtynames.csv \
 		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
-	@$(foreach mdata,$(MAPDATA_FILES),echo $(mdata); ./mapdata data/pkmnnames.csv data/itemnames.csv \
+	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
 		data/locationnames.csv $(mdata);)
-	@$(foreach mscr,$(MAPSCRIPT_FILES),echo $(mscr); $(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
+	@$(foreach mscr,$(MAPSCRIPT_FILES),$(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o

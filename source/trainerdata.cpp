@@ -67,24 +67,24 @@ trainerPokemon parseTrainerPokemon( char* p_buffer ) {
     }
 
     res.m_heldItem = items[ string( fixEncoding( itembuf ) ) ];
-    if( !res.m_heldItem ) {
-        fprintf( stderr, "[%s|%s] Unknown pokemon \"%s\"\n", FILENAME.c_str( ), speciesbuf,
+    if( !res.m_heldItem && strcmp( fixEncoding( itembuf ), "none" ) ) {
+        fprintf( stderr, "[%s|%s] Unknown held item \"%s\"\n", FILENAME.c_str( ), speciesbuf,
                  itembuf );
     }
     res.m_moves[ 0 ] = moves[ string( fixEncoding( mvbuf1 ) ) ];
-    if( !res.m_moves[ 0 ] ) {
+    if( !res.m_moves[ 0 ] && strcmp( fixEncoding( mvbuf1 ), "none" ) ) {
         fprintf( stderr, "[%s|%s] Unknown move \"%s\"\n", FILENAME.c_str( ), speciesbuf, mvbuf1 );
     }
     res.m_moves[ 1 ] = moves[ string( fixEncoding( mvbuf2 ) ) ];
-    if( !res.m_moves[ 1 ] ) {
+    if( !res.m_moves[ 1 ] && strcmp( fixEncoding( mvbuf2 ), "none" ) ) {
         fprintf( stderr, "[%s|%s] Unknown move \"%s\"\n", FILENAME.c_str( ), speciesbuf, mvbuf2 );
     }
     res.m_moves[ 2 ] = moves[ string( fixEncoding( mvbuf3 ) ) ];
-    if( !res.m_moves[ 2 ] ) {
+    if( !res.m_moves[ 2 ] && strcmp( fixEncoding( mvbuf3 ), "none" ) ) {
         fprintf( stderr, "[%s|%s] Unknown move \"%s\"\n", FILENAME.c_str( ), speciesbuf, mvbuf3 );
     }
     res.m_moves[ 3 ] = moves[ string( fixEncoding( mvbuf4 ) ) ];
-    if( !res.m_moves[ 3 ] ) {
+    if( !res.m_moves[ 3 ] && strcmp( fixEncoding( mvbuf4 ), "none" ) ) {
         fprintf( stderr, "[%s|%s] Unknown move \"%s\"\n", FILENAME.c_str( ), speciesbuf, mvbuf4 );
     }
 
@@ -119,34 +119,34 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
     int   cnt = 0;
     do {
         strncpy( rstrings[ cnt++ ].m_name, fixEncoding( t ), 15 );
-    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, "," ) ) );
-
-    fgets( buffer, sizeof( buffer ), f );
-    t   = strtok( buffer, ";" );
-    cnt = 0;
-    do {
-        strncpy( rstrings[ cnt++ ].m_message1, fixEncoding( t ), 99 );
     } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
 
     fgets( buffer, sizeof( buffer ), f );
     t   = strtok( buffer, ";" );
     cnt = 0;
     do {
-        strncpy( rstrings[ cnt++ ].m_message2, fixEncoding( t ), 99 );
+        strncpy( rstrings[ cnt++ ].m_message1, fixEncoding( t ), 199 );
     } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
 
     fgets( buffer, sizeof( buffer ), f );
     t   = strtok( buffer, ";" );
     cnt = 0;
     do {
-        strncpy( rstrings[ cnt++ ].m_message3, fixEncoding( t ), 99 );
+        strncpy( rstrings[ cnt++ ].m_message2, fixEncoding( t ), 199 );
     } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
 
     fgets( buffer, sizeof( buffer ), f );
     t   = strtok( buffer, ";" );
     cnt = 0;
     do {
-        strncpy( rstrings[ cnt++ ].m_message4, fixEncoding( t ), 99 );
+        strncpy( rstrings[ cnt++ ].m_message3, fixEncoding( t ), 199 );
+    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
+
+    fgets( buffer, sizeof( buffer ), f );
+    t   = strtok( buffer, ";" );
+    cnt = 0;
+    do {
+        strncpy( rstrings[ cnt++ ].m_message4, fixEncoding( t ), 199 );
     } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
 
     // trainer data
@@ -160,32 +160,39 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
 
     rdata.m_trainerClass = classes[ string( fixEncoding( tclassbuffer ) ) ];
     if( !rdata.m_trainerClass ) {
-        fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), tclassbuffer );
+        fprintf( stderr, "[%s] Unknown trainer class \"%s\"\n", FILENAME.c_str( ), tclassbuffer );
     }
     rdata.m_items[ 0 ] = items[ string( fixEncoding( itm1 ) ) ];
-    if( !rdata.m_items[ 0 ] ) {
+    if( !rdata.m_items[ 0 ] && strcmp( fixEncoding( itm1 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm1 );
     }
     rdata.m_items[ 1 ] = items[ string( fixEncoding( itm2 ) ) ];
-    if( !rdata.m_items[ 1 ] ) {
+    if( !rdata.m_items[ 1 ] && strcmp( fixEncoding( itm2 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm2 );
     }
     rdata.m_items[ 2 ] = items[ string( fixEncoding( itm3 ) ) ];
-    if( !rdata.m_items[ 2 ] ) {
+    if( !rdata.m_items[ 2 ] && strcmp( fixEncoding( itm3 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm3 );
     }
     rdata.m_items[ 3 ] = items[ string( fixEncoding( itm4 ) ) ];
-    if( !rdata.m_items[ 3 ] ) {
+    if( !rdata.m_items[ 3 ] && strcmp( fixEncoding( itm4 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm4 );
     }
     rdata.m_items[ 4 ] = items[ string( fixEncoding( itm5 ) ) ];
-    if( !rdata.m_items[ 4 ] ) {
+    if( !rdata.m_items[ 4 ] && strcmp( fixEncoding( itm5 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm5 );
     }
 
     for( u8 i = 0; i < rdata.m_numPokemon; ++i ) {
         fgets( buffer, sizeof( buffer ), f );
         rdata.m_pokemon[ i ] = parseTrainerPokemon( buffer );
+    }
+
+    // hard difficulty may use this hidden extra pokemon
+    if( rdata.m_numPokemon < 6 && fgets( buffer, sizeof( buffer ), f ) ) {
+        rdata.m_pokemon[ rdata.m_numPokemon ] = parseTrainerPokemon( buffer );
+    } else {
+        memset( &rdata.m_pokemon[ rdata.m_numPokemon ], 0, sizeof( trainerPokemon ) );
     }
 
     fclose( f );

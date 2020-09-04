@@ -1,0 +1,11 @@
+outside,none,1,1,1,4,15,15,
+Route 103,0,
+6
+Psyduck,0,grass,0,Day,10,
+Natu,0,grass,0,Dusk|Night|Dawn,10,
+Wingull,0,grass,0,Always,40,
+Rockruff,0,grass,8,Day|Night|Dawn,45,
+Rockruff,1,grass,8,Dusk,45,
+Bounsweet,0,grass,8,Always,5,
+0
+

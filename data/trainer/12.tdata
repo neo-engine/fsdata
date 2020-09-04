@@ -1,0 +1,8 @@
+Darian;Marco;
+I fished up a tough-looking Pokémon.\rIt has this magical quality to it!\nIt surely looks tough, yes it does!;Ich habe mir ein stark aussehendes Pokémon\ngeangelt!\rEs sieht wirklich sehr stark aus!;
+Hey, Magikarp, you sure don't live up\nto your name, do you?;Hey, Karpador, stell dich nicht so an\nund zeig mir deine wahre Stärke!;
+See, it was really tough!;Siehst du?\nIch sage doch es ist stark!|;
+--;--;
+Fisherman,2,1,none,none,none,none,none,360,9,8,8,38,
+Magikarp,male,0,9,Swift Swim,none,Splash,none,none,none,0,0,0,0,0,0,0,0,0,0,0,0,0,18,
+Magikarp,male,0,10,Swift Swim,none,Splash,Hydro Pump,none,none,0,0,0,0,0,0,0,0,0,0,0,0,0,18,

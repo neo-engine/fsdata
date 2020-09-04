@@ -1,9 +1,24 @@
-inside|cave,none,1,1,1,4,15,15,
+inside|cave,none,27,1,1,4,15,15,
 Petalburg Woods,0,
-0
-2
+11
+Wurmple,0,grass,0,Always,30,
+Cascoon,0,grass,0,Night|Dusk,20,
+Silcoon,0,grass,0,Day|Dawn,20,
+Taillow,0,grass,0,Day|Dawn|Dusk,10,
+Shroomish,0,grass,0,Night,10,
+Dustox,0,grass,2,Night|Dusk,15,
+Beautifly,0,grass,2,Day|Dawn,15,
+Slakoth,0,grass,5,Always,10,
+Paras,0,grass,8,Always,5,
+Phantump,0,grass,8,Always,5,
+Cottonee,0,grass,8,Always,5,
+4
 12,14,3,0,0,warp,none,
 cave entry,10,8,2,24,22,3,
 13,14,3,0,0,warp,none,
 cave entry,10,8,2,25,22,3,
+5,10,3,0,0,npc message,interact,
+walk around left right,96,174,0,
+13,10,3,0,33,item,interact,
+hidden,Potion,
 

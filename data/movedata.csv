@@ -334,7 +334,7 @@
 333,100,25,none,Physical,none,iciclespear,30,0,none,protect|mirror,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,2|5,none,none,normal,Ice,Beautiful,
 334,255,0,none,Status,none,irondefense,15,0,none,snatch,none,none,none,none,none,none,none,none,none,none,def:2,none,none,none,none,none,none,none,none,self,Steel,Tough,
 335,255,0,none,Status,none,block,5,0,none,reflectable|mirror,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,normal,Normal,Cute,
-336,255,0,none,Status,none,howl,40,0,none,snatch,none,none,none,none,none,none,none,none,none,none,atk:1,none,none,none,none,none,none,none,none,allies,Normal,Cool,
+336,255,0,none,Status,none,howl,40,0,none,snatch,none,none,none,none,none,none,none,none,none,none,atk:1,none,none,none,none,none,none,none,none,self,Normal,Cool,
 337,100,80,none,Physical,none,dragonclaw,15,0,none,contact|protect|mirror,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,normal,Dragon,Cool,
 338,90,150,none,Special,none,frenzyplant,5,0,none,recharge|protect|mirror|nonsky,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,normal,Grass,Cool,
 339,255,0,none,Status,none,bulkup,20,0,none,snatch,none,none,none,none,none,none,none,none,none,none,atk:1|def:1,none,none,none,none,none,none,none,none,self,Fighting,Cool,

@@ -26,7 +26,7 @@ int main( int p_argc, char** p_argv ) {
     assert( f );
 
     for( u8 i = 0; i < MAX_SCRIPT_SIZE && fscanf( f, "%u", &SCRIPT[ i ] ) != EOF; ++i ) {
-        printf( "[%s] Read %08x\n", FILENAME.c_str( ), SCRIPT[ i ] );
+//        printf( "[%s] Read %08x\n", FILENAME.c_str( ), SCRIPT[ i ] );
     }
 
     u16 idx = 0;

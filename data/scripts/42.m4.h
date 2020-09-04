@@ -1,0 +1,12 @@
+// rustboro special mart
+#include "scriptlib.m4.h"
+
+MART_BEGIN( 0, 1 )
+    MART_ITEM( I_X_SPEED, 350 )
+    MART_ITEM( I_X_ATTACK, 500 )
+    MART_ITEM( I_X_DEFENSE, 550 )
+    MART_ITEM( I_REPEAT_BALL, 1000 )
+    MART_ITEM( I_TIMER_BALL, 1000 )
+    MART_ITEM( I_NET_BALL, 1000 )
+SELL_ITEMS
+END_OF_PROGRAM

@@ -30,6 +30,17 @@ char getValue( char* p_text, size_t* p_readIdx ) {
     if( len == 1 ) {
         char c = p_text[ *p_readIdx ];
         ( *p_readIdx )++;
+        if( c == '\\' ) {
+            char cc = p_text[ *p_readIdx ];
+            if( cc == 'r' ) {
+                ( *p_readIdx )++;
+                return '\r';
+            }
+            if( cc == 'n' ) {
+                ( *p_readIdx )++;
+                return '\n';
+            }
+        }
         return c;
     }
 
@@ -592,6 +603,14 @@ FILE* getFilePtr( string p_prefix, u16 p_index, u8 p_digits, string p_ext, u8 p_
 
 void printNormalized( char* p_string, FILE* p_f ) {
     while( *p_string ) {
+        if( *p_string == '(' ) {
+            ++p_string;
+            continue;
+        }
+        if( *p_string == ')' ) {
+            ++p_string;
+            continue;
+        }
         if( *p_string == '\xe9' || *p_string == '\xc9' ) {
             fputc( 'E', p_f );
             ++p_string;

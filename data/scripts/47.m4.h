@@ -1,0 +1,22 @@
+// Roxanne
+#include "scriptlib.m4.h"
+
+CHECK_FLAG( 55, 0, 2 )
+    MESSAGE( 258, 0 )
+    JUMP_TO_END
+MESSAGE( 254, 0 )
+BATTLE_TRAINER( 23, SINGLE )
+CHECK_REGISTER( 0, 1, 2 )
+    FAINT_PLAYER
+    JUMP_TO_END
+SET_FLAG( 55, 1 )
+// Disable the other trainers in the gym
+SET_TRAINER_FLAG( 24, 1 )
+SET_TRAINER_FLAG( 25, 1 )
+SET_TRAINER_FLAG( 26, 1 )
+MESSAGE( 255, 0 )
+AWARD_BADGE( 0, 1 )
+MESSAGE( 256, 0 )
+GIVE_ITEM( I_TM48, 1 )
+MESSAGE( 257, 0 )
+END_OF_PROGRAM

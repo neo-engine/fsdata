@@ -1,0 +1,19 @@
+outside,none,1,1,1,4,15,15,
+Rustboro City,0,
+0
+7
+11,9,3,0,0,npc message,interact,
+look down,229,251,0,
+20,8,3,0,0,npc message,interact,
+look down,237,250,0,
+11,14,3,0,0,warp,none,
+cave entry,10,5,2,3,31,3,
+12,14,3,0,0,warp,none,
+cave entry,10,5,2,4,31,3,
+20,7,3,0,0,warp,none,
+cave entry,31,1,1,20,23,3,
+20,23,3,0,0,warp,none,
+cave entry,31,1,1,20,7,3,
+8,23,3,0,0,warp,none,
+cave entry,31,2,1,8,13,3,
+
