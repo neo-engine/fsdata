@@ -40,6 +40,10 @@ char getValue( char* p_text, size_t* p_readIdx ) {
                 ( *p_readIdx )++;
                 return '\n';
             }
+            if( cc == '"' ) {
+                ( *p_readIdx )++;
+                return '"';
+            }
         }
         return c;
     }
@@ -57,6 +61,9 @@ char* fixEncoding( char* p_utf8 ) {
     for( size_t readIndex = 0, writeIndex = 0;; writeIndex++ ) {
         if( p_utf8[ readIndex ] == 0 ) {
             p_utf8[ writeIndex ] = 0;
+            while( ++writeIndex <= readIndex ) {
+                p_utf8[ writeIndex ] = 0;
+            }
             break;
         }
 

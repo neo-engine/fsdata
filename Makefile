@@ -1,6 +1,11 @@
 NUM_LANGUAGES		?=   2
 MAX_ITEMS_PER_DIR	?=  30
 MAX_PKMN			?= 893
+ACHIEVEMENT_LEN		?= 100
+STRING_LEN			?= 250
+MAPSTRING_LEN		?= 800
+BADGENAME_LEN		?=  50
+
 ifdef LOCAL
 FSROOT				?= out/FSROOT
 OUT					?= out/include
@@ -27,7 +32,7 @@ DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard 
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata evolutiondata trainerdata mapdata mapscript $(DATA_FILES)
+fsdata: locationdata pkmndata evolutiondata trainerdata mapdata mapscript stringconv $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
@@ -47,6 +52,9 @@ endif
 	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
 		data/locationnames.csv $(mdata);)
 	@$(foreach mscr,$(MAPSCRIPT_FILES),$(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
+	./stringconv data/strings/achievement.csv "STRN/AVM/" $(ACHIEVEMENT_LEN)
+	./stringconv data/strings/badgename.csv "STRN/BDG/" $(BADGENAME_LEN)
+	./stringconv data/strings/mapstring.csv "STRN/MAP/" $(MAPSTRING_LEN)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o
@@ -67,6 +75,9 @@ trainerdata: $(OFILES) $(BUILD)/trainerdata.o
 mapdata: $(OFILES) $(BUILD)/mapdata.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
+stringconv: $(OFILES) $(BUILD)/stringconv.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
 clean:
 	@rm -r $(BUILD)
 	@rm fsdata
@@ -74,6 +85,7 @@ clean:
 	@rm evolutiondata
 	@rm pkmndata
 	@rm mapdata
+	@rm strings
 
 $(BUILD)/%.o: $(SOURCES)/%.cpp
 	@mkdir -p $(BUILD)
