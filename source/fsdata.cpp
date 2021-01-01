@@ -61,9 +61,7 @@ char* fixEncoding( char* p_utf8 ) {
     for( size_t readIndex = 0, writeIndex = 0;; writeIndex++ ) {
         if( p_utf8[ readIndex ] == 0 ) {
             p_utf8[ writeIndex ] = 0;
-            while( ++writeIndex <= readIndex ) {
-                p_utf8[ writeIndex ] = 0;
-            }
+            while( ++writeIndex <= readIndex ) { p_utf8[ writeIndex ] = 0; }
             break;
         }
 
@@ -564,7 +562,7 @@ u8 parseMultiHit( char* p_str ) {
 }
 
 void parseBoost( char* p_str, boosts& p_out ) {
-    char buf[ 50 ];
+    char buf[ 50 ] = { 0 };
     s8   val;
     sscanf( p_str, "%[^:]:%hhd", buf, &val );
 
@@ -593,8 +591,8 @@ boosts parseBoosts( char* p_buffer ) {
 }
 
 FILE* getFilePtr( string p_prefix, u16 p_index, u8 p_digits, string p_ext, u8 p_formeId ) {
-    char buffer[ 50 ];
-    char buffer2[ 100 ];
+    char buffer[ 50 ]   = { 0 };
+    char buffer2[ 100 ] = { 0 };
     snprintf( buffer2, 20, "%%0%hhuhhu/", p_digits );
     snprintf( buffer, 40, buffer2, p_index / MAX_ITEMS_PER_DIR );
 
@@ -650,8 +648,8 @@ void printNormalized( char* p_string, FILE* p_f ) {
 }
 
 void readNames( char* p_path, vector<names>& p_out, int p_maxLen, u8 p_offset ) {
-    FILE* f = fopen( p_path, "r" );
-    char  buffer[ 500 ];
+    FILE* f             = fopen( p_path, "r" );
+    char  buffer[ 500 ] = { 0 };
     char* t1;
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
@@ -669,15 +667,18 @@ void readNames( char* p_path, vector<names>& p_out, int p_maxLen, u8 p_offset ) 
 }
 
 void readNames( char* p_path, map<u16, names>& p_out ) {
-    FILE* f = fopen( p_path, "r" );
-    char  buffer[ 500 ];
+    FILE* f             = fopen( p_path, "r" );
+    char  buffer[ 500 ] = { 0 };
     char* t1;
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
         u16 id;
         sscanf( t1, "%hu", &id );
         names n;
-        for( int i = 0; i < NUM_LANGUAGES; ++i ) { n.m_name[ i ] = new char[ 30 ]; }
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
+            n.m_name[ i ] = new char[ 40 ];
+            std::memset( n.m_name[ i ], 0, 40 );
+        }
         int cnt = 0;
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, "," ) ) ) {
             strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), 29 );
@@ -688,8 +689,8 @@ void readNames( char* p_path, map<u16, names>& p_out ) {
 }
 
 void readDescrs( char* p_path, vector<descrs>& p_out, int p_maxLen ) {
-    FILE* f = fopen( p_path, "r" );
-    char  buffer[ 500 ];
+    FILE* f             = fopen( p_path, "r" );
+    char  buffer[ 500 ] = { 0 };
     char* t1;
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, ";" );

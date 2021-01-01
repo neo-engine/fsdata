@@ -44,8 +44,9 @@ u8 parseGender( char* p_buffer ) {
 
 trainerPokemon parseTrainerPokemon( char* p_buffer ) {
     trainerPokemon res;
-    char           speciesbuf[ 50 ], genderbuf[ 20 ], abilitybuf[ 50 ], itembuf[ 50 ];
-    char           mvbuf1[ 50 ], mvbuf2[ 50 ], mvbuf3[ 50 ], mvbuf4[ 50 ];
+    char           speciesbuf[ 50 ] = { 0 }, genderbuf[ 20 ] = { 0 }, abilitybuf[ 50 ] = { 0 },
+                        itembuf[ 50 ] = { 0 };
+    char mvbuf1[ 50 ] = { 0 }, mvbuf2[ 50 ] = { 0 }, mvbuf3[ 50 ] = { 0 }, mvbuf4[ 50 ] = { 0 };
 
     sscanf( p_buffer,
             "%[^,],%[^,],%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%hhu,%hhu,%hhu,"
@@ -103,8 +104,9 @@ trainerPokemon parseTrainerPokemon( char* p_buffer ) {
 }
 
 pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path ) {
-    FILE*                       f = fopen( p_path, "r" );
-    char                        buffer[ 500 ];
+    FILE* f             = fopen( p_path, "r" );
+    char  buffer[ 500 ] = { 0 };
+
     trainerData                 rdata;
     std::vector<trainerStrings> rstrings;
     for( int i = 0; i < NUM_LANGUAGES; ++i ) {
@@ -152,7 +154,8 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
     // trainer data
 
     fgets( buffer, sizeof( buffer ), f );
-    char tclassbuffer[ 50 ], itm1[ 50 ], itm2[ 50 ], itm3[ 50 ], itm4[ 50 ], itm5[ 50 ];
+    char tclassbuffer[ 50 ] = { 0 }, itm1[ 50 ] = { 0 }, itm2[ 50 ] = { 0 }, itm3[ 50 ] = { 0 },
+                          itm4[ 50 ] = { 0 }, itm5[ 50 ] = { 0 };
     sscanf( buffer, "%[^,],%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%[^,],%u,%hu,%hhu,%hhu,%hu",
             tclassbuffer, &rdata.m_AILevel, &rdata.m_numPokemon, itm1, itm2, itm3, itm4, itm5,
             &rdata.m_moneyEarned, &rdata.m_battleBG, &rdata.m_battlePlat1, &rdata.m_battlePlat2,

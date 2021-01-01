@@ -400,7 +400,7 @@ warpType getWarpType( char* p_str ) {
 
 mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
     mapData::event::data res;
-    char                 buf1[ 50 ], buf2[ 50 ];
+    char                 buf1[ 50 ] = { 0 }, buf2[ 50 ] = { 0 };
 
     switch( p_type ) {
     case EVENT_MESSAGE:
@@ -457,8 +457,8 @@ mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
 mapData parseMapData( const char* p_path ) {
     FILE*   f = fopen( p_path, "r" );
     char    buffer[ 500 ];
-    mapData res = mapData( );
-    char    buf1[ 100 ], buf2[ 100 ], buf3[ 100 ];
+    mapData res         = mapData( );
+    char    buf1[ 100 ] = { 0 }, buf2[ 100 ] = { 0 }, buf3[ 100 ] = { 0 };
 
     // General data
 

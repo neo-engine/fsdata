@@ -97,17 +97,21 @@ moveData parseMoveData( char* p_buffer ) {
 
     u16  id;
     char alt_id[ 70 ];
-    char type_buf[ 50 ], contesttype_buf[ 50 ];
-    char cat_buf[ 50 ], defcat_buf[ 50 ];
-    char weather_buf[ 50 ], pseudoWeather_buf[ 50 ], terrain_buf[ 50 ], sidecond_buf[ 50 ];
-    char slotcon_buf[ 50 ], damage_buf[ 50 ], target_buf[ 50 ], prestg_buf[ 100 ];
-    char heal_buf[ 50 ], recoil_buf[ 50 ], drain_buf[ 50 ], multihit_buf[ 50 ];
-    char volstat_buf[ 50 ], secvolstat_buf[ 50 ];
-    char boosts_buf[ 100 ], selfboosts_buf[ 100 ], secboost_buf[ 100 ], secselfboost_buf[ 100 ];
-    char flags_buf[ 500 ];
-    char status_buf[ 50 ], secstatus_buf[ 50 ];
+    char type_buf[ 50 ] = { 0 }, contesttype_buf[ 50 ] = { 0 };
+    char cat_buf[ 50 ] = { 0 }, defcat_buf[ 50 ] = { 0 };
+    char weather_buf[ 50 ] = { 0 }, pseudoWeather_buf[ 50 ] = { 0 }, terrain_buf[ 50 ] = { 0 },
+                         sidecond_buf[ 50 ] = { 0 };
+    char slotcon_buf[ 50 ] = { 0 }, damage_buf[ 50 ] = { 0 }, target_buf[ 50 ] = { 0 },
+                         prestg_buf[ 100 ] = { 0 };
+    char heal_buf[ 50 ] = { 0 }, recoil_buf[ 50 ] = { 0 }, drain_buf[ 50 ] = { 0 },
+                      multihit_buf[ 50 ] = { 0 };
+    char volstat_buf[ 50 ] = { 0 }, secvolstat_buf[ 50 ] = { 0 };
+    char boosts_buf[ 100 ] = { 0 }, selfboosts_buf[ 100 ] = { 0 }, secboost_buf[ 100 ] = { 0 },
+                         secselfboost_buf[ 100 ] = { 0 };
+    char flags_buf[ 500 ]                        = { 0 };
+    char status_buf[ 50 ]                        = { 0 }, secstatus_buf[ 50 ]{ 0 };
 
-    char critratio[ 20 ], secchance[ 20 ];
+    char critratio[ 20 ] = { 0 }, secchance[ 20 ] = { 0 };
 
     sscanf( p_buffer,
             "%hu,%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%hhu,%hhd,%[^,],%[^,],%[^,]"
@@ -391,7 +395,10 @@ void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, cha
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
         names n;
-        for( int i = 0; i < NUM_LANGUAGES; ++i ) { n.m_name[ i ] = new char[ 30 ]; }
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
+            n.m_name[ i ] = new char[ 30 ];
+            std::memset( n.m_name[ i ], 0, 30 );
+        }
         size_t id_a;
         sscanf( t1, "%lu", &id_a );
 
@@ -452,8 +459,10 @@ void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, cha
 }
 
 void readForme( char* p_buf, pkmnFormeData& p_out ) {
-    char tmp_buf[ 50 ], tmp_buf2[ 50 ], *tmp_buf3[ 3 ], tmp_buf5[ 50 ], tmp_buf6[ 50 ];
-    char tmp_buf7[ 50 ], tmp_buf8[ 50 ], tmp_buf9[ 50 ], tmp_buf10[ 50 ], *tmp_buf11[ 50 ];
+    char tmp_buf[ 50 ] = { 0 }, tmp_buf2[ 50 ] = { 0 }, *tmp_buf3[ 3 ] = { 0 },
+                     tmp_buf5[ 50 ] = { 0 }, tmp_buf6[ 50 ] = { 0 };
+    char tmp_buf7[ 50 ] = { 0 }, tmp_buf8[ 50 ] = { 0 }, tmp_buf9[ 50 ] = { 0 },
+                      tmp_buf10[ 50 ] = { 0 }, *tmp_buf11[ 50 ];
     for( int j = 0; j < 3; ++j ) tmp_buf3[ j ] = new char[ 50 ];
     for( int j = 0; j < 4; ++j ) tmp_buf11[ j ] = new char[ 50 ];
 
@@ -503,15 +512,15 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
     FILE* pdata = fopen( p_pkmnData, "r" );
     FILE* pdesc = fopen( p_pkmnDescr, "r" );
 
-    FILE* fdata = fopen( p_pkmnFormeNames, "r" );
-    FILE* fdesc = fopen( p_pkmnFormeDescr, "r" );
-    char  fdata_buf[ 1000 ], fdescr_buf[ 1000 ];
+    FILE* fdata             = fopen( p_pkmnFormeNames, "r" );
+    FILE* fdesc             = fopen( p_pkmnFormeDescr, "r" );
+    char  fdata_buf[ 1000 ] = { 0 }, fdescr_buf[ 1000 ] = { 0 };
     assert( fgets( fdata_buf, sizeof( fdata_buf ), fdata ) );
     assert( fgets( fdescr_buf, sizeof( fdescr_buf ), fdesc ) );
 
     for( size_t i = 0; i <= MAX_PKMN; ++i ) {
         // fprintf( stderr, "reading data %lu\n", i );
-        char data_buf[ 1000 ], descr_buf[ 1000 ];
+        char data_buf[ 1000 ] = { 0 }, descr_buf[ 1000 ] = { 0 };
         assert( fgets( data_buf, sizeof( data_buf ), pdata ) );
         assert( fgets( descr_buf, sizeof( descr_buf ), pdesc ) );
 
@@ -541,7 +550,10 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
                 fdatas.push_back( pf );
                 forms_found++;
             }
-            for( int i = 0; i < NUM_LANGUAGES; ++i ) { n2.m_name[ i ] = new char[ 30 ]; }
+            for( int i = 0; i < NUM_LANGUAGES; ++i ) {
+                n2.m_name[ i ] = new char[ 30 ];
+                std::memset( n2.m_name[ i ], 0, 30 );
+            }
 
             char* t1  = strtok( fdata_buf, "," );
             int   cnt = 0;
