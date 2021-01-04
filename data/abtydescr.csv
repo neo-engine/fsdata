@@ -259,3 +259,10 @@
 258;The Pokémon changes its form after the end of each turn.;Das Pokémon ändert zum Ende jeder Runde seine Form.;
 259;If the Pokémon uses moves that make direct contact, it can attack the target even if the target protects itself.;Wenn das Pokémon eine direkte Attacke einsetzt, trifft diese auch dann, wenn sich das Ziel selbst schützt.;
 260;Enables the Pokémon to move first occasionally.;Ermöglicht dem Pokémon gelegentlich den Erstschlag.;
+261;When the Pokémon enters a battle, it scatters medicine from its shell, which removes all stat changes from allies.;---;
+262;Powers up Electric-type moves.;---;
+263;Powers up Dragon-type moves.;---;
+264;When the Pokémon knocks out a target, it utters a chilling neigh, which boosts its Attack stat.;---;
+265;When the Pokémon knocks out a target, it utters a terrifying neigh, which boosts its Sp. Atk stat.;---;
+266;This Ability combines the effects of both Calyrex's Unnerve Ability and Glastrier's Chilling Neigh Ability.;---;
+267;This Ability combines the effects of both Calyrex's Unnerve Ability and Spectrier's Grim Neigh Ability.;---;

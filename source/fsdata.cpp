@@ -269,6 +269,7 @@ u8 getMedicineEffect( char* p_str ) {
                    // value
     if( !strcmp( p_str, "exp up" ) ) return 14;      // arg0: amount
     if( !strcmp( p_str, "nature mint" ) ) return 15; // arg0: new nature
+    if( !strcmp( p_str, "ability patch" ) ) return 16; // switch ability to hidden ability
 
     fprintf( stderr, "Found bad medicine effect %s.\n", p_str );
     return 0;

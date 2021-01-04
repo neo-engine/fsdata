@@ -107,7 +107,7 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
     FILE* f             = fopen( p_path, "r" );
     char  buffer[ 500 ] = { 0 };
 
-    trainerData                 rdata;
+    trainerData                 rdata = trainerData( );
     std::vector<trainerStrings> rstrings;
     for( int i = 0; i < NUM_LANGUAGES; ++i ) {
         trainerStrings ts;

@@ -58,8 +58,9 @@
 77,Ponyta,Rapidash,0,level:40
 77_1,Ponyta,Rapidash,1,level:40
 79,Slowpoke,Slowbro,0,level:37
-79_1,Slowpoke,Slowbro,1,level:37
+79_1,Slowpoke,Slowbro,1,item:Galarica Cuff
 79,Slowpoke,Slowking,0,tradeitem:King's Rock
+79_1,Slowpoke,Slowking,1,item:Galarica Wreath
 81,Magnemite,Magneton,0,level:30
 82,Magneton,Magnezone,0,location:New Mauville
 83_1,Farfetch'd,Sirfetch'd,1,special
