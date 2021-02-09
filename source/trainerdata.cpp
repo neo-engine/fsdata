@@ -239,6 +239,16 @@ int main( int p_argc, char** p_argv ) {
     readNames( p_argv[ 5 ], class_names );
     for( auto i : class_names ) classes[ i.second.m_name[ 0 ] ] = i.first;
 
+    FILE* g = fopen( OUT "/trainerClassNames.h", "w" );
+    fprintf( g, "#pragma once\n" );
+    for( size_t i = 0; i < class_names.size( ); ++i ) {
+        fprintf( g, "#define TC_" );
+        char* s = class_names[ i ].m_name[ 0 ];
+        printNormalized( s, g );
+        fprintf( g, " %lu\n", i );
+    }
+    fclose( g );
+
     auto tdata = parseBattleTrainer( p_argv[ 6 ] );
     u16  idx   = 0;
     sscanf( p_argv[ 6 ], "%*[^0-9]%hu", &idx );

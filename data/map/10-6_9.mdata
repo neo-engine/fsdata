@@ -1,7 +1,8 @@
 outside,none,1,1,1,4,15,15,
-Mauville City,2,
-0,23,31,31,Route 110,
-14,0,31,23,Route 118,
+Mauville City,3,
+0,24,7,31,Route 110,
+8,0,31,23,Route 118,
+8,24,31,31,Mystery Zone,
 0
 0
 

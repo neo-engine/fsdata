@@ -1,5 +1,7 @@
 outside,none,1,1,1,4,15,15,
-Route 103,0,
+Route 103,2,
+0,0,31,15,Mystery Zone,
+0,16,15,31,Mystery Zone,
 6
 Poochyena,0,grass,0,Dusk|Night|Dawn,45,
 Poochyena,0,grass,0,Day,10,

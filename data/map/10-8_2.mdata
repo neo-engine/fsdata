@@ -1,5 +1,6 @@
 outside,none,1,1,1,4,15,15,
-Route 104,0,
+Route 104,1,
+8,8,23,15,Petalburg Woods,
 15
 Poochyena,0,grass,0,Dusk|Night|Dawn,25,
 Poochyena,0,grass,0,Day,10,

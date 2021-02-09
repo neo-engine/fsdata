@@ -1,6 +1,7 @@
 outside,none,10,1,1,4,0,0,
-Route 114,1,
-0,19,31,31,Route 115,
+Route 114,2,
+0,24,31,31,Route 115,
+0,16,7,23,Route 115,
 25
 Lotad,0,grass,0,Dawn|Day,50,
 Lombre,0,grass,3,Dawn|Day,20,

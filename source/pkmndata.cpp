@@ -152,9 +152,10 @@ moveData parseMoveData( char* p_buffer ) {
     res.m_terrain       = getTerrain( terrain_buf );
     res.m_sideCondition = getSideCondition( sidecond_buf );
 
-    res.m_slotCondition  = getSlotCondition( slotcon_buf );
-    res.m_fixedDamage    = getFixedDamage( damage_buf );
-    res.m_target         = getTarget( target_buf );
+    res.m_slotCondition = getSlotCondition( slotcon_buf );
+    res.m_fixedDamage   = getFixedDamage( damage_buf );
+    res.m_target        = getTarget( target_buf );
+    if( res.m_target == NO_TARGET ) { res.m_target = NORMAL; }
     res.m_pressureTarget = getTarget( prestg_buf );
 
     res.m_heal     = parseFraction( heal_buf );
@@ -204,7 +205,7 @@ void printPkmnData( ) {
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( pkmn_names[ i ].m_name[ j ], 1, 15, n ) );
             assert( fwrite( pkmn_species[ i ].m_name[ j ], 1, 30, nn ) );
-            assert( fwrite( pkmn_descrs[ i ].m_descr[ j ], 1, 30, nd ) );
+            assert( fwrite( pkmn_descrs[ i ].m_descr[ j ], 1, 200, nd ) );
         }
 
         maxmovelearn = max( maxmovelearn, pkmn_learnsets[ i ].size( ) );

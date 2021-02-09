@@ -267,8 +267,8 @@ u8 getMedicineEffect( char* p_str ) {
     if( !strcmp( p_str, "iv up" ) )
         return 13; // arg0: stat (0: hp; atk, def, satk, sdef, spd); arg1: amount, arg2: target
                    // value
-    if( !strcmp( p_str, "exp up" ) ) return 14;      // arg0: amount
-    if( !strcmp( p_str, "nature mint" ) ) return 15; // arg0: new nature
+    if( !strcmp( p_str, "exp up" ) ) return 14;        // arg0: amount
+    if( !strcmp( p_str, "nature mint" ) ) return 15;   // arg0: new nature
     if( !strcmp( p_str, "ability patch" ) ) return 16; // switch ability to hidden ability
 
     fprintf( stderr, "Found bad medicine effect %s.\n", p_str );
@@ -401,7 +401,7 @@ moveFlags parseMoveFlags( char* p_buffer ) {
 }
 
 targets getTarget( char* p_str ) {
-    if( !strcmp( p_str, "none" ) ) return NORMAL;
+    if( !strcmp( p_str, "none" ) ) return NO_TARGET;
     if( !strcmp( p_str, "normal" ) ) return NORMAL;
     if( !strcmp( p_str, "adjacentAlly" ) ) return ADJACENT_ALLY;
     if( !strcmp( p_str, "adjacentFoe" ) ) return ADJACENT_FOE;
@@ -636,6 +636,11 @@ void printNormalized( char* p_string, FILE* p_f ) {
         }
         if( *p_string == '.' ) {
             ++p_string;
+            continue;
+        }
+        if( *p_string == '&' ) {
+            ++p_string;
+            if( *p_string == ' ' ) { ++p_string; }
             continue;
         }
         if( *p_string == '\'' || *p_string == ' ' || *p_string == ':' || *p_string == '-'
