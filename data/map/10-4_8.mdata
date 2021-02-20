@@ -1,4 +1,4 @@
-outside,none,24,8,8,4,0,0,
+outside,none,24,8,8,4,15,15,
 Route 111,0,
 8
 Sandshrew,0,grass,0,Always,35,
@@ -9,5 +9,6 @@ Gible,0,grass,8,Dawn,1,
 Sandile,0,grass,8,Night,1,
 Dwebble,0,grass,8,Day|Dusk,1,
 Geodude,0,rock smash,0,Always,30,
-0
-
+1
+18,27,3,0,0,hmobject,interact,
+rock smash,

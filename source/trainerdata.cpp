@@ -110,7 +110,7 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
     trainerData                 rdata = trainerData( );
     std::vector<trainerStrings> rstrings;
     for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-        trainerStrings ts;
+        trainerStrings ts = trainerStrings( );
         rstrings.push_back( ts );
     }
 
@@ -252,7 +252,7 @@ int main( int p_argc, char** p_argv ) {
     auto tdata = parseBattleTrainer( p_argv[ 6 ] );
     u16  idx   = 0;
     sscanf( p_argv[ 6 ], "%*[^0-9]%hu", &idx );
-    printf( "[%s] Saving to %hu\n", p_argv[ 6 ], idx );
+//    printf( "[%s] Saving to %hu\n", p_argv[ 6 ], idx );
 
     printTrainerData( tdata.first, idx );
     printTrainerStrings( tdata.second, idx );

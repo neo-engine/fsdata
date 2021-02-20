@@ -5,54 +5,74 @@
 // Empty lines and c(++)-style comments are ignored.
 changequote(<!,!>)dnl
 dnl
-#include "pokemonNames.h"
-#include "locationNames.h"
 #include "itemNames.h"
+#include "locationNames.h"
 #include "moveNames.h"
+#include "pokemonNames.h"
 #include "soundbank.h"
 dnl
-#define SFX_BATTLE_ABILITY       0
-#define SFX_BATTLE_BALLDROP      1
-#define SFX_BATTLE_BALLSHAKE     2
+#define WEATHER_NOTHING 0
+#define WEATHER_SUNNY 1
+#define WEATHER_REGULAR 2
+#define WEATHER_RAINY 3
+#define WEATHER_SNOW 4
+#define WEATHER_THUNDERSTORM 5
+#define WEATHER_MIST 6
+#define WEATHER_BLIZZARD 7
+#define WEATHER_SANDSTORM 8
+#define WEATHER_FOG 9
+#define WEATHER_DENSE_MIST 0xa
+#define WEATHER_CLOUDY 0xb
+#define WEATHER_HEAVY_SUNLIGHT 0xc
+#define WEATHER_HEAVY_RAIN 0xd
+#define WEATHER_UNDERWATER 0xe
+#define WEATHER_DARK_FLASHABLE 0xf
+#define WEATHER_DARK_PERMANENT 0x10
+#define WEATHER_DARK_FLASH_USED 0x11
+#define WEATHER_FOREST_CLOUDS 0x12
+dnl
+#define SFX_BATTLE_ABILITY 0
+#define SFX_BATTLE_BALLDROP 1
+#define SFX_BATTLE_BALLSHAKE 2
 #define SFX_BATTLE_DAMAGE_NORMAL 3
-#define SFX_BATTLE_DAMAGE_SUPER  4
-#define SFX_BATTLE_DAMAGE_WEAK   5
-#define SFX_BATTLE_DECREASE      6
-#define SFX_BATTLE_ESCAPE        7
-#define SFX_BATTLE_EXPFULL       8
-#define SFX_BATTLE_FAINT         9
-#define SFX_BATTLE_INCREASE      10
-#define SFX_BATTLE_JUMPTOBALL    11
-#define SFX_BATTLE_RECALL        12
-#define SFX_BATTLE_THROW         13
-#define SFX_BIKE                 14
-#define SFX_BUMP                 15
-#define SFX_CANCEL               16
-#define SFX_CAVE_WARP            17
-#define SFX_CHOOSE               18
-#define SFX_ENTER_DOOR           19
-#define SFX_EXMARK               20
-#define SFX_JUMP                 21
-#define SFX_MENU                 22
-#define SFX_NAV                  23
-#define SFX_OBTAIN_EGG           24
-#define SFX_OBTAIN_ITEM          25
-#define SFX_OBTAIN_KEY_ITEM      26
-#define SFX_PC_CLOSE             27
-#define SFX_PC_OPEN              28
-#define SFX_SAVE                 29
-#define SFX_SELECT               30
-#define SFX_SHINY                31
-#define SFX_USE_ITEM             32
-#define SFX_WARP                 33
-#define SFX_TELEPORT_DOWN        34
-#define SFX_TELEPORT_UP          35
-#define SFX_SLIDING_DOOR         36
-#define SFX_HM_CUT               37
-#define SFX_HM_FLY               38
-#define SFX_HM_ROCKSMASH         39
-#define SFX_HM_STRENGTH          40
-#define SFX_OBTAIN_TM            41
+#define SFX_BATTLE_DAMAGE_SUPER 4
+#define SFX_BATTLE_DAMAGE_WEAK 5
+#define SFX_BATTLE_DECREASE 6
+#define SFX_BATTLE_ESCAPE 7
+#define SFX_BATTLE_EXPFULL 8
+#define SFX_BATTLE_FAINT 9
+#define SFX_BATTLE_INCREASE 10
+#define SFX_BATTLE_JUMPTOBALL 11
+#define SFX_BATTLE_RECALL 12
+#define SFX_BATTLE_THROW 13
+#define SFX_BIKE 14
+#define SFX_BUMP 15
+#define SFX_CANCEL 16
+#define SFX_CAVE_WARP 17
+#define SFX_CHOOSE 18
+#define SFX_ENTER_DOOR 19
+#define SFX_EXMARK 20
+#define SFX_JUMP 21
+#define SFX_MENU 22
+#define SFX_NAV 23
+#define SFX_OBTAIN_EGG 24
+#define SFX_OBTAIN_ITEM 25
+#define SFX_OBTAIN_KEY_ITEM 26
+#define SFX_PC_CLOSE 27
+#define SFX_PC_OPEN 28
+#define SFX_SAVE 29
+#define SFX_SELECT 30
+#define SFX_SHINY 31
+#define SFX_USE_ITEM 32
+#define SFX_WARP 33
+#define SFX_TELEPORT_DOWN 34
+#define SFX_TELEPORT_UP 35
+#define SFX_SLIDING_DOOR 36
+#define SFX_HM_CUT 37
+#define SFX_HM_FLY 38
+#define SFX_HM_ROCKSMASH 39
+#define SFX_HM_STRENGTH 40
+#define SFX_OBTAIN_TM 41
 dnl
 // General m4 macros
 define(<!for!>,<!ifelse($#,0,<!<!$0!>!>,<!ifelse(eval($2<=$3),1,
@@ -98,7 +118,7 @@ dnl
 #define CRGL 16
 #define CRGG 17
 #define CRGN 18
-#define MPL  19
+#define MPL 19
 #define CMO 20
 #define GMO 21
 #define CPP 22
@@ -147,9 +167,11 @@ dnl
 #define CLL 126
 #define MSG 127
 dnl
+#define SET_WEATHER( p_newWeather ) ins3( SWT, p_newWeather, 0 )
 dnl
 #define AWARD_BADGE( p_region, p_badge ) ins4( CLL, 9, p_region, p_badge )
-#define WARP_CROSSBANK( p_bank, p_globX, p_globY, p_z ) ins4( BNK, p_bank, p_z, 0 ) ins3( WRP, p_globX, p_globY )
+#define WARP_CROSSBANK( p_bank, p_globX, p_globY, p_z ) \
+    ins4( BNK, p_bank, p_z, 0 ) ins3( WRP, p_globX, p_globY )
 dnl
 #define FAINT_PLAYER ins4( FNT, 0, 0, 0 )
 dnl
@@ -173,45 +195,89 @@ dnl
 dnl
 #define MESSAGE( p_messageId, p_messageType ) ins3( MSG, p_messageId, p_messageType )
 dnl
-#define SPAWN_MAPOBJECT( p_picId, p_locX, p_locY ) ins4( SMO, p_picId, p_locX, p_locY ) /* dnl Spawns a new map object at (globX, globY); writes the new MO id to REGISTER1 */
-#define MOVE_MAPOBJECT( p_mapObject, p_direction, p_amount ) ins4( MMO, p_mapObject, p_direction, p_amount )/* Moves the specified MO in the specified direction. */
-#define MOVE_MAPOBJECT_FAST( p_mapObject, p_direction, p_amount ) ins4( MFO, p_mapObject, p_direction, p_amount )/* Moves the specified MO in the specified direction. */
+#define SPAWN_MAPOBJECT( p_picId, p_locX, p_locY )                                                \
+    ins4( SMO, p_picId, p_locX, p_locY ) /* dnl Spawns a new map object at (globX, globY); writes \
+                                            the new MO id to REGISTER1 */
+#define MOVE_MAPOBJECT( p_mapObject, p_direction, p_amount ) \
+    ins4( MMO, p_mapObject, p_direction,                     \
+          p_amount ) /* Moves the specified MO in the specified direction. */
+#define MOVE_MAPOBJECT_FAST( p_mapObject, p_direction, p_amount ) \
+    ins4( MFO, p_mapObject, p_direction,                          \
+          p_amount ) /* Moves the specified MO in the specified direction. */
 #define DESTROY_MAPOBJECT( p_mapObject ) ins4( DMO, p_mapObject, 0, 0 )
 dnl
-#define SPAWN_MAPOBJECT_R( p_register, p_localX, p_localY ) ins4( SMOR, p_register, p_globX, p_globY ) /* dnl Spawns a new map object at (globX, globY); writes the new MO id to REGISTER1 */
-#define MOVE_MAPOBJECT_R( p_register, p_direction, p_amount ) ins4( MMOR, p_register, p_direction, p_amount )/* Moves the specified MO in the specified direction. */
-#define MOVE_MAPOBJECT_FAST_R( p_register, p_direction, p_amount ) ins4( MFOR, p_register, p_direction, p_amount )/* Moves the specified MO in the specified direction. */
+#define SPAWN_MAPOBJECT_R( p_register, p_localX, p_localY )                                      \
+    ins4( SMOR, p_register, p_globX, p_globY ) /* dnl Spawns a new map object at (globX, globY); \
+                                                  writes the new MO id to REGISTER1 */
+#define MOVE_MAPOBJECT_R( p_register, p_direction, p_amount ) \
+    ins4( MMOR, p_register, p_direction,                      \
+          p_amount ) /* Moves the specified MO in the specified direction. */
+#define MOVE_MAPOBJECT_FAST_R( p_register, p_direction, p_amount ) \
+    ins4( MFOR, p_register, p_direction,                           \
+          p_amount ) /* Moves the specified MO in the specified direction. */
 #define DESTROY_MAPOBJECT_R( p_register ) ins4( DMOR, p_register, 0, 0 )
 dnl
 dnl
-#define CHECK_VAR( p_var, p_value, p_skippedInstructionsIfTrue ) ins4( CVR, p_var, p_value, p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
-#define CHECK_VAR_N( p_var, p_value, p_skippedInstructionsIfFalse ) ins4( CVRN, p_var, p_value, p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
+#define CHECK_VAR( p_var, p_value, p_skippedInstructionsIfTrue )                               \
+    ins4( CVR, p_var, p_value,                                                                 \
+          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
+                                           value, skips the specified number of instructions   \
+                                           (after the current one) if the check passes */
+#define CHECK_VAR_N( p_var, p_value, p_skippedInstructionsIfFalse )                             \
+    ins4( CVRN, p_var, p_value,                                                                 \
+          p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+                                            value, skips the specified number of instructions   \
+                                            (after the current one) if the check passes */
 dnl
-#define CHECK_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue ) ins4( CFL, p_flag, p_value, p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
-#define CHECK_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse ) ins4( CFL, p_flag, 1 - p_value, p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
-#define CHECK_TRAINER_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue ) ins4( CTF, p_flag, p_value, p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
-#define CHECK_TRAINER_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse ) ins4( CTF, p_flag, 1 - p_value, p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
+#define CHECK_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue )                             \
+    ins4( CFL, p_flag, p_value,                                                                \
+          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
+                                           value, skips the specified number of instructions   \
+                                           (after the current one) if the check passes */
+#define CHECK_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse )                           \
+    ins4( CFL, p_flag, 1 - p_value,                                                             \
+          p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+                                            value, skips the specified number of instructions   \
+                                            (after the current one) if the check passes */
+#define CHECK_TRAINER_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue )                     \
+    ins4( CTF, p_flag, p_value,                                                                \
+          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
+                                           value, skips the specified number of instructions   \
+                                           (after the current one) if the check passes */
+#define CHECK_TRAINER_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse )                   \
+    ins4( CTF, p_flag, 1 - p_value,                                                             \
+          p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+                                            value, skips the specified number of instructions   \
+                                            (after the current one) if the check passes */
 #define SET_FLAG( p_flag, p_value ) ins4( SFL, p_flag, p_value, 0 )
 #define SET_TRAINER_FLAG( p_flag, p_value ) ins4( STF, p_flag, p_value, 0 )
 dnl
-#define CHECK_FLAG_R( p_register, p_value, p_skippedInstructionsIfTrue ) ins4( CFL, p_register, p_value, p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified value, skips the specified number of instructions (after the current one) if the check passes */
+#define CHECK_FLAG_R( p_register, p_value, p_skippedInstructionsIfTrue )                       \
+    ins4( CFL, p_register, p_value,                                                            \
+          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
+                                           value, skips the specified number of instructions   \
+                                           (after the current one) if the check passes */
 #define SET_FLAG_R( p_register, p_value ) ins4( SFLR, p_register, p_value, 0 )
 dnl
 #define MOVE_PLAYER( p_direction, p_amount ) ins4( MPL, 0, p_direction, p_amount )
 dnl
-#define CHECK_REGISTER( p_register, p_value, p_skippedInstructionsIfTrue ) ins4( CRG, p_register, p_value, p_skippedInstructionsIfTrue )
-#define CHECK_REGISTER_L( p_register, p_value, p_skippedInstructionsIfTrue ) ins4( CRGL, p_register, p_value, p_skippedInstructionsIfTrue )
-#define CHECK_REGISTER_G( p_register, p_value, p_skippedInstructionsIfTrue ) ins4( CRGG, p_register, p_value, p_skippedInstructionsIfTrue )
-#define CHECK_REGISTER_N( p_register, p_value, p_skippedInstructionsIfTrue ) ins4( CRGN, p_register, p_value, p_skippedInstructionsIfTrue )
+#define CHECK_REGISTER( p_register, p_value, p_skippedInstructionsIfTrue ) \
+    ins4( CRG, p_register, p_value, p_skippedInstructionsIfTrue )
+#define CHECK_REGISTER_L( p_register, p_value, p_skippedInstructionsIfTrue ) \
+    ins4( CRGL, p_register, p_value, p_skippedInstructionsIfTrue )
+#define CHECK_REGISTER_G( p_register, p_value, p_skippedInstructionsIfTrue ) \
+    ins4( CRGG, p_register, p_value, p_skippedInstructionsIfTrue )
+#define CHECK_REGISTER_N( p_register, p_value, p_skippedInstructionsIfTrue ) \
+    ins4( CRGN, p_register, p_value, p_skippedInstructionsIfTrue )
 #define SET_REGISTER( p_register, p_value ) ins4( SRG, p_register, p_value, 0 )
 dnl
 #define GET_CURRENT_MAPOBJECT ins4( CMO, 0, 0, 0 )
 #define WAIT( p_duration ) ins3( WAT, p_duration, 0 )
 dnl
-#define CHECK_ITEM( p_itemId, p_quantity, p_skipIfYes ) ins3( GIT, p_itemId, 0 ) \
-    CHECK_REGISTER_L( EVAL_REG, p_quantity, p_skipIfYes )
-#define YES_NO_MESSAGE( p_messageId, p_messageType, p_skipIfYes ) ins3( YNM, p_messageId, p_messageType ) \
-    CHECK_REGISTER( EVAL_REG, 1, p_skipIfYes )
+#define CHECK_ITEM( p_itemId, p_quantity, p_skipIfYes ) \
+    ins3( GIT, p_itemId, 0 ) CHECK_REGISTER_L( EVAL_REG, p_quantity, p_skipIfYes )
+#define YES_NO_MESSAGE( p_messageId, p_messageType, p_skipIfYes ) \
+    ins3( YNM, p_messageId, p_messageType ) CHECK_REGISTER( EVAL_REG, 1, p_skipIfYes )
 dnl
 #define PLAY_MUSIC_ONESHOT( p_modId, p_duration ) ins3( PMO, p_modId, p_duration )
 #define PLAY_SOUND_EFFECT( p_sfx ) ins3( SFX, p_sfx, 0 )

@@ -114,7 +114,7 @@ Mom: Did you introduce yourself to\nProf. Birch?;Mutter: Hast du dich bei Prof. 
 [PLAYER], don't you think it might\nbe a good idea to go see [RIVAL]?;[PLAYER], meinst du nicht, es wäre eine gute\nIdee, wenn du dich mit [RIVAL] triffst?;
 Route 102\nOldale Town [478];Route 102\nRosaltstadt [478];
 Route 102\n[475] Petalburg City;Route 102\n[475] Blütenburg City;
-Petalburg City\n[129]Where people mingle with nature.\";Blütenburg City\n[131]Wo Menschen Hand in Hand mit der Natur gehen.[129];
+Petalburg City\n[129]Where people mingle with nature.\";Blütenburg City\n[131]Wo Menschen Hand in Hand\nmit der Natur gehen.[129];
 Wally's House;Haus von Heiko;
 I'm|not very tall, so I sink\nright into tall grass.\rThe grass goes up my nose and|\nFwafwafwafwafwa|\rFwatchoo!;Ich| bin nicht groß, ich versinke\nim hohen Gras.\rDas Gras erreicht meine Nase und|\nHahahaha|\rHaaatschiiii!;
 Hiya! Are you maybe|\nA rookie Pokémon Trainer?\rDo you know what Pokémon Trainers do\nwhen they reach a new town?\rThey first check what kind of\nPokémon Gym is in the town.;He da! Bist du vielleicht|\nein Anfänger unter den Trainern?\rWeißt du, was Pokémon-Trainer machen,\nwenn sie in einen neuen Ort kommen?\rSie sehen sich als Erstes die Arena\nim Ort an.;
@@ -273,3 +273,4 @@ Oh, neat!\nThat's the Badge from Rustboro Gym!\rYou must be a Trainer.\nYou shou
 It's a Miracle Seed.\rIf a Pokémon holds that item, its Grass-type\nmoves become stronger.\rBesides Miracle Seed, I think there are other\nconvenient items for Pokémon to hold.;Das ist eine Wundersaat.\rWenn ein Pokémon sie trägt, werden\nseine Pflanzen-Attacken stärker.\rNeben der Wundersaat gibt es noch andere\nItems, die von Pokémon getragen werden\nkönnen.;
 Dad: I see| So, you've beaten\nthe Gym Leader in Rustboro City.\rBut there are many more Trainers\nwho are stronger than you, [PLAYER].\rAcross the sea in Dewford Town is a\nGym Leader named Brawly.\rYou should challenge him.;Vater: Oh, ich sehe schon| Du hast die\nArenaleiterin von Metarost City besiegt.\rAber es gibt weitere Trainer, die\nstärker sind als du, [PLAYER].\rWenn du das Meer überquerst,\nkommst du nach Faustauhaven.\rDort triffst du auf den\nArenaleiter Kamillo.\rDu solltest ihn wirklich herausfordern|;
 Better get going|;Ich beeile mich besser|;
+The sandstorm is too strong. It's impossible to keep going.;Der Sandsturm wütet zu stark. Ein Weiterkommen ist unmöglich.;

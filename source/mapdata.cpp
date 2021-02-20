@@ -60,22 +60,26 @@ enum wildPkmnType : u8 {
     ROCK_SMASH,
     SWEET_SCENT,
 };
-enum mapWeather : u8 {
-    NOTHING        = 0, // Inside
-    SUNNY          = 1,
-    REGULAR        = 2,
-    RAINY          = 3,
-    SNOW           = 4,
-    THUNDERSTORM   = 5,
-    MIST           = 6,
-    BLIZZARD       = 7,
-    SANDSTORM      = 8,
-    FOG            = 9,
-    DENSE_MIST     = 0xa,
-    CLOUDY         = 0xb, // Dark Forest clouds
-    HEAVY_SUNLIGHT = 0xc,
-    HEAVY_RAIN     = 0xd,
-    UNDERWATER     = 0xe
+enum mapWeather : u16 {
+    NOTHING         = 0, // Inside
+    SUNNY           = 1,
+    REGULAR         = 2,
+    RAINY           = 3,
+    SNOW            = 4,
+    THUNDERSTORM    = 5,
+    MIST            = 6,
+    BLIZZARD        = 7,
+    SANDSTORM       = 8,
+    FOG             = 9,
+    DENSE_MIST      = 0xa,
+    CLOUDY          = 0xb, // Dark Forest clouds
+    HEAVY_SUNLIGHT  = 0xc,
+    HEAVY_RAIN      = 0xd,
+    UNDERWATER      = 0xe,
+    DARK_FLASHABLE  = 0xf,
+    DARK_PERMANENT  = 0x10,
+    DARK_FLASH_USED = 0x11,
+    FOREST_CLOUDS   = 0x12,
 };
 enum mapType : u8 { OUTSIDE = 0, CAVE = 1, INSIDE = 2, DARK = 4, FLASHABLE = 8 };
 enum warpType : u8 {
@@ -106,7 +110,7 @@ struct mapData {
         u8  m_right;
         u8  m_bottom;
         u16 m_locationId;
-    } m_extraLocations[ 4 ];
+    } m_extraLocations[ 4 ] = { 0 };
     u8 m_pokemonDescrCount;
     struct wildPkmnData {
         u16          m_speciesId;
@@ -115,7 +119,7 @@ struct mapData {
         u8           m_slot;
         u8           m_daytime;
         u8           m_encounterRate;
-    } m_pokemon[ 30 ];
+    } m_pokemon[ 30 ] = { 0 };
     u8 m_eventCount;
     struct event {
         u8           m_posX;
@@ -172,7 +176,7 @@ struct mapData {
                 u8 m_treeIdx; // internal id of this berry tree
             } m_berryTree;
         } m_data;
-    } m_events[ 64 ];
+    } m_events[ 64 ] = { 0 };
 };
 
 map<u16, names>  location_names;
@@ -202,6 +206,10 @@ mapWeather getMapWeather( char* p_str ) {
     if( !strcmp( p_str, "heavy sunshine" ) ) return HEAVY_SUNLIGHT;
     if( !strcmp( p_str, "heavy rain" ) ) return HEAVY_RAIN;
     if( !strcmp( p_str, "underwater" ) ) return UNDERWATER;
+    if( !strcmp( p_str, "dark flashable" ) ) return DARK_FLASHABLE;
+    if( !strcmp( p_str, "dark" ) ) return DARK_PERMANENT;
+    if( !strcmp( p_str, "dark flash used" ) ) return DARK_FLASH_USED;
+    if( !strcmp( p_str, "forest clouds" ) ) return FOREST_CLOUDS;
 
     fprintf( stderr, "unknown weather %s\n", p_str );
     return NOTHING;
@@ -212,6 +220,7 @@ wildPkmnType getEncounterType( char* p_str ) {
 
     if( !strcmp( p_str, "grass" ) ) return GRASS;
     if( !strcmp( p_str, "high grass" ) ) return HIGH_GRASS;
+    if( !strcmp( p_str, "long grass" ) ) return HIGH_GRASS;
     if( !strcmp( p_str, "surf" ) ) return WATER;
     if( !strcmp( p_str, "water" ) ) return WATER;
     if( !strcmp( p_str, "old rod" ) ) return OLD_ROD;
@@ -399,7 +408,7 @@ warpType getWarpType( char* p_str ) {
 }
 
 mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
-    mapData::event::data res;
+    mapData::event::data res        = mapData::event::data( );
     char                 buf1[ 50 ] = { 0 }, buf2[ 50 ] = { 0 };
 
     switch( p_type ) {
@@ -455,9 +464,9 @@ mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
 }
 
 mapData parseMapData( const char* p_path ) {
-    FILE*   f = fopen( p_path, "r" );
-    char    buffer[ 500 ];
-    mapData res         = mapData( );
+    FILE*   f             = fopen( p_path, "r" );
+    char    buffer[ 500 ] = { 0 };
+    mapData res           = mapData( );
     char    buf1[ 100 ] = { 0 }, buf2[ 100 ] = { 0 }, buf3[ 100 ] = { 0 };
 
     // General data
@@ -475,7 +484,7 @@ mapData parseMapData( const char* p_path ) {
     fgets( buffer, sizeof( buffer ), f );
     sscanf( buffer, "%[^,],%hhu,", buf1, &res.m_extraLocationCount );
     res.m_baseLocationId = locations[ string( fixEncoding( buf1 ) ) ];
-    if( !res.m_baseLocationId ) {
+    if( !res.m_baseLocationId && strcmp( buf1, "Mystery Zone" ) ) {
         fprintf( stderr, "[%s] Unknown or zero location name %s.\n", FILENAME.c_str( ), buf1 );
     }
 
@@ -485,7 +494,7 @@ mapData parseMapData( const char* p_path ) {
                 &res.m_extraLocations[ i ].m_top, &res.m_extraLocations[ i ].m_right,
                 &res.m_extraLocations[ i ].m_bottom, buf1 );
         res.m_extraLocations[ i ].m_locationId = locations[ string( fixEncoding( buf1 ) ) ];
-        if( !res.m_extraLocations[ i ].m_locationId ) {
+        if( !res.m_extraLocations[ i ].m_locationId && strcmp( buf1, "Mystery Zone" ) ) {
             fprintf( stderr, "[%s] Unknown or zero location name %s.\n", FILENAME.c_str( ), buf1 );
         }
     }
@@ -500,7 +509,10 @@ mapData parseMapData( const char* p_path ) {
         sscanf( buffer, "%[^,],%hhu,%[^,],%hhu,%[^,],%hhu,", buf1, &res.m_pokemon[ i ].m_forme,
                 buf2, &res.m_pokemon[ i ].m_slot, buf3, &res.m_pokemon[ i ].m_encounterRate );
 
-        res.m_pokemon[ i ].m_speciesId     = pkmns[ string( fixEncoding( buf1 ) ) ];
+        res.m_pokemon[ i ].m_speciesId = pkmns[ string( fixEncoding( buf1 ) ) ];
+        if( !res.m_pokemon[ i ].m_speciesId ) {
+            fprintf( stderr, "[%s] Unknown PKMN name %s.\n", FILENAME.c_str( ), buf1 );
+        }
         res.m_pokemon[ i ].m_encounterType = getEncounterType( buf2 );
         res.m_pokemon[ i ].m_daytime       = parseDaytimes( buf3 );
     }

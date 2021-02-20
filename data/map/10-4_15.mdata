@@ -1,6 +1,28 @@
-outside,none,1,1,1,5,15,15,
+outside,none,1,1,1,5,0,0,
 Route 121,1,
 0,24,31,31,Route 122,
-0
-0
+20
+Shellos,0,grass,0,Dawn|Day,25,
+Zigzagoon,1,grass,0,Night|Dusk,30,
+Wingull,0,grass,0,Dawn|Day,40,
+Linoone,1,long grass,0,Night|Dusk,30,
+Kecleon,0,grass,0,Dawn|Day,5,
+Tropius,0,long grass,2,Dawn|Day,10,
+Shuppet,0,long grass,2,Night|Dusk,10,
+Duskull,0,long grass,2,Night|Dusk,10,
+Spoink,0,long grass,4,Always,15,
+Tentacool,0,surf,0,Always,60,
+Wingull,0,surf,3,Dusk|Day|Dawn,40,
+Carvanha,0,surf,3,Night,40,
+Tentacool,0,old rod,0,Always,20,
+Magikarp,0,old rod,0,Always,80,
+Tentacool,0,good rod,0,Always,30,
+Magikarp,0,good rod,0,Always,50,
+Wailmer,0,good rod,0,Always,20,
+Horsea,0,super rod,0,Always,20,
+Sharpedo,0,super rod,0,Always,40,
+Wailmer,0,super rod,0,Always,40,
+1
+7,14,3,0,0,hmobject,interact,
+cut,
 

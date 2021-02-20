@@ -1,6 +1,13 @@
 outside,none,1,1,1,4,15,15,
 Route 103,1,
 0,16,31,31,Mystery Zone,
-0
+7
+Poochyena,0,grass,0,Dusk|Night,5,
+Zigzagoon,0,grass,0,Dawn|Day,5,
+Wingull,0,grass,0,Always,8,
+Psyduck,0,grass,1,Always,30,
+Rhyhorn,0,grass,2,Always,12,
+Gulpin,0,grass,3,Always,25,
+Shellos,1,grass,7,Always,30,
 0
 

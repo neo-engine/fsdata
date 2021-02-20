@@ -93,7 +93,7 @@ void readLearnsetData( char* p_learnsetData, vector<pkmnLearnsetData>& p_out ) {
 moveData parseMoveData( char* p_buffer ) {
     // printf( "parsing %s\n", p_buffer );
 
-    moveData res;
+    moveData res = moveData( );
 
     u16  id;
     char alt_id[ 70 ];
@@ -179,8 +179,8 @@ moveData parseMoveData( char* p_buffer ) {
 }
 
 void readMoveData( char* p_moveData, vector<moveData>& p_out ) {
-    FILE* f = fopen( p_moveData, "r" );
-    char  buffer[ 800 ];
+    FILE* f             = fopen( p_moveData, "r" );
+    char  buffer[ 800 ] = { 0 };
     while( f && fgets( buffer, sizeof( buffer ), f ) ) p_out.push_back( parseMoveData( buffer ) );
     fclose( f );
 }
@@ -385,20 +385,20 @@ void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, cha
     char  buffer[ 500 ];
     char* t1;
 
-    char data_buf[ 200 ];
+    char data_buf[ 200 ] = { 0 };
     assert( fgets( data_buf, sizeof( data_buf ), id ) );
-    char med_buf[ 200 ];
+    char med_buf[ 200 ] = { 0 };
     assert( fgets( med_buf, sizeof( med_buf ), m ) );
-    char forme_buf[ 200 ];
+    char forme_buf[ 200 ] = { 0 };
     assert( fgets( forme_buf, sizeof( forme_buf ), fc ) );
-    char tm_buf[ 200 ];
+    char tm_buf[ 200 ] = { 0 };
     assert( fgets( tm_buf, sizeof( tm_buf ), tm ) );
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
         names n;
         for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-            n.m_name[ i ] = new char[ 30 ];
-            std::memset( n.m_name[ i ], 0, 30 );
+            n.m_name[ i ] = new char[ 40 ];
+            std::memset( n.m_name[ i ], 0, 40 );
         }
         size_t id_a;
         sscanf( t1, "%lu", &id_a );
@@ -432,7 +432,7 @@ void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, cha
             }
         } else if( t.m_itemType == 12 ) { // TM/HM
             if( fc ) {
-                char movename[ 50 ];
+                char movename[ 50 ] = { 0 };
                 sscanf( tm_buf, "%lu,%hhu,%hu,%[^,],%*u,", &id_b, &t.m_effect, &t.m_param1,
                         movename ); // type (0: hm, 1: tm, 2: tr), number, move name, (unused)
                 assert( id_a == id_b );
@@ -552,8 +552,8 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
                 forms_found++;
             }
             for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-                n2.m_name[ i ] = new char[ 30 ];
-                std::memset( n2.m_name[ i ], 0, 30 );
+                n2.m_name[ i ] = new char[ 40 ];
+                std::memset( n2.m_name[ i ], 0, 40 );
             }
 
             char* t1  = strtok( fdata_buf, "," );

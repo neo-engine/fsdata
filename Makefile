@@ -22,8 +22,8 @@ DATA     	:=	data
 CFLAGS      :=	-O2 -Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) -DMAX_PKMN=$(MAX_PKMN) \
 				-DFSROOT=\"$(FSROOT)\" -DOUT=\"$(OUT)\"
-CXXFLAGS    :=	$(CFLAGS) -std=c++2a
-LDFLAGS     :=
+CXXFLAGS    :=	$(CFLAGS) -std=c++2a -fsanitize=undefined
+LDFLAGS     := -lubsan
 
 MAPSCRIPT_FILES	:= $(addprefix $(DATA)/scripts/, $(foreach dir, $(DATA)/scripts,$(notdir $(wildcard $(dir)/*.m4.h))))
 MAPDATA_FILES	:= $(addprefix $(DATA)/map/, $(foreach dir, $(DATA)/map,$(notdir $(wildcard $(dir)/*.mdata))))

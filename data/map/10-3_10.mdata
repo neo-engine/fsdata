@@ -1,6 +1,25 @@
 outside,none,1,1,1,5,15,15,
 Route 119,1,
 0,0,15,31,Mystery Zone,
-0
+19
+Oddish,0,long grass,0,Dawn|Day,30,
+Zigzagoon,1,long grass,0,Night|Dusk,30,
+Gloom,0,long grass,0,Dawn|Day,30,
+Linoone,1,long grass,0,Night|Dusk,30,
+Gloom,0,long grass,0,Night|Dusk,5,
+Linoone,1,long grass,0,Dawn|Day,5,
+Kecleon,0,long grass,2,Always,5,
+Tropius,0,long grass,4,Always,15,
+Heracross,0,long grass,6,Dawn|Dusk,15,
+Pinsir,0,long grass,6,Day|Night,15,
+Tentacool,0,surf,0,Always,60,
+Wingull,0,surf,3,Dusk|Day|Dawn,40,
+Carvanha,0,surf,3,Night,40,
+Tentacool,0,old rod,0,Always,20,
+Magikarp,0,old rod,0,Always,80,
+Tentacool,0,good rod,0,Always,30,
+Magikarp,0,good rod,0,Always,50,
+Carvanha,0,good rod,0,Always,20,
+Carvanha,0,super rod,0,Always,100,
 0
 

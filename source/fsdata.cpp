@@ -608,7 +608,7 @@ FILE* getFilePtr( string p_prefix, u16 p_index, u8 p_digits, string p_ext, u8 p_
 }
 
 void printNormalized( char* p_string, FILE* p_f ) {
-    while( *p_string ) {
+    while( p_string && *p_string ) {
         if( *p_string == '(' ) {
             ++p_string;
             continue;
@@ -660,16 +660,20 @@ void readNames( char* p_path, vector<names>& p_out, int p_maxLen, u8 p_offset ) 
     while( fgets( buffer, sizeof( buffer ), f ) ) {
         t1 = strtok( buffer, "," );
         names n;
-        for( int i = 0; i < NUM_LANGUAGES; ++i ) { n.m_name[ i ] = new char[ 30 ]; }
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
+            n.m_name[ i ] = new char[ 2 * p_maxLen ];
+            std::memset( n.m_name[ i ], 0, 2 * p_maxLen );
+        }
         int cnt = 0;
         for( u8 i = 0; i < p_offset; ++i, ( t1 = strtok( NULL, "," ) ) )
             ;
         while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, "," ) ) ) {
-            strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), std::min( 29, p_maxLen ) );
+            strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), p_maxLen );
         }
         p_out.push_back( n );
     }
     // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    fclose( f );
 }
 
 void readNames( char* p_path, map<u16, names>& p_out ) {
@@ -692,6 +696,7 @@ void readNames( char* p_path, map<u16, names>& p_out ) {
         p_out[ id ] = n;
     }
     // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    fclose( f );
 }
 
 void readDescrs( char* p_path, vector<descrs>& p_out, int p_maxLen ) {
@@ -709,4 +714,5 @@ void readDescrs( char* p_path, vector<descrs>& p_out, int p_maxLen ) {
         p_out.push_back( n );
     }
     // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    fclose( f );
 }

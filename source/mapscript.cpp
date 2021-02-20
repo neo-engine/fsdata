@@ -31,7 +31,7 @@ int main( int p_argc, char** p_argv ) {
 
     u16 idx = 0;
     sscanf( p_argv[ 1 ], "%*[^0-9]%hu", &idx );
-    printf( "[%s] Saving to %hu\n", p_argv[ 1 ], idx );
+//    printf( "[%s] Saving to %hu\n", p_argv[ 1 ], idx );
 
     printMapScript( SCRIPT, idx );
 }

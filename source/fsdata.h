@@ -1,7 +1,7 @@
 #include <filesystem>
+#include <map>
 #include <string>
 #include <vector>
-#include <map>
 
 using namespace std;
 namespace fs = filesystem;
@@ -379,10 +379,10 @@ struct moveData {
 };
 
 struct names {
-    char* m_name[ NUM_LANGUAGES ];
+    char* m_name[ NUM_LANGUAGES ] = { 0 };
 };
 struct descrs {
-    char* m_descr[ NUM_LANGUAGES ];
+    char* m_descr[ NUM_LANGUAGES ] = { 0 };
 };
 struct data {
     char m_data[ 200 ][ NUM_LANGUAGES ];

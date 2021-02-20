@@ -1,7 +1,26 @@
-outside,none,1,1,1,4,15,15,
+outside,none,11,1,1,4,15,15,
 Verdanturf Town,2,
 8,0,31,23,Route 117,
 0,24,31,31,Mystery Zone,
-0
+19
+Poochyena,0,grass,0,Dusk|Night,10,
+Zigzagoon,0,grass,0,Dawn|Day,10,
+Oddish,0,grass,0,Always,30,
+Volbeat,0,grass,0,Day|Night,29,
+Illumise,0,grass,0,Dusk|Dawn,29,
+Seedot,0,grass,2,Dusk|Night,1,
+Surskit,0,grass,2,Day|Dawn,1,
+Roselia,0,grass,3,Always,20,
+Hoppip,0,grass,5,Dawn|Day|Dusk,10,
+Munna,0,grass,5,Night,10,
+Finneon,0,surf,0,Always,60,
+Marill,0,surf,3,Dusk|Day|Dawn,40,
+Surskit,0,surf,3,Night,40,
+Finneon,0,old rod,0,Always,20,
+Magikarp,0,old rod,0,Always,80,
+Finneon,0,good rod,0,Always,30,
+Magikarp,0,good rod,0,Always,50,
+Corphish,0,good rod,0,Always,20,
+Corphish,0,super rod,0,Always,100,
 0
 

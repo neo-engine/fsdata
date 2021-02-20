@@ -1,8 +1,25 @@
-outside,none,1,1,1,4,15,15,
+outside,none,1,1,1,5,0,0,
 Mauville City,3,
 0,24,7,31,Route 110,
 8,0,31,23,Route 118,
 8,24,31,31,Mystery Zone,
-0
+17
+Zigzagoon,1,grass,0,Night,40,
+Electrike,0,grass,0,Dawn|Day|Dusk,40,
+Linoone,1,grass,4,Night,20,
+Manectric,0,grass,4,Dawn|Day|Dusk,20,
+Murkrow,0,grass,4,Night,19,
+Wingull,0,grass,4,Dawn|Day|Dusk,19,
+Kecleon,0,grass,6,Always,1,
+Natu,0,grass,6,Always,20,
+Tentacool,0,surf,0,Always,30,
+Wingull,0,surf,4,Always,20,
+Staryu,0,surf,6,Always,50,
+Tentacool,0,old rod,0,Always,20,
+Magikarp,0,old rod,0,Always,80,
+Tentacool,0,good rod,0,Always,50,
+Magikarp,0,good rod,0,Always,50,
+Carvanha,0,super rod,0,Always,60,
+Sharpedo,0,super rod,0,Always,40,
 0
 

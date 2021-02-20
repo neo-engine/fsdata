@@ -2,5 +2,11 @@ outside,none,1,1,1,4,15,15,
 Route 103,1,
 0,0,31,15,Mystery Zone,
 0
-0
+3
+12,25,3,0,0,berry tree,interact,
+24,
+13,25,3,0,0,berry tree,interact,
+25,
+14,25,3,0,0,berry tree,interact,
+26,
 

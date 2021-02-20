@@ -28,7 +28,7 @@ Goldeen,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Barboach,0,good rod,0,Always,20,
 Barboach,0,super rod,0,Always,100,
-8
+10
 19,16,3,0,0,warp,none,
 cave entry,11,3,1,20,30,3,
 6,27,3,0,0,hmobject,interact,
@@ -45,4 +45,8 @@ rock smash,
 rock smash,
 0,19,3,0,0,hmobject,interact,
 rock smash,
+2,22,3,0,0,berry tree,interact,
+30,
+2,21,3,0,0,berry tree,interact,
+31,
 
