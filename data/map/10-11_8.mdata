@@ -12,5 +12,11 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
+3
+15,29,3,0,0,message,interact down|interact up,
+normal,280,
+14,15,3,0,0,message,interact down|interact up,
+normal,281,
+23,2,3,0,0,message,interact down|interact up,
+normal,282,
 

@@ -13,7 +13,15 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-1
+5
+1,23,3,0,78,item,interact,
+hidden,Poké Ball,
+13,24,3,0,79,item,interact,
+hidden,Stardust,
+28,27,3,0,80,item,interact,
+hidden,Heart Scale,
+19,25,3,0,0,message,interact down|interact up,
+sign,276,
 8,28,3,0,0,warp,none,
 cave entry,14,1,2,12,20,3,
 

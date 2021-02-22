@@ -23,5 +23,13 @@ Tentacool,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Wailmer,0,good rod,0,Always,20,
 Wailmer,0,super rod,0,Always,100,
-0
+4
+5,30,3,0,0,message,interact down|interact up,
+sign,294,
+5,27,3,0,89,item,interact,
+hidden,Full Heal,
+0,29,3,0,90,item,interact,
+item,Great Ball,
+1,5,3,0,91,item,interact,
+hidden,Ether,
 

@@ -13,5 +13,9 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
+2
+8,2,3,0,83,item,interact,
+hidden,Heart Scale,
+27,6,3,0,84,item,interact,
+item,PP Up,
 

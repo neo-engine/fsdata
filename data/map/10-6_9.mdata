@@ -21,5 +21,10 @@ Tentacool,0,good rod,0,Always,50,
 Magikarp,0,good rod,0,Always,50,
 Carvanha,0,super rod,0,Always,60,
 Sharpedo,0,super rod,0,Always,40,
-0
-
+3
+2,6,3,0,0,hmobject,interact,
+cut,
+9,1,3,0,99,item,interact,
+hidden,Leaf Stone,
+2,10,3,0,0,message,interact down|interact up,
+normal,298,

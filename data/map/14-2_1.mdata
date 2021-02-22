@@ -1,11 +1,21 @@
 cave|dark|flashable,none,18,6,6,4,15,15,
 Granite Cave,0,
-0
-3
+8
+Zubat,0,grass,0,Always,20,
+Abra,0,grass,0,Always,10,
+Makuhita,0,grass,0,Always,20,
+Aron,0,grass,1,Always,30
+Sableye,0,grass,2,Night,10
+Mawile,0,grass,2,Dawn|Dusk|Day,10
+Geodude,0,rock smash,0,Always,70
+Nosepass,0,rock smash,2,Always,30
+4
 20,24,3,0,0,warp,none,
 cave entry,14,1,1,26,18,3,
 24,8,3,0,0,warp,none,
 cave entry,14,3,1,24,8,3,
 29,8,3,0,0,warp,none,
 cave entry,14,3,1,29,8,3,
+31,25,3,0,66,item,interact,
+item,Poké Ball,
 

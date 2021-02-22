@@ -21,7 +21,11 @@ Finneon,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Corphish,0,good rod,0,Always,20,
 Corphish,0,super rod,0,Always,100,
-3
+5
+21,9,3,0,0,message,interact down|interact up,
+normal,301,
+21,16,3,0,0,message,interact down|interact up,
+normal,302,
 13,17,3,0,0,berry tree,interact,
 18,
 14,17,3,0,0,berry tree,interact,

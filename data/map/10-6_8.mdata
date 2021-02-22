@@ -2,5 +2,20 @@ outside,none,1,1,1,4,15,15,
 Mauville City,1,
 0,24,31,31,Route 110,
 0
-0
-
+7
+27,18,3,0,0,message,interact down|interact up,
+normal,17,
+26,18,3,0,0,message,interact down|interact up,
+normal,17,
+21,18,3,0,0,message,interact down|interact up,
+normal,19,
+22,18,3,0,0,message,interact down|interact up,
+normal,19,
+27,23,3,0,97,item,interact,
+item,X Speed,
+21,5,3,0,98,item,interact,
+tm,TM23,
+19,11,3,0,0,message,interact down|interact up,
+normal,299,
+11,19,3,0,0,message,interact down|interact up,
+normal,300,

@@ -1,0 +1,17 @@
+cave|dark|flashable,none,17,4,4,4,0,0,
+Fiery Path,0,
+7
+Slugma,0,grass,0,Always,10,
+Numel,0,grass,0,Always,15,
+Torkoal,0,grass,2,Always,25,
+Turtonator,0,grass,2,Always,30,
+Vulpix,0,grass,4,Always,10
+Grimer,0,grass,6,Dusk|Night,10,
+Koffing,0,grass,6,Dawn|Day,10,
+3
+17,11,3,0,0,warp,none,
+cave entry,15,1,4,17,11,3,
+10,26,3,0,0,warp,none,
+cave entry,15,1,4,10,26,3,
+4,21,3,0,65,item,interact,
+item,Fire Stone,

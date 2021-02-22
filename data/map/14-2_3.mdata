@@ -1,6 +1,14 @@
 cave,none,18,6,6,4,15,15,
 Granite Cave,0,
-0
+8
+Zubat,0,grass,0,Always,20,
+Abra,0,grass,0,Always,10,
+Makuhita,0,grass,0,Always,20,
+Aron,0,grass,1,Always,30
+Sableye,0,grass,2,Night,10
+Mawile,0,grass,2,Dawn|Dusk|Day,10
+Geodude,0,rock smash,0,Always,70
+Nosepass,0,rock smash,2,Always,30
 1
 16,13,3,0,0,warp,none,
 cave entry,14,1,1,13,20,3,

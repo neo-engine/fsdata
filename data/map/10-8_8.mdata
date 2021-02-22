@@ -1,4 +1,4 @@
-outside,none,1,1,1,5,15,15,
+outside,none,1,1,1,5,0,0,
 Route 110,0,
 21
 Poochyena,0,grass,0,Dusk|Night,10,
@@ -22,5 +22,9 @@ Tentacool,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Wailmer,0,good rod,0,Always,20,
 Wailmer,0,super rod,0,Always,100,
-0
+2
+8,27,3,0,0,message,interact down|interact up,
+normal,292,
+9,11,4,0,0,message,interact down|interact up,
+normal,293,
 

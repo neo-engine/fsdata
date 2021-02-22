@@ -12,5 +12,15 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
+5
+14,14,3,0,85,item,interact,
+hidden,Revive,
+28,12,3,0,86,item,interact,
+hidden,Ether,
+9,6,3,0,87,item,interact,
+hidden,Heart Scale,
+31,0,3,0,88,item,interact,
+hidden,Heart Scale,
+29,2,3,0,0,message,interact down|interact up,
+sign,279,
 

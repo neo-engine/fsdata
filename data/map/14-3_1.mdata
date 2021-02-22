@@ -1,9 +1,35 @@
 cave|dark|flashable,none,18,6,6,4,15,15,
 Granite Cave,0,
-0
-2
+8
+Zubat,0,grass,0,Always,20,
+Abra,0,grass,0,Always,10,
+Makuhita,0,grass,0,Always,20,
+Aron,0,grass,1,Always,30
+Sableye,0,grass,2,Night,10
+Mawile,0,grass,2,Dawn|Dusk|Day,10
+Geodude,0,rock smash,0,Always,70
+Nosepass,0,rock smash,2,Always,30
+11
 29,8,3,0,0,warp,none,
 cave entry,14,2,1,29,8,3,
 24,8,3,0,0,warp,none,
 cave entry,14,2,1,24,8,3,
+20,23,3,0,0,hmobject,interact,
+rock smash,
+20,25,3,0,0,hmobject,interact,
+rock smash,
+22,25,3,0,0,hmobject,interact,
+rock smash,
+19,19,3,0,0,hmobject,interact,
+rock smash,
+20,17,3,0,0,hmobject,interact,
+rock smash,
+22,16,3,0,0,hmobject,interact,
+rock smash,
+26,14,3,0,0,hmobject,interact,
+rock smash,
+31,14,3,0,68,item,interact,
+hidden,Everstone,
+22,7,3,0,69,item,interact,
+item,Repel,
 
