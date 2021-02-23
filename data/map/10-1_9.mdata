@@ -3,5 +3,11 @@ Route 111,1,
 0,0,31,7,Mystery Zone,
 1
 Beldum,0,grass,0,Always,100
-0
+3
+25,27,3,0,0,message,interact down|interact up,
+sign,314,
+12,23,3,0,112,item,interact,
+hidden,Smooth Rock,
+9,21,3,0,113,item,interact,
+tm,TM02,
 

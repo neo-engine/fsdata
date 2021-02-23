@@ -1,6 +1,6 @@
 outside,none,10,1,1,4,0,0,
 Route 114,0,
-25
+27
 Lotad,0,grass,0,Dawn|Day,50,
 Lombre,0,grass,3,Dawn|Day,20,
 Seedot,0,grass,0,Dusk|Night,50,
@@ -26,7 +26,17 @@ Goldeen,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Barboach,0,good rod,0,Always,20,
 Barboach,0,super rod,0,Always,100,
-6
+Geodude,0,rock smash,0,Always,90,
+Geodude,1,rock smash,5,Always,10,
+10
+22,29,7,0,0,hmobject,interact,
+rock smash,
+29,14,5,0,0,hmobject,interact,
+rock smash,
+30,15,5,0,0,hmobject,interact,
+rock smash,
+4,21,7,0,121,item,interact,
+item,Star Piece,
 31,5,3,0,0,berry tree,interact,
 32,
 31,4,3,0,0,berry tree,interact,

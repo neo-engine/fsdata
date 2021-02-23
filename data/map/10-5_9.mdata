@@ -10,5 +10,7 @@ Maractus,0,grass,6,Always,1,
 Gible,0,grass,8,Dawn,1,
 Sandile,0,grass,8,Night,1,
 Dwebble,0,grass,8,Day|Dusk,1,
-0
+1
+1,0,3,0,107,item,interact,
+tm,TM32,
 

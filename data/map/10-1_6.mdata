@@ -8,5 +8,11 @@ Skarmory,0,grass,5,Dawn|Day,10,
 Scraggy,0,grass,8,Night,9,
 Klefki,0,grass,8,Dusk,10,
 Larvitar,0,grass,8,Night,1,
-0
+3
+17,31,3,0,119,item,interact,
+item,Super Repel,
+30,27,3,0,118,item,interact,
+hidden,Ether,
+22,28,3,0,0,message,interact down|interact up,
+sign,321,
 

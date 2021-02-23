@@ -7,5 +7,11 @@ Machop,0,grass,0,Always,40,
 Numel,0,grass,4,Always,59,
 Ponyta,0,grass,8,Night|Dusk|Day,1
 Tyrogue,0,grass,8,Dawn,1
-0
+3
+18,4,3,0,0,message,interact down|interact up,
+normal,319,
+22,3,3,0,0,message,interact down|interact up,
+normal,19,
+21,3,3,0,0,message,interact down|interact up,
+normal,19,
 

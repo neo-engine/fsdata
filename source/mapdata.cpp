@@ -80,6 +80,7 @@ enum mapWeather : u16 {
     DARK_PERMANENT  = 0x10,
     DARK_FLASH_USED = 0x11,
     FOREST_CLOUDS   = 0x12,
+    ASH_RAIN        = 0x13,
 };
 enum mapType : u8 { OUTSIDE = 0, CAVE = 1, INSIDE = 2, DARK = 4, FLASHABLE = 8 };
 enum warpType : u8 {
