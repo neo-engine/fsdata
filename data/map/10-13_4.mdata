@@ -14,5 +14,7 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
+1
+5,14,3,0,0,warp,none,
+door,23,3,1,14,16,3,
 

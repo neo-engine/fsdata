@@ -10,7 +10,11 @@ Tentacool,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Wailmer,0,good rod,0,Always,20,
 Wailmer,0,super rod,0,Always,100,
-10
+11
+10,7,3,0,0,warp,none,
+sliding door,29,1,1,16,30,3,
+2,9,3,0,0,warp,none,
+sliding door,29,2,1,14,19,3,
 26,22,3,0,0,message,interact down|interact up,
 normal,283,
 8,23,3,0,0,message,interact down|interact up,

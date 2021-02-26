@@ -1,4 +1,4 @@
-// Default pokemart
+// Pokemart Petalburg
 #include "scriptlib.m4.h"
 
 MART_BEGIN( 0, 1 )

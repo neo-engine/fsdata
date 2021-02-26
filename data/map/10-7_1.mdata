@@ -2,7 +2,9 @@ outside,none,1,1,1,4,0,0,
 Route 104,1,
 24,0,31,7,Rustboro City,
 0
-2
+3
+29,3,3,0,0,warp,none,
+door,31,2,6,11,27,3,
 29,30,3,0,0,warp,none,
 cave entry,37,1,2,11,20,3,
 26,27,3,0,0,hmobject,interact,

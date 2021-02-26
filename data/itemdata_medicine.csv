@@ -5,7 +5,7 @@
 0021,heal status,4,0,0,
 0022,heal status,5,0,0,
 0023,heal hp and status,0,100,0,
-0024,heal hp and status,0,100,0,
+0024,heal hp,0,100,0,
 0025,heal hp,200,0,0,
 0026,heal hp,80,0,0,
 0027,heal status,0,0,0,

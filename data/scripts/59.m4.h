@@ -1,0 +1,12 @@
+// mauville special mart
+#include "scriptlib.m4.h"
+
+MART_BEGIN( 0, 1 )
+    MART_ITEM( I_X_SPEED, 350 )
+    MART_ITEM( I_X_SP_ATK, 350 )
+    MART_ITEM( I_X_SP_DEF, 350 )
+    MART_ITEM( I_DUSK_BALL, 1000 )
+    MART_ITEM( I_NEST_BALL, 1000 )
+    MART_ITEM( I_HEAVY_BALL, 1000 )
+SELL_ITEMS
+END_OF_PROGRAM

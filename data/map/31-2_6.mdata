@@ -1,0 +1,14 @@
+inside,none,1,1,1,4,15,15,
+Rustboro City,0,
+0
+5
+12,20,3,0,0,warp,none,
+cave entry,31,2,6,12,4,3,
+12,4,3,0,0,warp,none,
+cave entry,31,2,6,12,20,3,
+10,4,3,0,0,warp,none,
+cave entry,31,1,6,10,20,3,
+11,27,3,0,0,warp,none,
+door,10,7,1,29,3,3,
+12,27,3,0,0,warp,none,
+door,10,7,1,29,3,3,

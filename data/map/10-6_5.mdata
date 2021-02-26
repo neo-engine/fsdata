@@ -3,7 +3,9 @@ Verdanturf Town,2,
 0,24,31,31,Mystery Zone,
 0,0,15,23,Route 116,
 0
-8
+9
+18,12,3,0,0,warp,none,
+sliding door,26,1,1,16,30,3,
 24,6,3,0,0,warp,none,
 cave entry,12,2,2,25,21,3,
 19,12,3,0,0,message,interact down|interact up,

@@ -1,7 +1,15 @@
 outside,none,1,1,1,4,15,15,
 Rustboro City,0,
 0
-26
+30
+25,3,3,0,0,warp,none,
+door,31,1,10,14,19,3,
+22,11,3,0,0,warp,none,
+door,31,1,11,15,20,3,
+5,15,3,0,0,warp,none,
+door,31,3,11,15,26,3,
+17,30,3,0,0,warp,none,
+door,31,2,11,15,20,3,
 19,5,3,0,56,script,step on,
 48,0,
 4,29,3,0,0,npc message,interact,
