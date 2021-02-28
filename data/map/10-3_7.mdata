@@ -6,7 +6,11 @@ Machop,0,grass,0,Always,40,
 Numel,0,grass,4,Always,59,
 Ponyta,0,grass,8,Night|Dusk|Day,1
 Tyrogue,0,grass,8,Dawn,1
-4
+6
+17,11,3,0,0,warp,none,
+cave entry,39,1,1,24,30,3,
+18,11,3,0,0,warp,none,
+cave entry,39,1,1,25,30,3,
 6,16,3,0,0,warp,none,
 cave entry,15,1,4,26,27,3,
 16,12,3,0,0,message,interact down|interact up,

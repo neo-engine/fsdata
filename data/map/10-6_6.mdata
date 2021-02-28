@@ -22,7 +22,9 @@ Finneon,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Corphish,0,good rod,0,Always,20,
 Corphish,0,super rod,0,Always,100,
-5
+6
+1,19,3,0,0,warp,none,
+door,26,3,2,14,16,3,
 20,10,3,0,0,message,interact down|interact up,
 normal,303,
 19,6,3,0,0,hmobject,interact,

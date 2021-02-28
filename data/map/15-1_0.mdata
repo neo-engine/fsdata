@@ -1,5 +1,9 @@
 outside,none,17,4,4,4,0,0,
 Mt. Chimney,0,
 0
-0
+2
+30,14,3,0,0,warp,none,
+cave entry,39,1,1,7,12,3,
+31,14,3,0,0,warp,none,
+cave entry,39,1,1,8,12,3,
 

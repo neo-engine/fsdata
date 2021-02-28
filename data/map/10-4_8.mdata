@@ -9,8 +9,12 @@ Gible,0,grass,8,Dawn,1,
 Sandile,0,grass,8,Night,1,
 Dwebble,0,grass,8,Day|Dusk,1,
 Geodude,0,rock smash,0,Always,30,
-2
+4
 18,27,3,0,0,hmobject,interact,
 rock smash,
 7,12,3,0,0,message,interact down|interact up,
 sign,310,
+29,15,3,0,0,warp,none,
+cave entry,17,1,2,22,27,3,
+0,0,0,0,136,script,on map enter,
+71,

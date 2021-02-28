@@ -1,0 +1,8 @@
+Takao;Satoru;
+Might is right!\nCome on!;Die Macht bestimmt alles!\nKomm schon!;
+Your skill overcame my strength!\nYour technique is commendable!;Gegen dein Talent ist meine Macht machtlos.\nDeine Technik ist super!;
+Not enough power|;Nicht genug Macht|;
+--;--;
+Black Belt,3,1,none,none,none,none,none,416,37,10,10,47,
+Machop,male,0,16,Guts,none,Low Kick,Knock Off,Focus Energy,Bulk Up,0,0,0,0,0,0,10,10,10,10,10,10,0,1,
+Makuhita,male,0,18,Guts,none,Tackle,Arm Thrust,Whirlwind,Bulk Up,0,0,0,0,0,0,15,15,15,15,15,15,0,1,

@@ -20,5 +20,9 @@ Finneon,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Barboach,0,good rod,0,Always,20,
 Barboach,0,super rod,0,Always,100,
-0
+2
+7,15,3,0,0,warp,none,
+cave entry,17,1,3,22,27,3,
+0,0,0,0,136,script,on map enter,
+72,
 

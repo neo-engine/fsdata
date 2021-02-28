@@ -303,7 +303,7 @@ Pokémon Day Care\n[129]Let us raise your Pokémon.[130];Pokémon-Pension\n[131]
 Route 117\n[478] Mauville City;Route 117\n[478] Malvenfroh City;
 Route 117\n[475] Verdanturf Town;Route 117\n[475] Wiesenflur;
 Battle Tent Verdanturf Site\n[129]Feast Your Eyes on Battles![130];Kampfcamp Wiesenflur\n[131]Wo Kämpfe eine Augenweide sind.[129];
-Verdanturf Town\n[129]The windswept highlands with the\nsweet fragrance of grass.[130];Wiesenflur\n[131]Das vom Wind gestreichelte Hochland\n mit dem süßen Duft von Grases.[129];
+Verdanturf Town\n[129]The windswept highlands with the\nsweet fragrance of grass.[130];Wiesenflur\n[131]Das vom Wind gestreichelte Hochland\n mit dem süßen Duft von Gras.[129];
 Wanda's House;Heikes Haus;
 Route 111\n[477] Mauville City;Route 111\n[477] Malvenfroh City;
 [478] Trainer Hill Entrance\n[129]Scale the heights, you hot-blooded Trainers![130];[478] Eingang Trainerberg\n[131]Erklimm den Gipfel, heißblütiger Trainer![129];
@@ -322,6 +322,20 @@ Pokémon Herb Shop\n[129]Bitter taste--better cure![130];Pokémon Kräuterladen\
 --- Trainer Tips ---\rYou may register one of the Key Items\nin your Bag as Y\rSimply press Y to use\nthe registered item conveniently.;--- Tipps für Trainer ---\rDu kannst eines deiner Basis-Items in\ndeinem Beutel auf Y legen.\rDurch Drücken von Y kannst du so\nganz bequem das Item einsetzen.;
 Glass Workshop\n[129]Turning Volcanic Ash into Glass Items[130];Glaswerkstatt\n[131]Glasdekor aus Vulkanasche.[129];
 [129]| Po|émo| |nd | nat|r|[130]\n| L|ke a|h|\rThe sign seems to be very old|;[131]| Pok|mon |nd | Nat|[129]\n| See vor|\rDas Schild scheint sehr alt zu sein|;
+Dewford Town Pokémon Gym;Faustauhaven Pokémon-Arena;
+Hey, how's it going, Champion-\nbound [PLAYER]?\rDewford's Gym Leader Brawly commands\nFighting-type Pokémon.\rGoing against him with Normal-type\nPokémon is asking for trouble.\rFighting Pokémon will lay a serious\nsmack down on Normal Pokémon,\nso be careful!\rWhat's worse, the Gym is as dark as\nthe ocean floor.\rBut it will get brighter after defeating\nthe Trainers in your way.\rHey, okay, go for it!;Na, wie sieht es aus, auf dem Weg zum\nChamp, [PLAYER]?\rFaustauhavens Arenaleiter Kamillo\nbesitzt Kampf-Pokémon.\rWenn du dort Normal-Pokémon antreten\nlässt, sind Probleme vorprogrammiert!\rKampf-Pokémon schlagen Normal-Pokémon\neinfach nieder. Pass gut auf!\rUnd das Schlimme ist: Die Arena ist\ndunkel wie die Tiefsee!\rAber mit jedem Trainer, den du auf dem Weg\nzum Arenaleiter besiegst, wird sie heller!\rAlso, dann leg mal los!;
+Whoah! It's turned too bright in here!\rYour future is bright, too!;;Huuh!\nDas ist mir hier aber schon zu hell!\rDeine Zukunft wird strahlend hell sein!
+I'm Brawly!\nDewford's Gym Leader!\rI've been churned in the rough waves\nof these parts, and I've grown tough\nin the pitch-black cave!\rSo you wanted to challenge me?\nLet me see what you're made of!;Ich bin Kamillo!\nDer Arenaleiter von Faustauhaven!\rIch habe die wilden Strudel dieser\nGegend gemeistert und bin in dieser\npechschwarzen Höhle stark geworden.\rDu willst mich wirklich herausfordern?\nDann zeig mir, woraus du gemacht bist!;
+You swamped me!\rOkay, you've got me.\nTake this Gym Badge!;Du hast mich absaufen lassen!\rOkay, du hast mich erwischt!\nNimm den Orden dieser Arena!;
+With the Knuckle Badge, you'll\nbe able to use the HM move\nFlash outside of battle.\rIf you'd like, use this Technical\nMachine, too.;Dank des Knöchelordens kannst die VM Blitz\nauch außerhalb eines Kampfes anwenden.\rUnd wenn du magst, kannst du auch diese\nTechnische Maschine anwenden.;
+That TM contains Bulk Up.\rIt's a move that raises both Attack\nand Defense stats.;Die TM enthält Protzer.\rDiese Attacke hebt den Status des\nAngriffs und der Verteidigung.;
+I can see your talent becoming a giant\nwave to cause a storm of astonishment\namong Trainers one day!;Ich sehe in dir ein Talent, das eines\nTages zu einer riesigen Welle wird und\neinen Sturm des Erstaunens bei anderen\nTrainern entfachen wird!;
+Dewford is a tiny island community.\rIf something gets trendy here,\neveryone picks up on it right away.;Faustauhaven ist eine kleine\nInselgemeinschaft.\rWenn hier etwas in Mode kommt,\nwill jeder es haben.;
+I'll give you a little fishing advice.\rFirst, you want to face the water,\nthen use the Rod.\rFocus your mind|\nIf you get a bite, pull the Rod.\rSometimes you can snag something\nimmediately, but with bigger catches,\nyou need to time the pulls on your Rod\nto haul them in.;Ich gebe dir einige Tipps zum Angeln!\rSchau dir zuerst das Wasser an\nund dann benutze deine Angel.\rKonzentriere dich| Wenn etwas\nanbeißt, hol die Angel ein.\rManchmal kannst du mit einem Mal etwas\nGroßes fangen, manchmal musst du\nimmer wieder kurz die Angel anheben,\num etwas an Land zu ziehen.;
+This is a renowned fishing spot.\nAre you getting the itch to fish?;Dies ist ein berühmter Angelplatz.\nHast du Lust zu angeln?;
+Oh, is that so?\nThat's too bad, then.;Oh, wirklich?\nDas ist aber schade.;
+I hear you, and I like what\nyou're saying!\rI'll give you one of my fishing Rods.;Ich habe dir genau zugehört und mir\ngefällt, was du gesagt hast!\rIch werde dir eine meiner Angeln geben.;
+And, as an added bonus, I'll even throw\nin a little fishing advice!\rFirst, you want to face the water,\nthen use the Rod.\rFocus your mind|\nIf you get a bite, pull on the Rod.\rSometimes you can snag something\nimmediately, but with bigger catches,\nyou need to time the pulls on your Rod\nto haul them in.;Und, als kleine Zugabe, gebe ich dir noch\neinige Tipps zum Angeln!\rSchau dir zuerst das Wasser an und dann\nbenutze deine Angel.\rKonzentriere dich| Wenn etwas anbeißt,\nhol die Angel ein.\rManchmal kannst du mit einem Mal etwas\nGroßes fangen, manchmal musst du\nimmer wieder kurz die Angel anheben,\num etwas an Land zu ziehen.;
 --- Trainer Tips ---\r;--- Tipps für Trainer ---\r;
 \n[129][130];\n[131][129];
 Route 117\n[475];Route 117\n[475];

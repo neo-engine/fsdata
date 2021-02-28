@@ -1,0 +1,13 @@
+inside,none,1,1,1,4,15,15,
+Pokémon Center,0,
+0
+4
+15,30,3,0,0,warp,none,
+sliding door,10,8,26,11,29,3,
+16,30,3,0,0,warp,none,
+sliding door,10,8,26,11,29,3,
+11,28,3,0,0,npc message,interact,
+look right,235,31,0,
+16,24,3,0,0,npc,interact,
+look down,232,1,0,
+

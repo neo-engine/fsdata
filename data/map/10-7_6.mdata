@@ -7,5 +7,9 @@ Wingull,0,grass,0,Always,40,
 Rockruff,0,grass,8,Day|Night|Dawn,45,
 Rockruff,1,grass,8,Dusk,45,
 Bounsweet,0,grass,8,Always,5,
-0
+2
+12,12,3,0,0,warp,none,
+cave entry,17,1,4,22,27,3,
+0,0,0,0,143,script,on map enter,
+70,
 

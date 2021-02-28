@@ -8,7 +8,13 @@ Machop,0,grass,0,Always,40,
 Numel,0,grass,4,Always,59,
 Ponyta,0,grass,8,Night|Dusk|Day,1
 Tyrogue,0,grass,8,Dawn,1
-6
+9
+13,22,3,0,0,warp,none,
+cave entry,24,1,1,11,23,3,
+19,26,3,0,0,warp,none,
+door,24,3,1,13,21,3,
+14,26,3,0,0,warp,none,
+sliding door,24,1,1,16,30,3,
 28,27,3,0,0,warp,none,
 cave entry,15,4,0,31,18,3,
 29,27,3,0,0,warp,none,

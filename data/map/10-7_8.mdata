@@ -22,7 +22,11 @@ Tentacool,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Wailmer,0,good rod,0,Always,20,
 Wailmer,0,super rod,0,Always,100,
-8
+10
+15,8,3,0,0,warp,none,
+door,45,1,1,10,11,3,
+18,8,3,0,0,warp,none,
+door,45,1,1,20,11,3,
 5,3,3,0,0,berry tree,interact,
 21,
 6,3,3,0,0,berry tree,interact,

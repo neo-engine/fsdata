@@ -21,7 +21,11 @@ Tentacool,0,good rod,0,Always,50,
 Magikarp,0,good rod,0,Always,50,
 Carvanha,0,super rod,0,Always,60,
 Sharpedo,0,super rod,0,Always,40,
-3
+4
+3,9,3,0,0,warp,none,
+door,30,1,3,12,22,3,
+0,18,3,0,0,warp,none,
+door,30,1,4,12,12,3,
 2,6,3,0,0,hmobject,interact,
 cut,
 9,1,3,0,99,item,interact,

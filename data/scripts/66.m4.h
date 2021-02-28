@@ -1,0 +1,10 @@
+// lavaridge herb shop
+#include "scriptlib.m4.h"
+
+MART_BEGIN( 0, 0 )
+    MART_ITEM( I_HEAL_POWDER, 450 )
+    MART_ITEM( I_ENERGY_POWDER, 500 )
+    MART_ITEM( I_ENERGY_ROOT, 800 )
+    MART_ITEM( I_REVIVAL_HERB, 2800 )
+SELL_ITEMS
+END_OF_PROGRAM

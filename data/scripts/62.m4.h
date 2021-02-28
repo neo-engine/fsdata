@@ -1,0 +1,12 @@
+// forrtree special mart
+#include "scriptlib.m4.h"
+
+MART_BEGIN( 0, 1 )
+    MART_ITEM( I_X_SPEED, 350 )
+    MART_ITEM( I_X_DEFENSE, 350 )
+    MART_ITEM( I_X_ACCURACY, 950 )
+    MART_ITEM( I_NEST_BALL, 1000 )
+    MART_ITEM( I_QUICK_BALL, 1000 )
+    MART_ITEM( I_FRIEND_BALL, 1000 )
+SELL_ITEMS
+END_OF_PROGRAM

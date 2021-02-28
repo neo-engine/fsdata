@@ -26,7 +26,9 @@ Goldeen,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Barboach,0,good rod,0,Always,20,
 Barboach,0,super rod,0,Always,100,
-1
+2
+27,28,3,0,0,warp,none,
+door,40,1,2,14,12,3,
 25,30,3,0,0,message,interact down|interact up,
 normal,6,
 

@@ -3,7 +3,13 @@ Verdanturf Town,2,
 0,24,31,31,Mystery Zone,
 0,0,15,23,Route 116,
 0
-9
+12
+17,18,3,0,0,warp,none,
+door,26,2,2,14,10,3,
+26,18,3,0,0,warp,none,
+door,26,2,2,14,26,3,
+29,10,3,0,0,warp,none,
+sliding door,26,3,1,15,28,3,
 18,12,3,0,0,warp,none,
 sliding door,26,1,1,16,30,3,
 24,6,3,0,0,warp,none,

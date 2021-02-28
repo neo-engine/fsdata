@@ -22,7 +22,11 @@ Tentacool,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Wailmer,0,good rod,0,Always,20,
 Wailmer,0,super rod,0,Always,100,
-3
+5
+16,16,3,0,0,warp,none,
+door,45,1,1,10,24,3,
+19,16,3,0,0,warp,none,
+door,45,1,1,20,24,3,
 20,22,3,0,0,message,interact down|interact up,
 normal,289,
 14,16,3,0,0,message,interact down|interact up,

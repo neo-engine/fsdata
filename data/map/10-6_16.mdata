@@ -24,5 +24,9 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
+2
+6,22,3,0,0,warp,none,
+cave entry,17,1,5,22,27,3,
+0,0,0,0,136,script,on map enter,
+73,
 

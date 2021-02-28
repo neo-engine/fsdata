@@ -1,0 +1,13 @@
+inside,none,1,1,1,4,15,15,
+Cable Car,0,
+0
+4
+7,12,3,0,0,warp,none,
+cave entry,15,1,0,30,14,3,
+8,12,3,0,0,warp,none,
+cave entry,15,1,0,31,14,3,
+24,30,3,0,0,warp,none,
+cave entry,10,3,7,17,11,3,
+25,30,3,0,0,warp,none,
+cave entry,10,3,7,18,11,3,
+

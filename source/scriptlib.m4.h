@@ -31,6 +31,8 @@ dnl
 #define WEATHER_DARK_FLASH_USED 0x11
 #define WEATHER_FOREST_CLOUDS 0x12
 #define WEATHER_ASH_RAIN 0x13
+#define WEATHER_FLASH_1 0x14
+#define WEATHER_FLASH_2 0x15
 dnl
 #define SFX_BATTLE_ABILITY 0
 #define SFX_BATTLE_BALLDROP 1
@@ -89,6 +91,7 @@ dnl
 dnl
 define(<!ins4!>,<!eval((($1 & 255) << 24) | (($2 & 255) << 16) | (($3 & 255) << 8) | ($4 & 255))!>)
 define(<!ins3!>,<!eval((($1 & 255) << 24) | (($2 & 4095) << 12) | ($3 & 4095))!>)
+define(<!ins3s!>,<!eval((($1 & 255) << 24) | (($2 & 31) << 19) | (($3 & 31) << 14) | ($4 & 16383))!>)
 dnl
 #define EVAL_REG 0
 dnl
@@ -136,6 +139,10 @@ dnl
 #define GIT 33
 #define STF 34
 #define CTF 35
+#define ADD 36
+#define ARG 37
+#define DIV 38
+#define DRG 39
 dnl
 #define EXM 88
 #define EXMR 88
@@ -168,7 +175,10 @@ dnl
 #define CLL 126
 #define MSG 127
 dnl
+#define SBC 196
+dnl
 #define SET_WEATHER( p_newWeather ) ins3( SWT, p_newWeather, 0 )
+#define SET_BLOCK( p_mapX, p_mapY, p_blockIdx ) ins3s( SBC, p_mapX, p_mapY, p_blockIdx )
 dnl
 #define AWARD_BADGE( p_region, p_badge ) ins4( CLL, 9, p_region, p_badge )
 #define WARP_CROSSBANK( p_bank, p_globX, p_globY, p_z ) \
@@ -183,6 +193,14 @@ dnl
 dnl
 #define CHECK_PLAYER_POS( p_posX, p_posY, p_posZ ) ins4( CPP, p_posX, p_posY, p_posZ )
 #define COPY_REGISTER( p_target, p_source ) ins4( MRG, p_target, p_source, 0 )
+#define ADD_CONSTANT_TO_REGISTER( p_targetRegister, p_constant ) \
+    ins4( ADD, p_targetRegister, p_constant, 0 )
+#define ADD_REGISTER_TO_REGISTER( p_targetRegister, p_sourceRegister ) \
+    ins4( ARG, p_targetRegister, p_sourceRegister, 0 )
+#define DIVIDE_REGISTER_BY_CONSTANT( p_targetRegister, p_constant ) \
+    ins4( DIV, p_targetRegister, p_constant, 0 )
+#define DIVIDE_REGISTER_BY_REGISTER( p_targetRegister, p_sourceRegister ) \
+    ins4( DRG, p_targetRegister, p_sourceRegister, 0 )
 dnl
 #define PLAY_MUSIC( p_musicId ) ins3( MSC, p_musicId, 0 )
 #define RESTORE_MUSIC ins3( RMS, 0, 0 )

@@ -1,0 +1,25 @@
+// Brawly (dewford gym)
+#include "scriptlib.m4.h"
+
+CHECK_FLAG( 150, 0, 2 )
+    MESSAGE( 331, 0 )
+    JUMP_TO_END
+MESSAGE( 327, 0 )
+BATTLE_TRAINER( 43, SINGLE )
+CHECK_REGISTER( 0, 1, 2 )
+    FAINT_PLAYER
+    JUMP_TO_END
+SET_FLAG( 150, 1 )
+// Disable the other trainers in the gym
+SET_TRAINER_FLAG( 42, 1 )
+SET_TRAINER_FLAG( 41, 1 )
+SET_TRAINER_FLAG( 40, 1 )
+SET_TRAINER_FLAG( 39, 1 )
+SET_TRAINER_FLAG( 38, 1 )
+SET_TRAINER_FLAG( 37, 1 )
+MESSAGE( 328, 0 )
+AWARD_BADGE( 0, 2 )
+MESSAGE( 329, 0 )
+GIVE_ITEM( I_TM47, 1 )
+MESSAGE( 330, 0 )
+END_OF_PROGRAM

@@ -8,7 +8,9 @@ Baltoy,0,grass,4,Always,29,
 Gible,0,grass,8,Dawn,1,
 Sandile,0,grass,8,Night,1,
 Dwebble,0,grass,8,Day|Dusk,1,
-9
+10
+26,10,3,0,0,warp,none,
+door,38,1,1,13,26,3,
 25,11,3,0,0,message,interact down|interact up,
 normal,312,
 17,23,3,0,0,script,step on,

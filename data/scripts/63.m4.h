@@ -1,0 +1,12 @@
+// mossdeep special mart
+#include "scriptlib.m4.h"
+
+MART_BEGIN( 0, 1 )
+    MART_ITEM( I_X_SP_DEF, 350 )
+    MART_ITEM( I_X_DEFENSE, 350 )
+    MART_ITEM( I_GUARD_SPEC, 950 )
+    MART_ITEM( I_DIVE_BALL, 1000 )
+    MART_ITEM( I_REPEAT_BALL, 1000 )
+    MART_ITEM( I_LOVE_BALL, 1000 )
+SELL_ITEMS
+END_OF_PROGRAM

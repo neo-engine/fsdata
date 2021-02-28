@@ -8,7 +8,9 @@ Skarmory,0,grass,5,Dawn|Day,10,
 Scraggy,0,grass,8,Night,9,
 Klefki,0,grass,8,Dusk,10,
 Larvitar,0,grass,8,Night,1,
-8
+9
+29,29,3,0,0,warp,none,
+door,47,1,1,14,20,3,
 27,29,3,0,0,message,interact down|interact up,
 normal,322,
 18,29,3,0,120,item,interact,

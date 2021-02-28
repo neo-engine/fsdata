@@ -1,0 +1,15 @@
+inside,none,1,1,1,4,15,15,
+Battle Tent,0,
+0
+5
+15,28,3,0,0,warp,none,
+sliding door,10,6,5,29,10,3,
+16,28,3,0,0,warp,none,
+sliding door,10,6,5,29,10,3,
+15,20,3,0,0,warp,none,
+sliding door,26,3,1,15,11,3,
+15,11,3,0,0,warp,none,
+sliding door,26,3,1,15,20,3,
+15,5,3,0,0,warp,none,
+sliding door,26,1,2,11,19,3,
+
