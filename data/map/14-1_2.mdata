@@ -6,7 +6,9 @@ Abra,0,grass,0,Always,10,
 Geodude,0,grass,0,Always,20,
 Makuhita,0,grass,0,Always,29,
 Geodude,1,grass,5,Always,1,
-2
+3
+12,18,3,0,0,npc,interact,
+look right,36,80,0,
 12,20,3,0,0,warp,none,
 cave entry,10,12,3,8,28,3,
 11,13,3,0,0,warp,none,

@@ -14,8 +14,12 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-2
+4
 5,14,3,0,0,warp,none,
 door,23,3,1,14,16,3,
 1,14,3,0,0,npc,interact,
 walk around up down,38,77,0,
+0,8,5,0,168,npc message,none,
+look down,202,433,0,
+1,9,3,0,168,npc,none,
+look left,62,100,0,

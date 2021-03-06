@@ -1,7 +1,13 @@
 inside,none,1,1,1,4,15,15,
 Route 116,0,
 0
-2
+5
+14,17,3,0,0,npc message,interact,
+look left,73,380,0,
+17,17,3,0,0,npc message,interact,
+look right,73,379,0,
+18,14,3,0,0,npc message,interact,
+look up,73,378,0,
 15,20,3,0,0,warp,none,
 door,10,5,4,6,24,3,
 16,20,3,0,0,warp,none,

@@ -143,21 +143,28 @@ dnl
 #define ARG 37
 #define DIV 38
 #define DRG 39
+#define HPL 40
+#define SPL 41
+#define WPL 42
 dnl
 #define EXM 88
 #define EXMR 88
 #define RDR 89
 #define ATT 90
 #define REM 91
+#define FIXR 92
+#define UFXR 93
 dnl
 #define FNT 99
 #define BTR 100
 #define BPK 101
 #define ITM 102
+#define TTM 103
 dnl
 #define BTRR 105
 #define BPKR 106
 #define ITMR 107
+#define TTMR 108
 dnl
 #define MSC 113
 #define RMS 114
@@ -174,6 +181,8 @@ dnl
 #define YNM 125
 #define CLL 126
 #define MSG 127
+#define CBG 128
+#define CIT 129
 dnl
 #define SBC 196
 dnl
@@ -211,6 +220,8 @@ dnl
 #define REDRAW_OBJECTS ins4( RDR, 0, 0, 0 )
 #define SKIP( p_skippedInsFor ) ins4( JMP, p_skippedInsFor, 0, 0 )
 #define REWIND( p_skippedInsBack ) ins4( JMB, p_skippedInsBack, 0, 0 )
+#define FIX_MAPOBJECT_R( p_register ) ins4( FIXR, p_register, 0, 0 )
+#define UNFIX_MAPOBJECT_R( p_register ) ins4( UFXR, p_register, 0, 0 )
 dnl
 #define MESSAGE( p_messageId, p_messageType ) ins3( MSG, p_messageId, p_messageType )
 dnl
@@ -225,8 +236,8 @@ dnl
           p_amount ) /* Moves the specified MO in the specified direction. */
 #define DESTROY_MAPOBJECT( p_mapObject ) ins4( DMO, p_mapObject, 0, 0 )
 dnl
-#define SPAWN_MAPOBJECT_R( p_register, p_localX, p_localY )                                      \
-    ins4( SMOR, p_register, p_globX, p_globY ) /* dnl Spawns a new map object at (globX, globY); \
+#define SPAWN_MAPOBJECT_R( p_register, p_localX, p_localY )                                        \
+    ins4( SMOR, p_register, p_localX, p_localY ) /* dnl Spawns a new map object at (globX, globY); \
                                                   writes the new MO id to REGISTER1 */
 #define MOVE_MAPOBJECT_R( p_register, p_direction, p_amount ) \
     ins4( MMOR, p_register, p_direction,                      \
@@ -279,6 +290,7 @@ dnl
 #define SET_FLAG_R( p_register, p_value ) ins4( SFLR, p_register, p_value, 0 )
 dnl
 #define MOVE_PLAYER( p_direction, p_amount ) ins4( MPL, 0, p_direction, p_amount )
+#define WALK_PLAYER( p_direction, p_amount ) ins4( WPL, 0, p_direction, p_amount )
 dnl
 #define CHECK_REGISTER( p_register, p_value, p_skippedInstructionsIfTrue ) \
     ins4( CRG, p_register, p_value, p_skippedInstructionsIfTrue )
@@ -297,6 +309,9 @@ dnl
     ins3( GIT, p_itemId, 0 ) CHECK_REGISTER_L( EVAL_REG, p_quantity, p_skipIfYes )
 #define YES_NO_MESSAGE( p_messageId, p_messageType, p_skipIfYes ) \
     ins3( YNM, p_messageId, p_messageType ) CHECK_REGISTER( EVAL_REG, 1, p_skipIfYes )
+#define YES_NO_MESSAGE_D( p_messageId, p_messageType ) ins3( YNM, p_messageId, p_messageType )
+#define YES_NO_MESSAGE_N( p_messageId, p_messageType, p_skipIfNo ) \
+    ins3( YNM, p_messageId, p_messageType ) CHECK_REGISTER( EVAL_REG, 0, p_skipIfNo )
 dnl
 #define PLAY_MUSIC_ONESHOT( p_modId, p_duration ) ins3( PMO, p_modId, p_duration )
 #define PLAY_SOUND_EFFECT( p_sfx ) ins3( SFX, p_sfx, 0 )
@@ -311,16 +326,25 @@ dnl
 #define BATTLE_TRAINER( p_trainerId, p_mode ) ins3( BTR, p_trainerId, p_mode )
 #define BATTLE_PKMN( p_speciesId, p_level ) ins3( BPK, p_speciesId, p_level )
 #define GIVE_ITEM( p_itemId, p_amount ) ins3( ITM, p_itemId, p_amount )
+#define TAKE_ITEM( p_itemId, p_amount ) ins3( TTM, p_itemId, p_amount )
 dnl
 #define BATTLE_TRAINER_R( p_startRegister ) ins4( BTRR, p_startRegister, 0, 0 )
 #define BATTLE_PKMN_R( p_startRegister ) ins4( BPKR, p_startRegister, 0, 0 )
 #define GIVE_ITEM_R( p_startRegister ) ins4( ITMR, p_startRegister, 0, 0 )
+#define TAKE_ITEM_R( p_startRegister ) ins4( TTMR, p_startRegister, 0, 0 )
 dnl
 #define MART_BEGIN( p_coinType, p_allowSell ) ins4( MBG, p_coinType, p_allowSell, 0 )
 #define MART_ITEM( p_item, p_price ) ins3( MIT, p_item, p_price )
 dnl
+#define CBOX_BEGIN( p_message, p_msgType ) ins3( CBG, p_message, p_msgType )
+#define CBOX_ITEM( p_stringId, p_payload ) ins3( CIT, p_stringId, p_payload )
+#define CBOX_RUN ins4( CLL, 10, 0, 0 )
+dnl
 #define ATTACH_PLAYER ins4( ATT, 0, 0, 0 )
 #define REMOVE_PLAYER ins4( REM, 0, 0, 0 )
+dnl
+#define HIDE_PLAYER ins4( HPL, 0, 0, 0 )
+#define SHOW_PLAYER ins4( SPL, 0, 0, 0 )
 dnl
 #define END_OF_PROGRAM ins4( EOP, 0, 0, 0 )
 #define JUMP_TO_END ins4( EOP, 0, 0, 0 )

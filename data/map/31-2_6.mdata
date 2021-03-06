@@ -1,7 +1,13 @@
 inside,none,1,1,1,4,15,15,
 Rustboro City,0,
 0
-5
+8
+16,6,3,0,0,npc,interact,
+walk left right,92,81,0,
+20,7,3,0,0,npc message,interact,
+look right,77,357,0,
+17,22,3,0,0,npc message,interact,
+look right,63,356,0,
 12,20,3,0,0,warp,none,
 cave entry,31,2,6,12,4,3,
 12,4,3,0,0,warp,none,

@@ -212,7 +212,7 @@ mapWeather getMapWeather( char* p_str ) {
     if( !strcmp( p_str, "dark flash used" ) ) return DARK_FLASH_USED;
     if( !strcmp( p_str, "forest clouds" ) ) return FOREST_CLOUDS;
 
-    fprintf( stderr, "unknown weather %s\n", p_str );
+    fprintf( stderr, "[%s] unknown weather %s\n", FILENAME.c_str( ), p_str );
     return NOTHING;
 }
 
@@ -231,7 +231,7 @@ wildPkmnType getEncounterType( char* p_str ) {
     if( !strcmp( p_str, "rock smash" ) ) return ROCK_SMASH;
     if( !strcmp( p_str, "sweet scent" ) ) return SWEET_SCENT;
 
-    fprintf( stderr, "unknown wild pkmn encounter type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown wild pkmn encounter type %s\n", FILENAME.c_str( ), p_str );
     return GRASS;
 }
 
@@ -244,7 +244,7 @@ mapType getMapType( char* p_str ) {
     if( !strcmp( p_str, "dark" ) ) return DARK;
     if( !strcmp( p_str, "flashable" ) ) return FLASHABLE;
 
-    fprintf( stderr, "unknown map type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown map type %s\n", FILENAME.c_str( ), p_str );
     return OUTSIDE;
 }
 
@@ -262,7 +262,7 @@ eventType getEventType( char* p_str ) {
     if( !strcmp( p_str, "hmobject" ) ) return EVENT_HMOBJECT;
     if( !strcmp( p_str, "berry tree" ) ) return EVENT_BERRYTREE;
 
-    fprintf( stderr, "unknown event type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown event type %s\n", FILENAME.c_str( ), p_str );
     return EVENT_NONE;
 }
 
@@ -277,7 +277,7 @@ eventTrigger getEventTrigger( char* p_str ) {
     if( !strcmp( p_str, "interact right" ) ) return TRIGGER_INTERACT_RIGHT;
     if( !strcmp( p_str, "on map enter" ) ) return TRIGGER_ON_MAP_ENTER;
 
-    fprintf( stderr, "unknown event trigger %s\n", p_str );
+    fprintf( stderr, "[%s] unknown event trigger %s\n", FILENAME.c_str( ), p_str );
     return TRIGGER_NONE;
 }
 
@@ -286,7 +286,7 @@ u8 getHMObject( const char* p_str ) {
     if( !strcmp( p_str, "rock smash" ) ) return 4;
     if( !strcmp( p_str, "cut" ) ) return 5;
 
-    fprintf( stderr, "unknown HM object %s\n", p_str );
+    fprintf( stderr, "[%s] unknown HM object %s\n", FILENAME.c_str( ), p_str );
     return 0;
 }
 
@@ -326,7 +326,7 @@ u8 parseTime( char* p_buffer ) {
     if( !strcmp( p_buffer, "Dusk" ) ) { return 3; }
     if( !strcmp( p_buffer, "Evening" ) ) { return 0; }
 
-    fprintf( stderr, "Unknown time \"%s\"", p_buffer );
+    fprintf( stderr, "[%s] Unknown time \"%s\"", FILENAME.c_str( ), p_buffer );
     return 0;
 }
 
@@ -350,7 +350,7 @@ u8 getMessageType( char* p_str ) {
     if( !strcmp( p_str, "info" ) ) return 1;
     if( !strcmp( p_str, "sign" ) ) return 6;
 
-    fprintf( stderr, "unknown message type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown message type %s\n", FILENAME.c_str( ), p_str );
     return 0;
 }
 
@@ -361,7 +361,7 @@ u8 getOWItemType( char* p_str ) {
     if( !strcmp( p_str, "item" ) ) return 1;
     if( !strcmp( p_str, "tm" ) ) return 2;
 
-    fprintf( stderr, "unknown item type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown item type %s\n", FILENAME.c_str( ), p_str );
     return 0;
 }
 
@@ -377,8 +377,12 @@ u8 getMovementType( char* p_str ) {
     if( !strcmp( p_str, "walk circle" ) ) return 18;
     if( !strcmp( p_str, "walk around left right" ) ) return 19;
     if( !strcmp( p_str, "walk around up down" ) ) return 20;
+    if( !strcmp( p_str, "walk cont left right" ) ) return 21;
+    if( !strcmp( p_str, "walk cont up down" ) ) return 22;
+    if( !strcmp( p_str, "walk around square" ) ) return 23;
+    if( !strcmp( p_str, "walk cont follow object" ) ) return 24;
 
-    fprintf( stderr, "unknown movement type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown movement type %s\n", FILENAME.c_str( ), p_str );
     return 0;
 }
 
@@ -404,7 +408,7 @@ warpType getWarpType( char* p_str ) {
     if( !strcmp( p_str, "teleport" ) ) return TELEPORT;
     if( !strcmp( p_str, "last visited" ) ) return LAST_VISITED;
 
-    fprintf( stderr, "unknown warp type %s\n", p_str );
+    fprintf( stderr, "[%s] unknown warp type \"%s\"\n", FILENAME.c_str( ), p_str );
     return NO_SPECIAL;
 }
 

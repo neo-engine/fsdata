@@ -13,7 +13,11 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-5
+7
+11,26,3,0,0,trainer,interact,
+38,45,look right,2,
+24,25,3,0,0,trainer,interact,
+38,44,look up,0,
 1,23,3,0,78,item,interact,
 hidden,Poké Ball,
 13,24,3,0,79,item,interact,

@@ -161,9 +161,11 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
             &rdata.m_moneyEarned, &rdata.m_battleBG, &rdata.m_battlePlat1, &rdata.m_battlePlat2,
             &rdata.m_trainerBG );
 
-    rdata.m_trainerClass = classes[ string( fixEncoding( tclassbuffer ) ) ];
-    if( !rdata.m_trainerClass ) {
+    auto cn = string( fixEncoding( tclassbuffer ) );
+    if( !classes.count( cn ) ) {
         fprintf( stderr, "[%s] Unknown trainer class \"%s\"\n", FILENAME.c_str( ), tclassbuffer );
+    } else {
+        rdata.m_trainerClass = classes[ cn ];
     }
     rdata.m_items[ 0 ] = items[ string( fixEncoding( itm1 ) ) ];
     if( !rdata.m_items[ 0 ] && strcmp( fixEncoding( itm1 ), "none" ) ) {
@@ -252,7 +254,7 @@ int main( int p_argc, char** p_argv ) {
     auto tdata = parseBattleTrainer( p_argv[ 6 ] );
     u16  idx   = 0;
     sscanf( p_argv[ 6 ], "%*[^0-9]%hu", &idx );
-//    printf( "[%s] Saving to %hu\n", p_argv[ 6 ], idx );
+    //    printf( "[%s] Saving to %hu\n", p_argv[ 6 ], idx );
 
     printTrainerData( tdata.first, idx );
     printTrainerStrings( tdata.second, idx );
