@@ -23,6 +23,7 @@ YES_NO_MESSAGE_N( 375, 1, 11 ) // Ask if the player wants to battle
 
 SET_FLAG( 161, 1 )
 // aqua grunt disappears
+HIDE_PKMN
 MOVE_PLAYER( UP, 1 )
 MOVE_PLAYER( DOWN, 0 )
 GET_MAPOBJECT( 13, 10, 3 )

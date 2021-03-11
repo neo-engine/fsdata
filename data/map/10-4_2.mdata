@@ -18,7 +18,9 @@ Tentacool,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Wailmer,0,good rod,0,Always,20,
 Wailmer,0,super rod,0,Always,100,
-5
+6
+2,29,3,59,173,npc,interact,
+look down,1320,104,0,
 12,28,3,0,131,item,interact,
 item,Super Potion,
 23,26,3,0,133,item,interact,

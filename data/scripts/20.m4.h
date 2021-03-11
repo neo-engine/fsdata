@@ -6,6 +6,7 @@ CHECK_FLAG( 3, 0, 1 ) // don't activate if player obtained the pokedex
 GET_MAPOBJECT( 17, 21, 3 )
 EXCLAMATION_R( 0 )
 MESSAGE( 91, 0 )
+HIDE_PKMN
 MOVE_MAPOBJECT_R( 0, UP, 1 )
 MOVE_PLAYER( RIGHT, 0 )
 ATTACH_PLAYER

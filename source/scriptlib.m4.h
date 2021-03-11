@@ -34,6 +34,12 @@ dnl
 #define WEATHER_FLASH_1 0x14
 #define WEATHER_FLASH_2 0x15
 dnl
+#define DAYTIME_NIGHT 0
+#define DAYTIME_MORNING 1
+#define DAYTIME_DAY 2
+#define DAYTIME_DUSK 3
+#define DAYTIME_EVENING 4
+dnl
 #define SFX_BATTLE_ABILITY 0
 #define SFX_BATTLE_BALLDROP 1
 #define SFX_BATTLE_BALLSHAKE 2
@@ -147,6 +153,8 @@ dnl
 #define SPL 41
 #define WPL 42
 dnl
+#define HPK 60
+dnl
 #define EXM 88
 #define EXMR 88
 #define RDR 89
@@ -160,11 +168,12 @@ dnl
 #define BPK 101
 #define ITM 102
 #define TTM 103
-dnl
+#define UTM 104
 #define BTRR 105
 #define BPKR 106
 #define ITMR 107
 #define TTMR 108
+#define UTMR 109
 dnl
 #define MSC 113
 #define RMS 114
@@ -185,6 +194,8 @@ dnl
 #define CIT 129
 dnl
 #define SBC 196
+dnl
+#define HIDE_PKMN ins4( HPK, 0, 0, 0 )
 dnl
 #define SET_WEATHER( p_newWeather ) ins3( SWT, p_newWeather, 0 )
 #define SET_BLOCK( p_mapX, p_mapY, p_blockIdx ) ins3s( SBC, p_mapX, p_mapY, p_blockIdx )
@@ -305,8 +316,9 @@ dnl
 #define GET_CURRENT_MAPOBJECT ins4( CMO, 0, 0, 0 )
 #define WAIT( p_duration ) ins3( WAT, p_duration, 0 )
 dnl
+#define GET_ITEM_AMOUNT( p_itemId ) ins3( GIT, p_itemId, 0 )
 #define CHECK_ITEM( p_itemId, p_quantity, p_skipIfYes ) \
-    ins3( GIT, p_itemId, 0 ) CHECK_REGISTER_L( EVAL_REG, p_quantity, p_skipIfYes )
+    GET_ITEM_AMOUNT( p_itemId ) CHECK_REGISTER_L( EVAL_REG, p_quantity, p_skipIfYes )
 #define YES_NO_MESSAGE( p_messageId, p_messageType, p_skipIfYes ) \
     ins3( YNM, p_messageId, p_messageType ) CHECK_REGISTER( EVAL_REG, 1, p_skipIfYes )
 #define YES_NO_MESSAGE_D( p_messageId, p_messageType ) ins3( YNM, p_messageId, p_messageType )
@@ -327,11 +339,13 @@ dnl
 #define BATTLE_PKMN( p_speciesId, p_level ) ins3( BPK, p_speciesId, p_level )
 #define GIVE_ITEM( p_itemId, p_amount ) ins3( ITM, p_itemId, p_amount )
 #define TAKE_ITEM( p_itemId, p_amount ) ins3( TTM, p_itemId, p_amount )
+#define USE_ITEM( p_itemId, p_amount ) ins3( UTM, p_itemId, p_amount )
 dnl
 #define BATTLE_TRAINER_R( p_startRegister ) ins4( BTRR, p_startRegister, 0, 0 )
 #define BATTLE_PKMN_R( p_startRegister ) ins4( BPKR, p_startRegister, 0, 0 )
 #define GIVE_ITEM_R( p_startRegister ) ins4( ITMR, p_startRegister, 0, 0 )
 #define TAKE_ITEM_R( p_startRegister ) ins4( TTMR, p_startRegister, 0, 0 )
+#define USE_ITEM_R( p_startRegister ) ins4( UTMR, p_startRegister, 0, 0 )
 dnl
 #define MART_BEGIN( p_coinType, p_allowSell ) ins4( MBG, p_coinType, p_allowSell, 0 )
 #define MART_ITEM( p_item, p_price ) ins3( MIT, p_item, p_price )
@@ -339,6 +353,8 @@ dnl
 #define CBOX_BEGIN( p_message, p_msgType ) ins3( CBG, p_message, p_msgType )
 #define CBOX_ITEM( p_stringId, p_payload ) ins3( CIT, p_stringId, p_payload )
 #define CBOX_RUN ins4( CLL, 10, 0, 0 )
+dnl
+#define GET_CURRENT_TIME ins4( CLL, 11, 0, 0 )
 dnl
 #define ATTACH_PLAYER ins4( ATT, 0, 0, 0 )
 #define REMOVE_PLAYER ins4( REM, 0, 0, 0 )

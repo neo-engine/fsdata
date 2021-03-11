@@ -38,9 +38,10 @@ CHECK_REGISTER_N( EVAL_REG, 0, 8 )
         MESSAGE( 429, 0 )
     JUMP_TO_END
 
-CHECK_REGISTER_N( EVAL_REG, 1, 45 )
+CHECK_REGISTER_N( EVAL_REG, 1, 46 )
     // player wants to sail back to r104
     MESSAGE( 420, 0 )
+    HIDE_PKMN
         WALK_PLAYER( UP, 1 )
         HIDE_PLAYER
         GET_MAPOBJECT( 1, 9, 3 )
@@ -51,7 +52,7 @@ CHECK_REGISTER_N( EVAL_REG, 1, 45 )
     // start boat trip
     SET_FLAG( 168, 1 )
     SET_FLAG( 169, 1 )
-    PLAY_MUSIC( MOD_SURFING )
+    PLAY_MUSIC( MOD_SAILING )
         GET_MAPOBJECT( 0, 8, 5 )
             COPY_REGISTER( 0, 1 )
             FIX_MAPOBJECT_R( 1 )
@@ -89,6 +90,7 @@ CHECK_REGISTER_N( EVAL_REG, 1, 45 )
 
 // player wants to sail to slateport
 MESSAGE( 430, 0 )
+HIDE_PKMN
 
     WALK_PLAYER( UP, 1 )
     HIDE_PLAYER
@@ -100,7 +102,7 @@ MESSAGE( 430, 0 )
 // start boat trip
 SET_FLAG( 168, 1 )
 SET_FLAG( 169, 1 )
-PLAY_MUSIC( MOD_SURFING )
+PLAY_MUSIC( MOD_SAILING )
     GET_MAPOBJECT( 0, 8, 5 )
         COPY_REGISTER( 0, 1 )
         FIX_MAPOBJECT_R( 1 )
@@ -109,21 +111,23 @@ PLAY_MUSIC( MOD_SURFING )
             MOVE_MAPOBJECT_FAST_R( 1, RIGHT, 138 )
             MOVE_MAPOBJECT_R( 1, RIGHT, 5 )
             MOVE_MAPOBJECT_R( 1, UP, 5 )
-            MOVE_MAPOBJECT_FAST_R( 1, UP, 13 )
+            MOVE_MAPOBJECT_FAST_R( 1, UP, 12 )
             MOVE_MAPOBJECT_R( 1, UP, 5 )
         REMOVE_PLAYER
     RESTORE_MUSIC
     SHOW_PLAYER
-    WALK_PLAYER( UP, 2 )
+    WALK_PLAYER( UP, 3 )
     MOVE_PLAYER( DOWN, 0 )
     SET_FLAG( 168, 0 )
     SET_FLAG( 169, 0 )
     SPAWN_MAPOBJECT( 62, 20, 17 )
         COPY_REGISTER( 0, 2 )
         MOVE_MAPOBJECT_R( 2, UP, 1 )
+    MESSAGE( 441, 0 )
+
     UNFIX_MAPOBJECT_R( 1 )
     UNFIX_MAPOBJECT_R( 2 )
-
-    MESSAGE( 441, 0 )
-    JUMP_TO_END
-
+    DESTROY_MAPOBJECT_R( 1 )
+    DESTROY_MAPOBJECT_R( 2 )
+REDRAW_OBJECTS
+JUMP_TO_END

@@ -9,7 +9,7 @@ Sableye,0,grass,2,Night,10
 Mawile,0,grass,2,Dawn|Dusk|Day,10
 Geodude,0,rock smash,0,Always,70
 Nosepass,0,rock smash,2,Always,30
-4
+8
 20,24,3,0,0,warp,none,
 cave entry,14,1,1,26,18,3,
 24,8,3,0,0,warp,none,
@@ -18,4 +18,11 @@ cave entry,14,3,1,24,8,3,
 cave entry,14,3,1,29,8,3,
 31,25,3,0,66,item,interact,
 item,Poké Ball,
-
+31,25,3,179,182,item,interact,
+item,Sparkling Stone,
+31,24,3,179,181,npc,interact,
+look around,1302,108,0,
+30,25,3,179,181,npc,interact,
+look around,1302,108,0,
+30,24,3,179,180,npc,interact,
+look around,1302,107,0,

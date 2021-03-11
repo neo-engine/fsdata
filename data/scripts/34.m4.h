@@ -25,8 +25,9 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
     MESSAGE( 179, 0 )
     COPY_REGISTER( 0, 2 )
     SET_FLAG( 35, 1 )
-    YES_NO_MESSAGE( 180, 1, 29 ) // Ask if the player wants to help
+    YES_NO_MESSAGE( 180, 1, 30 ) // Ask if the player wants to help
         // Player doesn't want to help
+        HIDE_PKMN
         MOVE_PLAYER( RIGHT, 1 )
         MOVE_PLAYER( DOWN, 0 )
         MOVE_MAPOBJECT_R( 2, DOWN, 2 )
@@ -61,6 +62,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
         MESSAGE( 181, 0 )
         SET_FLAG( 36, 1 )
         BATTLE_TRAINER( 15, SINGLE )
+        HIDE_PKMN
         PLAY_MUSIC( MOD_ENCOUNTER_TEAM_AM )
         REDRAW_OBJECTS
         // Check if the player managed to win

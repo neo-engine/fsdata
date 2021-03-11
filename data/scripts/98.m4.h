@@ -1,6 +1,7 @@
 // devon corp 3f, player getting TM protect
 #include "scriptlib.m4.h"
 
+HIDE_PKMN
 CHECK_FLAG( 164, 0, 1 )
     JUMP_TO_END
 MOVE_PLAYER( RIGHT, 0 )

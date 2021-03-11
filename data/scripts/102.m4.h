@@ -1,0 +1,59 @@
+// mr brine
+#include "scriptlib.m4.h"
+
+YES_NO_MESSAGE_D( 440, 0 )
+
+CHECK_REGISTER_N( EVAL_REG, 0, 2 )
+    // player doesn't want to sail back
+    MESSAGE( 433, 0 )
+    JUMP_TO_END
+
+// player wants to sail to dewford
+MESSAGE( 414, 0 )
+    HIDE_PKMN
+    GET_MAPOBJECT( 20, 16, 3 )
+        COPY_REGISTER( 0, 1 )
+        MOVE_MAPOBJECT_R( 1, DOWN, 1 )
+    DESTROY_MAPOBJECT_R( 1 )
+    WALK_PLAYER( DOWN, 2 )
+    HIDE_PLAYER
+// start boat trip
+SET_FLAG( 168, 1 )
+SET_FLAG( 169, 1 )
+PLAY_MUSIC( MOD_SAILING )
+    GET_MAPOBJECT( 20, 18, 5 )
+        COPY_REGISTER( 0, 1 )
+        FIX_MAPOBJECT_R( 1 )
+        ATTACH_PLAYER
+            MOVE_MAPOBJECT_R( 1, DOWN, 5 )
+            MOVE_MAPOBJECT_FAST_R( 1, DOWN, 12 )
+            MOVE_MAPOBJECT_R( 1, DOWN, 5 )
+            MOVE_MAPOBJECT_R( 1, LEFT, 5 )
+            MOVE_MAPOBJECT_FAST_R( 1, LEFT, 138 )
+            MOVE_MAPOBJECT_R( 1, LEFT, 5 )
+            MOVE_MAPOBJECT_R( 1, DOWN, 0 )
+    REMOVE_PLAYER
+    WALK_PLAYER( LEFT, 1 )
+RESTORE_MUSIC
+
+SET_FLAG( 168, 0 )
+SET_FLAG( 169, 0 )
+SPAWN_MAPOBJECT( 62, 0, 8 )
+    COPY_REGISTER( 0, 2 )
+    MOVE_MAPOBJECT_R( 2, DOWN, 1 )
+    MOVE_MAPOBJECT_R( 2, RIGHT, 1 )
+    MOVE_MAPOBJECT_R( 2, LEFT, 0 )
+    FIX_MAPOBJECT_R( 2 )
+SHOW_PLAYER
+WALK_PLAYER( DOWN, 1 )
+MOVE_PLAYER( RIGHT, 0 )
+
+// post-landing message
+MESSAGE( 432, 0 )
+
+UNFIX_MAPOBJECT_R( 1 )
+UNFIX_MAPOBJECT_R( 2 )
+    DESTROY_MAPOBJECT_R( 1 )
+    DESTROY_MAPOBJECT_R( 2 )
+REDRAW_OBJECTS
+

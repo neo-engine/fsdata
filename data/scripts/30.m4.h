@@ -11,6 +11,7 @@ CHECK_FLAG( 26, 0, 2 )
 
 GET_MAPOBJECT( 17, 17, 3 ) // Norman
     COPY_REGISTER( 0, 1 )
+    HIDE_PKMN
     MESSAGE( 139, 0 )
     SPAWN_MAPOBJECT( 22, 17, 21 ) // Wally
     MOVE_MAPOBJECT_R( 0, UP, 2 )

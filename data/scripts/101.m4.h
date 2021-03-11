@@ -1,6 +1,7 @@
 // hand over letter to steven
 #include "scriptlib.m4.h"
 
+HIDE_PKMN
 MESSAGE( 422, 0 )
 TAKE_ITEM( I_LETTER, 1 )
 MESSAGE( 423, 0 )

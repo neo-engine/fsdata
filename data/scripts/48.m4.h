@@ -1,6 +1,7 @@
 // rival battle in rustboro
 #include "scriptlib.m4.h"
 
+HIDE_PKMN
 CHECK_FLAG( 5, 1, 1 )
     SPAWN_MAPOBJECT( 0, 13, 12 )
 CHECK_FLAG( 5, 0, 1 )
