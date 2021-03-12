@@ -1,8 +1,12 @@
 // Norman in his gym
 #include "scriptlib.m4.h"
 
+CHECK_FLAG( 150, 0, 2 )
+    MESSAGE( 462, 0 )
+    JUMP_TO_END
+
 CHECK_FLAG( 55, 0, 2 )
-    MESSAGE( 274, 0 )
+    MESSAGE( 273, 0 )
     JUMP_TO_END
 
 CHECK_FLAG( 26, 0, 2 )

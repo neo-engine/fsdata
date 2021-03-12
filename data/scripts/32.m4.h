@@ -2,7 +2,9 @@
 #include "scriptlib.m4.h"
 
 SPAWN_MAPOBJECT( 238, 10, 11 ) // Scott
-    MOVE_MAPOBJECT_R( 0, LEFT, 8 )
+    MOVE_MAPOBJECT_R( 0, LEFT, 7 )
+    HIDE_PKMN
+    MOVE_MAPOBJECT_R( 0, LEFT, 1 )
     MOVE_PLAYER( RIGHT, 0 )
     MESSAGE( 158, 0 )
     MOVE_MAPOBJECT_R( 0, RIGHT, 0 )
