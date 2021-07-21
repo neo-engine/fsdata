@@ -1,14 +1,14 @@
 // Team Aqua grunt encounter in rusturf tunnel
 #include "scriptlib.m4.h"
 
-PLAY_MUSIC( MOD_ENCOUNTER_TEAM_AM )
+PLAY_MUSIC( BGM_ENCOUNTER_TEAM_AM )
 MESSAGE( 266, 0 )
 YES_NO_MESSAGE_N( 375, 1, 11 ) // Ask if the player wants to battle
     SET_FLAG( 159, 1 )
     // Player wants to battle
     BATTLE_TRAINER( 48, SINGLE )
     // Check if the player managed to win
-    PLAY_MUSIC( MOD_ENCOUNTER_TEAM_AM )
+    PLAY_MUSIC( BGM_ENCOUNTER_TEAM_AM )
     CHECK_REGISTER( 0, 1, 4 )
         // They didn't
         HEAL_TEAM
@@ -42,7 +42,7 @@ SPAWN_MAPOBJECT( 62, 6, 15 )
     GET_MAPOBJECT( 13, 9, 3 )
     MOVE_MAPOBJECT_R( 0, DOWN, 0 )
     LOCK_R( 0 )
-    PLAY_MUSIC( MOD_UNWAVERING_EMOTIONS )
+    PLAY_MUSIC( BGM_UNWAVERING_EMOTIONS )
     MESSAGE( 370, 0 )
     MOVE_MAPOBJECT_FAST_R( 1, LEFT, 1 )
     MOVE_MAPOBJECT_FAST_R( 1, UP, 0 )

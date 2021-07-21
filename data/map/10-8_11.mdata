@@ -13,5 +13,10 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
-
+3
+16,17,3,0,196,item,interact,
+hidden,Big Pearl,
+12,16,3,0,197,item,interact,
+hidden,Heart Scale,
+4,13,3,0,198,item,interact,
+hidden,Star Piece,

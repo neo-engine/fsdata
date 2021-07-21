@@ -2,7 +2,7 @@
 #include "scriptlib.m4.h"
 
 SET_FLAG( 16, 0 )
-PLAY_MUSIC( MOD_HELP_PROF_BIRCH )
+PLAY_MUSIC( BGM_HELP_PROF_BIRCH )
 GET_MAPOBJECT( 20, 13, 3 ) // birch
 COPY_REGISTER( 0, 2 )
 GET_MAPOBJECT( 21, 13, 3 ) // zigzag

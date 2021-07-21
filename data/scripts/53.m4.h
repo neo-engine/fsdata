@@ -9,7 +9,7 @@ SPAWN_MAPOBJECT( 1, 12, 27 )
     MOVE_MAPOBJECT_R( 0, UP, 2 )
     EXCLAMATION_R( 0 ) // Show exclamation mark
     MESSAGE( 74, 0 )
-    PLAY_MUSIC( MOD_ENCOUNTER_MAY )
+    PLAY_MUSIC( BGM_ENCOUNTER_MAY )
     // Check where the player is standing, move May accordingly
     MOVE_PLAYER( DOWN, 1 )
     MOVE_MAPOBJECT_R( 0, UP, 1 )

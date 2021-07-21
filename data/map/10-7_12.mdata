@@ -14,5 +14,9 @@ Wailmer,0,good rod,0,Always,20,
 Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
-0
+2
+25,18,3,0,0,warp,none,
+cave entry,54,1,1,7,28,3,
+27,19,3,0,199,item,interact,
+item,Rare Candy,
 

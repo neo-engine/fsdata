@@ -1,7 +1,19 @@
 cave,none,1,1,1,4,15,15,
 Route 110,0,
 0
-8
+14
+15,21,3,0,0,npc message,interact,
+look down,99,495,0,
+15,23,3,0,0,script,step on,
+113,0,
+14,23,3,0,0,script,step on,
+112,0,
+15,8,3,0,0,npc message,interact,
+look down,99,495,0,
+15,10,3,0,0,script,step on,
+113,0,
+14,10,3,0,0,script,step on,
+112,0,
 9,11,3,0,0,warp,none,
 door,10,7,8,15,8,3,
 10,11,3,0,0,warp,none,

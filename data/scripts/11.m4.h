@@ -12,7 +12,7 @@ SPAWN_MAPOBJECT( 0, 17, 6 )
     MOVE_MAPOBJECT_R( 1, DOWN, 1 )
     EXCLAMATION_R( 1 ) // Show exclamation mark
     MESSAGE( 74, 0 )
-    PLAY_MUSIC( MOD_ENCOUNTER_BRENDAN )
+    PLAY_MUSIC( BGM_ENCOUNTER_BRENDAN )
     // Check where the player is standing, move Brendan accordingly
     CHECK_PLAYER_POS( 15, 9, 3 )
     CHECK_REGISTER( 0, 0, 3 )

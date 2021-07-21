@@ -1,6 +1,6 @@
 outside,none,11,1,1,4,15,15,
 Route 116,0,
-10
+11
 Abra,0,grass,0,Dawn,10,
 Poochyena,0,grass,0,Night|Dusk,10,
 Zigzagoon,0,grass,0,Day,10,
@@ -11,7 +11,18 @@ Skitty,0,grass,1,Dawn|Day,20,
 Swellow,0,grass,5,Always,10,
 Eevee,0,grass,8,Always,5,
 Joltik,0,grass,8,Always,5,
-11
+Geodude,0,rock smash,0,Always,100,
+16
+14,11,3,0,0,hmobject,interact,
+strength,
+15,10,3,0,0,hmobject,interact,
+strength,
+16,11,3,0,0,hmobject,interact,
+strength,
+17,10,3,0,0,hmobject,interact,
+strength,
+20,21,3,0,0,hmobject,interact,
+rock smash,
 6,24,3,0,0,warp,none,
 door,41,1,1,15,20,3,
 15,24,3,0,0,warp,none,

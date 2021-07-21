@@ -3,7 +3,7 @@
 
 CHECK_FLAG( 17, 0, 5 ) // Player obtained first pkmn
     MESSAGE( 89, 0 )
-    PLAY_MUSIC_ONESHOT( MOD_OS_HEAL_PKMN, 60 )
+    PLAY_MUSIC_ONESHOT( BGM_OS_HEAL_PKMN, 60 )
     HEAL_TEAM
     MESSAGE( 90, 0 )
     JUMP_TO_END

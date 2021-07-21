@@ -1,0 +1,17 @@
+outside,none,11,1,1,4,15,15,
+Route 116,0,
+10
+Abra,0,grass,0,Dawn,10,
+Poochyena,0,grass,0,Night|Dusk,10,
+Zigzagoon,0,grass,0,Day,10,
+Taillow,0,grass,0,Always,25,
+Whismur,0,grass,0,Always,25,
+Nincada,0,grass,1,Dusk|Night,20,
+Skitty,0,grass,1,Dawn|Day,20,
+Swellow,0,grass,5,Always,10,
+Eevee,0,grass,8,Always,5,
+Joltik,0,grass,8,Always,5,
+1
+7,20,3,0,0,warp,none,
+cave entry,15,5,4,6,27,3,
+

@@ -529,6 +529,23 @@ u8 getStatus( char* p_str ) {
     return 0;
 }
 
+u8 getFrameType( char* p_str ) {
+    if( !strcmp( p_str, "none" ) ) return 0;
+    if( !strcmp( p_str, "route" ) ) return 0;
+    if( !strcmp( p_str, "town" ) ) return 0;
+    if( !strcmp( p_str, "inside" ) ) return 1;
+    if( !strcmp( p_str, "water" ) ) return 2;
+    if( !strcmp( p_str, "field" ) ) return 3;
+    if( !strcmp( p_str, "beach" ) ) return 3;
+    if( !strcmp( p_str, "cave" ) ) return 4;
+    if( !strcmp( p_str, "forest" ) ) return 5;
+    if( !strcmp( p_str, "city" ) ) return 6;
+    if( !strcmp( p_str, "coast" ) ) return 7;
+
+    fprintf( stderr, "unknown frame type \"%s\"\n", p_str );
+    return 0;
+}
+
 u8 getNumberOrNone( char* p_str ) {
     if( !strcmp( p_str, "none" ) ) return 0;
 
@@ -694,6 +711,29 @@ void readNames( char* p_path, map<u16, names>& p_out ) {
             strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), 29 );
         }
         p_out[ id ] = n;
+    }
+    // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    fclose( f );
+}
+
+void readNames( char* p_path, vector<pair<string, names>>& p_out ) {
+    FILE* f = fopen( p_path, "r" );
+    assert( f );
+    char  buffer[ 500 ] = { 0 };
+    char* t1;
+    while( fgets( buffer, sizeof( buffer ), f ) ) {
+        t1        = strtok( buffer, ";" );
+        string id = string( t1 );
+        names  n;
+        for( int i = 0; i < NUM_LANGUAGES; ++i ) {
+            n.m_name[ i ] = new char[ 40 ];
+            std::memset( n.m_name[ i ], 0, 40 );
+        }
+        int cnt = 0;
+        while( cnt < NUM_LANGUAGES && ( t1 = strtok( NULL, ";" ) ) ) {
+            strncpy( n.m_name[ cnt++ ], fixEncoding( t1 ), 29 );
+        }
+        p_out.push_back( { id, n } );
     }
     // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
     fclose( f );

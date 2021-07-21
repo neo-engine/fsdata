@@ -13,7 +13,10 @@ Goldeen,0,good rod,0,Always,30,
 Magikarp,0,good rod,0,Always,50,
 Barboach,0,good rod,0,Always,20,
 Barboach,0,super rod,0,Always,100,
-1
+3
 7,18,3,0,0,warp,none,
 cave entry,10,4,2,19,5,3,
-
+27,7,3,0,0,warp,none,
+cave entry,11,4,3,6,11,3,
+28,12,3,0,184,item,interact,
+item,Sun Stone,

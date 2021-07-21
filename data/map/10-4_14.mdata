@@ -1,6 +1,7 @@
 outside,none,1,1,1,5,0,0,
-Route 121,3,
+Route 121,4,
 0,0,7,23,Route 120,
+8,0,31,7,Safari Zone,
 24,24,31,31,Route 122,
 0,24,23,31,Mystery Zone,
 20

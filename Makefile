@@ -2,8 +2,9 @@ NUM_LANGUAGES		?=   2
 MAX_ITEMS_PER_DIR	?=  30
 MAX_PKMN			?= 898
 ACHIEVEMENT_LEN		?= 100
-STRING_LEN			?= 250
+UISTRING_LEN		?= 250
 MAPSTRING_LEN		?= 800
+PKMNPHRS_LEN		?= 150
 BADGENAME_LEN		?=  50
 
 ifdef LOCAL
@@ -19,9 +20,9 @@ BUILD       :=	build
 SOURCES     :=	source
 DATA     	:=	data
 
-CFLAGS      :=	-O2 -Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
+CFLAGS      :=	-Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
 				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) -DMAX_PKMN=$(MAX_PKMN) \
-				-DFSROOT=\"$(FSROOT)\" -DOUT=\"$(OUT)\"
+				-DFSROOT=\"$(FSROOT)\" -DOUT=\"$(OUT)\" -g3 -ggdb
 CXXFLAGS    :=	$(CFLAGS) -std=c++2a -fsanitize=undefined
 LDFLAGS     := -lubsan
 
@@ -32,29 +33,30 @@ DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard 
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata evolutiondata trainerdata mapdata mapscript stringconv $(DATA_FILES)
+fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
 endif
 	@mkdir -p $(BUILD)
-	./locationdata data/locationnames.csv
+	./locationdata data/bgmnames.csv data/locationnames.csv data/locationdata.csv
 	./pkmndata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
 		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv \
 		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv \
-		data/trainerclassnames.csv
-	./evolutiondata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
-		data/locationnames.csv data/pkmnevolv.csv
+		data/trainerclassnames.csv data/pkmnevolv.csv data/locationnames.csv
 	@$(foreach tdata,$(TRAINERDATA_FILES),./trainerdata data/pkmnnames.csv data/abtynames.csv \
 		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
-	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
-		data/locationnames.csv $(mdata);)
+#	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
+#		data/locationnames.csv $(mdata);)
+	cp $(OUT)/bgmNames.h $(SOURCES)/bgmNames.h
 	@$(foreach mscr,$(MAPSCRIPT_FILES),$(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
-	./stringconv data/strings/achievement.csv "STRN/AVM/" $(ACHIEVEMENT_LEN)
-	./stringconv data/strings/badgename.csv "STRN/BDG/" $(BADGENAME_LEN)
-	./stringconv data/strings/mapstring.csv "STRN/MAP/" $(MAPSTRING_LEN)
+	./stringconv data/strings/strings.csv "STRN/UIS/" "uis" $(UISTRING_LEN)
+	./stringconv data/strings/achievement.csv "STRN/AVM/" "avm" $(ACHIEVEMENT_LEN)
+	./stringconv data/strings/badgename.csv "STRN/BDG/" "bdg" $(BADGENAME_LEN)
+	./stringconv data/strings/mapstring.csv "STRN/MAP/" "map" $(MAPSTRING_LEN)
+	./stringconv data/strings/pkmnphrases.csv "STRN/PHR/" "phr" $(PKMNPHRS_LEN)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o
@@ -64,9 +66,6 @@ pkmndata: $(OFILES) $(BUILD)/pkmndata.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 locationdata: $(OFILES) $(BUILD)/locationdata.o
-	$(CC) $(LDFLAGS) -o $@ $^
-
-evolutiondata: $(OFILES) $(BUILD)/pkmnevolv.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 trainerdata: $(OFILES) $(BUILD)/trainerdata.o
@@ -82,7 +81,6 @@ clean:
 	@rm -r $(BUILD)
 	@rm fsdata
 	@rm locationdata
-	@rm evolutiondata
 	@rm pkmndata
 	@rm mapdata
 	@rm strings

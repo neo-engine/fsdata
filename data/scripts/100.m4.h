@@ -52,7 +52,7 @@ CHECK_REGISTER_N( EVAL_REG, 1, 46 )
     // start boat trip
     SET_FLAG( 168, 1 )
     SET_FLAG( 169, 1 )
-    PLAY_MUSIC( MOD_SAILING )
+    PLAY_MUSIC( BGM_SAILING )
         GET_MAPOBJECT( 0, 8, 5 )
             COPY_REGISTER( 0, 1 )
             FIX_MAPOBJECT_R( 1 )
@@ -102,7 +102,7 @@ HIDE_PKMN
 // start boat trip
 SET_FLAG( 168, 1 )
 SET_FLAG( 169, 1 )
-PLAY_MUSIC( MOD_SAILING )
+PLAY_MUSIC( BGM_SAILING )
     GET_MAPOBJECT( 0, 8, 5 )
         COPY_REGISTER( 0, 1 )
         FIX_MAPOBJECT_R( 1 )

@@ -93,43 +93,42 @@ enum warpType : u8 {
     SLIDING_DOOR
 };
 
+constexpr u8 MAX_EVENTS_PER_SLICE = 64;
 struct mapData {
-    mapType    m_mapType;
-    mapWeather m_weather;
-    u8         m_battleBG;
-    u8         m_battlePlat1;
-    u8         m_battlePlat2;
-    u8         m_surfBattleBG;
-    u8         m_surfBattlePlat1;
-    u8         m_surfBattlePlat2;
+    u8 m_mapType;
+    u8 m_weather;
+    u8 m_battleBG;
+    u8 m_battlePlat1;
 
-    u16 m_baseLocationId;
-    u8  m_extraLocationCount;
-    struct locationData {
-        u8  m_left;
-        u8  m_top;
-        u8  m_right;
-        u8  m_bottom;
-        u16 m_locationId;
-    } m_extraLocations[ 4 ] = { 0 };
+    u8 m_battlePlat2;
+    u8 m_surfBattleBG;
+    u8 m_surfBattlePlat1;
+    u8 m_surfBattlePlat2;
+
     u8 m_pokemonDescrCount;
+    u8 m_eventCount;
+    u32 : 16;
+
+    u16 m_locationIds[ 4 ][ 4 ]; // (y, x), 8x8 blocks each
+
     struct wildPkmnData {
         u16          m_speciesId;
         u8           m_forme;
         wildPkmnType m_encounterType;
-        u8           m_slot;
-        u8           m_daytime;
-        u8           m_encounterRate;
-    } m_pokemon[ 30 ] = { 0 };
-    u8 m_eventCount;
+
+        u8 m_slot;
+        u8 m_daytime;
+        u8 m_encounterRate;
+    } m_pokemon[ 30 ];
     struct event {
-        u8           m_posX;
-        u8           m_posY;
-        u8           m_posZ;
-        u16          m_activateFlag;
-        u16          m_deactivateFlag;
-        eventType    m_type;
-        eventTrigger m_trigger;
+        u8  m_posX;
+        u8  m_posY;
+        u8  m_posZ;
+        u16 m_activateFlag;
+        u16 m_deactivateFlag;
+        u8  m_type;
+
+        u8 m_trigger;
         union data {
             struct {
                 u8  m_msgType;
@@ -140,31 +139,35 @@ struct mapData {
                 u16 m_itemId;
             } m_item;
             struct {
-                u8  m_movementType;
                 u16 m_spriteId;
                 u16 m_trainerId;
-                u8  m_sight;
+
+                u8 m_movementType;
+                u8 m_sight;
             } m_trainer;
             struct {
                 u16 m_speciesId;
                 u8  m_level;
                 u8  m_forme; // BIT(6) female; BIT(7) genderless
-                u8  m_shiny; // BIT(6) hidden ability, BIT(7) fateful
+
+                u8 m_shiny; // BIT(6) hidden ability, BIT(7)    fateful
             } m_owPkmn;
             struct {
-                u8  m_movementType;
                 u16 m_spriteId;
-                u16 m_scriptId; // message id for npc_message
-                u8  m_scriptType;
+                u16 m_scriptId;
+
+                u8 m_movementType;
+                u8 m_scriptType;
             } m_npc;
             struct {
-                warpType m_warpType;
-                u8       m_bank;
-                u8       m_mapX;
-                u8       m_mapY;
-                u8       m_posX;
-                u8       m_posY;
-                u8       m_posZ;
+                u8 m_warpType;
+                u8 m_bank;
+                u8 m_mapX;
+                u8 m_mapY;
+
+                u8 m_posX;
+                u8 m_posY;
+                u8 m_posZ;
             } m_warp;
             struct {
                 u16 m_scriptId;
@@ -177,7 +180,7 @@ struct mapData {
                 u8 m_treeIdx; // internal id of this berry tree
             } m_berryTree;
         } m_data;
-    } m_events[ 64 ] = { 0 };
+    } m_events[ MAX_EVENTS_PER_SLICE ];
 };
 
 map<u16, names>  location_names;
@@ -447,7 +450,7 @@ mapData::event::data parseEventData( eventType p_type, const char* p_str ) {
         break;
     case EVENT_WARP:
         sscanf( p_str, "%[^,],%hhu,%hhu,%hhu,%hhu,%hhu,%hhu", buf1, &res.m_warp.m_bank,
-                &res.m_warp.m_mapX, &res.m_warp.m_mapY, &res.m_warp.m_posX, &res.m_warp.m_posY,
+                &res.m_warp.m_mapY, &res.m_warp.m_mapX, &res.m_warp.m_posX, &res.m_warp.m_posY,
                 &res.m_warp.m_posZ );
         res.m_warp.m_warpType = getWarpType( buf1 );
         break;
@@ -487,20 +490,32 @@ mapData parseMapData( const char* p_path ) {
     // location data
 
     fgets( buffer, sizeof( buffer ), f );
-    sscanf( buffer, "%[^,],%hhu,", buf1, &res.m_extraLocationCount );
-    res.m_baseLocationId = locations[ string( fixEncoding( buf1 ) ) ];
-    if( !res.m_baseLocationId && strcmp( buf1, "Mystery Zone" ) ) {
+
+    u8 tmp;
+    sscanf( buffer, "%[^,],%hhu,", buf1, &tmp );
+    auto baseL = locations[ string( fixEncoding( buf1 ) ) ];
+    if( !baseL && strcmp( buf1, "Mystery Zone" ) ) {
         fprintf( stderr, "[%s] Unknown or zero location name %s.\n", FILENAME.c_str( ), buf1 );
     }
 
-    for( u8 i = 0; i < res.m_extraLocationCount; ++i ) {
+    for( u8 y = 0; y < 4; ++y ) {
+        for( u8 x = 0; x < 4; ++x ) { res.m_locationIds[ y ][ x ] = baseL; }
+    }
+
+    for( u8 i = 0; i < tmp; ++i ) {
         fgets( buffer, sizeof( buffer ), f );
-        sscanf( buffer, "%hhu,%hhu,%hhu,%hhu,%[^,],", &res.m_extraLocations[ i ].m_left,
-                &res.m_extraLocations[ i ].m_top, &res.m_extraLocations[ i ].m_right,
-                &res.m_extraLocations[ i ].m_bottom, buf1 );
-        res.m_extraLocations[ i ].m_locationId = locations[ string( fixEncoding( buf1 ) ) ];
-        if( !res.m_extraLocations[ i ].m_locationId && strcmp( buf1, "Mystery Zone" ) ) {
+        u8 left, top, right, bottom;
+        sscanf( buffer, "%hhu,%hhu,%hhu,%hhu,%[^,],", &left, &top, &right, &bottom, buf1 );
+        baseL = locations[ string( fixEncoding( buf1 ) ) ];
+        if( !baseL && strcmp( buf1, "Mystery Zone" ) ) {
             fprintf( stderr, "[%s] Unknown or zero location name %s.\n", FILENAME.c_str( ), buf1 );
+        }
+        for( u8 y = 0; y < 4; ++y ) {
+            for( u8 x = 0; x < 4; ++x ) {
+                if( top <= y * 8 && y * 8 < bottom && left <= x * 8 && x * 8 < right ) {
+                    res.m_locationIds[ y ][ x ] = baseL;
+                }
+            }
         }
     }
 
@@ -538,7 +553,7 @@ mapData parseMapData( const char* p_path ) {
         res.m_events[ i ].m_trigger = parseEventTriggers( buf2 );
 
         fgets( buffer, sizeof( buffer ), f );
-        res.m_events[ i ].m_data = parseEventData( res.m_events[ i ].m_type, buffer );
+        res.m_events[ i ].m_data = parseEventData( (eventType) res.m_events[ i ].m_type, buffer );
     }
 
     fclose( f );
@@ -546,8 +561,8 @@ mapData parseMapData( const char* p_path ) {
 }
 
 void printMapData( const mapData& p_mapData, u8 p_bank, u16 p_mapX, u16 p_mapY ) {
-    auto path = string( FSROOT ) + "/MAP_DATA/" + std::to_string( p_bank ) + "/"
-                + std::to_string( p_mapX ) + "/";
+    auto path = string( FSROOT ) + "MAPS/" + std::to_string( p_bank ) + "/";
+    if( p_bank == 10 ) { path += std::to_string( p_mapX ) + "/"; }
     auto fileName = std::to_string( p_mapX ) + "_" + std::to_string( p_mapY ) + ".map.data";
 
     fs::create_directories( path );

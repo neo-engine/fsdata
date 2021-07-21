@@ -1,6 +1,7 @@
 outside,none,1,1,1,5,0,0,
-Route 121,1,
+Route 121,2,
 0,24,31,31,Route 122,
+0,0,7,7,Safari Zone,
 20
 Shellos,0,grass,0,Dawn|Day,25,
 Zigzagoon,1,grass,0,Night|Dusk,30,
@@ -23,6 +24,6 @@ Horsea,0,super rod,0,Always,20,
 Sharpedo,0,super rod,0,Always,40,
 Wailmer,0,super rod,0,Always,40,
 1
-7,14,3,0,0,hmobject,interact,
+9,13,3,0,0,hmobject,interact,
 cut,
 
