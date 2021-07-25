@@ -44,8 +44,8 @@ vector<names>         pkmn_species;
 vector<descrs>        pkmn_descrs;
 vector<vector<names>> forme_names;
 
-vector<pkmnLearnsetData> pkmn_learnsets;
-vector<pkmnLearnsetData> forme_learnsets;
+vector<pkmnLearnsetData>             pkmn_learnsets;
+map<pair<u16, u8>, pkmnLearnsetData> forme_learnsets;
 
 vector<pkmnData>              pkmn_data;
 vector<vector<pkmnFormeData>> forme_data;
@@ -311,6 +311,46 @@ pair<u16, pkmnLearnsetData> parseLearnset( char* p_buffer ) {
     return { pkmn, res };
 }
 
+pair<pair<u16, u8>, pkmnLearnsetData> parseFormeLearnset( char* p_buffer ) {
+    char* p   = strtok( p_buffer, "," );
+    auto  res = pkmnLearnsetData( );
+
+    char buffer[ 100 ];
+    u8   forme;
+    sscanf( p, "%[^_]_%hhu", buffer, &forme );
+
+    if( !pkmns.count( string( fixEncoding( buffer ) ) ) ) {
+        fprintf( stderr, "Unknown Pokémon %s\n", buffer );
+        return { { 0, 0 }, res };
+    }
+
+    u16 pkmn = pkmns[ string( buffer ) ];
+
+    while( ( p = strtok( NULL, "," ) ) ) {
+        if( !strcmp( p, "\n" ) ) break;
+
+        char mvname[ 50 ];
+        u16  level, mid;
+        sscanf( p, "%[^;];%hu", mvname, &level );
+
+        if( !moves.count( string( mvname ) ) ) {
+            if( !alt_moves.count( string( mvname ) ) ) {
+                fprintf( stderr, "[%s] Unknown move \"%s\"\n", p, mvname );
+                mid = 0;
+            } else {
+                mid = alt_moves[ string( mvname ) ];
+            }
+        } else {
+            mid = moves[ string( mvname ) ];
+        }
+        res.push_back( { level, mid } );
+    }
+
+    sort( res.begin( ), res.end( ) );
+
+    return { { pkmn, forme }, res };
+}
+
 void readLearnsetData( char* p_learnsetData, vector<pkmnLearnsetData>& p_out ) {
     FILE* f = fopen( p_learnsetData, "r" );
     char  buffer[ 6000 ];
@@ -318,6 +358,16 @@ void readLearnsetData( char* p_learnsetData, vector<pkmnLearnsetData>& p_out ) {
     while( f && fgets( buffer, sizeof( buffer ), f ) ) {
         auto tmp = parseLearnset( buffer );
         assert( tmp.first < p_out.size( ) );
+        p_out[ tmp.first ] = tmp.second;
+    }
+    fclose( f );
+}
+
+void readFormeLearnsetData( char* p_learnsetData, map<pair<u16, u8>, pkmnLearnsetData>& p_out ) {
+    FILE* f = fopen( p_learnsetData, "r" );
+    char  buffer[ 6000 ];
+    while( f && fgets( buffer, sizeof( buffer ), f ) ) {
+        auto tmp           = parseFormeLearnset( buffer );
         p_out[ tmp.first ] = tmp.second;
     }
     fclose( f );
@@ -431,18 +481,20 @@ void printPkmnData( ) {
     fprintf( g, "#pragma once\n" );
     fprintf( gf, "#pragma once\n" );
 
-    auto outf   = vector<FILE*>( );
-    auto foutf  = vector<FILE*>( );
-    auto dxtrf  = vector<FILE*>( );
-    auto spcsf  = vector<FILE*>( );
-    auto dataf  = fopen( FSROOT "/pkmn.datab", "wb" );
-    auto fdataf = fopen( FSROOT "/pkmnf.datab", "wb" );
-    auto learnf = fopen( FSROOT "/pkmn.learnset.datab", "wb" );
-    auto evof   = fopen( FSROOT "/pkmn.evolve.datab", "wb" );
-    auto fevof  = fopen( FSROOT "/pkmnf.evolve.datab", "wb" );
+    auto outf    = vector<FILE*>( );
+    auto foutf   = vector<FILE*>( );
+    auto dxtrf   = vector<FILE*>( );
+    auto spcsf   = vector<FILE*>( );
+    auto dataf   = fopen( FSROOT "/pkmn.datab", "wb" );
+    auto fdataf  = fopen( FSROOT "/pkmnf.datab", "wb" );
+    auto learnf  = fopen( FSROOT "/pkmn.learnset.datab", "wb" );
+    auto flearnf = fopen( FSROOT "/pkmnf.learnset.datab", "wb" );
+    auto evof    = fopen( FSROOT "/pkmn.evolve.datab", "wb" );
+    auto fevof   = fopen( FSROOT "/pkmnf.evolve.datab", "wb" );
     assert( dataf );
     assert( fdataf );
     assert( learnf );
+    assert( flearnf );
     assert( evof );
     assert( fevof );
 
@@ -545,6 +597,23 @@ void printPkmnData( ) {
                 fwrite( &edt, sizeof( pkmnEvolveData ), 1, fevof );
 
                 fprintf( gf, "        case %hhu: return %lu;\n", forme, fcnt++ );
+
+                auto ln = pkmn_learnsets[ i ];
+                if( forme_learnsets.count( { i, forme } ) ) {
+                    ln = forme_learnsets[ { i, forme } ];
+                }
+
+                maxmovelearn = max( maxmovelearn, ln.size( ) );
+                for( auto mvd : ln ) {
+                    assert( fwrite( &mvd.first, sizeof( u16 ), 1, flearnf ) );
+                    assert( fwrite( &mvd.second, sizeof( u16 ), 1, flearnf ) );
+                }
+                u16 null = 0;
+                for( size_t cnt = ln.size( ); cnt < LEARNSET_SIZE; ++cnt ) {
+                    assert( fwrite( &null, sizeof( u16 ), 1, flearnf ) );
+                    assert( fwrite( &null, sizeof( u16 ), 1, flearnf ) );
+                }
+
             } else {
                 break;
                 // fwrite( &pkmn_data[ i ], sizeof( pkmnData ), 1, f );
@@ -566,6 +635,7 @@ void printPkmnData( ) {
     fclose( dataf );
     fclose( fdataf );
     fclose( learnf );
+    fclose( flearnf );
     fclose( evof );
     fclose( fevof );
 
@@ -1008,7 +1078,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
 }
 
 int main( int p_argc, char** p_argv ) {
-    if( p_argc < 23 ) {
+    if( p_argc < 24 ) {
         fprintf( stderr, "too few args." );
         return 1;
     }
@@ -1041,6 +1111,7 @@ int main( int p_argc, char** p_argv ) {
     readPkmnData( p_argv[ 5 ], p_argv[ 6 ], p_argv[ 7 ], p_argv[ 8 ], pkmn_data, forme_names,
                   forme_data );
     readLearnsetData( p_argv[ 13 ], pkmn_learnsets );
+    readFormeLearnsetData( p_argv[ 23 ], forme_learnsets );
 
     readNames( p_argv[ 22 ], location_names );
     for( auto i : location_names ) locations[ i.second.m_name[ 0 ] ] = i.first;
