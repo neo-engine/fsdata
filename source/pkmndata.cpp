@@ -601,6 +601,9 @@ void printPkmnData( ) {
                 auto ln = pkmn_learnsets[ i ];
                 if( forme_learnsets.count( { i, forme } ) ) {
                     ln = forme_learnsets[ { i, forme } ];
+                } else {
+                    printf( "Learnset %lu_%hhu (%s) does not exist.\n", i, forme,
+                            forme_names[ i ][ forme - 1 ].m_name[ 0 ] );
                 }
 
                 maxmovelearn = max( maxmovelearn, ln.size( ) );
