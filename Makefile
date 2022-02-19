@@ -49,8 +49,8 @@ endif
 		data/pkmnformlearnsets.csv
 	@$(foreach tdata,$(TRAINERDATA_FILES),./trainerdata data/pkmnnames.csv data/abtynames.csv \
 		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
-#	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
-#		data/locationnames.csv $(mdata);)
+	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
+		data/locationnames.csv $(mdata);)
 	cp $(OUT)/bgmNames.h $(SOURCES)/bgmNames.h
 	@$(foreach mscr,$(MAPSCRIPT_FILES),$(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
 	./stringconv data/strings/strings.csv "STRN/UIS/" "uis" $(UISTRING_LEN)

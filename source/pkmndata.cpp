@@ -598,9 +598,13 @@ void printPkmnData( ) {
 
                 fprintf( gf, "        case %hhu: return %lu;\n", forme, fcnt++ );
 
-                auto ln = pkmn_learnsets[ i ];
+                auto ln   = pkmn_learnsets[ i ];
+                bool prnt = false;
                 if( forme_learnsets.count( { i, forme } ) ) {
                     ln = forme_learnsets[ { i, forme } ];
+                    printf( "Learnset %lu_%hhu (%s). %hu\n", i, forme,
+                            forme_names[ i ][ forme - 1 ].m_name[ 0 ], fcnt - 1 );
+                    prnt = true;
                 } else {
                     printf( "Learnset %lu_%hhu (%s) does not exist.\n", i, forme,
                             forme_names[ i ][ forme - 1 ].m_name[ 0 ] );
@@ -610,6 +614,10 @@ void printPkmnData( ) {
                 for( auto mvd : ln ) {
                     assert( fwrite( &mvd.first, sizeof( u16 ), 1, flearnf ) );
                     assert( fwrite( &mvd.second, sizeof( u16 ), 1, flearnf ) );
+                    if( prnt ) {
+                        printf( "   %s (%hx) at lv %hx\n", move_names[ mvd.second ].m_name[ 0 ],
+                                mvd.second, mvd.first );
+                    }
                 }
                 u16 null = 0;
                 for( size_t cnt = ln.size( ); cnt < LEARNSET_SIZE; ++cnt ) {

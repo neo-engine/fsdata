@@ -11,9 +11,12 @@ SPAWN_MAPOBJECT( 227, 21, 27 )
     ATTACH_PLAYER
     MOVE_MAPOBJECT_R( 0, UP, 1 )
     REMOVE_PLAYER
+    MOVE_PLAYER( UP, 0 )
     MOVE_MAPOBJECT_R( 0, RIGHT, 1 )
     MOVE_MAPOBJECT_R( 0, LEFT, 0 )
-MOVE_PLAYER( UP, 2 )
+// hacky work-around to prevent player from turning right while moving up
+WALK_PLAYER( UP, 1 )
+MOVE_PLAYER( UP, 1 )
 // Inside part
 SPAWN_MAPOBJECT( 227, 19, 27 )
     MOVE_MAPOBJECT_R( 0, UP, 0 )
