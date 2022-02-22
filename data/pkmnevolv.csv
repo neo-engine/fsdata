@@ -14,8 +14,8 @@
 19_1,Rattata,Raticate,1,level:20
 21,Spearow,Fearow,0,level:20
 23,Ekans,Arbok,0,level:22
-25,Pikachu,Raichu,0,item:Thunder Stone
 25,Pikachu,Raichu,1,itemlocation:Thunder Stone:Alola
+25,Pikachu,Raichu,0,item:Thunder Stone
 27,Sandshrew,Sandslash,0,level:22
 27_1,Sandshrew,Sandslash,1,item:Ice Stone
 29,Nidoranf,Nidorina,0,level:16
@@ -41,6 +41,7 @@
 54,Psyduck,Golduck,0,level:33
 56,Mankey,Primeape,0,level:28
 58,Growlithe,Arcanine,0,item:Fire Stone
+58_1,Growlithe,Arcanine,1,item:Fire Stone
 60,Poliwag,Poliwhirl,0,level:25
 61,Poliwhirl,Poliwrath,0,item:Water Stone
 61,Poliwhirl,Politoed,0,tradeitem:King's Rock
@@ -75,8 +76,9 @@
 96,Drowzee,Hypno,0,level:26
 98,Krabby,Kingler,0,level:28
 100,Voltorb,Electrode,0,level:30
-102,Exeggcute,Exeggutor,0,item:Leaf Stone
+100_,Voltorb,Electrode,1,item:Leaf Stone
 102,Exeggcute,Exeggutor,1,itemlocation:Leaf Stone:Alola
+102,Exeggcute,Exeggutor,0,item:Leaf Stone
 104,Cubone,Marowak,0,level:28
 104,Cubone,Marowak,1,levellocation:28:Alola
 108,Lickitung,Lickilicky,0,move:Rollout
@@ -113,6 +115,7 @@
 153,Bayleef,Meganium,0,level:32
 155,Cyndaquil,Quilava,0,level:14
 156,Quilava,Typhlosion,0,level:36
+156,Quilava,Typhlosion,1,move:Hex
 158,Totodile,Croconaw,0,level:18
 159,Croconaw,Feraligatr,0,level:30
 161,Sentret,Furret,0,level:15
@@ -280,6 +283,7 @@
 499,Pignite,Emboar,0,level:36
 501,Oshawott,Dewott,0,level:17
 502,Dewott,Samurott,0,level:36
+502,Dewott,Samurott,1,move:Night Slash
 504,Patrat,Watchog,0,level:20
 506,Lillipup,Herdier,0,level:16
 507,Herdier,Stoutland,0,level:32
@@ -304,6 +308,7 @@
 543,Venipede,Whirlipede,0,level:22
 544,Whirlipede,Scolipede,0,level:30
 546,Cottonee,Whimsicott,0,item:Sun Stone
+548,Petilil,Lilligant,1,move:Rock Smash
 548,Petilil,Lilligant,0,item:Sun Stone
 550_2,Basculin,Basculegion,0,levelgender:43:Male
 550_2,Basculin,Basculegion,1,levelgender:43:Female
@@ -319,6 +324,7 @@
 566,Archen,Archeops,0,level:37
 568,Trubbish,Garbodor,0,level:36
 570,Zorua,Zoroark,0,level:30
+570_1,Zorua,Zoroark,1,level:30
 572,Minccino,Cinccino,0,item:Shiny Stone
 574,Gothita,Gothorita,0,level:32
 575,Gothorita,Gothitelle,0,level:41
@@ -351,6 +357,7 @@
 622,Golett,Golurk,0,level:43
 624,Pawniard,Bisharp,0,level:52
 627,Rufflet,Braviary,0,level:54
+627,Rufflet,Braviary,1,move:Esper Wing
 629,Vullaby,Mandibuzz,0,level:54
 633,Deino,Zweilous,0,level:50
 634,Zweilous,Hydreigon,0,level:64
@@ -393,13 +400,17 @@
 696,Tyrunt,Tyrantrum,0,leveltime:39:Day
 698,Amaura,Aurorus,0,leveltime:39:Night
 704,Goomy,Sliggoo,0,level:40
+704,Goomy,Sliggoo,1,move:Shelter
 705,Sliggoo,Goodra,0,special
+705_1,Sliggoo,Goodra,1,special
 708,Phantump,Trevenant,0,trade
 710,Pumpkaboo,Gourgeist,0,trade
 712,Bergmite,Avalugg,0,level:37
+712,Bergmite,Avalugg,1,move:Mountain Gale
 714,Noibat,Noivern,0,level:48
 722,Rowlet,Dartrix,0,level:17
 723,Dartrix,Decidueye,0,level:34
+723_1,Dartrix,Decidueye,0,move:Triple Arrows
 725,Litten,Torracat,0,level:17
 726,Torracat,Incineroar,0,level:34
 728,Popplio,Brionne,0,level:17
