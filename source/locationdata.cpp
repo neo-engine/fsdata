@@ -97,13 +97,17 @@ void printBGMData( ) {
     }
 
     fprintf( g, "#pragma once\n"
+                "#ifndef NO_SOUND\n"
                 "#include \"bgmNames.h\"\n"
-                "#include \"soundbank.h\"\n\n"
+                "#ifdef MMOD\n"
+                "#include \"soundbank.h\"\n"
+                "#endif\n\n"
                 "#define MOD_NONE -1\n\n"
+                "#ifdef MMOD\n"
                 "constexpr int BGMIndexForName( unsigned p_name ) {\n"
-                "   switch( p_name ) {\n"
-                "   default: return -1;\n" );
-    fprintf( n, "#pragma once\n" );
+                "    switch( p_name ) {\n"
+                "    default: return -1;\n" );
+    fprintf( n, "#pragma once\n\n" );
 
     int count = 0;
     for( const auto& [ id, names ] : bgm_names ) {
@@ -114,9 +118,14 @@ void printBGMData( ) {
         string nname = "BGM_" + id.substr( 4 );
 
         fprintf( n, ( "#define "s + nname + " " + std::to_string( count++ ) + "\n" ).c_str( ) );
-        fprintf( g, ( "   case "s + nname + ": return " + id + ";\n" ).c_str( ) );
+        fprintf( g, ( "    case "s + nname + ": return " + id + ";\n" ).c_str( ) );
     }
-    fprintf( g, "   }\n}\n" );
+    fprintf( g, "    }\n"
+                "}\n"
+                "#endif\n"
+                "#endif\n" );
+
+    fprintf( n, ( "\n#define MAX_BGM "s + std::to_string( count - 1 ) + "\n" ).c_str( ) );
 
     fclose( g );
     fclose( n );
