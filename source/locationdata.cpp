@@ -117,8 +117,10 @@ void printBGMData( ) {
 
         string nname = "BGM_" + id.substr( 4 );
 
-        fprintf( n, ( "#define "s + nname + " " + std::to_string( count++ ) + "\n" ).c_str( ) );
-        fprintf( g, ( "    case "s + nname + ": return " + id + ";\n" ).c_str( ) );
+        if( id[ 0 ] == 'M' ) { // ow bgm exists only as sseq
+            fprintf( n, ( "#define "s + nname + " " + std::to_string( count++ ) + "\n" ).c_str( ) );
+            fprintf( g, ( "    case "s + nname + ": return " + id + ";\n" ).c_str( ) );
+        }
     }
     fprintf( g, "    }\n"
                 "}\n"
