@@ -39,7 +39,7 @@ ifdef LOCAL
 	@mkdir -p $(OUT)
 endif
 	@mkdir -p $(BUILD)
-	./locationdata data/bgmnames.csv data/locationnames.csv data/locationdata.csv
+	./locationdata data/bgmnames.csv data/locationnames.csv data/locationdata.csv data/bgm/
 	./pkmndata data/pkmnnames.csv data/abtynames.csv data/movenames.csv data/itemnames.csv \
 		data/pkmndata.csv data/pkmndescr.csv data/pkmnformnames.csv data/pkmnformes.csv \
 		data/itemdata_medicine.csv data/itemdata_formechange.csv data/itemdata_tmhm.csv \
