@@ -182,7 +182,7 @@ void printBGMData( ) {
             g,
             ( "        case "s + curMacroName + ": return " + to_string( i ) + ";\n" ).c_str( ) );
     }
-    fprintf( s2, "    }\n"
+    fprintf( s2, "    };\n"
                  "} // namespace SOUND::SSEQ\n"
                  "#endif\n" );
 
