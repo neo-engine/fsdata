@@ -203,8 +203,11 @@ void copyBGMFiles( const char* p_bgmpath ) {
 
     for( const auto& [ name, id ] : sseq_names ) {
         if( !id ) { continue; }
+        fs::create_directories( std::string( FSROOT "BGM/SSEQ/" )
+                                + to_string( id / MAX_ITEMS_PER_DIR ) );
         fs::path from = string( p_bgmpath ) + "sseq/" + name.substr( 5 ) + ".sseq";
-        fs::path to   = std::string( FSROOT "BGM/SSEQ/" ) + to_string( id ) + ".sseq";
+        fs::path to = std::string( FSROOT "BGM/SSEQ/" ) + to_string( id / MAX_ITEMS_PER_DIR ) + +"/"
+                      + to_string( id ) + ".sseq";
 
         error_code ec;
         if( !fs::copy_file( from, to, fs::copy_options::overwrite_existing, ec ) ) {
@@ -215,8 +218,11 @@ void copyBGMFiles( const char* p_bgmpath ) {
 
     for( const auto& [ name, id ] : swar_names ) {
         if( !id ) { continue; }
+        fs::create_directories( std::string( FSROOT "BGM/SWAR/" )
+                                + to_string( id / MAX_ITEMS_PER_DIR ) );
         fs::path from = string( p_bgmpath ) + "swar/" + name.substr( 5 ) + ".swar";
-        fs::path to   = std::string( FSROOT "BGM/SWAR/" ) + to_string( id ) + ".swar";
+        fs::path to = std::string( FSROOT "BGM/SWAR/" ) + to_string( id / MAX_ITEMS_PER_DIR ) + +"/"
+                      + to_string( id ) + ".swar";
 
         error_code ec;
         if( !fs::copy_file( from, to, fs::copy_options::overwrite_existing, ec ) ) {
@@ -227,8 +233,11 @@ void copyBGMFiles( const char* p_bgmpath ) {
 
     for( const auto& [ name, id ] : sbnk_names ) {
         if( !id ) { continue; }
+        fs::create_directories( std::string( FSROOT "BGM/SBNK/" )
+                                + to_string( id / MAX_ITEMS_PER_DIR ) );
         fs::path from = string( p_bgmpath ) + "sbnk/" + name.substr( 5 ) + ".sbnk";
-        fs::path to   = std::string( FSROOT "BGM/SBNK/" ) + to_string( id ) + ".sbnk";
+        fs::path to = std::string( FSROOT "BGM/SBNK/" ) + to_string( id / MAX_ITEMS_PER_DIR ) + +"/"
+                      + to_string( id ) + ".sbnk";
 
         error_code ec;
         if( !fs::copy_file( from, to, fs::copy_options::overwrite_existing, ec ) ) {
@@ -282,8 +291,9 @@ void readBGMData( char* p_path, vector<u16>& p_dataIds, map<string, pair<u16, na
             curname = string( "REC_" ) + string( b1 );
             bgmcnt = lstrec = id;
             p_dataIds.push_back( bgmcnt );
-        } else if( sscanf( buffer, "%45[^;];%45[^;];%45[^;];%45[^;];%45[^;];%45[^;];%45[^;];%490[^\n]",
-                           b1, b2, b3, b4, b5, b6, b7, bn ) ) {
+        } else if( sscanf( buffer,
+                           "%45[^;];%45[^;];%45[^;];%45[^;];%45[^;];%45[^;];%45[^;];%490[^\n]", b1,
+                           b2, b3, b4, b5, b6, b7, bn ) ) {
             ++bgmcnt;
 
             // BGM name
