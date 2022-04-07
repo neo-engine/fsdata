@@ -13,7 +13,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
     MOVE_MAPOBJECT_R( 0, DOWN, 1 )
     MOVE_MAPOBJECT_R( 0, RIGHT, 1 )
     MOVE_MAPOBJECT_R( 0, DOWN, 1 )
-    PLAY_MUSIC( BGM_ENCOUNTER_TEAM_AM )
+    PLAY_MUSIC( BGM_ENCOUNTER_TEAM_A )
     MESSAGE( 177, 0 )
     MOVE_MAPOBJECT_R( 0, DOWN, 2 )
     MOVE_MAPOBJECT_R( 1, UP, 0 )
@@ -64,7 +64,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
         SET_FLAG( 36, 1 )
         BATTLE_TRAINER( 15, SINGLE )
         HIDE_PKMN
-        PLAY_MUSIC( BGM_ENCOUNTER_TEAM_AM )
+        PLAY_MUSIC( BGM_ENCOUNTER_TEAM_A )
         REDRAW_OBJECTS
         // Check if the player managed to win
         CHECK_REGISTER( 0, 1, 35 )
