@@ -14,6 +14,18 @@ typedef short int          s16;
 typedef unsigned char      u8;
 typedef signed char        s8;
 
+struct fsdataInfo {
+    u16 m_maxPkmn = 0;
+    u16 m_maxItem = 0;
+
+    u16 m_maxMove   = 0;                 // valid move idx 0..m_maxMove
+    u8  m_languages = NUM_LANGUAGES;     // num languages
+    u8  m_fileSplit = MAX_ITEMS_PER_DIR; // max num files per dir
+
+    u8 m_maxNavBG     = 0; // valid subscrn wallpaper 0..m_maxNavBg
+    u8 m_defualtNavBG = 0;
+};
+
 struct pkmnFormeData {
     u8  m_types[ 2 ];
     u16 m_abilities[ 4 ]; // abilities

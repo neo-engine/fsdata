@@ -1,5 +1,7 @@
 build/
 out/
+stringconv
+trainerdata
 pkmndata
 locationdata
 evolutiondata

@@ -1,6 +1,5 @@
 NUM_LANGUAGES		?=   2
 MAX_ITEMS_PER_DIR	?=  30
-MAX_PKMN			?= 905
 ACHIEVEMENT_LEN		?= 100
 UISTRING_LEN		?= 250
 MAPSTRING_LEN		?= 800
@@ -21,7 +20,7 @@ SOURCES     :=	source
 DATA     	:=	data
 
 CFLAGS      :=	-Wall -DNUM_LANGUAGES=$(NUM_LANGUAGES) \
-				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) -DMAX_PKMN=$(MAX_PKMN) \
+				-DMAX_ITEMS_PER_DIR=$(MAX_ITEMS_PER_DIR) \
 				-DFSROOT=\"$(FSROOT)\" -DOUT=\"$(OUT)\" -g3 -ggdb
 CXXFLAGS    :=	$(CFLAGS) -std=c++2a -fsanitize=undefined
 LDFLAGS     := -lubsan

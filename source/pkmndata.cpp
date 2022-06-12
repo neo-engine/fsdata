@@ -15,6 +15,8 @@
 
 #define LEARNSET_SIZE 400
 
+fsdataInfo FINFO;
+
 map<pair<u16, u8>, pkmnEvolveData> pkmn_evolve;
 
 map<u16, names>  location_names;
@@ -465,6 +467,7 @@ void readMoveData( char* p_moveData, vector<moveData>& p_out ) {
     FILE* f             = fopen( p_moveData, "r" );
     char  buffer[ 800 ] = { 0 };
     while( f && fgets( buffer, sizeof( buffer ), f ) ) p_out.push_back( parseMoveData( buffer ) );
+    FINFO.m_maxMove = p_out.size( ) - 1;
     fclose( f );
 }
 
@@ -960,6 +963,8 @@ void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, cha
     }
     fclose( f );
     fclose( m );
+
+    FINFO.m_maxItem = p_out.size( ) - 1;
     fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
 }
 
@@ -1023,7 +1028,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
     assert( fgets( fdata_buf, sizeof( fdata_buf ), fdata ) );
     assert( fgets( fdescr_buf, sizeof( fdescr_buf ), fdesc ) );
 
-    for( size_t i = 0; i <= MAX_PKMN; ++i ) {
+    for( size_t i = 0; i <= FINFO.m_maxPkmn; ++i ) {
         // fprintf( stderr, "reading data %lu\n", i );
         char data_buf[ 1000 ] = { 0 }, descr_buf[ 1000 ] = { 0 };
         assert( fgets( data_buf, sizeof( data_buf ), pdata ) );
@@ -1097,7 +1102,10 @@ int main( int p_argc, char** p_argv ) {
     // pkmnnames abtynames movenames itemnames pkmndata pkmndescr pkmnformnames
     // pkmnformdescr
 
+    FINFO = fsdataInfo{ };
     readNames( p_argv[ 1 ], pkmn_names );
+    FINFO.m_maxPkmn = pkmn_names.size( ) - 1;
+
     readNames( p_argv[ 17 ], pkmn_species );
     readDescrs( p_argv[ 18 ], pkmn_descrs, 199 );
     for( size_t i = 0; i < pkmn_names.size( ); ++i ) pkmns[ pkmn_names[ i ].m_name[ 0 ] ] = i;
@@ -1134,4 +1142,10 @@ int main( int p_argc, char** p_argv ) {
     printItemData( );
     printAbilityData( );
     printMoveData( );
+
+    FILE* f = fopen( FSROOT "/fsinfo", "wb" );
+    if( f ) {
+        fwrite( &FINFO, sizeof( fsdataInfo ), 1, f );
+        fclose( f );
+    }
 }
