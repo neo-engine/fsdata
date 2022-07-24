@@ -85,7 +85,7 @@ CHECK_REGISTER_N( EVAL_REG, 1, 46 )
     WALK_PLAYER( UP, 2 )
     MOVE_PLAYER( RIGHT, 0 )
 
-    WARP_CROSSBANK( 37, 0x2f, 0x30, 3 )
+    WARP_CROSSBANK( 20, 0x2f, 0x110, 3 )
     JUMP_TO_END
 
 // player wants to sail to slateport

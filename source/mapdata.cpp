@@ -38,6 +38,7 @@ enum eventType : u8 {
     EVENT_HMOBJECT    = 8,
     EVENT_BERRYTREE   = 9,
     EVENT_NPC_MESSAGE = 10,
+    EVENT_FLY_POS     = 11,
 };
 enum eventTrigger : u8 {
     TRIGGER_NONE           = 0,
@@ -179,6 +180,12 @@ struct mapData {
             struct {
                 u8 m_treeIdx; // internal id of this berry tree
             } m_berryTree;
+            struct {
+                u8 m_bank; // map bank on whose map the fly pos should appear,
+                           // typically 10
+                u8 m_mapX; // map coordinate where the fly pos should appear on ow map
+                u8 m_mapY; // map coordinate where the fly pos should appear on ow map
+            } m_flyPos;
         } m_data;
     } m_events[ MAX_EVENTS_PER_SLICE ];
 };
@@ -264,6 +271,7 @@ eventType getEventType( char* p_str ) {
     if( !strcmp( p_str, "script" ) ) return EVENT_GENERIC;
     if( !strcmp( p_str, "hmobject" ) ) return EVENT_HMOBJECT;
     if( !strcmp( p_str, "berry tree" ) ) return EVENT_BERRYTREE;
+    if( !strcmp( p_str, "fly pos" ) ) return EVENT_FLY_POS;
 
     fprintf( stderr, "[%s] unknown event type %s\n", FILENAME.c_str( ), p_str );
     return EVENT_NONE;

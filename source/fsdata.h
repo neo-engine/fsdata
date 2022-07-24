@@ -23,7 +23,7 @@ struct fsdataInfo {
     u8  m_fileSplit = MAX_ITEMS_PER_DIR; // max num files per dir
 
     u8 m_maxNavBG     = 0; // valid subscrn wallpaper 0..m_maxNavBg
-    u8 m_defualtNavBG = 0;
+    u8 m_defaultNavBG = 0;
 };
 
 struct pkmnFormeData {
