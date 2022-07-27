@@ -22,5 +22,5 @@ GET_MAPOBJECT( 22, 26, 3 )
     // make the player follow into devon hq
     MESSAGE( 382, 0 )
     SET_FLAG( 163, 1 )
-    WARP_CROSSBANK( 31, 0x28, 0x4e, 3 )
+    WARP_CROSSBANK( 20, 0xa8, 0xae, 3 )
 END_OF_PROGRAM
