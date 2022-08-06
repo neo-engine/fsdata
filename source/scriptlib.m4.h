@@ -419,6 +419,8 @@ dnl
 #define DAY_CARE_OLD_MAN( p_dayCare ) ins4( CLL, 13, p_dayCare, 0 )
 #define SAVE_GAME ins4( CLL, 14, 0, 0 )
 #define FORCE_SAVE_GAME ins4( CLL, 14, 1, 0 )
+#define GET_CURRENT_HOURS ins4( CLL, 15, 24, 0 )
+#define GET_CURRENT_HOURS_MOD_TWELVE ins4( CLL, 15, 12, 0 )
 dnl
 // runs the battle factory script, starts right after the player saved
 // p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)

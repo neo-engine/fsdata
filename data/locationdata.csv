@@ -79,6 +79,9 @@
 0593;Hidden Lake;BGM_ROUTE_10;coast;0;
 0594;Pretty Petal;BGM_EX03;forest;0;
 0595;Fiery Den;BGM_MT_CHIMNEY;cave;0;
+0596;Faraway Island;BGM_ABANDONED_SHIP;beach;0;
+0597;Navel Rock;BGM_ROUTE_38;beach;0;
+0598;Birth Island;BGM_DRAGON_DEN;beach;0;
 0701;Pokémon Mart;BGM_POKEMON_MART;inside;0;
 0702;Oceanic Museum;BGM_MARINE_SCIENCE_MUSEUM;inside;0;
 0703;Lilycove Museum;BGM_LILYCOVE_MUSEUM;inside;0;
@@ -111,4 +114,5 @@
 1003;Route 136;BGM_ROUTE_135;coast;0;
 1004;New Lilycove City;BGM_NEW_LILYCOVE_CITY;city;0;
 1005;Route 137;BGM_ROUTE_137;water;0;
+1006;Route 138;BGM_ROUTE_137;water;0;
 3052;Pokémon Center;BGM_POKEMON_CENTER;inside;0;
