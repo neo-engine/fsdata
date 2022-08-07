@@ -5,11 +5,11 @@
 // Empty lines and c(++)-style comments are ignored.
 changequote(<!,!>)dnl
 dnl
+#include "bgmNames.h"
 #include "itemNames.h"
 #include "locationNames.h"
 #include "moveNames.h"
 #include "pokemonNames.h"
-#include "bgmNames.h"
 dnl
 #define WEATHER_NOTHING 0
 #define WEATHER_SUNNY 1
@@ -227,6 +227,7 @@ dnl
 #define DES 150
 dnl
 #define SBC 196
+#define SBCC 197
 dnl
 dnl
 #define REDRAW_MAP ins4( MAP, 0, 0, 0 )
@@ -238,6 +239,7 @@ dnl
 dnl
 #define SET_WEATHER( p_newWeather ) ins3( SWT, p_newWeather, 0 )
 #define SET_BLOCK( p_mapX, p_mapY, p_blockIdx ) ins3s( SBC, p_mapX, p_mapY, p_blockIdx )
+#define SET_BLOCK_COR( p_mapX, p_mapY, p_blockIdx ) ins3s( SBCC, p_mapX, p_mapY, p_blockIdx )
 dnl
 #define WARP_CROSSBANK( p_bank, p_globX, p_globY, p_z ) \
     ins4( BNK, p_bank, p_z, 0 ) ins3( WRP, p_globX, p_globY )
@@ -359,6 +361,7 @@ dnl
 #define GET_VAR( p_var, p_register ) ins3( GVR, p_var, p_register )
 dnl
 #define SET_FLAG( p_flag, p_value ) ins4( SFL, p_flag, p_value, 0 )
+#define CLEAR_FLAG( p_flag ) ins4( SFL, p_flag, 0, 0 )
 #define SET_TRAINER_FLAG( p_flag, p_value ) ins4( STF, p_flag, p_value, 0 )
 dnl
 #define CHECK_FLAG_R( p_register, p_value, p_skippedInstructionsIfTrue )                       \
@@ -421,6 +424,7 @@ dnl
 #define FORCE_SAVE_GAME ins4( CLL, 14, 1, 0 )
 #define GET_CURRENT_HOURS ins4( CLL, 15, 24, 0 )
 #define GET_CURRENT_HOURS_MOD_TWELVE ins4( CLL, 15, 12, 0 )
+#define GET_PLAYTIME_HOURS ins4( CLL, 16, 0, 0 )
 dnl
 // runs the battle factory script, starts right after the player saved
 // p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)
