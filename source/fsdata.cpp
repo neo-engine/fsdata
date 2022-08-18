@@ -532,15 +532,24 @@ u8 getStatus( char* p_str ) {
 u8 getFrameType( char* p_str ) {
     if( !strcmp( p_str, "none" ) ) return 0;
     if( !strcmp( p_str, "route" ) ) return 0;
-    if( !strcmp( p_str, "town" ) ) return 0;
-    if( !strcmp( p_str, "inside" ) ) return 1;
+
+    // water
     if( !strcmp( p_str, "water" ) ) return 2;
-    if( !strcmp( p_str, "field" ) ) return 3;
     if( !strcmp( p_str, "beach" ) ) return 3;
+    if( !strcmp( p_str, "coastroute" ) ) return 11;
+
+    // special
     if( !strcmp( p_str, "cave" ) ) return 4;
     if( !strcmp( p_str, "forest" ) ) return 5;
-    if( !strcmp( p_str, "city" ) ) return 6;
+    if( !strcmp( p_str, "special" ) ) return 10;
     if( !strcmp( p_str, "coast" ) ) return 7;
+    if( !strcmp( p_str, "inside" ) ) return 1;
+
+    // city
+    if( !strcmp( p_str, "forestcity" ) ) return 12;
+    if( !strcmp( p_str, "city" ) ) return 6;
+    if( !strcmp( p_str, "town" ) ) return 8;
+    if( !strcmp( p_str, "field" ) ) return 9;
 
     fprintf( stderr, "unknown frame type \"%s\"\n", p_str );
     return 0;

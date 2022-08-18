@@ -429,7 +429,9 @@ struct trainerData {
     u16            m_battleBG;
     u8             m_battlePlat1;
     u8             m_battlePlat2;
-    u8             m_numPokemon;
+    u16            m_numPokemonEasy : 5;
+    u16            m_numPokemonNormal : 5;
+    u16            m_numPokemonHard : 6;
     u16            m_items[ 5 ];
     u32            m_moneyEarned;
     trainerPokemon m_pokemon[ 6 ];

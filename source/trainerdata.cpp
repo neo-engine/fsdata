@@ -153,13 +153,17 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
 
     // trainer data
 
+    u8 numpok;
+
     fgets( buffer, sizeof( buffer ), f );
     char tclassbuffer[ 50 ] = { 0 }, itm1[ 50 ] = { 0 }, itm2[ 50 ] = { 0 }, itm3[ 50 ] = { 0 },
                           itm4[ 50 ] = { 0 }, itm5[ 50 ] = { 0 };
     sscanf( buffer, "%[^,],%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%[^,],%u,%hu,%hhu,%hhu,%hu",
-            tclassbuffer, &rdata.m_AILevel, &rdata.m_numPokemon, itm1, itm2, itm3, itm4, itm5,
+            tclassbuffer, &rdata.m_AILevel, &numpok, itm1, itm2, itm3, itm4, itm5,
             &rdata.m_moneyEarned, &rdata.m_battleBG, &rdata.m_battlePlat1, &rdata.m_battlePlat2,
             &rdata.m_trainerBG );
+
+    rdata.m_numPokemonNormal = numpok;
 
     auto cn = string( fixEncoding( tclassbuffer ) );
     if( !classes.count( cn ) ) {
@@ -188,17 +192,21 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm5 );
     }
 
-    for( u8 i = 0; i < rdata.m_numPokemon; ++i ) {
+    for( u8 i = 0; i < rdata.m_numPokemonNormal; ++i ) {
         fgets( buffer, sizeof( buffer ), f );
         rdata.m_pokemon[ i ] = parseTrainerPokemon( buffer );
     }
 
     // hard difficulty may use this hidden extra pokemon
-    if( rdata.m_numPokemon < 6 && fgets( buffer, sizeof( buffer ), f ) ) {
-        rdata.m_pokemon[ rdata.m_numPokemon ] = parseTrainerPokemon( buffer );
+    if( rdata.m_numPokemonNormal < 6 && fgets( buffer, sizeof( buffer ), f ) ) {
+        rdata.m_pokemon[ rdata.m_numPokemonNormal ] = parseTrainerPokemon( buffer );
+        rdata.m_numPokemonHard                      = rdata.m_numPokemonNormal + 1;
     } else {
-        memset( &rdata.m_pokemon[ rdata.m_numPokemon ], 0, sizeof( trainerPokemon ) );
+        memset( &rdata.m_pokemon[ rdata.m_numPokemonNormal ], 0, sizeof( trainerPokemon ) );
+        rdata.m_numPokemonHard = rdata.m_numPokemonNormal;
     }
+
+    if( rdata.m_numPokemonNormal >= 2 ) { rdata.m_numPokemonEasy = rdata.m_numPokemonNormal - 1; }
 
     fclose( f );
     return { rdata, rstrings };
