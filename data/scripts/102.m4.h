@@ -25,13 +25,13 @@ PLAY_MUSIC( BGM_SAILING )
         COPY_REGISTER( 0, 1 )
         FIX_MAPOBJECT_R( 1 )
         ATTACH_PLAYER
-            MOVE_MAPOBJECT_R( 1, DOWN, 5 )
-            MOVE_MAPOBJECT_FAST_R( 1, DOWN, 12 )
-            MOVE_MAPOBJECT_R( 1, DOWN, 5 )
-            MOVE_MAPOBJECT_R( 1, LEFT, 5 )
-            MOVE_MAPOBJECT_FAST_R( 1, LEFT, 138 )
-            MOVE_MAPOBJECT_R( 1, LEFT, 5 )
-            MOVE_MAPOBJECT_R( 1, DOWN, 0 )
+            MOVE_MAPOBJECT( 0, DOWN, 5 )
+            MOVE_MAPOBJECT_FAST( 0, DOWN, 12 )
+            MOVE_MAPOBJECT( 0, DOWN, 5 )
+            MOVE_MAPOBJECT( 0, LEFT, 5 )
+            MOVE_MAPOBJECT_FAST( 0, LEFT, 138 )
+            MOVE_MAPOBJECT( 0, LEFT, 5 )
+            MOVE_MAPOBJECT( 0, DOWN, 0 )
     REMOVE_PLAYER
     WALK_PLAYER( LEFT, 1 )
 RESTORE_MUSIC
@@ -48,12 +48,11 @@ SHOW_PLAYER
 WALK_PLAYER( DOWN, 1 )
 MOVE_PLAYER( RIGHT, 0 )
 
-// post-landing message
-MESSAGE( 432, 0 )
-
 UNFIX_MAPOBJECT_R( 1 )
 UNFIX_MAPOBJECT_R( 2 )
-    DESTROY_MAPOBJECT_R( 1 )
+    DESTROY_MAPOBJECT( 0 )
     DESTROY_MAPOBJECT_R( 2 )
 REDRAW_OBJECTS
 
+// post-landing message
+MESSAGE( 432, 0 )
