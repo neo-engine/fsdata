@@ -286,7 +286,7 @@ It has no effect on %s|;Es hat keine Wirkung auf %s|;
 It is super effective on %s.;Es ist sehr effektiv gegen %s.;
 It is not very effective on %s.;Es ist nicht sehr effektiv gegen %s.;
 %s is hit by the recoil.;Der Rückstoß schadet %s.;
-%s restores some HP.;%s heilt ein paar KP.;
+%s restores some HP.;%s regeneriert ein paar KP.;
 %s fainted.;%s wurde besiegt.;
 It missed %s.;%s weicht aus.;
 A critical hit!;Ein Volltreffer!;
