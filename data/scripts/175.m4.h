@@ -1,8 +1,6 @@
 // slateport vitamin market
 #include "scriptlib.m4.h"
 
-HIDE_PKMN
-
 MART_BEGIN( 0, 1 )
     MART_ITEM( I_SEA_INCENSE, 960 )
     MART_ITEM( I_LAX_INCENSE, 960 )

@@ -177,6 +177,9 @@ dnl
 #define GMM 52
 #define CMM 53
 dnl
+#define PMR 54
+#define PMRA 55
+dnl
 #define HPK 60
 dnl
 #define CMN 70
@@ -223,6 +226,7 @@ dnl
 #define BTZ 130
 dnl
 #define MAP 140
+#define EQ 141
 dnl
 #define DES 150
 dnl
@@ -230,7 +234,13 @@ dnl
 #define SBCC 197
 dnl
 dnl
+#define CHECK_PKMN_IN_SLOT( p_pkmn, p_slot, p_skipIfTrue ) \
+    ins3s( PMR, p_slot, p_skipIfTrue, p_pkmn )
+#define CHECK_PKMN_NUMBER_IN_PARTY( p_pkmn, p_minNumber, p_skipIfTrue ) \
+    ins3s( PMRA, p_minNumber, p_skipIfTrue, p_pkmn )
+dnl
 #define REDRAW_MAP ins4( MAP, 0, 0, 0 )
+#define EARTHQUAKE ins4( EQ, 0, 0, 0 )
 dnl
 #define REGISTER_SEEN( p_idx ) ins3( DES, p_idx, 0 )
 #define REGISTER_SEEN_FORME( p_idx, p_forme ) ins3( DES, p_idx, p_forme )
