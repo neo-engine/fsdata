@@ -5,6 +5,8 @@ UISTRING_LEN		?= 250
 MAPSTRING_LEN		?= 800
 PKMNPHRS_LEN		?= 150
 BADGENAME_LEN		?=  50
+RIBBONNAME_LEN		?=  50
+RIBBONDSCR_LEN		?= 250
 
 ifdef LOCAL
 FSROOT				?= out/FSROOT
@@ -55,6 +57,8 @@ endif
 	./stringconv data/strings/strings.csv "STRN/UIS/" "uis" $(UISTRING_LEN)
 	./stringconv data/strings/achievement.csv "STRN/AVM/" "avm" $(ACHIEVEMENT_LEN)
 	./stringconv data/strings/badgename.csv "STRN/BDG/" "bdg" $(BADGENAME_LEN)
+	./stringconv data/strings/ribbonnames.csv "STRN/RBN/" "rbn" $(RIBBONNAME_LEN)
+	./stringconv data/strings/ribbondscr.csv "STRN/RBN/" "rbd" $(RIBBONDSCR_LEN)
 	./stringconv data/strings/mapstring.csv "STRN/MAP/" "map" $(MAPSTRING_LEN)
 	./stringconv data/strings/pkmnphrases.csv "STRN/PHR/" "phr" $(PKMNPHRS_LEN)
 	touch fsdata
