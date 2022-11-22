@@ -423,18 +423,23 @@ struct trainerPokemon {
 };
 
 struct trainerData {
-    u8             m_trainerClass;
-    u8             m_AILevel;
+    static constexpr u8 NUM_ITEMS = 5;
+    static constexpr u8 NUM_PKMN  = 6;
+
+    u16            m_trainerClass : 8;
+    u16            m_AILevel : 8;
     u16            m_trainerBG;
     u16            m_battleBG;
-    u8             m_battlePlat1;
-    u8             m_battlePlat2;
-    u16            m_numPokemonEasy : 5;
-    u16            m_numPokemonNormal : 5;
-    u16            m_numPokemonHard : 6;
-    u16            m_items[ 5 ];
+    u16            m_battlePlat1 : 8;
+    u16            m_battlePlat2 : 8;
+    u16            m_numPokemonEasy : 3;
+    u16            m_numPokemonNormal : 3;
+    u16            m_numPokemonHard : 3;
+    u16            m_targetNumBadges : 6;
+    u16            m_forceDoubleBattle : 1;
+    u16            m_items[ NUM_ITEMS ];
     u32            m_moneyEarned;
-    trainerPokemon m_pokemon[ 6 ];
+    trainerPokemon m_pokemon[ NUM_PKMN ];
 };
 
 struct battleTrainer {
