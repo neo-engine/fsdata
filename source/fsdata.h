@@ -401,14 +401,6 @@ struct data {
     char m_data[ 200 ][ NUM_LANGUAGES ];
 };
 
-struct trainerStrings {
-    char m_name[ 16 ];
-    char m_message1[ 200 ];
-    char m_message2[ 200 ];
-    char m_message3[ 200 ];
-    char m_message4[ 200 ];
-};
-
 struct trainerPokemon {
     u16 m_speciesId;
     u8  m_forme; // BIT( 6 ): pkmn is female, BIT( 7 ): pkmn is genderless
@@ -442,14 +434,6 @@ struct trainerData {
     trainerPokemon m_pokemon[ NUM_PKMN ];
 };
 
-struct battleTrainer {
-    trainerStrings m_strings;
-    trainerData    m_data;
-
-    constexpr u8 getClass( ) const {
-        return m_data.m_trainerClass;
-    }
-};
 size_t         getLength( u8 p_c );
 char           getValue( char* p_text, size_t* p_readIdx );
 char*          fixEncoding( char* p_utf8 );

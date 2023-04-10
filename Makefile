@@ -7,6 +7,8 @@ PKMNPHRS_LEN		?= 150
 BADGENAME_LEN		?=  50
 RIBBONNAME_LEN		?=  50
 RIBBONDSCR_LEN		?= 250
+TRNNAME_LEN			?=  16
+TRNMSG_LEN			?= 200
 
 ifdef LOCAL
 FSROOT				?= out/FSROOT
@@ -61,6 +63,10 @@ endif
 	./stringconv data/strings/ribbondscr.csv "STRN/RBN/" "rbd" $(RIBBONDSCR_LEN)
 	./stringconv data/strings/mapstring.csv "STRN/MAP/" "map" $(MAPSTRING_LEN)
 	./stringconv data/strings/pkmnphrases.csv "STRN/PHR/" "phr" $(PKMNPHRS_LEN)
+	./stringconv data/strings/trainername.csv "STRN/TRN/" "name" $(TRNNAME_LEN)
+	./stringconv data/strings/trainerintromessage.csv "STRN/TRN/" "msg1" $(TRNMSG_LEN)
+	./stringconv data/strings/trainerlostmessage.csv "STRN/TRN/" "msg2" $(TRNMSG_LEN)
+	./stringconv data/strings/trainerwonmessage.csv "STRN/TRN/" "msg3" $(TRNMSG_LEN)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o

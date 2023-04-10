@@ -103,67 +103,26 @@ trainerPokemon parseTrainerPokemon( char* p_buffer ) {
     return res;
 }
 
-pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path ) {
+trainerData parseBattleTrainer( const char* p_path ) {
     FILE* f             = fopen( p_path, "r" );
     char  buffer[ 500 ] = { 0 };
 
-    trainerData                 rdata = trainerData( );
-    std::vector<trainerStrings> rstrings;
-    for( int i = 0; i < NUM_LANGUAGES; ++i ) {
-        trainerStrings ts = trainerStrings( );
-        rstrings.push_back( ts );
-    }
-
-    // strings
-
-    fgets( buffer, sizeof( buffer ), f );
-    char* t   = strtok( buffer, ";" );
-    int   cnt = 0;
-    do {
-        strncpy( rstrings[ cnt++ ].m_name, fixEncoding( t ), 15 );
-    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
-
-    fgets( buffer, sizeof( buffer ), f );
-    t   = strtok( buffer, ";" );
-    cnt = 0;
-    do {
-        strncpy( rstrings[ cnt++ ].m_message1, fixEncoding( t ), 199 );
-    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
-
-    fgets( buffer, sizeof( buffer ), f );
-    t   = strtok( buffer, ";" );
-    cnt = 0;
-    do {
-        strncpy( rstrings[ cnt++ ].m_message2, fixEncoding( t ), 199 );
-    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
-
-    fgets( buffer, sizeof( buffer ), f );
-    t   = strtok( buffer, ";" );
-    cnt = 0;
-    do {
-        strncpy( rstrings[ cnt++ ].m_message3, fixEncoding( t ), 199 );
-    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
-
-    fgets( buffer, sizeof( buffer ), f );
-    t   = strtok( buffer, ";" );
-    cnt = 0;
-    do {
-        strncpy( rstrings[ cnt++ ].m_message4, fixEncoding( t ), 199 );
-    } while( cnt < NUM_LANGUAGES && ( t = strtok( NULL, ";" ) ) );
-
+    trainerData rdata = trainerData( );
     // trainer data
 
-    u8 numpok;
+    u8 numpok, ailevel, plat1, plat2;
 
     fgets( buffer, sizeof( buffer ), f );
     char tclassbuffer[ 50 ] = { 0 }, itm1[ 50 ] = { 0 }, itm2[ 50 ] = { 0 }, itm3[ 50 ] = { 0 },
                           itm4[ 50 ] = { 0 }, itm5[ 50 ] = { 0 };
     sscanf( buffer, "%[^,],%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%[^,],%u,%hu,%hhu,%hhu,%hu",
-            tclassbuffer, &rdata.m_AILevel, &numpok, itm1, itm2, itm3, itm4, itm5,
-            &rdata.m_moneyEarned, &rdata.m_battleBG, &rdata.m_battlePlat1, &rdata.m_battlePlat2,
-            &rdata.m_trainerBG );
+            tclassbuffer, &ailevel, &numpok, itm1, itm2, itm3, itm4, itm5, &rdata.m_moneyEarned,
+            &rdata.m_battleBG, &plat1, &plat2, &rdata.m_trainerBG );
 
     rdata.m_numPokemonNormal = numpok;
+    rdata.m_AILevel          = ailevel;
+    rdata.m_battlePlat1      = plat1;
+    rdata.m_battlePlat2      = plat2;
 
     auto cn = string( fixEncoding( tclassbuffer ) );
     if( !classes.count( cn ) ) {
@@ -209,7 +168,7 @@ pair<trainerData, vector<trainerStrings>> parseBattleTrainer( const char* p_path
     if( rdata.m_numPokemonNormal >= 2 ) { rdata.m_numPokemonEasy = rdata.m_numPokemonNormal - 1; }
 
     fclose( f );
-    return { rdata, rstrings };
+    return rdata;
 }
 
 void printTrainerData( const trainerData& p_trainerData, u16 p_id ) {
@@ -217,15 +176,6 @@ void printTrainerData( const trainerData& p_trainerData, u16 p_id ) {
     assert( f );
     fwrite( &p_trainerData, sizeof( trainerData ), 1, f );
     fclose( f );
-}
-
-void printTrainerStrings( const vector<trainerStrings>& p_trainerStrings, u16 p_id ) {
-    for( u8 i = 0; i < NUM_LANGUAGES; ++i ) {
-        FILE* f = getFilePtr( FSROOT "/TRNR_STRS/", p_id, 2, ".trnr.str", i + 1 );
-        assert( f );
-        fwrite( &p_trainerStrings[ i ], sizeof( trainerStrings ), 1, f );
-        fclose( f );
-    }
 }
 
 int main( int p_argc, char** p_argv ) {
@@ -264,6 +214,5 @@ int main( int p_argc, char** p_argv ) {
     sscanf( p_argv[ 6 ], "%*[^0-9]%hu", &idx );
     //    printf( "[%s] Saving to %hu\n", p_argv[ 6 ], idx );
 
-    printTrainerData( tdata.first, idx );
-    printTrainerStrings( tdata.second, idx );
+    printTrainerData( tdata, idx );
 }
