@@ -103,76 +103,105 @@ trainerPokemon parseTrainerPokemon( char* p_buffer ) {
     return res;
 }
 
-trainerData parseBattleTrainer( const char* p_path ) {
+std::vector<trainerData> parseBattleTrainer( const char* p_path ) {
     FILE* f             = fopen( p_path, "r" );
     char  buffer[ 500 ] = { 0 };
 
-    trainerData rdata = trainerData( );
+    trainerData rdata_easy   = trainerData( );
+    trainerData rdata_normal = trainerData( );
+    trainerData rdata_hard   = trainerData( );
     // trainer data
 
-    u8 numpok, ailevel, plat1, plat2;
+    u8  numpok, ailevel, plat1, plat2;
+    u16 battlebg, money, trainerbg;
 
     fgets( buffer, sizeof( buffer ), f );
     char tclassbuffer[ 50 ] = { 0 }, itm1[ 50 ] = { 0 }, itm2[ 50 ] = { 0 }, itm3[ 50 ] = { 0 },
                           itm4[ 50 ] = { 0 }, itm5[ 50 ] = { 0 };
-    sscanf( buffer, "%[^,],%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%[^,],%u,%hu,%hhu,%hhu,%hu",
-            tclassbuffer, &ailevel, &numpok, itm1, itm2, itm3, itm4, itm5, &rdata.m_moneyEarned,
-            &rdata.m_battleBG, &plat1, &plat2, &rdata.m_trainerBG );
+    sscanf( buffer, "%[^,],%hhu,%hhu,%[^,],%[^,],%[^,],%[^,],%[^,],%hu,%hu,%hhu,%hhu,%hu",
+            tclassbuffer, &ailevel, &numpok, itm1, itm2, itm3, itm4, itm5, &money, &battlebg,
+            &plat1, &plat2, &trainerbg );
 
-    rdata.m_numPokemonNormal = numpok;
-    rdata.m_AILevel          = ailevel;
-    rdata.m_battlePlat1      = plat1;
-    rdata.m_battlePlat2      = plat2;
+    rdata_normal.m_numPokemon      = numpok;
+    rdata_normal.m_AILevel         = ailevel;
+    rdata_normal.m_battlePlat1     = plat1;
+    rdata_normal.m_battlePlat2     = plat2;
+    rdata_normal.m_trainerBG       = trainerbg;
+    rdata_normal.m_battleBG        = battlebg;
+    rdata_normal.m_moneyMultiplier = money;
+
+    rdata_hard.m_numPokemon      = numpok;
+    rdata_hard.m_AILevel         = std::min( 8, ailevel + 1 );
+    rdata_hard.m_battlePlat1     = plat1;
+    rdata_hard.m_battlePlat2     = plat2;
+    rdata_hard.m_trainerBG       = trainerbg;
+    rdata_hard.m_battleBG        = battlebg;
+    rdata_hard.m_moneyMultiplier = money;
+
+    rdata_easy.m_numPokemon      = numpok;
+    rdata_easy.m_AILevel         = std::max( 1, ailevel - 1 );
+    rdata_easy.m_battlePlat1     = plat1;
+    rdata_easy.m_battlePlat2     = plat2;
+    rdata_easy.m_trainerBG       = trainerbg;
+    rdata_easy.m_battleBG        = battlebg;
+    rdata_easy.m_moneyMultiplier = money;
 
     auto cn = string( fixEncoding( tclassbuffer ) );
     if( !classes.count( cn ) ) {
         fprintf( stderr, "[%s] Unknown trainer class \"%s\"\n", FILENAME.c_str( ), tclassbuffer );
     } else {
-        rdata.m_trainerClass = classes[ cn ];
+        rdata_easy.m_trainerClass   = classes[ cn ];
+        rdata_normal.m_trainerClass = classes[ cn ];
+        rdata_hard.m_trainerClass   = classes[ cn ];
     }
-    rdata.m_items[ 0 ] = items[ string( fixEncoding( itm1 ) ) ];
-    if( !rdata.m_items[ 0 ] && strcmp( fixEncoding( itm1 ), "none" ) ) {
+    rdata_normal.m_items[ 0 ] = items[ string( fixEncoding( itm1 ) ) ];
+    rdata_hard.m_items[ 0 ]   = items[ string( fixEncoding( itm1 ) ) ];
+    if( !rdata_hard.m_items[ 0 ] && strcmp( fixEncoding( itm1 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm1 );
     }
-    rdata.m_items[ 1 ] = items[ string( fixEncoding( itm2 ) ) ];
-    if( !rdata.m_items[ 1 ] && strcmp( fixEncoding( itm2 ), "none" ) ) {
+    rdata_normal.m_items[ 1 ] = items[ string( fixEncoding( itm2 ) ) ];
+    rdata_hard.m_items[ 1 ]   = items[ string( fixEncoding( itm2 ) ) ];
+    if( !rdata_hard.m_items[ 1 ] && strcmp( fixEncoding( itm2 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm2 );
     }
-    rdata.m_items[ 2 ] = items[ string( fixEncoding( itm3 ) ) ];
-    if( !rdata.m_items[ 2 ] && strcmp( fixEncoding( itm3 ), "none" ) ) {
+    rdata_normal.m_items[ 2 ] = items[ string( fixEncoding( itm3 ) ) ];
+    rdata_hard.m_items[ 2 ]   = items[ string( fixEncoding( itm3 ) ) ];
+    if( !rdata_hard.m_items[ 2 ] && strcmp( fixEncoding( itm3 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm3 );
     }
-    rdata.m_items[ 3 ] = items[ string( fixEncoding( itm4 ) ) ];
-    if( !rdata.m_items[ 3 ] && strcmp( fixEncoding( itm4 ), "none" ) ) {
+    rdata_hard.m_items[ 3 ] = items[ string( fixEncoding( itm4 ) ) ];
+    if( !rdata_hard.m_items[ 3 ] && strcmp( fixEncoding( itm4 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm4 );
     }
-    rdata.m_items[ 4 ] = items[ string( fixEncoding( itm5 ) ) ];
-    if( !rdata.m_items[ 4 ] && strcmp( fixEncoding( itm5 ), "none" ) ) {
+    rdata_hard.m_items[ 4 ] = items[ string( fixEncoding( itm5 ) ) ];
+    if( !rdata_hard.m_items[ 4 ] && strcmp( fixEncoding( itm5 ), "none" ) ) {
         fprintf( stderr, "[%s] Unknown item \"%s\"\n", FILENAME.c_str( ), itm5 );
     }
 
-    for( u8 i = 0; i < rdata.m_numPokemonNormal; ++i ) {
+    for( u8 i = 0; i < numpok; ++i ) {
         fgets( buffer, sizeof( buffer ), f );
-        rdata.m_pokemon[ i ] = parseTrainerPokemon( buffer );
+        if( i < 2 || i < numpok - 1 ) { rdata_easy.m_pokemon[ i ] = parseTrainerPokemon( buffer ); }
+        rdata_normal.m_pokemon[ i ] = parseTrainerPokemon( buffer );
+        rdata_hard.m_pokemon[ i ]   = parseTrainerPokemon( buffer );
     }
 
     // hard difficulty may use this hidden extra pokemon
-    if( rdata.m_numPokemonNormal < 6 && fgets( buffer, sizeof( buffer ), f ) ) {
-        rdata.m_pokemon[ rdata.m_numPokemonNormal ] = parseTrainerPokemon( buffer );
-        rdata.m_numPokemonHard                      = rdata.m_numPokemonNormal + 1;
-    } else {
-        memset( &rdata.m_pokemon[ rdata.m_numPokemonNormal ], 0, sizeof( trainerPokemon ) );
-        rdata.m_numPokemonHard = rdata.m_numPokemonNormal;
+    if( numpok < 6 && fgets( buffer, sizeof( buffer ), f ) ) {
+        rdata_hard.m_pokemon[ rdata_hard.m_numPokemon ] = parseTrainerPokemon( buffer );
+        ++rdata_hard.m_numPokemon;
     }
 
-    if( rdata.m_numPokemonNormal >= 2 ) { rdata.m_numPokemonEasy = rdata.m_numPokemonNormal - 1; }
+    if( numpok >= 2 ) { --rdata_easy.m_numPokemon; }
 
     fclose( f );
-    return rdata;
+    return { rdata_easy, rdata_normal, rdata_hard };
 }
 
-void printTrainerData( const trainerData& p_trainerData, u16 p_id ) {
-    FILE* f = getFilePtr( FSROOT "/TRNR_DATA/", p_id, 2, ".trnr.data" );
+void printTrainerData( const trainerData& p_trainerData, u16 p_id,
+                       u8 p_difficulty = 1 /* normal */ ) {
+    char prefix[ 60 ];
+    snprintf( prefix, 55, "%s/TRNR_DATA/%hhu/", FSROOT, p_difficulty );
+    FILE* f = getFilePtr( prefix, p_id, 2, ".trnr.data" );
     assert( f );
     fwrite( &p_trainerData, sizeof( trainerData ), 1, f );
     fclose( f );
@@ -214,5 +243,5 @@ int main( int p_argc, char** p_argv ) {
     sscanf( p_argv[ 6 ], "%*[^0-9]%hu", &idx );
     //    printf( "[%s] Saving to %hu\n", p_argv[ 6 ], idx );
 
-    printTrainerData( tdata, idx );
+    for( auto i = 0; i < tdata.size( ); ++i ) { printTrainerData( tdata[ i ], idx, i ); }
 }
