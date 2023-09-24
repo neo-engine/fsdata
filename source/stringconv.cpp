@@ -22,8 +22,10 @@ int main( int p_argc, char** p_argv ) {
         return 1;
     }
 
-    char buffer[ NUM_LANGUAGES * STRING_LEN + 10 ] = { 0 };
-    char writebuffer[ STRING_LEN + 10 ]            = { 0 };
+    char buffer[ NUM_LANGUAGES * STRING_LEN + 10 ];
+    memset( buffer, 0, sizeof( buffer ) );
+    char writebuffer[ STRING_LEN + 10 ];
+    memset( writebuffer, 0, sizeof( writebuffer ) );
     //  printf( "/%s/ %lu %hu\n", buffer, sizeof(buffer), STRING_LEN );
 
     std::vector<FILE*> outfiles;
