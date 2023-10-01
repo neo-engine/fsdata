@@ -435,6 +435,7 @@ dnl
 #define GET_CURRENT_HOURS ins4( CLL, 15, 24, 0 )
 #define GET_CURRENT_HOURS_MOD_TWELVE ins4( CLL, 15, 12, 0 )
 #define GET_PLAYTIME_HOURS ins4( CLL, 16, 0, 0 )
+#define HALL_OF_FAME ins4( CLL, 17, 0, 0 )
 dnl
 // runs the battle factory script, starts right after the player saved
 // p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)
