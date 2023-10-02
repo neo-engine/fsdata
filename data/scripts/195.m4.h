@@ -15,5 +15,6 @@ SET_BLOCK( 15, 22, 0x20E )
 SET_BLOCK( 16, 21, 0x2E5 )
 SET_BLOCK( 16, 22, 0x2E6 )
 // after battle message
+SET_FLAG( 303, 1 )
 
 END_OF_PROGRAM

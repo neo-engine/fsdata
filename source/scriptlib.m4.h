@@ -108,6 +108,8 @@ dnl
 dnl
 define(<!ins4!>,<!eval((($1 & 255) << 24) | (($2 & 255) << 16) | (($3 & 255) << 8) | ($4 & 255))!>)
 define(<!ins3!>,<!eval((($1 & 255) << 24) | (($2 & 4095) << 12) | ($3 & 4095))!>)
+define(<!ins4x!>,<!eval((($1 & 255) << 24) | (($2 & 2047) << 13) | (($3 & 31) << 8) | ($4 & 255))!>)
+define(<!ins4s!>,<!eval((($1 & 255) << 24) | (($2 & 31) << 19) | (($3 & 31) << 14) | ($4 & 16383))!>)
 define(<!ins3s!>,<!eval((($1 & 255) << 24) | (($2 & 31) << 19) | (($3 & 31) << 14) | ($4 & 16383))!>)
 dnl
 #define EVAL_REG 0
@@ -345,41 +347,41 @@ dnl
                                             value, skips the specified number of instructions \
                                             (after the current one) if the check passes */
 dnl
-#define CHECK_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue )                             \
-    ins4( CFL, p_flag, p_value,                                                                \
-          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
-                                           value, skips the specified number of instructions   \
-                                           (after the current one) if the check passes */
-#define CHECK_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse )                           \
-    ins4( CFL, p_flag, 1 - p_value,                                                             \
-          p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+#define CHECK_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue )                              \
+    ins4x( CFL, p_flag, p_value,                                                                \
+           p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
                                             value, skips the specified number of instructions   \
                                             (after the current one) if the check passes */
-#define CHECK_TRAINER_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue )                     \
-    ins4( CTF, p_flag, p_value,                                                                \
-          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
-                                           value, skips the specified number of instructions   \
-                                           (after the current one) if the check passes */
-#define CHECK_TRAINER_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse )                   \
-    ins4( CTF, p_flag, 1 - p_value,                                                             \
-          p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+#define CHECK_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse )                            \
+    ins4x( CFL, p_flag, 1 - p_value,                                                             \
+           p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+                                             value, skips the specified number of instructions   \
+                                             (after the current one) if the check passes */
+#define CHECK_TRAINER_FLAG( p_flag, p_value, p_skippedInstructionsIfTrue )                      \
+    ins4x( CTF, p_flag, p_value,                                                                \
+           p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
                                             value, skips the specified number of instructions   \
                                             (after the current one) if the check passes */
+#define CHECK_TRAINER_FLAG_N( p_flag, p_value, p_skippedInstructionsIfFalse )                    \
+    ins4x( CTF, p_flag, 1 - p_value,                                                             \
+           p_skippedInstructionsIfFalse ) /* Checks whether the specified flag has the specified \
+                                             value, skips the specified number of instructions   \
+                                             (after the current one) if the check passes */
 dnl
 #define SET_VAR( p_var, p_value ) ins3( SVR, p_var, p_value )
 #define SET_VAR_REG( p_var, p_register ) ins3( SVRR, p_var, p_register )
 #define GET_VAR( p_var, p_register ) ins3( GVR, p_var, p_register )
 dnl
-#define SET_FLAG( p_flag, p_value ) ins4( SFL, p_flag, p_value, 0 )
-#define CLEAR_FLAG( p_flag ) ins4( SFL, p_flag, 0, 0 )
-#define SET_TRAINER_FLAG( p_flag, p_value ) ins4( STF, p_flag, p_value, 0 )
+#define SET_FLAG( p_flag, p_value ) ins4x( SFL, p_flag, p_value, 0 )
+#define CLEAR_FLAG( p_flag ) ins4x( SFL, p_flag, 0, 0 )
+#define SET_TRAINER_FLAG( p_flag, p_value ) ins4x( STF, p_flag, p_value, 0 )
 dnl
-#define CHECK_FLAG_R( p_register, p_value, p_skippedInstructionsIfTrue )                       \
-    ins4( CFL, p_register, p_value,                                                            \
-          p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
-                                           value, skips the specified number of instructions   \
-                                           (after the current one) if the check passes */
-#define SET_FLAG_R( p_register, p_value ) ins4( SFLR, p_register, p_value, 0 )
+#define CHECK_FLAG_R( p_register, p_value, p_skippedInstructionsIfTrue )                        \
+    ins4x( CFL, p_register, p_value,                                                            \
+           p_skippedInstructionsIfTrue ) /* Checks whether the specified flag has the specified \
+                                            value, skips the specified number of instructions   \
+                                            (after the current one) if the check passes */
+#define SET_FLAG_R( p_register, p_value ) ins4x( SFLR, p_register, p_value, 0 )
 dnl
 #define MOVE_PLAYER( p_direction, p_amount ) ins4( MPL, 0, p_direction, p_amount )
 #define WALK_PLAYER( p_direction, p_amount ) ins4( WPL, 0, p_direction, p_amount )
