@@ -304,8 +304,8 @@ dnl
     GET_MOVE_MODE CHECK_REGISTER_N( EVAL_REG, p_mode, p_skipIfNo )
 dnl
 #define SPAWN_MAPOBJECT( p_picId, p_locX, p_locY )                                                \
-    ins4( SMO, p_picId, p_locX, p_locY ) /* dnl Spawns a new map object at (globX, globY); writes \
-                                            the new MO id to REGISTER1 */
+    ins4s( SMO, p_locX, p_locY, p_picId ) /* dnl Spawns a new map object at (globX, globY); writes \
+                                            the new MO id to REGISTER 0 */
 #define MOVE_MAPOBJECT( p_mapObject, p_direction, p_amount ) \
     ins4( MMO, p_mapObject, p_direction,                     \
           p_amount ) /* Moves the specified MO in the specified direction. */
@@ -316,7 +316,7 @@ dnl
 dnl
 #define SPAWN_MAPOBJECT_R( p_register, p_localX, p_localY )                                        \
     ins4( SMOR, p_register, p_localX, p_localY ) /* dnl Spawns a new map object at (globX, globY); \
-                                                  writes the new MO id to REGISTER1 */
+                                                  writes the new MO id to REGISTER 0 */
 #define MOVE_MAPOBJECT_R( p_register, p_direction, p_amount ) \
     ins4( MMOR, p_register, p_direction,                      \
           p_amount ) /* Moves the specified MO in the specified direction. */
