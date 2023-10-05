@@ -1,9 +1,9 @@
 // slateport beach
 #include "scriptlib.m4.h"
 
-CHECK_FLAG( 304, 0, 1 )
+CHECK_FLAG( 324, 0, 1 )
     JUMP_TO_END
-SET_FLAG( 304, 1 )
+SET_FLAG( 324, 1 )
 
 SPAWN_MAPOBJECT( 1769, 21, 8 ) //pallossand
 COPY_REGISTER( 0, 1 )
