@@ -42,3 +42,4 @@ mapscript:
 1. m4 for general preprocessor
 2. C-preprocessor to include pkmnnames/locnames/soundnames etc
 3. scriptcomplie (expects one instruction per line
+
