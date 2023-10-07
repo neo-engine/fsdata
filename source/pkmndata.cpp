@@ -296,14 +296,14 @@ pair<u16, pkmnLearnsetData> parseLearnset( char* p_buffer ) {
         sscanf( p, "%[^;];%hu", mvname, &level );
 
         if( !moves.count( string( mvname ) ) ) {
-            if( !alt_moves.count( string( mvname ) ) ) {
-                fprintf( stderr, "[%s] Unknown move \"%s\"\n", p, mvname );
-                mid = 0;
-            } else {
-                mid = alt_moves[ string( mvname ) ];
-            }
+if( !alt_moves.count( string( mvname ) ) ) {
+    fprintf( stderr, "[%s] Unknown move \"%s\"\n", p, mvname );
+    mid = 0;
+} else {
+    mid = alt_moves[ string( mvname ) ];
+}
         } else {
-            mid = moves[ string( mvname ) ];
+mid = moves[ string( mvname ) ];
         }
         res.push_back( { level, mid } );
     }
@@ -336,14 +336,14 @@ pair<pair<u16, u8>, pkmnLearnsetData> parseFormeLearnset( char* p_buffer ) {
         sscanf( p, "%[^;];%hu", mvname, &level );
 
         if( !moves.count( string( mvname ) ) ) {
-            if( !alt_moves.count( string( mvname ) ) ) {
-                fprintf( stderr, "[%s] Unknown move \"%s\"\n", p, mvname );
-                mid = 0;
-            } else {
-                mid = alt_moves[ string( mvname ) ];
-            }
+if( !alt_moves.count( string( mvname ) ) ) {
+    fprintf( stderr, "[%s] Unknown move \"%s\"\n", p, mvname );
+    mid = 0;
+} else {
+    mid = alt_moves[ string( mvname ) ];
+}
         } else {
-            mid = moves[ string( mvname ) ];
+mid = moves[ string( mvname ) ];
         }
         res.push_back( { level, mid } );
     }
@@ -503,28 +503,28 @@ void printPkmnData( ) {
 
     for( int j = 0; j < NUM_LANGUAGES; ++j ) {
         FILE* fo = fopen(
-            ( std::string( FSROOT "/PKMN_NAME/pkmnname." ) + std::to_string( j ) + ".strb" )
+                ( std::string( FSROOT "/PKMN_NAME/pkmnname." ) + std::to_string( j ) + ".strb" )
                 .c_str( ),
-            "wb" );
+                "wb" );
         assert( fo );
         outf.push_back( fo );
 
         fo = fopen(
-            ( std::string( FSROOT "/PKMN_NAME/pkmnfname." ) + std::to_string( j ) + ".strb" )
+                ( std::string( FSROOT "/PKMN_NAME/pkmnfname." ) + std::to_string( j ) + ".strb" )
                 .c_str( ),
-            "wb" );
+                "wb" );
         assert( fo );
         foutf.push_back( fo );
 
         fo = fopen( ( std::string( FSROOT "/PKMN_SPCS/pkmnspcs." ) + std::to_string( j ) + ".strb" )
-                        .c_str( ),
-                    "wb" );
+                .c_str( ),
+                "wb" );
         assert( fo );
         spcsf.push_back( fo );
 
         fo = fopen( ( std::string( FSROOT "/PKMN_DXTR/pkmndxtr." ) + std::to_string( j ) + ".strb" )
-                        .c_str( ),
-                    "wb" );
+                .c_str( ),
+                "wb" );
         assert( fo );
         dxtrf.push_back( fo );
     }
@@ -536,17 +536,17 @@ void printPkmnData( ) {
     fprintf( gf, "    default: return -1;\n" );
     for( size_t i = 0; i < pkmn_data.size( ); ++i ) {
         /*
-            FILE* f = getFilePtr( FSROOT "/PKMN_DATA/", i, 2 );
-            assert( f );
-            FILE* n = getFilePtr( FSROOT "/PKMN_NAME/", i, 2, ".str" );
-            assert( n );
-            FILE* nn = getFilePtr( FSROOT "/PKMN_SPCS/", i, 2, ".str" );
-            assert( nn );
-            FILE* nd = getFilePtr( FSROOT "/PKMN_DXTR/", i, 2, ".str" );
-            assert( nd );
-            FILE* l = getFilePtr( FSROOT "/PKMN_LEARN/", i, 2, ".learnset.data" );
-            assert( l );
-            */
+           FILE* f = getFilePtr( FSROOT "/PKMN_DATA/", i, 2 );
+           assert( f );
+           FILE* n = getFilePtr( FSROOT "/PKMN_NAME/", i, 2, ".str" );
+           assert( n );
+           FILE* nn = getFilePtr( FSROOT "/PKMN_SPCS/", i, 2, ".str" );
+           assert( nn );
+           FILE* nd = getFilePtr( FSROOT "/PKMN_DXTR/", i, 2, ".str" );
+           assert( nd );
+           FILE* l = getFilePtr( FSROOT "/PKMN_LEARN/", i, 2, ".learnset.data" );
+           assert( l );
+           */
         assert( fwrite( &pkmn_data[ i ], sizeof( pkmnData ), 1, dataf ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( pkmn_names[ i ].m_name[ j ], 1, 15, outf[ j ] ) );
@@ -570,12 +570,12 @@ void printPkmnData( ) {
         fwrite( &edt, sizeof( pkmnEvolveData ), 1, evof );
 
         /*
-        fclose( f );
-        fclose( n );
-        fclose( nn );
-        fclose( nd );
-        fclose( l );
-        */
+           fclose( f );
+           fclose( n );
+           fclose( nn );
+           fclose( nd );
+           fclose( l );
+           */
         if( pkmn_data[ i ].m_expTypeFormeCnt & 31 ) {
             fprintf( gf, "    case %lu: {\n", i );
             fprintf( gf, "        switch( p_forme ) {\n" );
@@ -591,8 +591,7 @@ void printPkmnData( ) {
                 pdt.m_baseForme = forme_data[ i ][ forme - 1 ];
                 assert( fwrite( &pdt, sizeof( pkmnData ), 1, fdataf ) );
                 for( int j = 0; j < NUM_LANGUAGES; ++j ) {
-                    assert(
-                        fwrite( forme_names[ i ][ forme - 1 ].m_name[ j ], 1, 30, foutf[ j ] ) );
+                    assert( fwrite( forme_names[ i ][ forme - 1 ].m_name[ j ], 1, 30, foutf[ j ] ) );
                 }
 
                 edt = pkmnEvolveData( );
@@ -618,8 +617,8 @@ void printPkmnData( ) {
                     assert( fwrite( &mvd.first, sizeof( u16 ), 1, flearnf ) );
                     assert( fwrite( &mvd.second, sizeof( u16 ), 1, flearnf ) );
                     if( prnt ) {
-                        printf( "   %s (%hx) at lv %hx\n", move_names[ mvd.second ].m_name[ 0 ],
-                                mvd.second, mvd.first );
+                        printf( "   %s (%hx) at lv %hx\n", move_names[ mvd.second ].m_name[ 0 ], mvd.second,
+                                mvd.first );
                     }
                 }
                 u16 null = 0;
@@ -680,15 +679,15 @@ void printItemData( ) {
 
     for( int j = 0; j < NUM_LANGUAGES; ++j ) {
         FILE* fo = fopen(
-            ( std::string( FSROOT "/ITEM_NAME/itemname." ) + std::to_string( j ) + ".strb" )
+                ( std::string( FSROOT "/ITEM_NAME/itemname." ) + std::to_string( j ) + ".strb" )
                 .c_str( ),
-            "wb" );
+                "wb" );
         assert( fo );
         outf.push_back( fo );
 
         fo = fopen( ( std::string( FSROOT "/ITEM_DSCR/itemdscr." ) + std::to_string( j ) + ".strb" )
-                        .c_str( ),
-                    "wb" );
+                .c_str( ),
+                "wb" );
         assert( fo );
         dscrf.push_back( fo );
     }
@@ -744,15 +743,15 @@ void printAbilityData( ) {
     auto dscrf = vector<FILE*>( );
     for( int j = 0; j < NUM_LANGUAGES; ++j ) {
         FILE* fo = fopen(
-            ( std::string( FSROOT "/ABTY_NAME/abtyname." ) + std::to_string( j ) + ".strb" )
+                ( std::string( FSROOT "/ABTY_NAME/abtyname." ) + std::to_string( j ) + ".strb" )
                 .c_str( ),
-            "wb" );
+                "wb" );
         assert( fo );
         outf.push_back( fo );
 
         fo = fopen( ( std::string( FSROOT "/ABTY_DSCR/abtydscr." ) + std::to_string( j ) + ".strb" )
-                        .c_str( ),
-                    "wb" );
+                .c_str( ),
+                "wb" );
         assert( fo );
         dscrf.push_back( fo );
     }
@@ -786,9 +785,9 @@ void printTrainerClassNames( ) {
     auto outf = vector<FILE*>( );
     for( int j = 0; j < NUM_LANGUAGES; ++j ) {
         FILE* fo = fopen(
-            ( std::string( FSROOT "/TRNR_NAME/trnrname." ) + std::to_string( j ) + ".strb" )
+                ( std::string( FSROOT "/TRNR_NAME/trnrname." ) + std::to_string( j ) + ".strb" )
                 .c_str( ),
-            "wb" );
+                "wb" );
         assert( fo );
         outf.push_back( fo );
     }
@@ -821,41 +820,41 @@ void printMoveData( ) {
     assert( dataf );
     for( int j = 0; j < NUM_LANGUAGES; ++j ) {
         FILE* fo = fopen(
-            ( std::string( FSROOT "/MOVE_NAME/movename." ) + std::to_string( j ) + ".strb" )
+                ( std::string( FSROOT "/MOVE_NAME/movename." ) + std::to_string( j ) + ".strb" )
                 .c_str( ),
-            "wb" );
+                "wb" );
         assert( fo );
         outf.push_back( fo );
 
         fo = fopen( ( std::string( FSROOT "/MOVE_DSCR/movedscr." ) + std::to_string( j ) + ".strb" )
-                        .c_str( ),
-                    "wb" );
+                .c_str( ),
+                "wb" );
         assert( fo );
         dscrf.push_back( fo );
     }
 
     for( size_t i = 0; i < move_names.size( ); ++i ) {
         /*
-        FILE* f = getFilePtr( FSROOT "/MOVE_DATA/", i, 2 );
-        assert( f );
-        FILE* n = getFilePtr( FSROOT "/MOVE_NAME/", i, 2, ".str" );
-        assert( n );
-        FILE* ds = getFilePtr( FSROOT "/MOVE_DSCR/", i, 2, ".str" );
-        assert( ds );
-        */
+           FILE* f = getFilePtr( FSROOT "/MOVE_DATA/", i, 2 );
+           assert( f );
+           FILE* n = getFilePtr( FSROOT "/MOVE_NAME/", i, 2, ".str" );
+           assert( n );
+           FILE* ds = getFilePtr( FSROOT "/MOVE_DSCR/", i, 2, ".str" );
+           assert( ds );
+           */
         assert( fwrite( &move_data[ i ], sizeof( moveData ), 1, dataf ) );
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
             assert( fwrite( move_names[ i ].m_name[ j ], 1, 20, outf[ j ] ) );
             assert( fwrite( move_descrs[ i ].m_descr[ j ], 1, 200, dscrf[ j ] ) );
         }
         /*
-        fclose( f );
-        fclose( n );
-        fclose( ds );
-        */
+           fclose( f );
+           fclose( n );
+           fclose( ds );
+           */
 
         if( i && strcmp( move_names[ i ].m_name[ 0 ], "???" )
-            && strcmp( move_names[ i ].m_name[ 0 ], "----" ) ) {
+                && strcmp( move_names[ i ].m_name[ 0 ], "----" ) ) {
             fprintf( g, "#define M_" );
             char* s = move_names[ i ].m_name[ 0 ];
             printNormalized( s, g );
@@ -878,12 +877,12 @@ void printMoveData( ) {
 void readMedicineData( char* p_buf, itemData& p_out ) {
     char tmp_buf[ 60 ];
     assert( sscanf( p_buf, "%*d,%[^,],%hu,%hu,%hu,", tmp_buf, &p_out.m_param1, &p_out.m_param2,
-                    &p_out.m_param3 ) );
+                &p_out.m_param3 ) );
     p_out.m_effect = getMedicineEffect( tmp_buf );
 }
 
 void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, char* p_tmData,
-                char* p_itemDataPath, vector<names>& p_out, vector<itemData>& p_itemData ) {
+        char* p_itemDataPath, vector<names>& p_out, vector<itemData>& p_itemData ) {
     FILE* f  = fopen( p_path, "r" );
     FILE* id = fopen( p_itemDataPath, "r" );
     FILE* m  = fopen( p_medicineData, "r" );
@@ -970,24 +969,24 @@ void readItems( char* p_path, char* p_medicineData, char* p_formeChangeData, cha
 
 void readForme( char* p_buf, pkmnFormeData& p_out ) {
     char tmp_buf[ 50 ] = { 0 }, tmp_buf2[ 50 ] = { 0 }, *tmp_buf3[ 3 ] = { 0 },
-                     tmp_buf5[ 50 ] = { 0 }, tmp_buf6[ 50 ] = { 0 };
+         tmp_buf5[ 50 ] = { 0 }, tmp_buf6[ 50 ] = { 0 };
     char tmp_buf7[ 50 ] = { 0 }, tmp_buf8[ 50 ] = { 0 }, tmp_buf9[ 50 ] = { 0 },
-                      tmp_buf10[ 50 ] = { 0 }, *tmp_buf11[ 50 ];
+         tmp_buf10[ 50 ] = { 0 }, *tmp_buf11[ 50 ];
     for( int j = 0; j < 3; ++j ) tmp_buf3[ j ] = new char[ 50 ];
     for( int j = 0; j < 4; ++j ) tmp_buf11[ j ] = new char[ 50 ];
 
     float sz, wt;
     assert( sscanf( p_buf,
-                    "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%hhu,%hhu,"
-                    "%hhu,%hhu,%hhu,%hhu,%hu,%[^,],%f m,%f kg,%[^,],%[^,],%hhu,%hhu,%hhu,%hhu,%hhu,"
-                    "%hhu,%[^,],%[^,],%[^,],%[^,],",
-                    tmp_buf5, tmp_buf, tmp_buf2, tmp_buf3[ 0 ], tmp_buf3[ 1 ], tmp_buf3[ 2 ],
-                    tmp_buf6, tmp_buf7, &p_out.m_bases[ 0 ], &p_out.m_bases[ 1 ],
-                    &p_out.m_bases[ 2 ], &p_out.m_bases[ 3 ], &p_out.m_bases[ 4 ],
-                    &p_out.m_bases[ 5 ], &p_out.m_expYield, tmp_buf8, &sz, &wt, tmp_buf9, tmp_buf10,
-                    &p_out.m_evYield[ 0 ], &p_out.m_evYield[ 1 ], &p_out.m_evYield[ 2 ],
-                    &p_out.m_evYield[ 3 ], &p_out.m_evYield[ 4 ], &p_out.m_evYield[ 5 ],
-                    tmp_buf11[ 0 ], tmp_buf11[ 1 ], tmp_buf11[ 2 ], tmp_buf11[ 3 ] ) );
+                "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%hhu,%hhu,"
+                "%hhu,%hhu,%hhu,%hhu,%hu,%[^,],%f m,%f kg,%[^,],%[^,],%hhu,%hhu,%hhu,%hhu,%hhu,"
+                "%hhu,%[^,],%[^,],%[^,],%[^,],",
+                tmp_buf5, tmp_buf, tmp_buf2, tmp_buf3[ 0 ], tmp_buf3[ 1 ], tmp_buf3[ 2 ],
+                tmp_buf6, tmp_buf7, &p_out.m_bases[ 0 ], &p_out.m_bases[ 1 ],
+                &p_out.m_bases[ 2 ], &p_out.m_bases[ 3 ], &p_out.m_bases[ 4 ],
+                &p_out.m_bases[ 5 ], &p_out.m_expYield, tmp_buf8, &sz, &wt, tmp_buf9, tmp_buf10,
+                &p_out.m_evYield[ 0 ], &p_out.m_evYield[ 1 ], &p_out.m_evYield[ 2 ],
+                &p_out.m_evYield[ 3 ], &p_out.m_evYield[ 4 ], &p_out.m_evYield[ 5 ],
+                tmp_buf11[ 0 ], tmp_buf11[ 1 ], tmp_buf11[ 2 ], tmp_buf11[ 3 ] ) );
 
     p_out.m_types[ 0 ] = getType( tmp_buf );
     p_out.m_types[ 1 ] = getType( tmp_buf2 );
@@ -1016,9 +1015,9 @@ void readForme( char* p_buf, pkmnFormeData& p_out ) {
 }
 
 void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
-                   char* p_pkmnFormeDescr, vector<pkmnData>& p_out,
-                   vector<vector<names>>&         p_formeNameOut,
-                   vector<vector<pkmnFormeData>>& p_formeOut ) {
+        char* p_pkmnFormeDescr, vector<pkmnData>& p_out,
+        vector<vector<names>>&         p_formeNameOut,
+        vector<vector<pkmnFormeData>>& p_formeOut ) {
     FILE* pdata = fopen( p_pkmnData, "r" );
     FILE* pdesc = fopen( p_pkmnDescr, "r" );
 
@@ -1040,7 +1039,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
         char tmp_buf[ 50 ];
         u8   tmp1;
         assert( sscanf( data_buf, "%d,%[^,],%hhu,%hhu,%hhu,%hhu", &id_a, tmp_buf, &cur.m_eggCycles,
-                        &cur.m_catchrate, &cur.m_baseFriend, &tmp1 ) );
+                    &cur.m_catchrate, &cur.m_baseFriend, &tmp1 ) );
 
         assert( sscanf( descr_buf, "%d", &id_b ) );
         assert( id_a == id_b );
@@ -1119,7 +1118,7 @@ int main( int p_argc, char** p_argv ) {
     readDescrs( p_argv[ 15 ], move_descrs, 199 );
 
     readItems( p_argv[ 4 ], p_argv[ 9 ], p_argv[ 10 ], p_argv[ 11 ], p_argv[ 19 ], item_names,
-               item_data );
+            item_data );
     for( size_t i = 0; i < item_names.size( ); ++i ) items[ item_names[ i ].m_name[ 0 ] ] = i;
     readDescrs( p_argv[ 16 ], item_descrs, 199 );
 
@@ -1128,7 +1127,7 @@ int main( int p_argc, char** p_argv ) {
 
     readMoveData( p_argv[ 12 ], move_data );
     readPkmnData( p_argv[ 5 ], p_argv[ 6 ], p_argv[ 7 ], p_argv[ 8 ], pkmn_data, forme_names,
-                  forme_data );
+            forme_data );
     readLearnsetData( p_argv[ 13 ], pkmn_learnsets );
     readFormeLearnsetData( p_argv[ 23 ], forme_learnsets );
 
