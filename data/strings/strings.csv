@@ -704,3 +704,8 @@ Sheen: %hhu;Glanz: %hhu;
 Condition;Zustand;
 No Ribbons;Keine Bänder;
 Ribbons: %u;Bänder: %u;
+L/R: Switch Page       Y: Switch Form;L/R: Seite wechseln  Y: Form wechseln;
+Habitats (Night);Habitate (Nacht);
+Habitats (Dawn);Habitate (Morgen);
+Habitats (Day);Habitate (Tag);
+Habitats (Dusk);Habitate (Dämmerung);
