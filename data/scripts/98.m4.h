@@ -6,7 +6,7 @@ CHECK_FLAG( 164, 0, 1 )
     JUMP_TO_END
 MOVE_PLAYER( RIGHT, 0 )
 // ask player if they want to deliver the goods to slateport
-YES_NO_MESSAGE_N( 383, 0, 31 )
+YES_NO_MESSAGE_N( 383, 0, 32 )
     // player wants to help
     CHECK_ITEM( I_DEVON_GOODS, 1, 2 )
         MESSAGE( 384, 0 )
@@ -37,7 +37,8 @@ YES_NO_MESSAGE_N( 383, 0, 31 )
     MESSAGE( 390, 0 )
     SET_FLAG( 165, 1 )
     SET_FLAG( 170, 1 )
-    SKIP( 26 )
+    SET_ROUTE( 1 )
+    SKIP( 27 )
     // player doesn't want to help
     MESSAGE( 409, 0 )
     CHECK_ITEM( I_DEVON_GOODS, 1, 2 )
@@ -64,6 +65,7 @@ YES_NO_MESSAGE_N( 383, 0, 31 )
     GIVE_ITEM( I_TM25, 1 )
     MESSAGE( 390, 0 )
     SET_FLAG( 166, 1 )
+    SET_ROUTE( 2 )
 
 SET_FLAG( 164, 1 )
 WARP_CROSSBANK( 10, 0x44,0xc0, 3 )

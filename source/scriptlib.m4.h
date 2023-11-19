@@ -207,6 +207,9 @@ dnl
 #define TTMR 108
 #define UTMR 109
 dnl
+#define SRT 110
+#define CRT 111
+dnl
 #define COUR 112
 #define MSC 113
 #define RMS 114
@@ -382,6 +385,9 @@ dnl
                                             value, skips the specified number of instructions   \
                                             (after the current one) if the check passes */
 #define SET_FLAG_R( p_register, p_value ) ins4x( SFLR, p_register, p_value, 0 )
+dnl
+#define SET_ROUTE( p_route ) ins4( SRT, p_route, 0, 0 )
+#define CHECK_ROUTE( p_route, p_skipIfEqual ) ins4( CRT, p_route, p_skipIfEqual, 0 )
 dnl
 #define MOVE_PLAYER( p_direction, p_amount ) ins4( MPL, 0, p_direction, p_amount )
 #define WALK_PLAYER( p_direction, p_amount ) ins4( WPL, 0, p_direction, p_amount )
