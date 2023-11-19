@@ -237,6 +237,7 @@ dnl
 dnl
 #define SBC 196
 #define SBCC 197
+#define SMM 198
 dnl
 dnl
 #define CHECK_PKMN_IN_SLOT( p_pkmn, p_slot, p_skipIfTrue ) \
@@ -255,6 +256,10 @@ dnl
 #define SET_WEATHER( p_newWeather ) ins3( SWT, p_newWeather, 0 )
 #define SET_BLOCK( p_mapX, p_mapY, p_blockIdx ) ins3s( SBC, p_mapX, p_mapY, p_blockIdx )
 #define SET_BLOCK_COR( p_mapX, p_mapY, p_blockIdx ) ins3s( SBCC, p_mapX, p_mapY, p_blockIdx )
+#define SET_MOVEMENT( p_mapX, p_mapY, p_movement ) ins3s( SMM, p_mapX, p_mapY, p_movement )
+#define SET_BLOCK_AND_MOVEMENT( p_mapX, p_mapY, p_blockIdx, p_movement ) \
+    ins3s( SBC, p_mapX, p_mapY, p_blockIdx ) \
+    ins3s( SMM, p_mapX, p_mapY, p_movement )
 dnl
 #define WARP_CROSSBANK( p_bank, p_globX, p_globY, p_z ) \
     ins4( BNK, p_bank, p_z, 0 ) ins3( WRP, p_globX, p_globY )
