@@ -570,13 +570,32 @@ void dumpForme( FILE* p_f, const pkmnFormeData& p_data ) {
     fprintf( p_f, "    Shape: %s\n", SHAPE_NAMES[ p_data.m_colorShape & 15 ] );
 }
 
+void dumpEvolutions( FILE* p_f, const pkmnEvolveData& p_data ) {
+    // TODO
+}
+
+struct bstinfo {
+    u16 m_bstTotal;
+    u16 m_pkmnidx;
+    u8  m_pkmnForme;
+    u8  m_evYield;
+
+    constexpr auto operator<=>( const bstinfo& ) const = default;
+};
+
+const char* STAT_NAMES[] = { "HP", "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed" };
+
 void printPkmnData( ) {
     fs::create_directories( std::string( FSROOT "/PKMN_NAME/" ) );
     fs::create_directories( std::string( FSROOT "/PKMN_SPCS/" ) );
     fs::create_directories( std::string( FSROOT "/PKMN_DXTR/" ) );
+    fs::create_directories( std::string( FSROOT "/BST_EV/" ) );
     fs::create_directories( std::string( OUT ) );
 
     size_t maxmovelearn = 0;
+
+    FILE*             log = fopen( OUT "/bst_ev.log", "w" );
+    std::set<bstinfo> infos[ 6 ];
 
     FILE* g  = fopen( OUT "/pokemonNames.h", "w" );
     FILE* gf = fopen( OUT "/pokemonFormes.h", "w" );
@@ -657,6 +676,21 @@ void printPkmnData( ) {
         fprintf( ld, "%04zu: # %s\n", i, pkmn_names[ i ].m_name[ 0 ] );
 
         assert( fwrite( &pkmn_data[ i ], sizeof( pkmnData ), 1, dataf ) );
+
+        {
+            u16 bstsum = 0;
+            u8  evsum  = 0;
+            for( u8 j = 0; j < 6; ++j ) {
+                bstsum += pkmn_data[ i ].m_baseForme.m_bases[ j ];
+                evsum += pkmn_data[ i ].m_baseForme.m_evYield[ j ];
+            }
+            for( u8 j = 0; j < 6; ++j ) {
+                if( pkmn_data[ i ].m_baseForme.m_evYield[ j ] == evsum && evsum ) {
+                    infos[ j ].insert(
+                        bstinfo{ bstsum, u16( i ), 0, pkmn_data[ i ].m_baseForme.m_evYield[ j ] } );
+                }
+            }
+        }
 
         fprintf( pd, "  Experience Type: %s\n",
                  LEVEL_UP_TYPE_NAMES[ pkmn_data[ i ].m_expTypeFormeCnt >> 5 ] );
@@ -739,6 +773,21 @@ void printPkmnData( ) {
                             forme_names[ i ][ forme - 1 ].m_name[ 0 ] );
                 }
 
+                {
+                    u16 bstsum = 0;
+                    u8  evsum  = 0;
+                    for( u8 j = 0; j < 6; ++j ) {
+                        bstsum += pdt.m_baseForme.m_bases[ j ];
+                        evsum += pdt.m_baseForme.m_evYield[ j ];
+                    }
+                    for( u8 j = 0; j < 6; ++j ) {
+                        if( pdt.m_baseForme.m_evYield[ j ] == evsum && evsum ) {
+                            infos[ j ].insert( bstinfo{ bstsum, u16( i ), forme,
+                                                        pdt.m_baseForme.m_evYield[ j ] } );
+                        }
+                    }
+                }
+
                 fprintf( ld, "---\n" );
                 fprintf( ld, "%04zu-%d: # %s\n", i, forme,
                          forme_names[ i ][ forme - 1 ].m_name[ 0 ] );
@@ -786,6 +835,28 @@ void printPkmnData( ) {
     fclose( flearnf );
     fclose( evof );
     fclose( fevof );
+
+    for( u8 i = 0; i < 6; ++i ) {
+        FILE* bstf = fopen(
+            ( std::string( FSROOT ) + std::string( "/BST_EV/" ) + std::to_string( i ) + ".data" )
+                .c_str( ),
+            "w" );
+        fprintf( log, "---\n" );
+        fprintf( log, "%s\n", STAT_NAMES[ i ] );
+        for( const auto& dt : infos[ i ] ) {
+            auto [ bst, idx, fo, ev ] = dt;
+            if( fo ) {
+                fprintf( log, "- %s-%d # BST %d, EV %d\n", pkmn_names[ idx ].m_name[ 0 ], fo, bst,
+                         ev );
+            } else {
+                fprintf( log, "- %s # BST %d, EV %d\n", pkmn_names[ idx ].m_name[ 0 ], bst, ev );
+            }
+            fwrite( &dt, 1, sizeof( bstinfo ), bstf );
+        }
+        fclose( bstf );
+    }
+
+    fclose( log );
 
     for( int j = 0; j < NUM_LANGUAGES; ++j ) {
         fclose( outf[ j ] );
