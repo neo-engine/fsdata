@@ -132,19 +132,19 @@ u8 getEggGroup( char* p_str ) {
     if( !strcmp( p_str, "Monster" ) ) return 1;
     if( !strcmp( p_str, "Water 1" ) ) return 2;
 
-    if( !strcmp( p_str, "Bug" ) ) return 4;
-    if( !strcmp( p_str, "Flying" ) ) return 5;
-    if( !strcmp( p_str, "Field" ) ) return 6;
-    if( !strcmp( p_str, "Fairy" ) ) return 7;
-    if( !strcmp( p_str, "Grass" ) ) return 8;
-    if( !strcmp( p_str, "Human-Like" ) ) return 9;
-    if( !strcmp( p_str, "Water 3" ) ) return 10;
-    if( !strcmp( p_str, "Mineral" ) ) return 11;
-    if( !strcmp( p_str, "Amorphous" ) ) return 12;
-    if( !strcmp( p_str, "Water 2" ) ) return 13;
-    if( !strcmp( p_str, "Ditto" ) ) return 14;
-    if( !strcmp( p_str, "Dragon" ) ) return 15;
-    if( !strcmp( p_str, "Undiscovered" ) ) return 16;
+    if( !strcmp( p_str, "Bug" ) ) return 3;
+    if( !strcmp( p_str, "Flying" ) ) return 4;
+    if( !strcmp( p_str, "Field" ) ) return 5;
+    if( !strcmp( p_str, "Fairy" ) ) return 6;
+    if( !strcmp( p_str, "Grass" ) ) return 7;
+    if( !strcmp( p_str, "Human-Like" ) ) return 8;
+    if( !strcmp( p_str, "Water 3" ) ) return 9;
+    if( !strcmp( p_str, "Mineral" ) ) return 10;
+    if( !strcmp( p_str, "Amorphous" ) ) return 11;
+    if( !strcmp( p_str, "Water 2" ) ) return 12;
+    if( !strcmp( p_str, "Ditto" ) ) return 13;
+    if( !strcmp( p_str, "Dragon" ) ) return 14;
+    if( !strcmp( p_str, "Undiscovered" ) ) return 15;
 
     fprintf( stderr, "Found bad egg group %s.\n", p_str );
     return 0;
@@ -620,8 +620,10 @@ boosts parseBoosts( char* p_buffer ) {
 FILE* getFilePtr( string p_prefix, u16 p_index, u8 p_digits, string p_ext, u8 p_formeId ) {
     char buffer[ 50 ]   = { 0 };
     char buffer2[ 100 ] = { 0 };
-    snprintf( buffer2, 20, "%%0%hhuhhu/", p_digits );
-    snprintf( buffer, 40, buffer2, p_index / MAX_ITEMS_PER_DIR );
+    if( p_digits ) {
+        snprintf( buffer2, 20, "%%0%hhuhhu/", p_digits );
+        snprintf( buffer, 40, buffer2, p_index / MAX_ITEMS_PER_DIR );
+    }
 
     fs::create_directories( p_prefix + buffer );
     if( !p_formeId )
