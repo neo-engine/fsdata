@@ -449,6 +449,10 @@ dnl
 #define GET_CURRENT_HOURS_MOD_TWELVE ins4( CLL, 15, 12, 0 )
 #define GET_PLAYTIME_HOURS ins4( CLL, 16, 0, 0 )
 #define HALL_OF_FAME ins4( CLL, 17, 0, 0 )
+#define INIT_INFINITY_CAVE( p_stat ) ins4( CLL, 18, p_stat, 0 )
+#define CONTINUE_INFINITY_CAVE ins4( CLL, 19, 0, 0 )
+#define MAPENTER_INFINITY_CAVE ins4( CLL, 20, 0, 0 )
+#define GATECHECK_INFINITY_CAVE ins4( CLL, 21, 0, 0 )
 dnl
 // runs the battle factory script, starts right after the player saved
 // p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)
