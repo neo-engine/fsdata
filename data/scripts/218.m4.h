@@ -1,5 +1,17 @@
-// infinity cave gate check
+// infinity cave introduction from hiker
 #include "scriptlib.m4.h"
 
-// MOVE_PLAYER( RIGHT, 0 )
-// GATECHECK_INFINITY_CAVE
+SPAWN_MAPOBJECT( 36, 15, 27 )
+MOVE_MAPOBJECT_R( 0, UP, 0 )
+EXCLAMATION_R( 0 )
+MOVE_PLAYER( DOWN, 0 )
+HIDE_PKMN
+
+MOVE_MAPOBJECT_R( 0, UP, 1 )
+MESSAGE( 686, 0 )
+MOVE_MAPOBJECT_R( 0, RIGHT, 0 )
+MESSAGE( 687, 0 )
+MOVE_MAPOBJECT_R( 0, DOWN, 1 )
+DESTROY_MAPOBJECT_R( 0 )
+
+SET_FLAG( 339, 1 )

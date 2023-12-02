@@ -1,6 +1,7 @@
 // jirachi in crystal cavern
 #include "scriptlib.m4.h"
 
+CHECK_ITEM( I_WISHING_CHARM, 1, 5 )
 // Check if all 4 crystals are activated
 CHECK_FLAG( 216, 0, 4 )
 CHECK_FLAG( 217, 0, 3 )
