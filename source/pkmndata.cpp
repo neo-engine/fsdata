@@ -704,7 +704,7 @@ void printPkmnData( ) {
         dumpForme( pd, pkmn_data[ i ].m_baseForme );
 
         for( int j = 0; j < NUM_LANGUAGES; ++j ) {
-            assert( fwrite( pkmn_names[ i ].m_name[ j ], 1, 15, outf[ j ] ) );
+            assert( fwrite( pkmn_names[ i ].m_name[ j ], 1, 14, outf[ j ] ) );
             assert( fwrite( pkmn_species[ i ].m_name[ j ], 1, 30, spcsf[ j ] ) );
             assert( fwrite( pkmn_descrs[ i ].m_descr[ j ], 1, 200, dxtrf[ j ] ) );
         }
