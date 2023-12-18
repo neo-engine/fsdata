@@ -8,6 +8,7 @@ BADGENAME_LEN		?=  50
 RIBBONNAME_LEN		?=  50
 RIBBONDSCR_LEN		?= 250
 TRNNAME_LEN			?=  16
+PKMNNAME_LEN		?=  12
 TRNMSG_LEN			?= 200
 
 ifdef LOCAL
@@ -67,6 +68,7 @@ endif
 	./stringconv data/strings/trainerintromessage.csv "STRN/TRN/" "msg1" $(TRNMSG_LEN)
 	./stringconv data/strings/trainerlostmessage.csv "STRN/TRN/" "msg2" $(TRNMSG_LEN)
 	./stringconv data/strings/trainerwonmessage.csv "STRN/TRN/" "msg3" $(TRNMSG_LEN)
+	./stringconv data/strings/tradestr.csv "STRN/TRD/" "str" $(PKMNNAME_LEN)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o
