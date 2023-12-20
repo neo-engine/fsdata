@@ -3,6 +3,7 @@ MAX_ITEMS_PER_DIR	?=  30
 ACHIEVEMENT_LEN		?= 100
 UISTRING_LEN		?= 250
 MAPSTRING_LEN		?= 800
+MGSTRING_LEN		?= 500
 PKMNPHRS_LEN		?= 150
 BADGENAME_LEN		?=  50
 RIBBONNAME_LEN		?=  50
@@ -63,6 +64,7 @@ endif
 	./stringconv data/strings/ribbonnames.csv "STRN/RBN/" "rbn" $(RIBBONNAME_LEN)
 	./stringconv data/strings/ribbondscr.csv "STRN/RBN/" "rbd" $(RIBBONDSCR_LEN)
 	./stringconv data/strings/mapstring.csv "STRN/MAP/" "map" $(MAPSTRING_LEN)
+	./stringconv data/strings/mysterygift.csv "STRN/UIS/" "mys" $(MGSTRING_LEN)
 	./stringconv data/strings/pkmnphrases.csv "STRN/PHR/" "phr" $(PKMNPHRS_LEN)
 	./stringconv data/strings/trainername.csv "STRN/TRN/" "name" $(TRNNAME_LEN)
 	./stringconv data/strings/trainerintromessage.csv "STRN/TRN/" "msg1" $(TRNMSG_LEN)
