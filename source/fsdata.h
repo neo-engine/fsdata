@@ -101,6 +101,17 @@ struct itemData {
     u16 m_buyPrice; // unused
 };
 
+struct berry {
+    u16 m_size;     // fluff
+    u8  m_firmness; // fluff
+    u8  m_growthTime;
+    u8  m_yield;
+    u8  m_naturalGiftPower;
+    u8  m_naturalGiftType;
+    u8  m_smoothness;
+    u8  m_flavor[ 5 ];
+};
+
 enum moveFlags : long long unsigned {
     /** Ignores a target's substitute. */
     AUTHENTIC = ( 1 << 0 ),
@@ -231,13 +242,13 @@ enum targets : u8 {
 
 enum moveHitTypes : u8 { NOOP = 0, PHYSICAL = 1, SPECIAL = 2, STATUS = 3 };
 
-#define HP 0
-#define ATK 1
-#define DEF 2
-#define SATK 3
-#define SDEF 4
-#define SPEED 5
-#define EVASION 6
+#define HP       0
+#define ATK      1
+#define DEF      2
+#define SATK     3
+#define SDEF     4
+#define SPEED    5
+#define EVASION  6
 #define ACCURACY 7
 
 struct boosts {
@@ -443,6 +454,7 @@ size_t         getLength( u8 p_c );
 char           getValue( char* p_text, size_t* p_readIdx );
 char*          fixEncoding( char* p_utf8 );
 u8             getType( char* p_str );
+u8             getFirmness( char* p_str );
 u8             getContestType( char* p_str );
 u8             getLevelUpType( char* p_str );
 u8             getEggGroup( char* p_str );

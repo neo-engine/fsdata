@@ -99,8 +99,42 @@ u8 getType( char* p_str ) {
     if( !strcmp( p_str, "Dark" ) ) return 17;
     if( !strcmp( p_str, "Fairy" ) ) return 18;
 
+    if( !strcmp( p_str, "normal" ) ) return 0;
+    if( !strcmp( p_str, "fight" ) ) return 1;
+    if( !strcmp( p_str, "fighting" ) ) return 1;
+    if( !strcmp( p_str, "flying" ) ) return 2;
+    if( !strcmp( p_str, "poison" ) ) return 3;
+    if( !strcmp( p_str, "ground" ) ) return 4;
+    if( !strcmp( p_str, "rock" ) ) return 5;
+    if( !strcmp( p_str, "bug" ) ) return 6;
+    if( !strcmp( p_str, "ghost" ) ) return 7;
+    if( !strcmp( p_str, "steel" ) ) return 8;
+    if( !strcmp( p_str, "???" ) ) return 9;
+    if( !strcmp( p_str, "water" ) ) return 10;
+    if( !strcmp( p_str, "fire" ) ) return 11;
+    if( !strcmp( p_str, "grass" ) ) return 12;
+    if( !strcmp( p_str, "electric" ) ) return 13;
+    if( !strcmp( p_str, "electr" ) ) return 13;
+    if( !strcmp( p_str, "psychic" ) ) return 14;
+    if( !strcmp( p_str, "ice" ) ) return 15;
+    if( !strcmp( p_str, "dragon" ) ) return 16;
+    if( !strcmp( p_str, "dark" ) ) return 17;
+    if( !strcmp( p_str, "fairy" ) ) return 18;
+
     fprintf( stderr, "Found bad type %s.\n", p_str );
     return 9;
+}
+
+u8 getFirmness( char* p_str ) {
+    if( !strcmp( p_str, "???" ) ) return 0;
+    if( !strcmp( p_str, "very soft" ) ) return 1;
+    if( !strcmp( p_str, "soft" ) ) return 2;
+    if( !strcmp( p_str, "hard" ) ) return 3;
+    if( !strcmp( p_str, "very hard" ) ) return 4;
+    if( !strcmp( p_str, "super hard" ) ) return 5;
+
+    fprintf( stderr, "Found bad firmness %s.\n", p_str );
+    return 0;
 }
 
 u8 getContestType( char* p_str ) {

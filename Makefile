@@ -51,7 +51,7 @@ endif
 		data/movedata.csv data/pkmnlearnsets.csv data/abtydescr.csv data/movedescr.csv \
 		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv \
 		data/trainerclassnames.csv data/pkmnevolv.csv data/locationnames.csv \
-		data/pkmnformlearnsets.csv
+		data/pkmnformlearnsets.csv data/berrydata.csv
 	@$(foreach tdata,$(TRAINERDATA_FILES),./trainerdata data/pkmnnames.csv data/abtynames.csv \
 		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
 	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \

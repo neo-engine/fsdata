@@ -52,6 +52,8 @@ map<pair<u16, u8>, pkmnLearnsetData> forme_learnsets;
 vector<pkmnData>              pkmn_data;
 vector<vector<pkmnFormeData>> forme_data;
 
+vector<berry> berry_data;
+
 u8 parseTime( char* p_buffer ) {
     if( !strcmp( p_buffer, "Night" ) ) { return 0; }
     if( !strcmp( p_buffer, "Dawn" ) ) { return 1; }
@@ -471,6 +473,30 @@ void readMoveData( char* p_moveData, vector<moveData>& p_out ) {
     fclose( f );
 }
 
+berry parseBerryData( char* p_buffer ) {
+    // printf( "parsing %s\n", p_buffer );
+
+    berry res{ };
+
+    char type_buf[ 50 ] = { 0 }, firmness_buf[ 50 ] = { 0 };
+
+    sscanf( p_buffer, "%*hu,%*[^,],%hu,%[^,],%hhu,%hhu,%hhu,%[^,],%hhu,%hhu,%hhu,%hhu,%hhu,%hhu",
+            &res.m_size, firmness_buf, &res.m_growthTime, &res.m_yield, &res.m_naturalGiftPower,
+            type_buf, &res.m_smoothness, &res.m_flavor[ 0 ], &res.m_flavor[ 1 ], &res.m_flavor[ 2 ],
+            &res.m_flavor[ 3 ], &res.m_flavor[ 4 ] );
+
+    res.m_naturalGiftType = getType( type_buf );
+    res.m_firmness        = getFirmness( firmness_buf );
+    return res;
+}
+
+void readBerryData( char* p_berryData, vector<berry>& p_out ) {
+    FILE* f             = fopen( p_berryData, "r" );
+    char  buffer[ 800 ] = { 0 };
+    while( f && fgets( buffer, sizeof( buffer ), f ) ) p_out.push_back( parseBerryData( buffer ) );
+    fclose( f );
+}
+
 const char* TYPE_NAMES[]
     = { "Normal",  "Fighting", "Flying", "Poison", "Ground", "Rock",  "Bug",
         "Ghost",   "Steel",    "???",    "Water",  "Fire",   "Grass", "Electric",
@@ -866,6 +892,15 @@ void printPkmnData( ) {
     }
 
     fprintf( stderr, "Max learnset size %lu\n", maxmovelearn );
+}
+
+void printBerryData( ) {
+    auto dataf = fopen( FSROOT "/berry.datab", "wb" );
+    assert( dataf );
+    for( size_t i = 0; i < berry_data.size( ); ++i ) {
+        assert( fwrite( &berry_data[ i ], sizeof( berry ), 1, dataf ) );
+    }
+    fclose( dataf );
 }
 
 void printItemData( ) {
@@ -1299,7 +1334,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
 }
 
 int main( int p_argc, char** p_argv ) {
-    if( p_argc < 24 ) {
+    if( p_argc < 25 ) {
         fprintf( stderr, "too few args." );
         return 1;
     }
@@ -1342,9 +1377,12 @@ int main( int p_argc, char** p_argv ) {
 
     readEvolutionData( p_argv[ 21 ], pkmn_evolve );
 
+    readBerryData( p_argv[ 24 ], berry_data );
+
     printTrainerClassNames( );
     printPkmnData( );
     printItemData( );
+    printBerryData( );
     printAbilityData( );
     printMoveData( );
 
