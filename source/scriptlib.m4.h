@@ -455,6 +455,8 @@ dnl
 #define SELF_TRADER                      ins4( CLL, 22, 0, 0 )
 #define INGAME_TRADE( p_tradeIdx )       ins4( CLL, 23, p_tradeIdx, 0 )
 #define MYSTERY_EVENT_CLERK              ins4( CLL, 24, 0, 0 )
+#define POKEBLOCK_BLENDER( p_numNPC )    ins4( CLL, 25, p_numNPC, 0 )
+#define POKEBLOCK_BLEND_MASTER           ins4( CLL, 25, 1, 1 )
 dnl
 // runs the battle factory script, starts right after the player saved
 // p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)
