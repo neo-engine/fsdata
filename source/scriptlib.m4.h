@@ -235,6 +235,7 @@ dnl
 #define EQ  141
 dnl
 #define DES 150
+#define MVT 151
 dnl
 #define SBC  196
 #define SBCC 197
@@ -486,6 +487,8 @@ dnl
 #define GIVE_ITEM( p_itemId, p_amount )       ins3( ITM, p_itemId, p_amount )
 #define TAKE_ITEM( p_itemId, p_amount )       ins3( TTM, p_itemId, p_amount )
 #define USE_ITEM( p_itemId, p_amount )        ins3( UTM, p_itemId, p_amount )
+dnl
+#define MOVE_TUTOR( p_moveId ) ins3( MVT, p_moveId, 0 )
 dnl
 #define BATTLE_TRAINER_R( p_startRegister ) ins4( BTRR, p_startRegister, 0, 0 )
 #define BATTLE_PKMN_R( p_startRegister )    ins4( BPKR, p_startRegister, 0, 0 )
