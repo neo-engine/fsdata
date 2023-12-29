@@ -181,6 +181,7 @@ dnl
 dnl
 #define PMR  54
 #define PMRA 55
+#define PDT  56
 dnl
 #define HPK 60
 dnl
@@ -239,6 +240,16 @@ dnl
 #define SBCC 197
 #define SMM  198
 dnl
+#define PDT_STAT_START      0
+#define PDT_STAT_END        5
+#define PDT_EV_START        10
+#define PDT_EV_END          15
+#define PDT_IV_START        20
+#define PDT_IV_END          25
+#define PDT_CONDITION_START 30
+#define PDT_CONDITION_END   35
+#define PDT_PKRS            40
+#define PDT_FIRENDSHIP      41
 dnl
 #define CHECK_PKMN_IN_SLOT( p_pkmn, p_slot, p_skipIfTrue ) \
     ins3s( PMR, p_slot, p_skipIfTrue, p_pkmn )
@@ -300,6 +311,9 @@ dnl
 #define UNFIX_MAPOBJECT_R( p_register )          ins4( UFXR, p_register, 0, 0 )
 dnl
 #define MESSAGE( p_messageId, p_messageType ) ins3( MSG, p_messageId, p_messageType )
+dnl
+#define GET_PKMN_DATA( p_data, p_pkmn ) ins4( PDT, p_data, p_pkmn, 0 )
+#define GET_FRIENDSHIP( p_pkmn )        GET_PKMN_DATA( PDT_FIRENDSHIP, p_pkmn )
 dnl
 #define CHANGE_MOVE_MODE( p_mode ) ins3( CMM, p_mode, 0 )
 #define FORCE_MOVE_MODE            ins4( FMM, 0, 0, 0 )
@@ -457,6 +471,8 @@ dnl
 #define MYSTERY_EVENT_CLERK              ins4( CLL, 24, 0, 0 )
 #define POKEBLOCK_BLENDER( p_numNPC )    ins4( CLL, 25, p_numNPC, 0 )
 #define POKEBLOCK_BLEND_MASTER           ins4( CLL, 25, 1, 1 )
+#define EFFORT_RIBBON_GIRL               ins4( CLL, 26, 0, 0 )
+#define NAME_RATER                       ins4( CLL, 27, 0, 0 )
 dnl
 // runs the battle factory script, starts right after the player saved
 // p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)
