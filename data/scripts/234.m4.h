@@ -10,4 +10,8 @@ CHECK_FLAG( 352, 1, 4 )
 
 MESSAGE( 750, 0 )
 // TODO
+
+// for desquid purposes, set flag that player participated in contest
+SET_FLAG( 365, 1 )
+
 END_OF_PROGRAM

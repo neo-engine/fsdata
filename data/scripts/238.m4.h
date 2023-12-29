@@ -8,6 +8,10 @@ CHECK_FLAG( 357, 0, 2 )
 
 MESSAGE( 836, 0 )
 
+IS_EGG( 0 )
+CHECK_REGISTER( 0, 0, 1 )
+    JUMP_TO_END
+
 GET_FRIENDSHIP( 0 )
 // check if friendship is at least 200
 CHECK_REGISTER_G( 0, 199, 1 )

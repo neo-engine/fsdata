@@ -1,4 +1,4 @@
-// seashore gouse vendor
+// seashore house vendor
 #include "scriptlib.m4.h"
 
 // got the reward already, normal vendor for soda pop

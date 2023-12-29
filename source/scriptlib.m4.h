@@ -249,7 +249,8 @@ dnl
 #define PDT_CONDITION_START 30
 #define PDT_CONDITION_END   35
 #define PDT_PKRS            40
-#define PDT_FIRENDSHIP      41
+#define PDT_FRIENDSHIP      41
+#define PDT_EGG             42
 dnl
 #define CHECK_PKMN_IN_SLOT( p_pkmn, p_slot, p_skipIfTrue ) \
     ins3s( PMR, p_slot, p_skipIfTrue, p_pkmn )
@@ -312,8 +313,10 @@ dnl
 dnl
 #define MESSAGE( p_messageId, p_messageType ) ins3( MSG, p_messageId, p_messageType )
 dnl
-#define GET_PKMN_DATA( p_data, p_pkmn ) ins4( PDT, p_data, p_pkmn, 0 )
-#define GET_FRIENDSHIP( p_pkmn )        GET_PKMN_DATA( PDT_FIRENDSHIP, p_pkmn )
+#define GET_PKMN_DATA( p_data, p_pkmn )    ins4( PDT, p_data, p_pkmn, 0 )
+#define GET_FRIENDSHIP( p_pkmn )           GET_PKMN_DATA( PDT_FRIENDSHIP, p_pkmn )
+#define GET_CONTEST_STAT( p_pkmn, p_stat ) GET_PKMN_DATA( PDT_CONDITION_START + p_stat, p_pkmn )
+#define IS_EGG( p_pkmn )                   GET_PKMN_DATA( PDT_EGG, p_pkmn )
 dnl
 #define CHANGE_MOVE_MODE( p_mode ) ins3( CMM, p_mode, 0 )
 #define FORCE_MOVE_MODE            ins4( FMM, 0, 0, 0 )
