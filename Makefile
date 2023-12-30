@@ -11,6 +11,8 @@ RIBBONDSCR_LEN		?= 250
 TRNNAME_LEN			?=  16
 PKMNNAME_LEN		?=  12
 TRNMSG_LEN			?= 200
+EASYPHRS_LEN		?= 200
+EASYWORD_LEN		?= 40
 
 ifdef LOCAL
 FSROOT				?= out/FSROOT
@@ -38,7 +40,7 @@ DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard 
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv $(DATA_FILES)
+fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv easyChat $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
@@ -71,6 +73,8 @@ endif
 	./stringconv data/strings/trainerlostmessage.csv "STRN/TRN/" "msg2" $(TRNMSG_LEN)
 	./stringconv data/strings/trainerwonmessage.csv "STRN/TRN/" "msg3" $(TRNMSG_LEN)
 	./stringconv data/strings/tradestr.csv "STRN/TRD/" "str" $(PKMNNAME_LEN)
+	./easyChat data/easychat_word.csv "STRN/EAS/" "easw" "easyChatWordCategories.h" "EASYW_" $(EASYWORD_LEN)
+	./easyChat data/easychat_phrase.csv "STRN/EAS/" "easp" "easyChatPhraseCategories.h" "EASYP_" $(EASYPHRS_LEN)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o
@@ -91,6 +95,9 @@ mapdata: $(OFILES) $(BUILD)/mapdata.o
 stringconv: $(OFILES) $(BUILD)/stringconv.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
+easyChat: $(OFILES) $(BUILD)/easyChat.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
 clean:
 	@rm -r $(BUILD)
 	@rm fsdata
@@ -98,6 +105,7 @@ clean:
 	@rm pkmndata
 	@rm mapdata
 	@rm strings
+	@rm easychat
 
 $(BUILD)/%.o: $(SOURCES)/%.cpp
 	@mkdir -p $(BUILD)
