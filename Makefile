@@ -40,7 +40,7 @@ DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard 
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv easyChat $(DATA_FILES)
+fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv easyChat battleFrontier $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
@@ -54,12 +54,8 @@ endif
 		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv \
 		data/trainerclassnames.csv data/pkmnevolv.csv data/locationnames.csv \
 		data/pkmnformlearnsets.csv data/berrydata.csv
-	@$(foreach tdata,$(TRAINERDATA_FILES),./trainerdata data/pkmnnames.csv data/abtynames.csv \
-		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
-	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
-		data/locationnames.csv $(mdata);)
-	cp $(OUT)/bgmNames.h $(SOURCES)/bgmNames.h
-	@$(foreach mscr,$(MAPSCRIPT_FILES),$(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
+	./battleFrontier data/pkmnnames.csv data/movenames.csv data/itemnames.csv data/trainerclassnames.csv \
+		data/bfpokemondata.csv
 	./stringconv data/strings/strings.csv "STRN/UIS/" "uis" $(UISTRING_LEN)
 	./stringconv data/strings/achievement.csv "STRN/AVM/" "avm" $(ACHIEVEMENT_LEN)
 	./stringconv data/strings/badgename.csv "STRN/BDG/" "bdg" $(BADGENAME_LEN)
@@ -68,6 +64,7 @@ endif
 	./stringconv data/strings/mapstring.csv "STRN/MAP/" "map" $(MAPSTRING_LEN)
 	./stringconv data/strings/mysterygift.csv "STRN/UIS/" "mys" $(MGSTRING_LEN)
 	./stringconv data/strings/pkmnphrases.csv "STRN/PHR/" "phr" $(PKMNPHRS_LEN)
+	./stringconv data/strings/bftrainername.csv "STRN/TRN/" "bfname" $(TRNNAME_LEN)
 	./stringconv data/strings/trainername.csv "STRN/TRN/" "name" $(TRNNAME_LEN)
 	./stringconv data/strings/trainerintromessage.csv "STRN/TRN/" "msg1" $(TRNMSG_LEN)
 	./stringconv data/strings/trainerlostmessage.csv "STRN/TRN/" "msg2" $(TRNMSG_LEN)
@@ -75,6 +72,12 @@ endif
 	./stringconv data/strings/tradestr.csv "STRN/TRD/" "str" $(PKMNNAME_LEN)
 	./easyChat data/easychat_word.csv "STRN/EAS/" "easw" "easyChatWordCategories.h" "EASYW_" $(EASYWORD_LEN)
 	./easyChat data/easychat_phrase.csv "STRN/EAS/" "easp" "easyChatPhraseCategories.h" "EASYP_" $(EASYPHRS_LEN)
+	@$(foreach tdata,$(TRAINERDATA_FILES),./trainerdata data/pkmnnames.csv data/abtynames.csv \
+		data/movenames.csv data/itemnames.csv data/trainerclassnames.csv $(tdata);)
+	@$(foreach mdata,$(MAPDATA_FILES),./mapdata data/pkmnnames.csv data/itemnames.csv \
+		data/locationnames.csv $(mdata);)
+	cp $(OUT)/bgmNames.h $(SOURCES)/bgmNames.h
+	@$(foreach mscr,$(MAPSCRIPT_FILES),$(CC) -E -P -I$(SOURCES) -I$(OUT) $(mscr) | m4 > $(mscr).script; ./mapscript $(mscr).script;)
 	touch fsdata
 
 mapscript: $(OFILES) $(BUILD)/mapscript.o
@@ -96,6 +99,9 @@ stringconv: $(OFILES) $(BUILD)/stringconv.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 easyChat: $(OFILES) $(BUILD)/easyChat.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
+battleFrontier: $(OFILES) $(BUILD)/battleFrontier.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 clean:
