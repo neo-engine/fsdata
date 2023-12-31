@@ -479,8 +479,8 @@ dnl
 #define NAME_RATER                       ins4( CLL, 27, 0, 0 )
 dnl
 // runs the battle factory script, starts right after the player saved
-// p_level may be one of 0 - (battle tent, lv 30), 1 - (factory, lv 50), 2 - (factory 100)
-#define BATTLE_FACTORY( p_level, p_rounds ) ins4( BTZ, 0, p_level, p_rounds )
+// p_ruleset may be one of 2 - (battle tent, lv 30), 0 - (factory, lv 50), 1 - (factory 100)
+#define BATTLE_FACTORY( p_ruleset ) ins4( BTZ, 0, p_ruleset, 0 )
 dnl
 #define BATTLE_TRAINER( p_trainerId, p_mode ) ins3( BTR, p_trainerId, p_mode )
 #define BATTLE_PKMN( p_speciesId, p_level )   ins3( BPK, p_speciesId, p_level )

@@ -46,7 +46,7 @@ CHECK_REGISTER_N( 0, 1, 22 )
     MOVE_MAPOBJECT_R( 3, DOWN, 1 )
 
     // run the actual battle factory script
-    BATTLE_FACTORY( 0, 3 )
+    BATTLE_FACTORY( 2 )
 
     // script returned
 

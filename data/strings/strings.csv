@@ -807,3 +807,4 @@ Bonus;Bonus;
 Bonus: %hhu;Bonus: %hhu;
 Max RPM: %06.2f;Max RPM: %06.2f;
 Predicted Result: %hhux PokéBlock %s.;Prognose: %hhux Poké-Riegel %s;
+For some reason, this Poké Ball doesn't seem to work here|;Der Ball scheint hier nicht so recht zu funktionieren|;

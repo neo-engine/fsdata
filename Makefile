@@ -40,7 +40,7 @@ DATA_FILES	:=  $(addprefix $(DATA)/, $(foreach dir, $(DATA),$(notdir $(wildcard 
 CPPFILES	:=	fsdata.cpp
 OFILES		:=	$(addprefix $(BUILD)/, $(CPPFILES:.cpp=.o) )
 
-fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv easyChat battleFrontier $(DATA_FILES)
+fsdata: locationdata pkmndata trainerdata mapdata mapscript stringconv easyChat battleFrontier battleFrontierTrainer $(DATA_FILES)
 ifdef LOCAL
 	@mkdir -p $(FSROOT)
 	@mkdir -p $(OUT)
@@ -54,8 +54,11 @@ endif
 		data/itemflavor.csv data/pkmncategory.csv data/pkmnflavor.csv data/itemdata.csv \
 		data/trainerclassnames.csv data/pkmnevolv.csv data/locationnames.csv \
 		data/pkmnformlearnsets.csv data/berrydata.csv
-	./battleFrontier data/pkmnnames.csv data/movenames.csv data/itemnames.csv data/trainerclassnames.csv \
-		data/bfpokemondata.csv
+	./battleFrontier data/pkmnnames.csv data/movenames.csv data/itemnames.csv \
+		data/bfpokemondata.csv "bfpoke.datab"
+	./battleFrontierTrainer data/trainerclassnames.csv data/bftrainerdata.csv "bftrainer.datab"
+	./battleFrontier data/pkmnnames.csv data/movenames.csv data/itemnames.csv \
+		data/bfpokemondata_tent.csv "bfpoket.datab"
 	./stringconv data/strings/strings.csv "STRN/UIS/" "uis" $(UISTRING_LEN)
 	./stringconv data/strings/achievement.csv "STRN/AVM/" "avm" $(ACHIEVEMENT_LEN)
 	./stringconv data/strings/badgename.csv "STRN/BDG/" "bdg" $(BADGENAME_LEN)
@@ -104,6 +107,9 @@ easyChat: $(OFILES) $(BUILD)/easyChat.o
 battleFrontier: $(OFILES) $(BUILD)/battleFrontier.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
+battleFrontierTrainer: $(OFILES) $(BUILD)/battleFrontierTrainer.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
 clean:
 	@rm -r $(BUILD)
 	@rm fsdata
@@ -112,6 +118,8 @@ clean:
 	@rm mapdata
 	@rm strings
 	@rm easychat
+	@rm battlerFrontier
+	@rm battlerFrontierTrainer
 
 $(BUILD)/%.o: $(SOURCES)/%.cpp
 	@mkdir -p $(BUILD)

@@ -68,7 +68,7 @@
 0019;Rattata;0;Razor Fang;Hyper Fang;U-turn;Crunch;Wild Charge;Jolly;0;252;0;0;0;252;
 0543;Venipede;0;Poison Barb;Sludge Bomb;Steamroller;Payback;Screech;Impish;0;252;252;0;0;0;
 0016;Pidgey;0;Scope Lens;Fly;Facade;Steel Wing;Feather Dance;Jolly;0;252;0;0;0;252;
-0659;Bunnelby;0;Silk Scarf;Return;Grass Knot;Dig;Bounce;Adamant;0;252;0;0;0;252;
+0659;Bunnelby;0;Silk Scarf;Frustration;Grass Knot;Dig;Bounce;Adamant;0;252;0;0;0;252;
 0679;Honedge;0;Quick Claw;Iron Head;Swords Dance;Night Slash;Slash;Adamant;0;252;252;0;0;0;
 0074;Geodude;0;Smooth Rock;Stone Edge;Earthquake;Protect;Sandstorm;Adamant;0;252;252;0;0;0;
 0043;Oddish;0;Big Root;Giga Drain;Substitute;Toxic;Protect;Bold;0;0;252;0;252;0;
@@ -80,7 +80,7 @@
 0177;Natu;0;Wise Glasses;Psychic;Dazzling Gleam;Shadow Ball;Calm Mind;Modest;0;0;0;252;0;252;
 0220;Swinub;0;Never-Melt Ice;Earthquake;Blizzard;Rock Slide;Hail;Hardy;0;170;0;170;0;170;
 0060;Poliwag;0;Damp Rock;Surf;Ice Beam;Mud Bomb;Rain Dance;Timid;0;0;0;252;0;252;
-0285;Shroomish;0;Bright Powder;Seed Bomb;Return;Flash;Spore;Jolly;0;252;0;0;0;252;
+0285;Shroomish;0;Bright Powder;Seed Bomb;Frustration;Flash;Spore;Jolly;0;252;0;0;0;252;
 0309;Electrike;0;Air Balloon;Discharge;Leer;Snarl;Light Screen;Modest;0;0;0;252;0;252;
 0209;Snubbull;0;King's Rock;Ice Fang;Fire Fang;Thunder Fang;Play Rough;Jolly;0;252;0;0;0;252;
 0081;Magnemite;0;Light Clay;Thunderbolt;Flash Cannon;Reflect;Light Screen;Modest;0;0;252;252;0;0;
@@ -165,7 +165,7 @@
 0631;Heatmor;0;Lax Incense;Flame Burst;Stockpile;Swallow;Spit Up;Modest;252;0;0;252;0;0;
 0326;Grumpig;0;Leftovers;Rest;Sleep Talk;Psychic;Shadow Ball;Modest;0;0;170;170;170;0;
 0221;Piloswine;0;Persim Berry;Blizzard;Thrash;Earthquake;Hail;Bashful;0;252;0;252;0;0;
-0288;Vigoroth;0;Salac Berry;Shadow Claw;Counter;Endure;Return;Jolly;0;0;252;0;0;252;
+0288;Vigoroth;0;Salac Berry;Shadow Claw;Counter;Endure;Frustration;Jolly;0;0;252;0;0;252;
 0332;Cacturne;0;Razor Claw;Sandstorm;Ingrain;Spikes;Payback;Brave;252;252;0;0;0;0;
 0203;Girafarig;0;Ganlon Berry;Calm Mind;Baton Pass;Psychic;Shadow Ball;Timid;0;0;0;252;0;252;
 0053;Persian;0;Rocky Helmet;Taunt;Slash;U-turn;Payback;Adamant;252;252;0;0;0;0;
@@ -252,7 +252,7 @@
 0689;Barbaracle;0;Expert Belt;Dragon Claw;Earthquake;X-Scissor;Night Slash;Adamant;0;252;252;0;0;0;
 0701;Hawlucha;0;Liechi Berry;Swords Dance;Flying Press;Acrobatics;Steel Wing;Adamant;0;252;0;0;0;252;
 0703;Carbink;0;Iron Ball;Trick Room;Gyro Ball;Dazzling Gleam;Power Gem;Quiet;0;0;0;252;252;0;
-0668;Pyroar;0;Lum Berry;Return;Fire Fang;Wild Charge;Crunch;Adamant;0;252;0;0;0;252;
+0668;Pyroar;0;Lum Berry;Frustration;Fire Fang;Wild Charge;Crunch;Adamant;0;252;0;0;0;252;
 0713;Avalugg;0;Icy Rock;Hail;Blizzard;Recover;Flash Cannon;Bold;0;0;252;0;252;0;
 0697;Tyrantrum;0;Wide Lens;Horn Drill;Stone Edge;Rest;Sleep Talk;Impish;252;0;252;0;0;0;
 0699;Aurorus;0;Expert Belt;Giga Impact;Earthquake;Stone Edge;Frost Breath;Adamant;0;252;0;0;252;0;
@@ -267,7 +267,7 @@
 0706;Goodra;0;Damp Rock;Dragon Pulse;Rain Dance;Thunder;Muddy Water;Modest;0;0;0;252;252;0;
 0709;Trevenant;0;Choice Band;Horn Leech;Shadow Claw;Earthquake;X-Scissor;Adamant;252;252;0;0;0;0;
 0711;Gourgeist;0;Wise Glasses;Shadow Ball;Sludge Bomb;Energy Ball;Flamethrower;Modest;0;0;252;252;0;0;
-0693;Clawitzer;0;Focus Sash;Crabhammer;Return;U-turn;Flail;Jolly;0;252;0;0;0;252;
+0693;Clawitzer;0;Focus Sash;Crabhammer;Frustration;U-turn;Flail;Jolly;0;252;0;0;0;252;
 0685;Slurpuff;0;Kee Berry;Endeavor;Play Rough;Facade;Cotton Guard;Adamant;0;252;0;0;252;0;
 0683;Aromatisse;0;Expert Belt;Flash Cannon;Thunder;Psyshock;Moonblast;Modest;0;0;0;252;252;0;
 0689;Barbaracle;0;Razor Claw;Stone Edge;Razor Shell;Cross Chop;Shadow Claw;Adamant;0;252;252;0;0;0;
@@ -448,7 +448,7 @@
 0584;Vanilluxe;0;Never-Melt Ice;Ice Beam;Frost Breath;Mirror Coat;Icy Wind;Calm;170;0;0;170;170;0;
 0604;Eelektross;0;Magnet;Discharge;Gastro Acid;Thunderbolt;Thunder Wave;Quiet;252;0;0;252;0;0;
 0130;Gyarados;0;Muscle Band;Ice Fang;Aqua Tail;Thunder Wave;Dragon Dance;Lonely;170;170;0;0;0;170;
-0143;Snorlax;0;Sitrus Berry;Return;Wild Charge;Counter;Recycle;Adamant;0;252;252;0;0;0;
+0143;Snorlax;0;Sitrus Berry;Frustration;Wild Charge;Counter;Recycle;Adamant;0;252;252;0;0;0;
 0230;Kingdra;0;Persim Berry;Waterfall;Quash;Protect;Outrage;Adamant;170;170;0;0;0;170;
 0242;Blissey;0;Leftovers;Attract;Round;Heal Pulse;Aromatherapy;Calm;0;0;252;0;252;0;
 0350;Milotic;0;Enigma Berry;Surf;Recover;Mirror Coat;Confuse Ray;Bold;252;0;252;0;0;0;
@@ -623,7 +623,7 @@
 0584;Vanilluxe;0;Occa Berry;Avalanche;Ice Shard;Natural Gift;Giga Impact;Lonely;252;252;0;0;0;0;
 0604;Eelektross;0;Expert Belt;Crunch;Wild Charge;Brick Break;Coil;Naughty;252;252;0;0;0;0;
 0130;Gyarados;0;Chesto Berry;Waterfall;Rest;Bulldoze;Giga Impact;Naughty;0;252;0;0;0;252;
-0143;Snorlax;0;Sitrus Berry;Return;Protect;Crunch;Belly Drum;Brave;0;252;252;0;0;0;
+0143;Snorlax;0;Sitrus Berry;Frustration;Protect;Crunch;Belly Drum;Brave;0;252;252;0;0;0;
 0230;Kingdra;0;Haban Berry;Dragon Pulse;Waterfall;Ice Beam;Dragon Dance;Mild;170;170;0;170;0;0;
 0242;Blissey;0;Custap Berry;Charge Beam;Shadow Ball;Grass Knot;Thunder Wave;Modest;0;0;252;252;0;0;
 0350;Milotic;0;Leftovers;Hydro Pump;Toxic;Attract;Aqua Ring;Quiet;252;0;252;0;0;0;
@@ -679,7 +679,7 @@
 0435;Skuntank;0;Life Orb;Taunt;Sucker Punch;Foul Play;Poison Jab;Jolly;0;252;0;0;0;252;
 0539;Sawk;0;Expert Belt;Close Combat;Payback;Low Sweep;Earthquake;Jolly;0;252;0;0;0;252;
 0538;Throh;0;Expert Belt;Earthquake;Storm Throw;Payback;Rock Slide;Adamant;0;170;170;0;170;0;
-0521;Unfezant;0;Power Herb;Sky Attack;Return;Detect;U-turn;Jolly;0;252;0;0;0;252;
+0521;Unfezant;0;Power Herb;Sky Attack;Frustration;Detect;U-turn;Jolly;0;252;0;0;0;252;
 0045;Vileplume;0;Big Root;Double Team;Ingrain;Toxic;Giga Drain;Modest;252;0;0;252;0;0;
 0071;Victreebel;0;Focus Sash;Sunny Day;Solar Beam;Sludge Bomb;Weather Ball;Modest;0;0;0;252;0;252;
 0101;Electrode;0;Air Balloon;Thunderbolt;Mirror Coat;Signal Beam;Protect;Timid;0;0;0;252;0;252;
@@ -759,11 +759,11 @@
 0472;Gliscor;0;Expert Belt;Aerial Ace;Earthquake;X-Scissor;Stone Edge;Adamant;0;252;252;0;0;0;
 0571;Zoroark;0;Sitrus Berry;Swords Dance;Night Slash;U-turn;Sucker Punch;Jolly;0;252;0;0;0;252;
 0630;Mandibuzz;0;Sitrus Berry;Nasty Plot;Dark Pulse;Air Slash;Incinerate;Modest;170;0;170;0;170;0;
-0628;Braviary;0;Choice Scarf;Brave Bird;Return;U-turn;Rock Slide;Adamant;0;252;0;0;0;252;
+0628;Braviary;0;Choice Scarf;Brave Bird;Frustration;U-turn;Rock Slide;Adamant;0;252;0;0;0;252;
 0073;Tentacruel;0;Focus Sash;Hydro Pump;Sludge Bomb;Giga Drain;Mirror Coat;Modest;252;0;0;252;0;0;
 0142;Aerodactyl;0;Expert Belt;Iron Head;Earthquake;Rock Slide;Thunder Fang;Jolly;0;252;0;0;0;252;
 0233;Porygon2;0;Choice Specs;Tri Attack;Thunderbolt;Psychic;Ice Beam;Modest;252;0;0;252;0;0;
-0463;Lickilicky;0;Leftovers;Return;Gyro Ball;Curse;Rest;Careful;252;0;0;0;252;0;
+0463;Lickilicky;0;Leftovers;Frustration;Gyro Ball;Curse;Rest;Careful;252;0;0;0;252;0;
 0469;Yanmega;0;Lum Berry;Silver Wind;Air Slash;Detect;Giga Drain;Modest;0;0;0;252;0;252;
 0282;Gardevoir;0;Lum Berry;Psychic;Shadow Ball;Energy Ball;Dazzling Gleam;Timid;0;0;0;252;0;252;
 0475;Gallade;0;Scope Lens;Psycho Cut;Stone Edge;Night Slash;X-Scissor;Adamant;0;252;0;0;252;0;
@@ -774,7 +774,7 @@
 0609;Chandelure;0;White Herb;Overheat;Shadow Ball;Protect;Will-O-Wisp;Modest;252;0;0;252;0;0;
 0134;Vaporeon;0;Leftovers;Muddy Water;Blizzard;Aqua Ring;Yawn;Modest;252;0;0;252;0;0;
 0135;Jolteon;0;King's Rock;Thunder;Shadow Ball;Rain Dance;Yawn;Timid;0;0;0;252;0;252;
-0136;Flareon;0;White Herb;Superpower;Return;Will-O-Wisp;Overheat;Brave;252;252;0;0;0;0;
+0136;Flareon;0;White Herb;Superpower;Frustration;Will-O-Wisp;Overheat;Brave;252;252;0;0;0;0;
 0196;Espeon;0;Lum Berry;Psychic;Shadow Ball;Hyper Beam;Grass Knot;Modest;0;0;0;252;0;252;
 0197;Umbreon;0;Sitrus Berry;Feint Attack;Swagger;Psych Up;Screech;Impish;252;0;252;0;0;0;
 0470;Leafeon;0;Heat Rock;Sunny Day;Leaf Blade;X-Scissor;Synthesis;Adamant;0;252;252;0;0;0;
@@ -865,14 +865,14 @@
 0478;Froslass;0;Focus Sash;Blizzard;Icy Wind;Shadow Ball;Destiny Bond;Timid;0;0;0;252;0;252;
 0549;Lilligant;0;Lum Berry;Solar Beam;Teeter Dance;Charm;Leech Seed;Bold;127;0;127;127;0;127;
 0555;Darmanitan;0;Choice Scarf;Flare Blitz;Stone Edge;U-turn;Superpower;Impish;0;252;0;0;0;252;
-0424;Ambipom;0;King's Rock;Fling;Taunt;Return;Payback;Jolly;0;252;0;0;0;252;
+0424;Ambipom;0;King's Rock;Fling;Taunt;Frustration;Payback;Jolly;0;252;0;0;0;252;
 0563;Cofagrigus;0;Leftovers;Will-O-Wisp;Toxic;Hex;Calm Mind;Bold;252;0;0;0;252;0;
 0623;Golurk;0;Iron Ball;Hammer Arm;Earthquake;Shadow Punch;Fling;Brave;252;252;0;0;0;0;
 0632;Durant;0;Focus Sash;Entrainment;X-Scissor;Iron Head;Protect;Jolly;252;0;0;0;0;252;
 0076;Golem;0;Iron Ball;Rock Slide;Earthquake;Explosion;Fling;Brave;0;252;0;0;252;0;
 0080;Slowbro;0;Leftovers;Psychic;Surf;Blizzard;Trick Room;Quiet;252;0;252;0;0;0;
 0110;Weezing;0;Chesto Berry;Toxic;Will-O-Wisp;Stockpile;Rest;Careful;252;0;0;0;252;0;
-0115;Kangaskhan;0;Salac Berry;Fake Out;Endeavor;Return;Substitute;Jolly;0;252;0;0;0;252;
+0115;Kangaskhan;0;Salac Berry;Fake Out;Endeavor;Frustration;Substitute;Jolly;0;252;0;0;0;252;
 0128;Tauros;0;Sitrus Berry;Toxic;Protect;Double Team;Earthquake;Careful;252;0;0;0;252;0;
 0442;Spiritomb;0;Custap Berry;Will-O-Wisp;Sucker Punch;Substitute;Pain Split;Careful;252;0;0;0;252;0;
 0615;Cryogonal;0;Focus Sash;Hail;Icy Wind;Blizzard;Explosion;Naive;0;0;0;252;0;252;
@@ -912,7 +912,7 @@
 0127;Pinsir;0;Choice Scarf;X-Scissor;Earthquake;Close Combat;Guillotine;Jolly;0;252;0;0;0;252;
 0212;Scizor;0;Occa Berry;Bug Bite;Aerial Ace;Roost;Bullet Punch;Adamant;252;252;0;0;0;0;
 0214;Heracross;0;Salac Berry;Megahorn;Earthquake;Reversal;Endure;Jolly;0;252;0;0;0;252;
-0217;Ursaring;0;Quick Claw;Return;Cross Chop;Earthquake;Aerial Ace;Adamant;252;252;0;0;0;0;
+0217;Ursaring;0;Quick Claw;Frustration;Cross Chop;Earthquake;Aerial Ace;Adamant;252;252;0;0;0;0;
 0229;Houndoom;0;White Herb;Overheat;Dark Pulse;Solar Beam;Sunny Day;Timid;0;0;0;252;0;252;
 0232;Donphan;0;Quick Claw;Earthquake;Stone Edge;Seed Bomb;Fissure;Adamant;0;252;0;0;252;0;
 0321;Wailord;0;Zoom Lens;Hydro Pump;Blizzard;Fissure;Hyper Beam;Modest;252;0;0;252;0;0;
@@ -990,7 +990,7 @@
 0376;Metagross;0;Toxic Orb;Trick;Meteor Mash;Protect;Earthquake;Careful;252;0;0;0;252;0;
 0445;Garchomp;0;Focus Sash;Swords Dance;Stone Edge;Earthquake;Dragon Claw;Jolly;0;252;0;0;0;252;
 0635;Hydreigon;0;Roseli Berry;Dragon Rush;Earthquake;Crunch;Dragon Tail;Jolly;0;252;0;0;0;252;
-0289;Slaking;0;Life Orb;Return;Night Slash;Gunk Shot;Aerial Ace;Jolly;0;252;0;0;0;252;
+0289;Slaking;0;Life Orb;Frustration;Night Slash;Gunk Shot;Aerial Ace;Jolly;0;252;0;0;0;252;
 0144;Articuno;0;Icy Rock;Hail;Blizzard;Fly;Roost;Modest;252;0;0;252;0;0;
 0145;Zapdos;0;Magnet;Thunderbolt;Signal Beam;Air Cutter;Ancient Power;Timid;0;0;0;252;0;252;
 0146;Moltres;0;White Herb;Overheat;Air Slash;Tailwind;Will-O-Wisp;Modest;0;0;0;252;0;252;

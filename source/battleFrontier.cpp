@@ -71,7 +71,7 @@ u8 parseNature( char* p_str ) {
 }
 
 bfPokemon parseFrontierPokemon( char* p_buffer ) {
-    bfPokemon res;
+    bfPokemon res{ };
     char      speciesbuf[ 50 ] = { 0 }, itembuf[ 50 ] = { 0 };
     char mvbuf1[ 50 ] = { 0 }, mvbuf2[ 50 ] = { 0 }, mvbuf3[ 50 ] = { 0 }, mvbuf4[ 50 ] = { 0 },
                     naturebuf[ 50 ] = { 0 };
@@ -119,6 +119,8 @@ bfPokemon parseFrontierPokemon( char* p_buffer ) {
 }
 
 int main( int p_argc, char** p_argv ) {
+    FILENAME = string( p_argv[ 0 ] );
+
     if( p_argc < 6 ) {
         fprintf( stderr, "too few args." );
         return 1;
@@ -132,10 +134,7 @@ int main( int p_argc, char** p_argv ) {
     readNames( p_argv[ 3 ], item_names, 29, 1 );
     for( size_t i = 0; i < item_names.size( ); ++i ) { items[ item_names[ i ].m_name[ 0 ] ] = i; }
 
-    readNames( p_argv[ 4 ], class_names );
-    for( auto i : class_names ) classes[ i.second.m_name[ 0 ] ] = i.first;
-
-    FILE* f = fopen( p_argv[ 5 ], "r" );
+    FILE* f = fopen( p_argv[ 4 ], "r" );
     if( !f ) {
         fprintf( stderr, "input file unreadable" );
         return 1;
@@ -143,7 +142,8 @@ int main( int p_argc, char** p_argv ) {
 
     fs::create_directories( std::string( FSROOT "/BFTR_PKMN/" ) );
 
-    auto outf = fopen( FSROOT "/BFTR_PKMN/bfpoke.datab", "wb" );
+    auto outf = fopen(
+        ( std::string( FSROOT "/BFTR_PKMN/" ) + std::string( p_argv[ 5 ] ) ).c_str( ), "wb" );
     assert( outf );
 
     char buffer[ 200 ];
