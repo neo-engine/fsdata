@@ -1,0 +1,23 @@
+// Wattson (mauville gym)
+#include "scriptlib.m4.h"
+
+CHECK_FLAG( 369, 0, 2 )
+    MESSAGE( 950, 0 )
+    JUMP_TO_END
+MESSAGE( 946, 0 )
+BATTLE_TRAINER( 99, SINGLE )
+CHECK_REGISTER( 0, 1, 2 )
+    FAINT_PLAYER
+    JUMP_TO_END
+SET_FLAG( 947, 1 )
+// Disable the other trainers in the gym
+SET_TRAINER_FLAG( 100, 1 )
+SET_TRAINER_FLAG( 101, 1 )
+SET_TRAINER_FLAG( 102, 1 )
+SET_TRAINER_FLAG( 103, 1 )
+SET_TRAINER_FLAG( 104, 1 )
+AWARD_BADGE( 0, 3 )
+MESSAGE( 948, 0 )
+GIVE_ITEM( I_TM49, 1 )
+MESSAGE( 949, 0 )
+END_OF_PROGRAM
