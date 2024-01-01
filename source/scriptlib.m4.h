@@ -237,6 +237,7 @@ dnl
 dnl
 #define DES 150
 #define MVT 151
+#define GPK 152
 dnl
 #define SBC  196
 #define SBCC 197
@@ -493,6 +494,7 @@ dnl
 dnl
 #define BATTLE_TRAINER( p_trainerId, p_mode ) ins3( BTR, p_trainerId, p_mode )
 #define BATTLE_PKMN( p_speciesId, p_level )   ins3( BPK, p_speciesId, p_level )
+#define GIFT_PKMN( p_speciesId, p_level )     ins3( GPK, p_speciesId, p_level )
 #define GIVE_ITEM( p_itemId, p_amount )       ins3( ITM, p_itemId, p_amount )
 #define TAKE_ITEM( p_itemId, p_amount )       ins3( TTM, p_itemId, p_amount )
 #define USE_ITEM( p_itemId, p_amount )        ins3( UTM, p_itemId, p_amount )
