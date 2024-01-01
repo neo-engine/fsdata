@@ -1,0 +1,12 @@
+// mauville game coerner
+#include "scriptlib.m4.h"
+
+MART_BEGIN( CURRENCY_COINS, NO_SELL )
+    MART_ITEM( I_TR03, 800 )
+    MART_ITEM( I_TR06, 800 )
+    MART_ITEM( I_TR09, 800 )
+    MART_ITEM( I_TR15, 800 )
+    MART_ITEM( I_TR24, 800 )
+    MART_ITEM( I_TR64, 800 )
+SELL_ITEMS
+END_OF_PROGRAM

@@ -1,6 +1,10 @@
 // mauvile gym floor tile 1
 #include "scriptlib.m4.h"
 
+// deactivate once badge is won
+CHECK_FLAG( 369, 0, 1 )
+    JUMP_TO_END
+
 // Activates
 //
 //    +--+

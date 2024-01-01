@@ -187,6 +187,7 @@ dnl
 dnl
 #define CMN 70
 #define PMN 71
+#define RMN 72
 dnl
 #define EXM  88
 #define EXMR 88
@@ -311,6 +312,7 @@ dnl
 #define REWIND( p_skippedInsBack )               ins4( JMB, p_skippedInsBack, 0, 0 )
 #define FIX_MAPOBJECT_R( p_register )            ins4( FIXR, p_register, 0, 0 )
 #define UNFIX_MAPOBJECT_R( p_register )          ins4( UFXR, p_register, 0, 0 )
+#define FIX_MAPOBJECT_R2( p_register )           ins4( FIXR, p_register, 0, 0 ) COPY_REGISTER( 0, p_register )
 dnl
 #define MESSAGE( p_messageId, p_messageType ) ins3( MSG, p_messageId, p_messageType )
 dnl
@@ -430,6 +432,13 @@ dnl
 // checks if the player has at least p_money, skips p_skipIfYes ins if that is the case.
 #define CHECK_MONEY( p_money, p_skipIfYes ) ins3( CMN, p_money, p_skipIfYes )
 #define PAY_MONEY( p_money )                ins3( PMN, p_money, 0 )
+#define PAY_CURRENCY( p_money, p_type )     ins3( PMN, p_money, p_type )
+#define ADD_MONEY( p_money )                ins3( RMN, p_money, 0 )
+#define ADD_CURRENCY( p_money, p_type )     ins3( RMN, p_money, p_type )
+#define CURRENCY_MONEY                      0
+#define CURRENCY_BP                         1
+#define CURRENCY_COINS                      2
+#define CURRENCY_ASH                        3
 dnl
 #define GET_ITEM_AMOUNT( p_itemId ) ins3( GIT, p_itemId, 0 )
 #define CHECK_ITEM( p_itemId, p_quantity, p_skipIfNo ) \
@@ -497,6 +506,7 @@ dnl
 #define USE_ITEM_R( p_startRegister )       ins4( UTMR, p_startRegister, 0, 0 )
 dnl
 #define MART_BEGIN( p_coinType, p_allowSell ) ins4( MBG, p_coinType, p_allowSell, 0 )
+#define NO_SELL                               0
 #define MART_ITEM( p_item, p_price )          ins3( MIT, p_item, p_price )
 dnl
 #define CBOX_BEGIN( p_message, p_msgType ) ins3( CBG, p_message, p_msgType )
