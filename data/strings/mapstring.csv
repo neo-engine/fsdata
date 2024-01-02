@@ -1073,3 +1073,7 @@ May: That's a Poké Radar.\rTry it out. You can find all\nkinds of Pokémon with
 Brendan: Hey, [PLAYER].\nSo this is where you were.\nHow's it going?\rHave you been raising your Pokémon?\nI'll check for you.;---;
 Brendan: [PLAYER], you've trained\nwithout me noticing|\rGood enough!\nHere, take this.;---;
 Brendan: That's a Poké Radar.\rUse it to find many different Pokémon.\nI use mine a lot.\rAnyway, I'm off to look for new\nPokémon.;---;
+I dropped my glasses|\nCan you help me find them?;---;
+Those glasses!\nMay I see them for a second?;---;
+Hmm|\rThese are Black Glasses.\nThey're not what I'm looking for|\rMaybe my glasses aren't around here|;---;
+Hmm|\rI can't find my glasses anywhere|\nMaybe they're not around here|;---;
