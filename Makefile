@@ -9,7 +9,7 @@ BADGENAME_LEN		?=  50
 RIBBONNAME_LEN		?=  50
 RIBBONDSCR_LEN		?= 250
 TRNNAME_LEN			?=  16
-PKMNNAME_LEN		?=  12
+PKMNNAME_LEN		?=  14
 TRNMSG_LEN			?= 200
 EASYPHRS_LEN		?= 200
 EASYWORD_LEN		?= 40
@@ -108,6 +108,9 @@ battleFrontier: $(OFILES) $(BUILD)/battleFrontier.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 battleFrontierTrainer: $(OFILES) $(BUILD)/battleFrontierTrainer.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
+wonderCard: $(OFILES) $(BUILD)/wonderCard.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 clean:
