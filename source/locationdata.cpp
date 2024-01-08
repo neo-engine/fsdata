@@ -154,9 +154,10 @@ void printBGMData( ) {
     */
 
     fprintf(
-        n, ( "#define NUM_SSEQ "s + std::to_string( bgm_names_sorted.size( ) ) + "\n" ).c_str( ) );
+        n, "%s",
+        ( "#define NUM_SSEQ "s + std::to_string( bgm_names_sorted.size( ) ) + "\n" ).c_str( ) );
     fprintf(
-        n,
+        n, "%s",
         ( "#define MAX_BGM "s + std::to_string( bgm_names_sorted.size( ) - 1 ) + "\n" ).c_str( ) );
 
     fprintf( n, "#define BGM_NONE 0\n" );
@@ -175,32 +176,80 @@ void printBGMData( ) {
                  dt.m_sseqId, dt.m_sampleCnt, dt.m_samplesId[ 0 ], dt.m_samplesId[ 1 ],
                  dt.m_samplesId[ 2 ], dt.m_samplesId[ 3 ], curMacroName.c_str( ) );
 
-        fprintf( n,
+        fprintf( n, "%s",
                  ( "#define "s + curMacroName + " " + std::to_string( curId ) + "\n" ).c_str( ) );
 
         fprintf(
-            g,
+            g, "%s",
             ( "        case "s + curMacroName + ": return " + to_string( i ) + ";\n" ).c_str( ) );
     }
-    fprintf( s2, "    };\n"
-                 "} // namespace SOUND::SSEQ\n"
-                 "#endif\n" );
+    fprintf( s2, "%s",
+             "    };\n"
+             "} // namespace SOUND::SSEQ\n"
+             "#endif\n" );
 
-    fprintf( g, "        }\n"
-                "    }\n"
-                "} // namespace SOUND::SSEQ\n"
-                "#endif\n" );
+    fprintf( g, "%s",
+             "        }\n"
+             "    }\n"
+             "} // namespace SOUND::SSEQ\n"
+             "#endif\n" );
 
     fclose( g );
     fclose( n );
     for( int j = 0; j < NUM_LANGUAGES; ++j ) { fclose( outf[ j ] ); }
 }
 
-void copyBGMFiles( const char* p_bgmpath ) {
-    fs::create_directories( std::string( FSROOT "BGM/SSEQ/" ) );
-    fs::create_directories( std::string( FSROOT "BGM/SWAR/" ) );
-    fs::create_directories( std::string( FSROOT "BGM/SBNK/" ) );
+void writeContainer( const char* p_outPath, const char* p_inPath, const char* p_ext,
+                     map<string, u16> p_data ) {
+    u32 size = 0, index = 0;
 
+    vector<string> sorted{ p_data.size( ) };
+    for( const auto& [ name, id ] : p_data ) { sorted[ id ] = name; }
+
+    std::string outData = string( p_outPath ) + ".c.data";
+    std::string outInfo = string( p_outPath ) + ".i.data";
+
+    FILE* outd = fopen( outData.c_str( ), "wb" );
+    FILE* outi = fopen( outInfo.c_str( ), "wb" );
+
+    fwrite( &index, 4, 1, outi );
+    fwrite( &size, 4, 1, outi );
+
+    for( auto i = 1; i < sorted.size( ); ++i ) {
+        auto& name = sorted[ i ];
+        fwrite( &index, 4, 1, outi );
+        // printf( "%s starts at %d\n", name.c_str( ), index );
+
+        u32 size = 0;
+
+        fs::path from = string( p_inPath ) + name.substr( 5 ) + string( p_ext );
+
+        FILE* f = fopen( from.c_str( ), "rb" );
+        u8    tmp;
+        while( fread( &tmp, 1, 1, f ) ) {
+            fwrite( &tmp, 1, 1, outd );
+            size++;
+        }
+        fclose( f );
+        fwrite( &size, 4, 1, outi );
+        index += size;
+    }
+
+    fclose( outi );
+    fclose( outd );
+}
+
+void copyBGMFiles( const char* p_bgmpath ) {
+    fs::create_directories( std::string( FSROOT "BGM/" ) );
+
+    writeContainer( std::string( FSROOT "BGM/sseq" ).c_str( ),
+                    ( string( p_bgmpath ) + "sseq/" ).c_str( ), ".sseq", sseq_names );
+    writeContainer( std::string( FSROOT "BGM/swar" ).c_str( ),
+                    ( string( p_bgmpath ) + "swar/" ).c_str( ), ".swar", swar_names );
+    writeContainer( std::string( FSROOT "BGM/sbnk" ).c_str( ),
+                    ( string( p_bgmpath ) + "sbnk/" ).c_str( ), ".sbnk", sbnk_names );
+
+    /*
     for( const auto& [ name, id ] : sseq_names ) {
         if( !id ) { continue; }
         fs::create_directories( std::string( FSROOT "BGM/SSEQ/" )
@@ -245,6 +294,7 @@ void copyBGMFiles( const char* p_bgmpath ) {
                      ec.message( ).c_str( ) );
         }
     }
+    */
 }
 
 void readLocationData( char* p_path, map<u16, locationData>& p_out ) {
