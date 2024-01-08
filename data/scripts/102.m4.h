@@ -15,15 +15,15 @@ MESSAGE( 414, 0 )
         COPY_REGISTER( 0, 1 )
         MOVE_MAPOBJECT_R( 1, DOWN, 1 )
     DESTROY_MAPOBJECT_R( 1 )
-    WALK_PLAYER( DOWN, 2 )
-    HIDE_PLAYER
-// start boat trip
-SET_FLAG( 168, 1 )
-SET_FLAG( 169, 1 )
-PLAY_MUSIC( BGM_SAILING )
     GET_MAPOBJECT( 20, 18, 5 )
         COPY_REGISTER( 0, 1 )
         FIX_MAPOBJECT_R( 1 )
+SET_FLAG( 168, 1 )
+    WALK_PLAYER( DOWN, 2 )
+    HIDE_PLAYER
+// start boat trip
+SET_FLAG( 169, 1 )
+PLAY_MUSIC( BGM_SAILING )
         ATTACH_PLAYER
             MOVE_MAPOBJECT( 0, DOWN, 5 )
             MOVE_MAPOBJECT_FAST( 0, DOWN, 12 )

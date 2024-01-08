@@ -31,7 +31,7 @@ FORCE_SAVE_GAME
 CHECK_REGISTER_N( 2, 1, 1 )
     SET_FLAG( 194, 1 )
 
-CHECK_REGISTER_N( 0, 1, 22 )
+CHECK_REGISTER_N( 0, 1, 20 )
     MESSAGE( 518, 0 )
     GET_MAPOBJECT( 15, 24, 3 )
     COPY_REGISTER( 0, 3 )
@@ -42,8 +42,6 @@ CHECK_REGISTER_N( 0, 1, 22 )
     MOVE_PLAYER( UP, 10 )
     MOVE_PLAYER( RIGHT, 0 )
     REDRAW_OBJECTS
-    MOVE_MAPOBJECT_R( 3, LEFT, 1 )
-    MOVE_MAPOBJECT_R( 3, DOWN, 1 )
 
     // run the actual battle factory script
     BATTLE_FACTORY( 2 )

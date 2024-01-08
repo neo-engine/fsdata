@@ -42,6 +42,10 @@ CHECK_REGISTER_N( EVAL_REG, 1, 46 )
     // player wants to sail back to r104
     MESSAGE( 420, 0 )
     HIDE_PKMN
+        GET_MAPOBJECT( 0, 8, 5 )
+            COPY_REGISTER( 0, 1 )
+            FIX_MAPOBJECT_R( 1 )
+    SET_FLAG( 168, 1 )
         WALK_PLAYER( UP, 1 )
         HIDE_PLAYER
         GET_MAPOBJECT( 1, 9, 3 )
@@ -50,12 +54,8 @@ CHECK_REGISTER_N( EVAL_REG, 1, 46 )
             MOVE_MAPOBJECT_R( 1, UP, 1 )
         DESTROY_MAPOBJECT_R( 1 )
     // start boat trip
-    SET_FLAG( 168, 1 )
     SET_FLAG( 169, 1 )
     PLAY_MUSIC( BGM_SAILING )
-        GET_MAPOBJECT( 0, 8, 5 )
-            COPY_REGISTER( 0, 1 )
-            FIX_MAPOBJECT_R( 1 )
             ATTACH_PLAYER
             MOVE_MAPOBJECT( 0, UP, 5 )
             MOVE_MAPOBJECT_FAST( 0, UP, 9 )
@@ -92,6 +92,10 @@ CHECK_REGISTER_N( EVAL_REG, 1, 46 )
 MESSAGE( 430, 0 )
 HIDE_PKMN
 
+    GET_MAPOBJECT( 0, 8, 5 )
+        COPY_REGISTER( 0, 1 )
+        FIX_MAPOBJECT_R( 1 )
+SET_FLAG( 168, 1 )
     WALK_PLAYER( UP, 1 )
     HIDE_PLAYER
     GET_MAPOBJECT( 1, 9, 3 )
@@ -100,12 +104,8 @@ HIDE_PKMN
         MOVE_MAPOBJECT_R( 1, UP, 1 )
     DESTROY_MAPOBJECT_R( 1 )
 // start boat trip
-SET_FLAG( 168, 1 )
 SET_FLAG( 169, 1 )
 PLAY_MUSIC( BGM_SAILING )
-    GET_MAPOBJECT( 0, 8, 5 )
-        COPY_REGISTER( 0, 1 )
-        FIX_MAPOBJECT_R( 1 )
         ATTACH_PLAYER
             MOVE_MAPOBJECT( 0, RIGHT, 5 )
             MOVE_MAPOBJECT_FAST( 0, RIGHT, 138 )
