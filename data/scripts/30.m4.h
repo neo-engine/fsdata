@@ -48,19 +48,22 @@ GET_MAPOBJECT( 17, 17, 3 ) // Norman
 // Warp outside
 GET_MAPOBJECT( 14, 8, 3 ) // Wally
     LOCK_R( 0 )
+    FIX_MAPOBJECT_R( 0 )
+    SET_FLAG( 25, 1 )
     ATTACH_PLAYER
     MOVE_MAPOBJECT_R( 0, DOWN, 7 )
     MOVE_MAPOBJECT_R( 0, RIGHT, 20 )
     MOVE_MAPOBJECT_R( 0, LEFT, 0 )
     REMOVE_PLAYER
     MESSAGE( 151, 0 )
-    SET_FLAG( 25, 1 )
+    UNFIX_MAPOBJECT_R( 0 )
+    SET_FLAG( 411, 1 )
     DESTROY_MAPOBJECT_R( 0 )
 REDRAW_OBJECTS
-    GET_MAPOBJECT( 2, 15, 3 ) // Wally
-    LOCK_R( 0 )
     // Catching tutorial
     CATCHING_TUTORIAL
+    GET_MAPOBJECT( 2, 15, 3 ) // Wally
+    LOCK_R( 0 )
     MESSAGE( 152, 0 )
     MOVE_MAPOBJECT_R( 0, LEFT, 0 )
     MESSAGE( 153, 0 )

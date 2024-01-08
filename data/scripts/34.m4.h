@@ -26,11 +26,13 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
     MESSAGE( 179, 0 )
     COPY_REGISTER( 0, 2 )
     SET_FLAG( 35, 1 )
-    YES_NO_MESSAGE( 180, 1, 30 ) // Ask if the player wants to help
+    YES_NO_MESSAGE( 180, 1, 31 ) // Ask if the player wants to help
         // Player doesn't want to help
         HIDE_PKMN
         MOVE_PLAYER( RIGHT, 1 )
         MOVE_PLAYER( DOWN, 0 )
+        GET_MAPOBJECT( 2, 29, 3 )
+        COPY_REGISTER( 0, 2 )
         MOVE_MAPOBJECT_R( 2, DOWN, 2 )
         MOVE_MAPOBJECT_FAST_R( 2, DOWN, 1 )
         MOVE_MAPOBJECT_FAST_R( 2, UP, 1 )
@@ -42,8 +44,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
         WAIT( 20 )
         MESSAGE( 188, 0 )
         MOVE_MAPOBJECT_FAST_R( 2, UP, 5 )
-        MOVE_MAPOBJECT_FAST_R( 2, LEFT, 1 )
-        MOVE_MAPOBJECT_FAST_R( 2, UP, 2 )
+        MOVE_MAPOBJECT_FAST_R( 2, LEFT, 5 )
         DESTROY_MAPOBJECT_R( 2 )
         RESTORE_MUSIC
         MOVE_MAPOBJECT_R( 1, UP, 1 )
@@ -54,9 +55,9 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
         MESSAGE( 184, 0 )
         MESSAGE( 185, 0 )
         MOVE_MAPOBJECT_FAST_R( 1, UP, 5 )
-        MOVE_MAPOBJECT_FAST_R( 1, LEFT, 1 )
-        MOVE_MAPOBJECT_FAST_R( 1, UP, 2 )
+        MOVE_MAPOBJECT_FAST_R( 1, LEFT, 5 )
         DESTROY_MAPOBJECT_R( 1 )
+        REDRAW_OBJECTS
         JUMP_TO_END
     // else (player wants to help
         MOVE_MAPOBJECT_R( 2, DOWN, 1 )
@@ -67,7 +68,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
         PLAY_MUSIC( BGM_ENCOUNTER_TEAM_A )
         REDRAW_OBJECTS
         // Check if the player managed to win
-        CHECK_REGISTER( 0, 1, 35 )
+        CHECK_REGISTER( 0, 1, 34 )
             // They didn't
             HEAL_TEAM
             GET_MAPOBJECT( 2, 32, 3 ) // Devon scientist
@@ -87,8 +88,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
             MESSAGE( 187, 1 )
             MESSAGE( 188, 0 )
             MOVE_MAPOBJECT_FAST_R( 2, UP, 5 )
-            MOVE_MAPOBJECT_FAST_R( 2, LEFT, 1 )
-            MOVE_MAPOBJECT_FAST_R( 2, UP, 2 )
+            MOVE_MAPOBJECT_FAST_R( 2, LEFT, 5 )
             DESTROY_MAPOBJECT_R( 2 )
             RESTORE_MUSIC
             MOVE_MAPOBJECT_R( 1, UP, 1 )
@@ -99,10 +99,10 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
             MESSAGE( 184, 0 )
             MESSAGE( 185, 0 )
             MOVE_MAPOBJECT_FAST_R( 1, UP, 5 )
-            MOVE_MAPOBJECT_FAST_R( 1, LEFT, 1 )
-            MOVE_MAPOBJECT_FAST_R( 1, UP, 2 )
+            MOVE_MAPOBJECT_FAST_R( 1, LEFT, 5 )
             DESTROY_MAPOBJECT_R( 1 )
             SET_FLAG( 38, 1 )
+            REDRAW_OBJECTS
             JUMP_TO_END
         // else (player managed to win)
             GET_MAPOBJECT( 2, 32, 3 ) // Devon scientist
@@ -115,8 +115,7 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
             MOVE_MAPOBJECT_R( 2, DOWN, 0 )
             MESSAGE( 182, 0 )
             MOVE_MAPOBJECT_FAST_R( 2, UP, 3 )
-            MOVE_MAPOBJECT_FAST_R( 2, LEFT, 1 )
-            MOVE_MAPOBJECT_FAST_R( 2, UP, 2 )
+            MOVE_MAPOBJECT_FAST_R( 2, LEFT, 5 )
             DESTROY_MAPOBJECT_R( 2 )
             RESTORE_MUSIC
             MOVE_PLAYER( RIGHT, 1 )
@@ -128,9 +127,9 @@ GET_MAPOBJECT( 2, 29, 3 ) // devon scientist
             MESSAGE( 184, 0 )
             MESSAGE( 185, 0 )
             MOVE_MAPOBJECT_FAST_R( 1, UP, 5 )
-            MOVE_MAPOBJECT_FAST_R( 1, LEFT, 1 )
-            MOVE_MAPOBJECT_FAST_R( 1, UP, 2 )
+            MOVE_MAPOBJECT_FAST_R( 1, LEFT, 5 )
             DESTROY_MAPOBJECT_R( 1 )
             SET_FLAG( 38, 1 )
+            REDRAW_OBJECTS
 END_OF_PROGRAM
 

@@ -7,9 +7,10 @@ GET_MAPOBJECT( 26, 19, 3 )
     EXCLAMATION_R( 0 ) // Show exclamation mark
     LOCK_R( 0 )
     MESSAGE( 75, 0 )
-    SET_FLAG( 16, 1 )
+    CHECK_FLAG( 412, 1, 4 )
+    SET_FLAG( 412, 1 )
     MOVE_PLAYER( RIGHT, 1 )
     MOVE_MAPOBJECT_R( 0, UP, 0 )
-    MOVE_PLAYER( UP, 4 )
+    MOVE_PLAYER( UP, 3 )
     UNLOCK_R( 0 )
 END_OF_PROGRAM

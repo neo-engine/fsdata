@@ -36,8 +36,8 @@ SPAWN_MAPOBJECT( 227, 11, 6 )
     MOVE_PLAYER( LEFT, 1 )
 DESTROY_MAPOBJECT_R( 0 )
 // already spawn map object on bottom floor to avoid "pop in" effect
+MOVE_PLAYER( UP, 1 )
 SPAWN_MAPOBJECT( 227, 15, 24 )
-    MOVE_PLAYER( UP, 1 )
     GET_MAPOBJECT( 15, 24, 3 )
 // warp to bottom room
     MOVE_MAPOBJECT_R( 0, RIGHT, 1 )

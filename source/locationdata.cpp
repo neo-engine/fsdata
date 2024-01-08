@@ -215,10 +215,11 @@ void writeContainer( const char* p_outPath, const char* p_inPath, const char* p_
     fwrite( &index, 4, 1, outi );
     fwrite( &size, 4, 1, outi );
 
+    u32 mxsz = 0;
+
     for( auto i = 1; i < sorted.size( ); ++i ) {
         auto& name = sorted[ i ];
         fwrite( &index, 4, 1, outi );
-        // printf( "%s starts at %d\n", name.c_str( ), index );
 
         u32 size = 0;
 
@@ -232,8 +233,11 @@ void writeContainer( const char* p_outPath, const char* p_inPath, const char* p_
         }
         fclose( f );
         fwrite( &size, 4, 1, outi );
+        printf( "%s starts at %d, has size %d\n", name.c_str( ), index, size );
         index += size;
+        if( size > mxsz ) { mxsz = size; }
     }
+    printf( "Max size %lu\n", mxsz );
 
     fclose( outi );
     fclose( outd );
@@ -347,15 +351,21 @@ void readBGMData( char* p_path, vector<u16>& p_dataIds, map<string, pair<u16, na
             ++bgmcnt;
 
             // BGM name
-            curname                  = string( "BGM_" ) + string( b1 );
-            string         sbnkname  = string( "SBNK_" ) + string( b2 );
-            string         sseqname  = string( "SSEQ_" ) + string( b3 );
-            vector<string> swarnames = {
+            curname                   = string( "BGM_" ) + string( b1 );
+            string         sbnkname   = string( "SBNK_" ) + string( b2 );
+            string         sseqname   = string( "SSEQ_" ) + string( b3 );
+            vector<string> swarnames2 = {
                 string( "SWAR_" ) + string( b4 ),
                 string( "SWAR_" ) + string( b5 ),
                 string( "SWAR_" ) + string( b6 ),
                 string( "SWAR_" ) + string( b7 ),
             };
+
+            vector<string> swarnames;
+            for( auto i : swarnames2 ) {
+                if( i != "SWAR_NONE" ) { swarnames.push_back( i ); }
+            }
+            for( auto i = swarnames.size( ); i < 4; ++i ) { swarnames.push_back( "SWAR_NONE" ); }
 
             sseqData d = sseqData( );
             if( !p_sseqNames.count( sseqname ) ) { p_sseqNames[ sseqname ] = p_sseqNames.size( ); }
