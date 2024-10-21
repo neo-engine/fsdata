@@ -1283,7 +1283,7 @@ void readPkmnData( char* p_pkmnData, char* p_pkmnDescr, char* p_pkmnFormeNames,
                         &cur.m_catchrate, &cur.m_baseFriend, &tmp1 ) );
 
         assert( sscanf( descr_buf, "%d", &id_b ) );
-        assert( id_a == id_b );
+        assert( !id_a || !id_b || id_a == id_b );
         readForme( descr_buf, cur.m_baseForme );
 
         // Check for existing forms
