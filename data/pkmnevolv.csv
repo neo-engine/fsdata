@@ -40,6 +40,7 @@
 52_2,Meowth,Perrserker,0,level:28
 54,Psyduck,Golduck,0,level:33
 56,Mankey,Primeape,0,level:28
+57,Primeape,Annihilape,0,move:Rage Fist
 58,Growlithe,Arcanine,0,item:Fire Stone
 58_1,Growlithe,Arcanine,1,item:Fire Stone
 60,Poliwag,Poliwhirl,0,level:25
@@ -61,7 +62,7 @@
 79,Slowpoke,Slowbro,0,level:37
 79_1,Slowpoke,Slowbro,1,item:Galarica Cuff
 79,Slowpoke,Slowking,0,tradeitem:King's Rock
-79_1,Slowpoke,Slowking,1,item:Galarica Wreath
+79_1,Slowpoke,Slowking,1,item:Galarica Twig
 81,Magnemite,Magneton,0,level:30
 82,Magneton,Magnezone,0,location:New Mauville
 83_1,Farfetch'd,Sirfetch'd,0,special
@@ -94,7 +95,7 @@
 120,Staryu,Starmie,0,item:Water Stone
 122_1,Mr. Mime,Mr. Rime,0,level:42
 123,Scyther,Scizor,0,tradeitem:Metal Coat
-123,Scyther,Kleavor,0,tradeitem:Hard Stone
+123,Scyther,Kleavor,0,tradeitem:Black Augurite
 125,Electabuzz,Electivire,0,tradeitem:Electirizer
 126,Magmar,Magmortar,0,tradeitem:Magmarizer
 129,Magikarp,Gyarados,0,level:20
@@ -138,16 +139,19 @@
 191,Sunkern,Sunflora,0,item:Sun Stone
 193,Yanma,Yanmega,0,move:Ancient Power
 194,Wooper,Quagsire,0,level:20
+194_1,Wooper,Clodsire,0,level:20
 198,Murkrow,Honchkrow,0,item:Dusk Stone
 200,Misdreavus,Mismagius,0,item:Dusk Stone
+203,Girafarig,Farigiraf,0,move:Twin Beam
 204,Pineco,Forretress,0,level:31
+206,Dunsparce,Dudunsparce,0,move:Hyper Drill
 207,Gligar,Gliscor,0,holditem:Razor Fang:Night
 209,Snubbull,Granbull,0,level:23
 211_1,Qwilfish,Overqwil,0,move:Barb Barrage
 215,Sneasel,Weavile,0,holditem:Razor Claw:Night
 215_1,Sneasel,Sneasler,0,holditem:Razor Claw:Day
 216,Teddiursa,Ursaring,0,level:30
-217,Ursaring,Ursaluna,0,item:Moon Stone
+217,Ursaring,Ursaluna,0,item:Peat Block
 218,Slugma,Magcargo,0,level:38
 220,Swinub,Piloswine,0,level:33
 221,Piloswine,Mamoswine,0,move:Ancient Power
@@ -356,6 +360,7 @@
 619,Mienfoo,Mienshao,0,level:50
 622,Golett,Golurk,0,level:43
 624,Pawniard,Bisharp,0,level:52
+625,Bisharp,Kingambit,0,tradeitem:Leader's Crest
 627,Rufflet,Braviary,0,level:54
 627,Rufflet,Braviary,1,move:Esper Wing
 629,Vullaby,Mandibuzz,0,level:54
@@ -443,6 +448,7 @@
 790,Cosmoem,Solgaleo,0,leveltime:53:Day
 790,Cosmoem,Lunala,0,leveltime:53:Night
 803,Poipole,Naganadel,0,move:Dragon Pulse
+808,Meltan,Melmetal,0,contest:Tough
 810,Grookey,Thwackey,0,level:16
 811,Thwackey,Rillaboom,0,level:35
 813,Scorbunny,Raboot,0,level:16
@@ -462,15 +468,16 @@
 837,Rolycoly,Carkol,0,level:18
 838,Carkol,Coalossal,0,level:34
 840,Applin,Flapple,0,item:Tart Apple
-840,Applin,Appletun,0,item:Sweet Apple:
+840,Applin,Appletun,0,item:Sweet Apple
+840,Applin,Dipplin,0,item:Syrupy Apple
 843,Silicobra,Sandaconda,0,level:36
 846,Arrokuda,Barraskewda,0,level:26
 848,Toxel,Toxtricity,0,special
 848,Toxel,Toxtricity,1,special
 850,Sizzlipede,Centiskorch,0,level:28
 852,Clobbopus,Grapploct,0,move:Taunt
-854,Sinistea,Polteageist,0,item:Chipped Pot
 854,Sinistea,Polteageist,0,item:Cracked Pot
+854,Sinistea,Polteageist,1,item:Chipped Pot
 856,Hatenna,Hattrem,0,level:32
 857,Hattrem,Hatterene,0,level:42
 859,Impidimp,Morgrem,0,level:32
@@ -478,8 +485,51 @@
 868,Milcery,Alcremie,0,special
 872,Snom,Frosmoth,0,friendshiptime:Night
 878,Cufant,Copperajah,0,level:34
+884,Duraludon,Archaludon,0,item:Metal Alloy
 885,Dreepy,Drakloak,0,level:50
 886,Drakloak,Dragapult,0,level:60
 891,Kubfu,Urshifu,0,contest:Cool
 891,Kubfu,Urshifu,1,contest:Smart
-808,Meltan,Melmetal,0,contest:Tough
+906,Sprigatito,Floragato,0,level:16
+907,Floragato,Meowscarada,0,level:36
+909,Fuecoco,Crocalor,0,level:16,
+910,Crocalor,Skeledirge,0,level:36,
+912,Quaxly,Quaxwell,0,level:16,
+913,Quaxwell,Quaquaval,0,level:36,
+915,Lechonk,Oinkologne,0,levelgender:18:Male
+915,Lechonk,Oinkologne,1,levelgender:18:Male
+917,Tarountula,Spidops,0,level:15
+919,Nymble,Lokix,0,level:24
+921,Pawmi,Pawmo,0,level:18
+922,Pawmo,Pawmot,0,item:Thunderstone
+924,Tandemaus,Maushold,1,level:25
+926,Fidough,Dachsbun,0,level:26
+928,Smoliv,Dolliv,0,level:25
+929,Dolliv,Arboliva,0,level:35
+932,Nacli,Naclstack,0,level:24
+933,Naclstack,Garganacl,0,level:38
+935,Charcadet,Armarouge,0,item:Auspicious Armor
+935,Charcadet,Ceruledge,0,item:Malicious Armor
+938,Tadbulb,Bellibolt,0,item:Thunder Stone
+940,Wattrel,Kilowattrel,0,level:25
+942,Maschiff,Mabosstiff,0,level:30
+944,Shroodle,Grafaiai,0,level:28
+946,Bramblin,Brambleghast,0,item:Dusk Stone
+948,Toedscool,Toedscruel,0,level:30
+951,Capsakid,Scovillain,0,item:Fire Stone
+953,Rellor,Rabsca,0,level:30
+955,Flittle,Espathra,0,level:35
+957,Tinkatink,Tinkatuff,0,level:24
+958,Tinkatuff,Tinkaton,0,level:38
+960,Wiglett,Wugtrio,0,level:26
+963,Finizen,Palafin,0,trade
+965,Varoom,Revavroom,0,level:40
+969,Glimmet,Glimmora,0,level:35
+971,Greavard,Houndstone,0,level:30
+974,Cetoddle,Cetitan,0,item:Ice Stone
+996,Frigibax,Arctibax,0,level:35
+997,Arctibax,Baxcalibur,0,level:54
+999,Gimmighoul,Gholdengo,0,level:100
+1011,Dipplin,Hydrapple,0,move:Dragon Cheer
+1012,Poltchageist,Sinistcha,0,item:Unremarkable Teacup
+1012,Poltchageist,Sinistcha,1,item:Masterpiece Teacup
