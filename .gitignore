@@ -18,3 +18,4 @@ mapscript
 *Names.h
 *.raw
 *.script
+**/.DS_Store
