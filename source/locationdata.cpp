@@ -351,14 +351,16 @@ void readBGMData( char* p_path, vector<u16>& p_dataIds, map<string, pair<u16, na
             ++bgmcnt;
 
             // BGM name
-            curname                   = string( "BGM_" ) + string( b1 );
-            string         sbnkname   = string( "SBNK_" ) + string( b2 );
+            curname = string( "BGM_" ) + string( b1 );
+            // string         sbnkname   = string( "SBNK_" ) + string( b2 );
+            string         sbnkname   = string( "SBNK_" ) + string( b3 );
             string         sseqname   = string( "SSEQ_" ) + string( b3 );
             vector<string> swarnames2 = {
-                string( "SWAR_" ) + string( b4 ),
-                string( "SWAR_" ) + string( b5 ),
-                string( "SWAR_" ) + string( b6 ),
-                string( "SWAR_" ) + string( b7 ),
+                string( "SWAR_" ) + string( b3 ),
+                // string( "SWAR_" ) + string( b4 ),
+                // string( "SWAR_" ) + string( b5 ),
+                // string( "SWAR_" ) + string( b6 ),
+                // string( "SWAR_" ) + string( b7 ),
             };
 
             vector<string> swarnames;
@@ -400,7 +402,7 @@ void readBGMData( char* p_path, vector<u16>& p_dataIds, map<string, pair<u16, na
         p_bgmMacroNames[ bgmcnt ] = curname;
         p_bgmId[ curname ]        = { bgmcnt, n };
     }
-    // fprintf( stderr, "read %lu objects from %s\n", p_out.size( ), p_path );
+    fprintf( stderr, "read %lu objects from %s\n", p_bgmNames.size( ), p_path );
     fclose( f );
 }
 
