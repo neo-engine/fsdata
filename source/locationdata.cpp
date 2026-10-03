@@ -226,7 +226,12 @@ void writeContainer( const char* p_outPath, const char* p_inPath, const char* p_
         fs::path from = string( p_inPath ) + name.substr( 5 ) + string( p_ext );
 
         FILE* f = fopen( from.c_str( ), "rb" );
-        u8    tmp;
+        if( !f ) {
+            fprintf( stderr, "%s does not exist.\n", from.c_str( ) );
+            continue;
+        }
+
+        u8 tmp;
         while( fread( &tmp, 1, 1, f ) ) {
             fwrite( &tmp, 1, 1, outd );
             size++;
