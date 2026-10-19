@@ -39,7 +39,7 @@ int main( int p_argc, char** p_argv ) {
         outfiles.push_back( fo );
     }
 
-    // u16 id = 0;
+    u16 id = 0;
     while( f && fgets( buffer, sizeof( buffer ), f ) ) {
         //    printf( "/%s/ %lu %hu\n", buffer, sizeof(buffer), STRING_LEN );
         char* tok = strtok( buffer, ";" );
@@ -54,7 +54,8 @@ int main( int p_argc, char** p_argv ) {
         }
         // fclose( fo );
         std::memset( writebuffer, 0, sizeof( writebuffer ) );
-        // ++id;
+        ++id;
+        fprintf( stderr, "%i ", id );
     }
     for( int i = 0; i < NUM_LANGUAGES; ++i ) { fclose( outfiles[ i ] ); }
     fclose( f );
